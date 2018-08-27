@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+
+    
+  <url>
+    <loc>http://www.xujn.ml/2018/08/27/Linux%E4%B8%8B%E8%A7%A3%E5%86%B3TNS-12541-TNS-no-listener%E9%97%AE%E9%A2%98/</loc>
+    <lastmod>2018-08-27T02:36:02.097Z</lastmod>
+    <data>
+        <display>
+        <title>Linux下解决TNS-12541 TNS  no listener问题</title>
+        <pubTime>2018-08-27T02:32:36.000Z</pubTime>
+        
+        <tag>Oracle</tag>
+         
+        <tag>Linux</tag>
+         
+         
+           
+             
+              <breadCrumb title="Oracle" url="http://www.xujn.ml/categories/Oracle/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://www.xujn.ml/2018/08/23/Centos7%E4%B8%8BNginx%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE/</loc>
+    <lastmod>2018-08-23T04:53:26.402Z</lastmod>
+    <data>
+        <display>
+        <title>Centos7下Nginx安装配置</title>
+        <pubTime>2018-08-23T04:51:52.000Z</pubTime>
+        
+        <tag>nginx</tag>
+         
+         
+           
+             
+              <breadCrumb title="软件安装" url="http://www.xujn.ml/categories/%E8%BD%AF%E4%BB%B6%E5%AE%89%E8%A3%85/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://www.xujn.ml/2018/08/23/VPS%E6%90%AD%E5%BB%BAshadowsocks/</loc>
+    <lastmod>2018-08-23T04:27:46.864Z</lastmod>
+    <data>
+        <display>
+        <title>VPS搭建shadowsocks</title>
+        <pubTime>2018-08-23T04:26:10.000Z</pubTime>
+        
+        <tag>shadowsocks</tag>
+         
+        <tag>VPS</tag>
+         
+         
+           
+             
+              <breadCrumb title="shadowsocks" url="http://www.xujn.ml/categories/shadowsocks/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://www.xujn.ml/2018/08/23/IntelliJ-IDEA-SSM%E6%A1%86%E6%9E%B6%E6%95%B4%E5%90%88/</loc>
+    <lastmod>2018-08-23T04:19:06.925Z</lastmod>
+    <data>
+        <display>
+        <title>IntelliJ IDEA SSM框架整合</title>
+        <pubTime>2018-08-23T04:12:26.000Z</pubTime>
+        
+        <tag>IDEA</tag>
+         
+        <tag>SSM</tag>
+         
+         
+           
+             
+              <breadCrumb title="Spring" url="http://www.xujn.ml/categories/Spring/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://www.xujn.ml/2017/12/30/IntelliJ-IDEA-license-server%E6%90%AD%E5%BB%BA/</loc>
+    <lastmod>2018-08-16T03:26:10.218Z</lastmod>
+    <data>
+        <display>
+        <title>IntelliJ IDEA license server搭建</title>
+        <pubTime>2017-12-30T14:59:53.000Z</pubTime>
+        
+        <tag>IDEA</tag>
+         
+         
+           
+             
+              <breadCrumb title="IDEA" url="http://www.xujn.ml/categories/IDEA/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://www.xujn.ml/2018/08/14/Redhat%E6%9B%B4%E6%8D%A2yum%E6%BA%90/</loc>
+    <lastmod>2018-08-14T13:02:33.228Z</lastmod>
+    <data>
+        <display>
+        <title>Redhat更换yum源</title>
+        <pubTime>2018-08-14T12:56:27.000Z</pubTime>
+        
+        <tag>Linux</tag>
+         
+         
+           
+             
+              <breadCrumb title="软件安装" url="http://www.xujn.ml/categories/%E8%BD%AF%E4%BB%B6%E5%AE%89%E8%A3%85/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://www.xujn.ml/2018/08/14/Linux%E4%B8%8BMySQL%205.7.22%E5%AE%89%E8%A3%85%E5%92%8C%E5%BF%98%E8%AE%B0%E5%AF%86%E7%A0%81/</loc>
+    <lastmod>2018-08-14T12:39:17.505Z</lastmod>
+    <data>
+        <display>
+        <title>Linux下MySQL 5.7.22安装和忘记密码</title>
+        <pubTime>2018-08-14T11:51:06.260Z</pubTime>
+        
+        <tag>MySQL</tag>
+         
+         
+           
+             
+              <breadCrumb title="数据库" url="http://www.xujn.ml/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+    
+    
+    
+</urlset>
