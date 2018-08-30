@@ -20,11 +20,32 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
 <meta name="theme-color" content="#222">
+<!-- 顶部加载条 -->
+<script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+<link href="//cdn.bootcss.com/pace/1.0.2/themes/pink/pace-theme-flash.css" rel="stylesheet">
+<style>
+    .pace .pace-progress {
+        background: #1E92FB; /*进度条颜色*/
+        height: 3px;
+    }
+    .pace .pace-progress-inner {
+         box-shadow: 0 0 10px #1E92FB, 0 0 5px     #1E92FB; /*阴影颜色*/
+    }
+    .pace .pace-activity {
+        border-top-color: #1E92FB;    /*上边框颜色*/
+        border-left-color: #1E92FB;    /*左边框颜色*/
+    }
+</style>
 
 
 
 
-
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-minimal.min.css?v=1.0.2" rel="stylesheet">
 
 
 
@@ -50,6 +71,32 @@
 
 
 
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
 
 
 
@@ -86,7 +133,7 @@
     root: '/',
     scheme: 'Muse',
     version: '6.4.0',
-    sidebar: {"position":"right","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    sidebar: {"position":"right","display":"post","offset":12,"b2t":false,"scrollpercent":true,"onmobile":false},
     fancybox: false,
     fastclick: false,
     lazyload: false,
@@ -232,7 +279,7 @@
           
           <li class="menu-item menu-item-home menu-item-active">
     <a href="/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />首页</a>
+      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />首页</a>
   </li>
         
         
@@ -240,7 +287,7 @@
           
           <li class="menu-item menu-item-categories">
     <a href="/categories" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />分类</a>
+      <i class="menu-item-icon fa fa-fw fa-th"></i> <br />分类</a>
   </li>
         
         
@@ -248,7 +295,7 @@
           
           <li class="menu-item menu-item-archives">
     <a href="/archives" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />归档</a>
+      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />归档</a>
   </li>
         
         
@@ -256,7 +303,7 @@
           
           <li class="menu-item menu-item-tags">
     <a href="/tags" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />标签</a>
+      <i class="menu-item-icon fa fa-fw fa-tag"></i> <br />标签</a>
   </li>
         
         
@@ -264,7 +311,7 @@
           
           <li class="menu-item menu-item-about">
     <a href="/about" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />关于</a>
+      <i class="menu-item-icon fa fa-fw fa-user"></i> <br />关于</a>
   </li>
 
       
@@ -300,50 +347,29 @@
             
   <section id="posts" class="posts-expand">
     
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
+           
+<article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+    
   <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://www.xujn.ml/2018/08/27/Linux下解决TNS-12541-TNS-no-listener问题/">
-
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="苏叶新城">
       <meta itemprop="description" content="愿出走半生，归来仍是少年。">
       <meta itemprop="image" content="http://tvax1.sinaimg.cn/crop.45.180.450.450.180/005KSE0vly8fqid3j7ifej30f00miq5t.jpg">
     </span>
-
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="苏叶新城">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/08/27/Linux下解决TNS-12541-TNS-no-listener问题/" itemprop="url">
+    </span> 
+    <header class="post-header">
+       
+      <h1 class="post-title" itemprop="name headline"> 
+        <a class="post-title-link" href="/2018/08/27/Linux下解决TNS-12541-TNS-no-listener问题/" itemprop="url">
                   Linux下解决TNS-12541 TNS  no listener问题
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
+                </a>  
+      </h1>
+      
+      <div class="post-meta">
+        <span class="post-time">
 
             
             
@@ -352,86 +378,60 @@
             
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2018-08-27 10:32:36 / 修改时间：10:36:02" itemprop="dateCreated datePublished" datetime="2018-08-27T10:32:36+08:00">2018-08-27</time>
+              </span> 
+        <span class="post-meta-item-text">发表于</span>    
+        <time title="创建时间：2018-08-27 10:32:36 / 修改时间：10:36:02" itemprop="dateCreated datePublished" datetime="2018-08-27T10:32:36+08:00">2018-08-27</time>
             
-
+        </span>
+        
+        <span class="post-category">
             
-              
-
-              
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
+              <span class="post-meta-divider">|</span> 
+        <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Oracle/" itemprop="url" rel="index"><span itemprop="name">Oracle</span></a></span>
-
-                
-                
-              
-            </span>
+              </span> 
+        <span class="post-meta-item-text">分类于</span>  
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Oracle/" itemprop="url" rel="index"><span itemprop="name">Oracle</span>
+        </a>
+        </span>
           
-
+        </span>
           
-            
-              <span class="post-comments-count">
+        <span class="post-comments-count">
                 <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
+        <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2018/08/27/Linux下解决TNS-12541-TNS-no-listener问题/#comments" itemprop="discussionUrl">
+        <a href="/2018/08/27/Linux下解决TNS-12541-TNS-no-listener问题/#comments" itemprop="discussionUrl">
                 
                   <span class="post-comments-count disqus-comment-count"
                         data-disqus-identifier="2018/08/27/Linux下解决TNS-12541-TNS-no-listener问题/" itemprop="commentCount"></span>
                 </a>
-              </span>
-            
+        </span>
+           
+        <!-- 字数统计、阅读时长插入代码 -->
+        <span class="post-time">
+       &nbsp; | &nbsp;
+           <span class="post-meta-item-icon">
+             <i class="fa fa-calendar-o"></i>
+           </span>
+        <span class="post-meta-item-text">字数统计:</span>
+        <span class="post-count">248(字)</span>
+        </span>
+        <span class="post-time">
+       &nbsp; | &nbsp;
+           <span class="post-meta-item-icon">
+             <i class="fa fa-calendar-o"></i>
+           </span>
+        <span class="post-meta-item-text">阅读时长:</span>
+        <span class="post-count">1(分)</span>
+        </span>
           
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
+      </div>
+    </header>
+       
     <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-          场景Navicat连接远程oracle数据库，数据库搭建在Redhat 7.1服务器上，莫名出现这个问题。
+           场景Navicat连接远程oracle数据库，数据库搭建在Redhat 7.1服务器上，莫名出现这个问题。
 解决办法
 检查监听状态
 无监听，则查看监听文件
@@ -440,95 +440,50 @@
 如果有监听，则如下图，显示有服务orcl(服务名)监听。
 
 如果没有监听，查看监听文件
-cd /op
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/08/27/Linux下解决TNS-12541-TNS-no-listener问题/#more" rel="contents">
+cd /op ...
+    <!--noindex-->
+    <div class="post-button text-center">
+      <a class="btn" href="/2018/08/27/Linux下解决TNS-12541-TNS-no-listener问题/#more" rel="contents">
               阅读全文 &raquo;
             </a>
-          </div>
-          <!--/noindex-->
-        
-      
     </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
+    <!--/noindex-->
+     
   </div>
-  
-  
-  
-  </article>
-
+        
+  <footer class="post-footer">
+        
+    <div class="post-eof"></div>
+    
+  </footer>
+  </div>
+    
+</article>
 
     
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
+           
+<article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+    
   <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://www.xujn.ml/2018/08/23/Centos7下Nginx安装配置/">
-
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="苏叶新城">
       <meta itemprop="description" content="愿出走半生，归来仍是少年。">
       <meta itemprop="image" content="http://tvax1.sinaimg.cn/crop.45.180.450.450.180/005KSE0vly8fqid3j7ifej30f00miq5t.jpg">
     </span>
-
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="苏叶新城">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/08/23/Centos7下Nginx安装配置/" itemprop="url">
+    </span> 
+    <header class="post-header">
+       
+      <h1 class="post-title" itemprop="name headline"> 
+        <a class="post-title-link" href="/2018/08/23/Centos7下Nginx安装配置/" itemprop="url">
                   Centos7下Nginx安装配置
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
+                </a>  
+      </h1>
+      
+      <div class="post-meta">
+        <span class="post-time">
 
             
             
@@ -537,181 +492,117 @@ cd /op
             
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2018-08-23 12:51:52 / 修改时间：12:53:26" itemprop="dateCreated datePublished" datetime="2018-08-23T12:51:52+08:00">2018-08-23</time>
+              </span> 
+        <span class="post-meta-item-text">发表于</span>    
+        <time title="创建时间：2018-08-23 12:51:52" itemprop="dateCreated datePublished" datetime="2018-08-23T12:51:52+08:00">2018-08-23</time>
             
-
+        <span class="post-meta-divider">|</span> 
+        <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span> 
+        <span class="post-meta-item-text">更新于</span> 
+        <time title="修改时间：2018-08-30 13:57:21" itemprop="dateModified" datetime="2018-08-30T13:57:21+08:00">2018-08-30</time>
+         
+        </span>
+        
+        <span class="post-category">
             
-              
-
-              
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
+              <span class="post-meta-divider">|</span> 
+        <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/软件安装/" itemprop="url" rel="index"><span itemprop="name">软件安装</span></a></span>
-
-                
-                
-              
-            </span>
+              </span> 
+        <span class="post-meta-item-text">分类于</span>  
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/软件安装/" itemprop="url" rel="index"><span itemprop="name">软件安装</span>
+        </a>
+        </span>
           
-
+        </span>
           
-            
-              <span class="post-comments-count">
+        <span class="post-comments-count">
                 <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
+        <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2018/08/23/Centos7下Nginx安装配置/#comments" itemprop="discussionUrl">
+        <a href="/2018/08/23/Centos7下Nginx安装配置/#comments" itemprop="discussionUrl">
                 
                   <span class="post-comments-count disqus-comment-count"
                         data-disqus-identifier="2018/08/23/Centos7下Nginx安装配置/" itemprop="commentCount"></span>
                 </a>
-              </span>
-            
+        </span>
+           
+        <!-- 字数统计、阅读时长插入代码 -->
+        <span class="post-time">
+       &nbsp; | &nbsp;
+           <span class="post-meta-item-icon">
+             <i class="fa fa-calendar-o"></i>
+           </span>
+        <span class="post-meta-item-text">字数统计:</span>
+        <span class="post-count">443(字)</span>
+        </span>
+        <span class="post-time">
+       &nbsp; | &nbsp;
+           <span class="post-meta-item-icon">
+             <i class="fa fa-calendar-o"></i>
+           </span>
+        <span class="post-meta-item-text">阅读时长:</span>
+        <span class="post-count">2(分)</span>
+        </span>
           
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
+      </div>
+    </header>
+       
     <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-          安装yum install epel-release
+           安装yum install epel-release
 yum -y install nginx
 service nginx start
 systemctl enable nginx
 访问自己的地址http://server_ip
 记得开启80端口
 
-firewalld支持动态更新和zone概念。fi
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/08/23/Centos7下Nginx安装配置/#more" rel="contents">
+firewalld支持动态更新和zone概念。fi ...
+    <!--noindex-->
+    <div class="post-button text-center">
+      <a class="btn" href="/2018/08/23/Centos7下Nginx安装配置/#more" rel="contents">
               阅读全文 &raquo;
             </a>
-          </div>
-          <!--/noindex-->
-        
-      
     </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
+    <!--/noindex-->
+     
   </div>
-  
-  
-  
-  </article>
-
+        
+  <footer class="post-footer">
+        
+    <div class="post-eof"></div>
+    
+  </footer>
+  </div>
+    
+</article>
 
     
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
+           
+<article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+    
   <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://www.xujn.ml/2018/08/23/VPS搭建shadowsocks/">
-
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="苏叶新城">
       <meta itemprop="description" content="愿出走半生，归来仍是少年。">
       <meta itemprop="image" content="http://tvax1.sinaimg.cn/crop.45.180.450.450.180/005KSE0vly8fqid3j7ifej30f00miq5t.jpg">
     </span>
-
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="苏叶新城">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/08/23/VPS搭建shadowsocks/" itemprop="url">
+    </span> 
+    <header class="post-header">
+       
+      <h1 class="post-title" itemprop="name headline"> 
+        <a class="post-title-link" href="/2018/08/23/VPS搭建shadowsocks/" itemprop="url">
                   VPS搭建shadowsocks
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
+                </a>  
+      </h1>
+      
+      <div class="post-meta">
+        <span class="post-time">
 
             
             
@@ -720,176 +611,105 @@ firewalld支持动态更新和zone概念。fi
             
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2018-08-23 12:26:10 / 修改时间：12:27:46" itemprop="dateCreated datePublished" datetime="2018-08-23T12:26:10+08:00">2018-08-23</time>
+              </span> 
+        <span class="post-meta-item-text">发表于</span>    
+        <time title="创建时间：2018-08-23 12:26:10 / 修改时间：12:27:46" itemprop="dateCreated datePublished" datetime="2018-08-23T12:26:10+08:00">2018-08-23</time>
             
-
+        </span>
+        
+        <span class="post-category">
             
-              
-
-              
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
+              <span class="post-meta-divider">|</span> 
+        <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/shadowsocks/" itemprop="url" rel="index"><span itemprop="name">shadowsocks</span></a></span>
-
-                
-                
-              
-            </span>
+              </span> 
+        <span class="post-meta-item-text">分类于</span>  
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/shadowsocks/" itemprop="url" rel="index"><span itemprop="name">shadowsocks</span>
+        </a>
+        </span>
           
-
+        </span>
           
-            
-              <span class="post-comments-count">
+        <span class="post-comments-count">
                 <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
+        <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2018/08/23/VPS搭建shadowsocks/#comments" itemprop="discussionUrl">
+        <a href="/2018/08/23/VPS搭建shadowsocks/#comments" itemprop="discussionUrl">
                 
                   <span class="post-comments-count disqus-comment-count"
                         data-disqus-identifier="2018/08/23/VPS搭建shadowsocks/" itemprop="commentCount"></span>
                 </a>
-              </span>
-            
+        </span>
+           
+        <!-- 字数统计、阅读时长插入代码 -->
+        <span class="post-time">
+       &nbsp; | &nbsp;
+           <span class="post-meta-item-icon">
+             <i class="fa fa-calendar-o"></i>
+           </span>
+        <span class="post-meta-item-text">字数统计:</span>
+        <span class="post-count">602(字)</span>
+        </span>
+        <span class="post-time">
+       &nbsp; | &nbsp;
+           <span class="post-meta-item-icon">
+             <i class="fa fa-calendar-o"></i>
+           </span>
+        <span class="post-meta-item-text">阅读时长:</span>
+        <span class="post-count">3(分)</span>
+        </span>
           
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
+      </div>
+    </header>
+       
     <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-          1、 锐速1.1、 Centos 7 不能使用ifconfig命令使用下面命令安装即可yum install net-tools
+           1、 锐速1.1、 Centos 7 不能使用ifconfig命令使用下面命令安装即可yum install net-tools
 1.2、Centos更换内核CentOS7 内核更换为： 3.10.0-229.1.2.el7.x86_64
-rpm -ivh http://soft.91yun.org
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/08/23/VPS搭建shadowsocks/#more" rel="contents">
+rpm -ivh http://soft.91yun.org ...
+    <!--noindex-->
+    <div class="post-button text-center">
+      <a class="btn" href="/2018/08/23/VPS搭建shadowsocks/#more" rel="contents">
               阅读全文 &raquo;
             </a>
-          </div>
-          <!--/noindex-->
-        
-      
     </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
+    <!--/noindex-->
+     
   </div>
-  
-  
-  
-  </article>
-
+        
+  <footer class="post-footer">
+        
+    <div class="post-eof"></div>
+    
+  </footer>
+  </div>
+    
+</article>
 
     
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
+           
+<article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+    
   <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://www.xujn.ml/2018/08/23/IntelliJ-IDEA-SSM框架整合/">
-
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="苏叶新城">
       <meta itemprop="description" content="愿出走半生，归来仍是少年。">
       <meta itemprop="image" content="http://tvax1.sinaimg.cn/crop.45.180.450.450.180/005KSE0vly8fqid3j7ifej30f00miq5t.jpg">
     </span>
-
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="苏叶新城">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/08/23/IntelliJ-IDEA-SSM框架整合/" itemprop="url">
+    </span> 
+    <header class="post-header">
+       
+      <h1 class="post-title" itemprop="name headline"> 
+        <a class="post-title-link" href="/2018/08/23/IntelliJ-IDEA-SSM框架整合/" itemprop="url">
                   IntelliJ IDEA SSM框架整合
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
+                </a>  
+      </h1>
+      
+      <div class="post-meta">
+        <span class="post-time">
 
             
             
@@ -898,176 +718,105 @@ rpm -ivh http://soft.91yun.org
             
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2018-08-23 12:12:26 / 修改时间：12:19:06" itemprop="dateCreated datePublished" datetime="2018-08-23T12:12:26+08:00">2018-08-23</time>
+              </span> 
+        <span class="post-meta-item-text">发表于</span>    
+        <time title="创建时间：2018-08-23 12:12:26 / 修改时间：12:19:06" itemprop="dateCreated datePublished" datetime="2018-08-23T12:12:26+08:00">2018-08-23</time>
             
-
+        </span>
+        
+        <span class="post-category">
             
-              
-
-              
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
+              <span class="post-meta-divider">|</span> 
+        <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Spring/" itemprop="url" rel="index"><span itemprop="name">Spring</span></a></span>
-
-                
-                
-              
-            </span>
+              </span> 
+        <span class="post-meta-item-text">分类于</span>  
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Spring/" itemprop="url" rel="index"><span itemprop="name">Spring</span>
+        </a>
+        </span>
           
-
+        </span>
           
-            
-              <span class="post-comments-count">
+        <span class="post-comments-count">
                 <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
+        <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2018/08/23/IntelliJ-IDEA-SSM框架整合/#comments" itemprop="discussionUrl">
+        <a href="/2018/08/23/IntelliJ-IDEA-SSM框架整合/#comments" itemprop="discussionUrl">
                 
                   <span class="post-comments-count disqus-comment-count"
                         data-disqus-identifier="2018/08/23/IntelliJ-IDEA-SSM框架整合/" itemprop="commentCount"></span>
                 </a>
-              </span>
-            
+        </span>
+           
+        <!-- 字数统计、阅读时长插入代码 -->
+        <span class="post-time">
+       &nbsp; | &nbsp;
+           <span class="post-meta-item-icon">
+             <i class="fa fa-calendar-o"></i>
+           </span>
+        <span class="post-meta-item-text">字数统计:</span>
+        <span class="post-count">1,272(字)</span>
+        </span>
+        <span class="post-time">
+       &nbsp; | &nbsp;
+           <span class="post-meta-item-icon">
+             <i class="fa fa-calendar-o"></i>
+           </span>
+        <span class="post-meta-item-text">阅读时长:</span>
+        <span class="post-count">6(分)</span>
+        </span>
           
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
+      </div>
+    </header>
+       
     <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-          web.xml文件参考自：web.xml配置
+           web.xml文件参考自：web.xml配置
 web.xml是网络程序中的一个很重要的配置文件。在启动一个WEB项目的时候，WEB容器（比如tomcat）会去读取它的配置文件web.xml，读取到不同的节点时，WEB容器就会创建相应的过滤器、监听器等为这个web项目服务。
-IDEA初始化后，修改we
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/08/23/IntelliJ-IDEA-SSM框架整合/#more" rel="contents">
+IDEA初始化后，修改we ...
+    <!--noindex-->
+    <div class="post-button text-center">
+      <a class="btn" href="/2018/08/23/IntelliJ-IDEA-SSM框架整合/#more" rel="contents">
               阅读全文 &raquo;
             </a>
-          </div>
-          <!--/noindex-->
-        
-      
     </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
+    <!--/noindex-->
+     
   </div>
-  
-  
-  
-  </article>
-
+        
+  <footer class="post-footer">
+        
+    <div class="post-eof"></div>
+    
+  </footer>
+  </div>
+    
+</article>
 
     
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
+           
+<article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+    
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://www.xujn.ml/2018/08/14/Redhat更换yum源/">
-
+    <link itemprop="mainEntityOfPage" href="http://www.xujn.ml/2018/08/23/Linux下MySQL 5.7.22安装和忘记密码/">
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="苏叶新城">
       <meta itemprop="description" content="愿出走半生，归来仍是少年。">
       <meta itemprop="image" content="http://tvax1.sinaimg.cn/crop.45.180.450.450.180/005KSE0vly8fqid3j7ifej30f00miq5t.jpg">
     </span>
-
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="苏叶新城">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/08/14/Redhat更换yum源/" itemprop="url">
-                  Redhat更换yum源
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
+    </span> 
+    <header class="post-header">
+       
+      <h1 class="post-title" itemprop="name headline"> 
+        <a class="post-title-link" href="/2018/08/23/Linux下MySQL 5.7.22安装和忘记密码/" itemprop="url">
+                  Linux下MySQL 5.7.22安装和忘记密码
+                </a>  
+      </h1>
+      
+      <div class="post-meta">
+        <span class="post-time">
 
             
             
@@ -1076,356 +825,221 @@ IDEA初始化后，修改we
             
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2018-08-14 20:56:27 / 修改时间：21:02:33" itemprop="dateCreated datePublished" datetime="2018-08-14T20:56:27+08:00">2018-08-14</time>
+              </span> 
+        <span class="post-meta-item-text">发表于</span>    
+        <time title="创建时间：2018-08-23 12:12:26" itemprop="dateCreated datePublished" datetime="2018-08-23T12:12:26+08:00">2018-08-23</time>
             
-
+        <span class="post-meta-divider">|</span> 
+        <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span> 
+        <span class="post-meta-item-text">更新于</span> 
+        <time title="修改时间：2018-08-30 13:38:03" itemprop="dateModified" datetime="2018-08-30T13:38:03+08:00">2018-08-30</time>
+         
+        </span>
+        
+        <span class="post-category">
             
-              
-
-              
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
+              <span class="post-meta-divider">|</span> 
+        <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/软件安装/" itemprop="url" rel="index"><span itemprop="name">软件安装</span></a></span>
-
-                
-                
-              
-            </span>
+              </span> 
+        <span class="post-meta-item-text">分类于</span>  
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/数据库/" itemprop="url" rel="index"><span itemprop="name">数据库</span>
+        </a>
+        </span>
           
-
+        </span>
           
-            
-              <span class="post-comments-count">
+        <span class="post-comments-count">
                 <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
+        <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2018/08/14/Redhat更换yum源/#comments" itemprop="discussionUrl">
+        <a href="/2018/08/23/Linux下MySQL 5.7.22安装和忘记密码/#comments" itemprop="discussionUrl">
+                
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2018/08/23/Linux下MySQL 5.7.22安装和忘记密码/" itemprop="commentCount"></span>
+                </a>
+        </span>
+           
+        <!-- 字数统计、阅读时长插入代码 -->
+        <span class="post-time">
+       &nbsp; | &nbsp;
+           <span class="post-meta-item-icon">
+             <i class="fa fa-calendar-o"></i>
+           </span>
+        <span class="post-meta-item-text">字数统计:</span>
+        <span class="post-count">650(字)</span>
+        </span>
+        <span class="post-time">
+       &nbsp; | &nbsp;
+           <span class="post-meta-item-icon">
+             <i class="fa fa-calendar-o"></i>
+           </span>
+        <span class="post-meta-item-text">阅读时长:</span>
+        <span class="post-count">3(分)</span>
+        </span>
+          
+      </div>
+    </header>
+       
+    <div class="post-body" itemprop="articleBody">
+           简述Redhat下安装MySQL5.7.22教程,安装完成后成功忘记密码-_-
+安装MySQL1. 压缩包处理解压压缩包
+1tar -zxvf mysql-5.7.22-linux-glibc2.12-x86_64.tar.gz
+重命名mysql解压文件
+1mv mysql-5.7.22-linux ...
+    <!--noindex-->
+    <div class="post-button text-center">
+      <a class="btn" href="/2018/08/23/Linux下MySQL 5.7.22安装和忘记密码/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+    </div>
+    <!--/noindex-->
+     
+  </div>
+        
+  <footer class="post-footer">
+        
+    <div class="post-eof"></div>
+    
+  </footer>
+  </div>
+    
+</article>
+
+    
+           
+<article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+    
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://www.xujn.ml/2018/08/14/Redhat更换yum源/">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="苏叶新城">
+      <meta itemprop="description" content="愿出走半生，归来仍是少年。">
+      <meta itemprop="image" content="http://tvax1.sinaimg.cn/crop.45.180.450.450.180/005KSE0vly8fqid3j7ifej30f00miq5t.jpg">
+    </span>
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="苏叶新城">
+    </span> 
+    <header class="post-header">
+       
+      <h1 class="post-title" itemprop="name headline"> 
+        <a class="post-title-link" href="/2018/08/14/Redhat更换yum源/" itemprop="url">
+                  Redhat更换yum源
+                </a>  
+      </h1>
+      
+      <div class="post-meta">
+        <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span> 
+        <span class="post-meta-item-text">发表于</span>    
+        <time title="创建时间：2018-08-14 20:56:27 / 修改时间：21:02:33" itemprop="dateCreated datePublished" datetime="2018-08-14T20:56:27+08:00">2018-08-14</time>
+            
+        </span>
+        
+        <span class="post-category">
+            
+              <span class="post-meta-divider">|</span> 
+        <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span> 
+        <span class="post-meta-item-text">分类于</span>  
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/软件安装/" itemprop="url" rel="index"><span itemprop="name">软件安装</span>
+        </a>
+        </span>
+          
+        </span>
+          
+        <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+        <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+        <a href="/2018/08/14/Redhat更换yum源/#comments" itemprop="discussionUrl">
                 
                   <span class="post-comments-count disqus-comment-count"
                         data-disqus-identifier="2018/08/14/Redhat更换yum源/" itemprop="commentCount"></span>
                 </a>
-              </span>
-            
+        </span>
+           
+        <!-- 字数统计、阅读时长插入代码 -->
+        <span class="post-time">
+       &nbsp; | &nbsp;
+           <span class="post-meta-item-icon">
+             <i class="fa fa-calendar-o"></i>
+           </span>
+        <span class="post-meta-item-text">字数统计:</span>
+        <span class="post-count">568(字)</span>
+        </span>
+        <span class="post-time">
+       &nbsp; | &nbsp;
+           <span class="post-meta-item-icon">
+             <i class="fa fa-calendar-o"></i>
+           </span>
+        <span class="post-meta-item-text">阅读时长:</span>
+        <span class="post-count">3(分)</span>
+        </span>
           
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
+      </div>
+    </header>
+       
     <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-          简述redhat没有进行注册（收费了），不能够使用其自带的yum源，所以需要第三方的源来代替。
+           简述redhat没有进行注册（收费了），不能够使用其自带的yum源，所以需要第三方的源来代替。
 过程查看自带yum源
-12345678rpm -qa | grep yum# 查询结果yum-utils-1.1.31-24.el7.noarchyum-langpacks-0.4.2-3.el7.noa
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/08/14/Redhat更换yum源/#more" rel="contents">
+12345678rpm -qa | grep yum# 查询结果yum-utils-1.1.31-24.el7.noarchyum-langpacks-0.4.2-3.el7.noa ...
+    <!--noindex-->
+    <div class="post-button text-center">
+      <a class="btn" href="/2018/08/14/Redhat更换yum源/#more" rel="contents">
               阅读全文 &raquo;
             </a>
-          </div>
-          <!--/noindex-->
-        
-      
     </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
+    <!--/noindex-->
+     
   </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://www.xujn.ml/2018/08/14/Linux下MySQL 5.7.22安装和忘记密码/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="苏叶新城">
-      <meta itemprop="description" content="愿出走半生，归来仍是少年。">
-      <meta itemprop="image" content="http://tvax1.sinaimg.cn/crop.45.180.450.450.180/005KSE0vly8fqid3j7ifej30f00miq5t.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="苏叶新城">
-    </span>
-
-    
-      <header class="post-header">
-
         
+  <footer class="post-footer">
         
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/08/14/Linux下MySQL 5.7.22安装和忘记密码/" itemprop="url">
-                  Linux下MySQL 5.7.22安装和忘记密码
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2018-08-14 19:51:06 / 修改时间：20:39:17" itemprop="dateCreated datePublished" datetime="2018-08-14T19:51:06+08:00">2018-08-14</time>
-            
-
-            
-              
-
-              
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/数据库/" itemprop="url" rel="index"><span itemprop="name">数据库</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2018/08/14/Linux下MySQL 5.7.22安装和忘记密码/#comments" itemprop="discussionUrl">
-                
-                  <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2018/08/14/Linux下MySQL 5.7.22安装和忘记密码/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
+    <div class="post-eof"></div>
     
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-          简述Redhat下安装MySQL5.7.22教程,安装完成后成功忘记密码-_-
-安装MySQL1. 压缩包处理解压压缩包
-1tar -zxvf mysql-5.7.22-linux-glibc2.12-x86_64.tar.gz
-重命名mysql解压文件
-1mv mysql-5.7.22-linux
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/08/14/Linux下MySQL 5.7.22安装和忘记密码/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
+  </footer>
   </div>
-  
-  
-  
-  </article>
-
+    
+</article>
 
     
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
+           
+<article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+    
   <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://www.xujn.ml/2017/12/30/IntelliJ-IDEA-license-server搭建/">
-
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="苏叶新城">
       <meta itemprop="description" content="愿出走半生，归来仍是少年。">
       <meta itemprop="image" content="http://tvax1.sinaimg.cn/crop.45.180.450.450.180/005KSE0vly8fqid3j7ifej30f00miq5t.jpg">
     </span>
-
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="苏叶新城">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/12/30/IntelliJ-IDEA-license-server搭建/" itemprop="url">
+    </span> 
+    <header class="post-header">
+       
+      <h1 class="post-title" itemprop="name headline"> 
+        <a class="post-title-link" href="/2017/12/30/IntelliJ-IDEA-license-server搭建/" itemprop="url">
                   IntelliJ IDEA license server搭建
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
+                </a>  
+      </h1>
+      
+      <div class="post-meta">
+        <span class="post-time">
 
             
             
@@ -1434,147 +1048,92 @@ IDEA初始化后，修改we
             
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2017-12-30 22:59:53" itemprop="dateCreated datePublished" datetime="2017-12-30T22:59:53+08:00">2017-12-30</time>
+              </span> 
+        <span class="post-meta-item-text">发表于</span>    
+        <time title="创建时间：2017-12-30 22:59:53" itemprop="dateCreated datePublished" datetime="2017-12-30T22:59:53+08:00">2017-12-30</time>
             
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
+        <span class="post-meta-divider">|</span> 
+        <span class="post-meta-item-icon">
                   <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2018-08-16 11:26:10" itemprop="dateModified" datetime="2018-08-16T11:26:10+08:00">2018-08-16</time>
-              
+                </span> 
+        <span class="post-meta-item-text">更新于</span> 
+        <time title="修改时间：2018-08-30 13:57:16" itemprop="dateModified" datetime="2018-08-30T13:57:16+08:00">2018-08-30</time>
+         
+        </span>
+        
+        <span class="post-category">
             
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
+              <span class="post-meta-divider">|</span> 
+        <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/IDEA/" itemprop="url" rel="index"><span itemprop="name">IDEA</span></a></span>
-
-                
-                
-              
-            </span>
+              </span> 
+        <span class="post-meta-item-text">分类于</span>  
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/IDEA/" itemprop="url" rel="index"><span itemprop="name">IDEA</span>
+        </a>
+        </span>
           
-
+        </span>
           
-            
-              <span class="post-comments-count">
+        <span class="post-comments-count">
                 <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
+        <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2017/12/30/IntelliJ-IDEA-license-server搭建/#comments" itemprop="discussionUrl">
+        <a href="/2017/12/30/IntelliJ-IDEA-license-server搭建/#comments" itemprop="discussionUrl">
                 
                   <span class="post-comments-count disqus-comment-count"
                         data-disqus-identifier="2017/12/30/IntelliJ-IDEA-license-server搭建/" itemprop="commentCount"></span>
                 </a>
-              </span>
-            
+        </span>
+           
+        <!-- 字数统计、阅读时长插入代码 -->
+        <span class="post-time">
+       &nbsp; | &nbsp;
+           <span class="post-meta-item-icon">
+             <i class="fa fa-calendar-o"></i>
+           </span>
+        <span class="post-meta-item-text">字数统计:</span>
+        <span class="post-count">286(字)</span>
+        </span>
+        <span class="post-time">
+       &nbsp; | &nbsp;
+           <span class="post-meta-item-icon">
+             <i class="fa fa-calendar-o"></i>
+           </span>
+        <span class="post-meta-item-text">阅读时长:</span>
+        <span class="post-count">1(分)</span>
+        </span>
           
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
+      </div>
+    </header>
+       
     <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-          本文用于搭建JetBrains系列软件激活服务器，如有能力，请支持正版
+           本文用于搭建JetBrains系列软件激活服务器，如有能力，请支持正版
 ##准备
 
 Centos 7
 Nginx
 适用于JetBrains系列
 
-##安装nginx1234yum install epel-releaseyum -y install nginxservice nginx starts
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/12/30/IntelliJ-IDEA-license-server搭建/#more" rel="contents">
+##安装nginx1234yum install epel-releaseyum -y install nginxservice nginx starts ...
+    <!--noindex-->
+    <div class="post-button text-center">
+      <a class="btn" href="/2017/12/30/IntelliJ-IDEA-license-server搭建/#more" rel="contents">
               阅读全文 &raquo;
             </a>
-          </div>
-          <!--/noindex-->
-        
-      
     </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
+    <!--/noindex-->
+     
   </div>
-  
-  
-  
-  </article>
-
+        
+  <footer class="post-footer">
+        
+    <div class="post-eof"></div>
+    
+  </footer>
+  </div>
+    
+</article>
 
     
   </section>
@@ -1724,7 +1283,7 @@ Nginx
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+        <div class="copyright">&copy; 2017 – <span itemprop="copyrightYear">2018</span>
   <span class="with-love" id="animate">
     <i class="fa fa-user"></i>
   </span>
@@ -1785,6 +1344,8 @@ Nginx
     
       <div class="back-to-top">
         <i class="fa fa-arrow-up"></i>
+        
+          <span id="scrollpercent"><span>0</span>%</span>
         
       </div>
     
@@ -1896,6 +1457,21 @@ Nginx
   
 
   
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
 
   
 
@@ -1911,6 +1487,75 @@ Nginx
   
 
   
+  <style>
+    .copy-btn {
+      display: inline-block;
+      padding: 6px 12px;
+      font-size: 13px;
+      font-weight: 700;
+      line-height: 20px;
+      color: #333;
+      white-space: nowrap;
+      vertical-align: middle;
+      cursor: pointer;
+      background-color: #eee;
+      background-image: linear-gradient(#fcfcfc, #eee);
+      border: 1px solid #d5d5d5;
+      border-radius: 3px;
+      user-select: none;
+      outline: 0;
+    }
+
+    .highlight-wrap .copy-btn {
+      transition: opacity .3s ease-in-out;
+      opacity: 0;
+      padding: 2px 6px;
+      position: absolute;
+      right: 4px;
+      top: 8px;
+    }
+
+    .highlight-wrap:hover .copy-btn,
+    .highlight-wrap .copy-btn:focus {
+      opacity: 1
+    }
+
+    .highlight-wrap {
+      position: relative;
+    }
+  </style>
+  <script>
+    $('.highlight').each(function (i, e) {
+      var $wrap = $('<div>').addClass('highlight-wrap')
+      $(e).after($wrap)
+      $wrap.append($('<button>').addClass('copy-btn').append('复制').on('click', function (e) {
+        var code = $(this).parent().find('.code').find('.line').map(function (i, e) {
+          return $(e).text()
+        }).toArray().join('\n')
+        var ta = document.createElement('textarea')
+        document.body.appendChild(ta)
+        ta.style.position = 'absolute'
+        ta.style.top = '0px'
+        ta.style.left = '0px'
+        ta.value = code
+        ta.select()
+        ta.focus()
+        var result = document.execCommand('copy')
+        document.body.removeChild(ta)
+        
+          if(result)$(this).text('复制成功')
+          else $(this).text('复制失败')
+        
+        $(this).blur()
+      })).on('mouseleave', function (e) {
+        var $b = $(this).find('.copy-btn')
+        setTimeout(function () {
+          $b.text('复制')
+        }, 300)
+      }).append(e)
+    })
+  </script>
+
 
 </body>
 </html>

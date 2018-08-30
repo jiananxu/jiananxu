@@ -20,11 +20,32 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
 <meta name="theme-color" content="#222">
+<!-- 顶部加载条 -->
+<script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+<link href="//cdn.bootcss.com/pace/1.0.2/themes/pink/pace-theme-flash.css" rel="stylesheet">
+<style>
+    .pace .pace-progress {
+        background: #1E92FB; /*进度条颜色*/
+        height: 3px;
+    }
+    .pace .pace-progress-inner {
+         box-shadow: 0 0 10px #1E92FB, 0 0 5px     #1E92FB; /*阴影颜色*/
+    }
+    .pace .pace-activity {
+        border-top-color: #1E92FB;    /*上边框颜色*/
+        border-left-color: #1E92FB;    /*左边框颜色*/
+    }
+</style>
 
 
 
 
-
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-minimal.min.css?v=1.0.2" rel="stylesheet">
 
 
 
@@ -50,6 +71,32 @@
 
 
 
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
 
 
 
@@ -86,7 +133,7 @@
     root: '/',
     scheme: 'Muse',
     version: '6.4.0',
-    sidebar: {"position":"right","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    sidebar: {"position":"right","display":"post","offset":12,"b2t":false,"scrollpercent":true,"onmobile":false},
     fancybox: false,
     fastclick: false,
     lazyload: false,
@@ -117,7 +164,7 @@
 <meta property="og:description" content="本文用于搭建JetBrains系列软件激活服务器，如有能力，请支持正版 ##准备  Centos 7 Nginx 适用于JetBrains系列  ##安装nginx1234yum install epel-releaseyum -y install nginxservice nginx startsystemctl enable nginx nginx配置123456789101112131415">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://img.blog.csdn.net/20171230230816563?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvaGFoYV8yMDE1MTA=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
-<meta property="og:updated_time" content="2018-08-16T03:26:10.218Z">
+<meta property="og:updated_time" content="2018-08-30T05:57:16.871Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="IntelliJ IDEA license server搭建">
 <meta name="twitter:description" content="本文用于搭建JetBrains系列软件激活服务器，如有能力，请支持正版 ##准备  Centos 7 Nginx 适用于JetBrains系列  ##安装nginx1234yum install epel-releaseyum -y install nginxservice nginx startsystemctl enable nginx nginx配置123456789101112131415">
@@ -234,7 +281,7 @@
           
           <li class="menu-item menu-item-home">
     <a href="/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />首页</a>
+      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />首页</a>
   </li>
         
         
@@ -242,7 +289,7 @@
           
           <li class="menu-item menu-item-categories">
     <a href="/categories" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />分类</a>
+      <i class="menu-item-icon fa fa-fw fa-th"></i> <br />分类</a>
   </li>
         
         
@@ -250,7 +297,7 @@
           
           <li class="menu-item menu-item-archives">
     <a href="/archives" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />归档</a>
+      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />归档</a>
   </li>
         
         
@@ -258,7 +305,7 @@
           
           <li class="menu-item menu-item-tags">
     <a href="/tags" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />标签</a>
+      <i class="menu-item-icon fa fa-fw fa-tag"></i> <br />标签</a>
   </li>
         
         
@@ -266,7 +313,7 @@
           
           <li class="menu-item menu-item-about">
     <a href="/about" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />关于</a>
+      <i class="menu-item-icon fa fa-fw fa-user"></i> <br />关于</a>
   </li>
 
       
@@ -302,46 +349,26 @@
             
 
   <div id="posts" class="posts-expand">
+         
+<article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
     
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
   <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://www.xujn.ml/2017/12/30/IntelliJ-IDEA-license-server搭建/">
-
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="苏叶新城">
       <meta itemprop="description" content="愿出走半生，归来仍是少年。">
       <meta itemprop="image" content="http://tvax1.sinaimg.cn/crop.45.180.450.450.180/005KSE0vly8fqid3j7ifej30f00miq5t.jpg">
     </span>
-
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="苏叶新城">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">IntelliJ IDEA license server搭建
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
+    </span> 
+    <header class="post-header">
+       
+      <h1 class="post-title" itemprop="name headline">IntelliJ IDEA license server搭建  
+      </h1>
+      
+      <div class="post-meta">
+        <span class="post-time">
 
             
             
@@ -350,104 +377,74 @@
             
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2017-12-30 22:59:53" itemprop="dateCreated datePublished" datetime="2017-12-30T22:59:53+08:00">2017-12-30</time>
+              </span> 
+        <span class="post-meta-item-text">发表于</span>    
+        <time title="创建时间：2017-12-30 22:59:53" itemprop="dateCreated datePublished" datetime="2017-12-30T22:59:53+08:00">2017-12-30</time>
             
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
+        <span class="post-meta-divider">|</span> 
+        <span class="post-meta-item-icon">
                   <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2018-08-16 11:26:10" itemprop="dateModified" datetime="2018-08-16T11:26:10+08:00">2018-08-16</time>
-              
+                </span> 
+        <span class="post-meta-item-text">更新于</span> 
+        <time title="修改时间：2018-08-30 13:57:16" itemprop="dateModified" datetime="2018-08-30T13:57:16+08:00">2018-08-30</time>
+         
+        </span>
+        
+        <span class="post-category">
             
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
+              <span class="post-meta-divider">|</span> 
+        <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/IDEA/" itemprop="url" rel="index"><span itemprop="name">IDEA</span></a></span>
-
-                
-                
-              
-            </span>
+              </span> 
+        <span class="post-meta-item-text">分类于</span>  
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/IDEA/" itemprop="url" rel="index"><span itemprop="name">IDEA</span>
+        </a>
+        </span>
           
-
+        </span>
           
-            
-              <span class="post-comments-count">
+        <span class="post-comments-count">
                 <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
+        <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2017/12/30/IntelliJ-IDEA-license-server搭建/#comments" itemprop="discussionUrl">
+        <a href="/2017/12/30/IntelliJ-IDEA-license-server搭建/#comments" itemprop="discussionUrl">
                 
                   <span class="post-comments-count disqus-comment-count"
                         data-disqus-identifier="2017/12/30/IntelliJ-IDEA-license-server搭建/" itemprop="commentCount"></span>
                 </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-            <span class="post-meta-divider">|</span>
-            <span class="post-meta-item-icon"
-            >
+        </span>
+           
+        <!-- 字数统计、阅读时长插入代码 -->
+        <span class="post-time">
+       &nbsp; | &nbsp;
+           <span class="post-meta-item-icon">
+             <i class="fa fa-calendar-o"></i>
+           </span>
+        <span class="post-meta-item-text">字数统计:</span>
+        <span class="post-count">286(字)</span>
+        </span>
+        <span class="post-time">
+       &nbsp; | &nbsp;
+           <span class="post-meta-item-icon">
+             <i class="fa fa-calendar-o"></i>
+           </span>
+        <span class="post-meta-item-text">阅读时长:</span>
+        <span class="post-count">1(分)</span>
+        </span>
+        
+        <span class="post-meta-divider">|</span>
+        <span class="post-meta-item-icon" >
             <i class="fa fa-eye"></i>
              阅读次数： 
             <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
-            </span>
+        </span>
           
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
+      </div>
+    </header>
+       
     <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        <p><em>本文用于搭建JetBrains系列软件激活服务器，如有能力，请支持正版</em></p>
+         <p><em>本文用于搭建JetBrains系列软件激活服务器，如有能力，请支持正版</em></p>
 <p>##准备</p>
 <ul>
 <li>Centos 7</li>
@@ -467,62 +464,33 @@
 </code></pre><p>重新加载防火墙</p>
 <pre><code>firewall-cmd --reload
 </code></pre><p>现在可以使用你的<code>ip:port</code>激活</p>
-
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-        <div class="post-tags">
-          
-            <a href="/tags/IDEA/" rel="tag"># IDEA</a>
-          
-        </div>
-      
-
-      
-      
-      
-
-      
-        <div class="post-nav">
-          <div class="post-nav-next post-nav-item">
-            
-          </div>
-
-          <span class="post-nav-divider"></span>
-
-          <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/08/14/Linux下MySQL 5.7.22安装和忘记密码/" rel="prev" title="Linux下MySQL 5.7.22安装和忘记密码">
-                Linux下MySQL 5.7.22安装和忘记密码 <i class="fa fa-chevron-right"></i>
-              </a>
-            
-          </div>
-        </div>
-      
-
-      
-      
-    </footer>
+ 
   </div>
-  
-  
-  
-  </article>
-
+        
+  <footer class="post-footer">
+    
+    <div class="post-tags">
+      
+      <a href="/tags/IDEA/" rel="tag"><i class="fa fa-tag"></i>IDEA</a> 
+    </div>
+        
+    <div class="post-nav">
+      <div class="post-nav-next post-nav-item">
+        
+      </div>
+      <span class="post-nav-divider"></span>
+      <div class="post-nav-prev post-nav-item">
+        
+        <a href="/2018/08/14/Redhat更换yum源/" rel="prev" title="Redhat更换yum源">
+                Redhat更换yum源 <i class="fa fa-chevron-right"></i>
+              </a> 
+      </div>
+    </div>
+      
+  </footer>
+  </div>
+    
+</article>
 
   </div>
 
@@ -532,6 +500,10 @@
 
   
     <div class="comments" id="comments">
+      <!-- 加载disqus -->
+    <div style="text-align:center;">
+  <button class="btn" id="load-disqus" onclick="disqus.load();">加载 Disqus 评论</button>
+</div>
       <div id="disqus_thread">
         <noscript>
           Please enable JavaScript to view the
@@ -708,7 +680,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+        <div class="copyright">&copy; 2017 – <span itemprop="copyrightYear">2018</span>
   <span class="with-love" id="animate">
     <i class="fa fa-user"></i>
   </span>
@@ -769,6 +741,8 @@
     
       <div class="back-to-top">
         <i class="fa fa-arrow-up"></i>
+        
+          <span id="scrollpercent"><span>0</span>%</span>
         
       </div>
     
@@ -862,6 +836,8 @@
 
   
     <script type="text/javascript">
+      var disqus = {    //插入这一行代码 (1/5)
+          load : function disqus(){ 
       var disqus_config = function () {
         this.page.url = 'http://www.xujn.ml/2017/12/30/IntelliJ-IDEA-license-server搭建/';
         this.page.identifier = '2017/12/30/IntelliJ-IDEA-license-server搭建/';
@@ -890,6 +866,9 @@
           }
         });
       
+      $('#load-disqus').remove();   
+  }    
+}    
     </script>
   
 
@@ -915,6 +894,21 @@
   
 
   
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
 
   
 
@@ -930,6 +924,75 @@
   
 
   
+  <style>
+    .copy-btn {
+      display: inline-block;
+      padding: 6px 12px;
+      font-size: 13px;
+      font-weight: 700;
+      line-height: 20px;
+      color: #333;
+      white-space: nowrap;
+      vertical-align: middle;
+      cursor: pointer;
+      background-color: #eee;
+      background-image: linear-gradient(#fcfcfc, #eee);
+      border: 1px solid #d5d5d5;
+      border-radius: 3px;
+      user-select: none;
+      outline: 0;
+    }
+
+    .highlight-wrap .copy-btn {
+      transition: opacity .3s ease-in-out;
+      opacity: 0;
+      padding: 2px 6px;
+      position: absolute;
+      right: 4px;
+      top: 8px;
+    }
+
+    .highlight-wrap:hover .copy-btn,
+    .highlight-wrap .copy-btn:focus {
+      opacity: 1
+    }
+
+    .highlight-wrap {
+      position: relative;
+    }
+  </style>
+  <script>
+    $('.highlight').each(function (i, e) {
+      var $wrap = $('<div>').addClass('highlight-wrap')
+      $(e).after($wrap)
+      $wrap.append($('<button>').addClass('copy-btn').append('复制').on('click', function (e) {
+        var code = $(this).parent().find('.code').find('.line').map(function (i, e) {
+          return $(e).text()
+        }).toArray().join('\n')
+        var ta = document.createElement('textarea')
+        document.body.appendChild(ta)
+        ta.style.position = 'absolute'
+        ta.style.top = '0px'
+        ta.style.left = '0px'
+        ta.value = code
+        ta.select()
+        ta.focus()
+        var result = document.execCommand('copy')
+        document.body.removeChild(ta)
+        
+          if(result)$(this).text('复制成功')
+          else $(this).text('复制失败')
+        
+        $(this).blur()
+      })).on('mouseleave', function (e) {
+        var $b = $(this).find('.copy-btn')
+        setTimeout(function () {
+          $b.text('复制')
+        }, 300)
+      }).append(e)
+    })
+  </script>
+
 
 </body>
 </html>

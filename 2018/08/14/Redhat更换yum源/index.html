@@ -20,11 +20,32 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
 <meta name="theme-color" content="#222">
+<!-- 顶部加载条 -->
+<script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+<link href="//cdn.bootcss.com/pace/1.0.2/themes/pink/pace-theme-flash.css" rel="stylesheet">
+<style>
+    .pace .pace-progress {
+        background: #1E92FB; /*进度条颜色*/
+        height: 3px;
+    }
+    .pace .pace-progress-inner {
+         box-shadow: 0 0 10px #1E92FB, 0 0 5px     #1E92FB; /*阴影颜色*/
+    }
+    .pace .pace-activity {
+        border-top-color: #1E92FB;    /*上边框颜色*/
+        border-left-color: #1E92FB;    /*左边框颜色*/
+    }
+</style>
 
 
 
 
-
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-minimal.min.css?v=1.0.2" rel="stylesheet">
 
 
 
@@ -50,6 +71,32 @@
 
 
 
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
 
 
 
@@ -86,7 +133,7 @@
     root: '/',
     scheme: 'Muse',
     version: '6.4.0',
-    sidebar: {"position":"right","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    sidebar: {"position":"right","display":"post","offset":12,"b2t":false,"scrollpercent":true,"onmobile":false},
     fancybox: false,
     fastclick: false,
     lazyload: false,
@@ -232,7 +279,7 @@
           
           <li class="menu-item menu-item-home">
     <a href="/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />首页</a>
+      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />首页</a>
   </li>
         
         
@@ -240,7 +287,7 @@
           
           <li class="menu-item menu-item-categories">
     <a href="/categories" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />分类</a>
+      <i class="menu-item-icon fa fa-fw fa-th"></i> <br />分类</a>
   </li>
         
         
@@ -248,7 +295,7 @@
           
           <li class="menu-item menu-item-archives">
     <a href="/archives" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />归档</a>
+      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />归档</a>
   </li>
         
         
@@ -256,7 +303,7 @@
           
           <li class="menu-item menu-item-tags">
     <a href="/tags" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />标签</a>
+      <i class="menu-item-icon fa fa-fw fa-tag"></i> <br />标签</a>
   </li>
         
         
@@ -264,7 +311,7 @@
           
           <li class="menu-item menu-item-about">
     <a href="/about" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />关于</a>
+      <i class="menu-item-icon fa fa-fw fa-user"></i> <br />关于</a>
   </li>
 
       
@@ -300,46 +347,26 @@
             
 
   <div id="posts" class="posts-expand">
+         
+<article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
     
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
   <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://www.xujn.ml/2018/08/14/Redhat更换yum源/">
-
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="苏叶新城">
       <meta itemprop="description" content="愿出走半生，归来仍是少年。">
       <meta itemprop="image" content="http://tvax1.sinaimg.cn/crop.45.180.450.450.180/005KSE0vly8fqid3j7ifej30f00miq5t.jpg">
     </span>
-
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="苏叶新城">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">Redhat更换yum源
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
+    </span> 
+    <header class="post-header">
+       
+      <h1 class="post-title" itemprop="name headline">Redhat更换yum源  
+      </h1>
+      
+      <div class="post-meta">
+        <span class="post-time">
 
             
             
@@ -348,92 +375,67 @@
             
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2018-08-14 20:56:27 / 修改时间：21:02:33" itemprop="dateCreated datePublished" datetime="2018-08-14T20:56:27+08:00">2018-08-14</time>
+              </span> 
+        <span class="post-meta-item-text">发表于</span>    
+        <time title="创建时间：2018-08-14 20:56:27 / 修改时间：21:02:33" itemprop="dateCreated datePublished" datetime="2018-08-14T20:56:27+08:00">2018-08-14</time>
             
-
+        </span>
+        
+        <span class="post-category">
             
-              
-
-              
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
+              <span class="post-meta-divider">|</span> 
+        <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/软件安装/" itemprop="url" rel="index"><span itemprop="name">软件安装</span></a></span>
-
-                
-                
-              
-            </span>
+              </span> 
+        <span class="post-meta-item-text">分类于</span>  
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/软件安装/" itemprop="url" rel="index"><span itemprop="name">软件安装</span>
+        </a>
+        </span>
           
-
+        </span>
           
-            
-              <span class="post-comments-count">
+        <span class="post-comments-count">
                 <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
+        <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2018/08/14/Redhat更换yum源/#comments" itemprop="discussionUrl">
+        <a href="/2018/08/14/Redhat更换yum源/#comments" itemprop="discussionUrl">
                 
                   <span class="post-comments-count disqus-comment-count"
                         data-disqus-identifier="2018/08/14/Redhat更换yum源/" itemprop="commentCount"></span>
                 </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-            <span class="post-meta-divider">|</span>
-            <span class="post-meta-item-icon"
-            >
+        </span>
+           
+        <!-- 字数统计、阅读时长插入代码 -->
+        <span class="post-time">
+       &nbsp; | &nbsp;
+           <span class="post-meta-item-icon">
+             <i class="fa fa-calendar-o"></i>
+           </span>
+        <span class="post-meta-item-text">字数统计:</span>
+        <span class="post-count">568(字)</span>
+        </span>
+        <span class="post-time">
+       &nbsp; | &nbsp;
+           <span class="post-meta-item-icon">
+             <i class="fa fa-calendar-o"></i>
+           </span>
+        <span class="post-meta-item-text">阅读时长:</span>
+        <span class="post-count">3(分)</span>
+        </span>
+        
+        <span class="post-meta-divider">|</span>
+        <span class="post-meta-item-icon" >
             <i class="fa fa-eye"></i>
              阅读次数： 
             <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
-            </span>
+        </span>
           
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
+      </div>
+    </header>
+       
     <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        <h2 id="简述"><a href="#简述" class="headerlink" title="简述"></a>简述</h2><p>redhat没有进行注册（收费了），不能够使用其自带的yum源，所以需要第三方的源来代替。</p>
+         <h2 id="简述"><a href="#简述" class="headerlink" title="简述"></a>简述</h2><p>redhat没有进行注册（收费了），不能够使用其自带的yum源，所以需要第三方的源来代替。</p>
 <h2 id="过程"><a href="#过程" class="headerlink" title="过程"></a>过程</h2><p>查看自带yum源</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">rpm -qa | grep yum</span><br><span class="line"># 查询结果</span><br><span class="line">yum-utils-1.1.31-24.el7.noarch</span><br><span class="line">yum-langpacks-0.4.2-3.el7.noarch</span><br><span class="line">yum-metadata-parser-1.1.4-10.el7.x86_64</span><br><span class="line">yum-rhn-plugin-2.0.1-4.el7.noarch</span><br><span class="line">PackageKit-yum-0.8.9-11.el7.x86_64</span><br><span class="line">yum-3.4.3-118.el7.noarch</span><br></pre></td></tr></table></figure>
 <p><code>(这些安装包都需要从阿里源重新下载)</code></p>
@@ -462,66 +464,36 @@
 <li>-Va：校验所有的RPM软件包，查找丢失的文件View Lost</li>
 </ul>
 <p>参考自：<br><br><a href="https://blog.csdn.net/hongbin_xu/article/details/79316614" target="_blank" rel="noopener">yum</a><br><a href="https://www.cnblogs.com/xiaochaohuashengmi/archive/2011/10/08/2203153.html" target="_blank" rel="noopener">rpm</a></p>
-
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-        <div class="post-tags">
-          
-            <a href="/tags/Linux/" rel="tag"># Linux</a>
-          
-        </div>
-      
-
-      
-      
-      
-
-      
-        <div class="post-nav">
-          <div class="post-nav-next post-nav-item">
-            
-              <a href="/2018/08/14/Linux下MySQL 5.7.22安装和忘记密码/" rel="next" title="Linux下MySQL 5.7.22安装和忘记密码">
-                <i class="fa fa-chevron-left"></i> Linux下MySQL 5.7.22安装和忘记密码
-              </a>
-            
-          </div>
-
-          <span class="post-nav-divider"></span>
-
-          <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/08/23/IntelliJ-IDEA-SSM框架整合/" rel="prev" title="IntelliJ IDEA SSM框架整合">
-                IntelliJ IDEA SSM框架整合 <i class="fa fa-chevron-right"></i>
-              </a>
-            
-          </div>
-        </div>
-      
-
-      
-      
-    </footer>
+ 
   </div>
-  
-  
-  
-  </article>
-
+        
+  <footer class="post-footer">
+    
+    <div class="post-tags">
+      
+      <a href="/tags/Linux/" rel="tag"><i class="fa fa-tag"></i>Linux</a> 
+    </div>
+        
+    <div class="post-nav">
+      <div class="post-nav-next post-nav-item">
+        
+        <a href="/2017/12/30/IntelliJ-IDEA-license-server搭建/" rel="next" title="IntelliJ IDEA license server搭建">
+                <i class="fa fa-chevron-left"></i> IntelliJ IDEA license server搭建
+              </a> 
+      </div>
+      <span class="post-nav-divider"></span>
+      <div class="post-nav-prev post-nav-item">
+        
+        <a href="/2018/08/23/Linux下MySQL 5.7.22安装和忘记密码/" rel="prev" title="Linux下MySQL 5.7.22安装和忘记密码">
+                Linux下MySQL 5.7.22安装和忘记密码 <i class="fa fa-chevron-right"></i>
+              </a> 
+      </div>
+    </div>
+      
+  </footer>
+  </div>
+    
+</article>
 
   </div>
 
@@ -531,6 +503,10 @@
 
   
     <div class="comments" id="comments">
+      <!-- 加载disqus -->
+    <div style="text-align:center;">
+  <button class="btn" id="load-disqus" onclick="disqus.load();">加载 Disqus 评论</button>
+</div>
       <div id="disqus_thread">
         <noscript>
           Please enable JavaScript to view the
@@ -707,7 +683,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+        <div class="copyright">&copy; 2017 – <span itemprop="copyrightYear">2018</span>
   <span class="with-love" id="animate">
     <i class="fa fa-user"></i>
   </span>
@@ -768,6 +744,8 @@
     
       <div class="back-to-top">
         <i class="fa fa-arrow-up"></i>
+        
+          <span id="scrollpercent"><span>0</span>%</span>
         
       </div>
     
@@ -861,6 +839,8 @@
 
   
     <script type="text/javascript">
+      var disqus = {    //插入这一行代码 (1/5)
+          load : function disqus(){ 
       var disqus_config = function () {
         this.page.url = 'http://www.xujn.ml/2018/08/14/Redhat更换yum源/';
         this.page.identifier = '2018/08/14/Redhat更换yum源/';
@@ -889,6 +869,9 @@
           }
         });
       
+      $('#load-disqus').remove();   
+  }    
+}    
     </script>
   
 
@@ -914,6 +897,21 @@
   
 
   
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
 
   
 
@@ -929,6 +927,75 @@
   
 
   
+  <style>
+    .copy-btn {
+      display: inline-block;
+      padding: 6px 12px;
+      font-size: 13px;
+      font-weight: 700;
+      line-height: 20px;
+      color: #333;
+      white-space: nowrap;
+      vertical-align: middle;
+      cursor: pointer;
+      background-color: #eee;
+      background-image: linear-gradient(#fcfcfc, #eee);
+      border: 1px solid #d5d5d5;
+      border-radius: 3px;
+      user-select: none;
+      outline: 0;
+    }
+
+    .highlight-wrap .copy-btn {
+      transition: opacity .3s ease-in-out;
+      opacity: 0;
+      padding: 2px 6px;
+      position: absolute;
+      right: 4px;
+      top: 8px;
+    }
+
+    .highlight-wrap:hover .copy-btn,
+    .highlight-wrap .copy-btn:focus {
+      opacity: 1
+    }
+
+    .highlight-wrap {
+      position: relative;
+    }
+  </style>
+  <script>
+    $('.highlight').each(function (i, e) {
+      var $wrap = $('<div>').addClass('highlight-wrap')
+      $(e).after($wrap)
+      $wrap.append($('<button>').addClass('copy-btn').append('复制').on('click', function (e) {
+        var code = $(this).parent().find('.code').find('.line').map(function (i, e) {
+          return $(e).text()
+        }).toArray().join('\n')
+        var ta = document.createElement('textarea')
+        document.body.appendChild(ta)
+        ta.style.position = 'absolute'
+        ta.style.top = '0px'
+        ta.style.left = '0px'
+        ta.value = code
+        ta.select()
+        ta.focus()
+        var result = document.execCommand('copy')
+        document.body.removeChild(ta)
+        
+          if(result)$(this).text('复制成功')
+          else $(this).text('复制失败')
+        
+        $(this).blur()
+      })).on('mouseleave', function (e) {
+        var $b = $(this).find('.copy-btn')
+        setTimeout(function () {
+          $b.text('复制')
+        }, 300)
+      }).append(e)
+    })
+  </script>
+
 
 </body>
 </html>
