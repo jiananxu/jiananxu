@@ -4,6 +4,28 @@
 
     
   <url>
+    <loc>http://www.xujn.ml/2018/08/23/VPS%E6%90%AD%E5%BB%BAshadowsocks/</loc>
+    <lastmod>2018-11-04T13:25:53.220Z</lastmod>
+    <data>
+        <display>
+        <title>VPS搭建shadowsocks</title>
+        <pubTime>2018-08-23T04:26:10.000Z</pubTime>
+        
+        <tag>shadowsocks</tag>
+         
+        <tag>VPS</tag>
+         
+         
+           
+             
+              <breadCrumb title="shadowsocks" url="http://www.xujn.ml/categories/shadowsocks/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://www.xujn.ml/2018/09/06/Oracle%E6%96%B0%E5%BB%BA%E6%95%B0%E6%8D%AE%E8%A1%A8/</loc>
     <lastmod>2018-09-06T15:30:24.292Z</lastmod>
     <data>
@@ -144,28 +166,6 @@
            
              
               <breadCrumb title="Oracle" url="http://www.xujn.ml/categories/Oracle/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://www.xujn.ml/2018/08/23/VPS%E6%90%AD%E5%BB%BAshadowsocks/</loc>
-    <lastmod>2018-08-23T04:27:46.864Z</lastmod>
-    <data>
-        <display>
-        <title>VPS搭建shadowsocks</title>
-        <pubTime>2018-08-23T04:26:10.000Z</pubTime>
-        
-        <tag>shadowsocks</tag>
-         
-        <tag>VPS</tag>
-         
-         
-           
-             
-              <breadCrumb title="shadowsocks" url="http://www.xujn.ml/categories/shadowsocks/"/>
           
         </display>
     </data>
