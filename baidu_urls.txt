@@ -5,6 +5,6 @@ http://www.xujn.xyz/2018/09/02/Redhat7-1静默安装Oracle-11g/
 http://www.xujn.xyz/2018/08/27/Linux下解决TNS-12541-TNS-no-listener问题/
 http://www.xujn.xyz/2018/08/23/Centos7下Nginx安装配置/
 http://www.xujn.xyz/2018/08/23/VPS搭建shadowsocks/
-http://www.xujn.xyz/2018/08/23/Linux下MySQL 5.7.22安装和忘记密码/
 http://www.xujn.xyz/2018/08/23/IntelliJ-IDEA-SSM框架整合/
+http://www.xujn.xyz/2018/08/23/Linux下MySQL 5.7.22安装和忘记密码/
 http://www.xujn.xyz/2018/08/14/Redhat更换yum源/
