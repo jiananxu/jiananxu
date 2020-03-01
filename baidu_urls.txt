@@ -1,10 +1,10 @@
-http://www.xujn.ml/2019/01/23/Layui动态表格的增删改查/
-http://www.xujn.ml/2018/09/06/Spring-MVC项目搭建过程说明/
-http://www.xujn.ml/2018/09/06/Oracle新建数据表/
-http://www.xujn.ml/2018/09/02/Redhat7-1静默安装Oracle-11g/
-http://www.xujn.ml/2018/08/27/Linux下解决TNS-12541-TNS-no-listener问题/
-http://www.xujn.ml/2018/08/23/Centos7下Nginx安装配置/
-http://www.xujn.ml/2018/08/23/VPS搭建shadowsocks/
-http://www.xujn.ml/2018/08/23/Linux下MySQL 5.7.22安装和忘记密码/
-http://www.xujn.ml/2018/08/23/IntelliJ-IDEA-SSM框架整合/
-http://www.xujn.ml/2018/08/14/Redhat更换yum源/
+http://www.xujn.xyz/2019/01/23/Layui动态表格的增删改查/
+http://www.xujn.xyz/2018/09/06/Spring-MVC项目搭建过程说明/
+http://www.xujn.xyz/2018/09/06/Oracle新建数据表/
+http://www.xujn.xyz/2018/09/02/Redhat7-1静默安装Oracle-11g/
+http://www.xujn.xyz/2018/08/27/Linux下解决TNS-12541-TNS-no-listener问题/
+http://www.xujn.xyz/2018/08/23/Centos7下Nginx安装配置/
+http://www.xujn.xyz/2018/08/23/VPS搭建shadowsocks/
+http://www.xujn.xyz/2018/08/23/IntelliJ-IDEA-SSM框架整合/
+http://www.xujn.xyz/2018/08/23/Linux下MySQL 5.7.22安装和忘记密码/
+http://www.xujn.xyz/2018/08/14/Redhat更换yum源/
