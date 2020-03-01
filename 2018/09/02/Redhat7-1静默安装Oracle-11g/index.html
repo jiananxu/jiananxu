@@ -15,10 +15,10 @@
 
 
 <html class="theme-next muse use-motion" lang="zh-CN">
-<head>
-  <meta charset="UTF-8"/>
-<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
 <!-- 顶部加载条 -->
 <script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
@@ -53,8 +53,8 @@
 
 
 
-<meta http-equiv="Cache-Control" content="no-transform" />
-<meta http-equiv="Cache-Control" content="no-siteapp" />
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
 
 
 
@@ -103,9 +103,9 @@
 
 
 
-<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
 
-<link href="/css/main.css?v=6.4.0" rel="stylesheet" type="text/css" />
+<link href="/css/main.css?v=6.4.0" rel="stylesheet" type="text/css">
 
 
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.4.0">
@@ -180,7 +180,7 @@
 
 
 
-  <link rel="canonical" href="http://www.xujn.ml/2018/09/02/Redhat7-1静默安装Oracle-11g/"/>
+  <link rel="canonical" href="http://www.xujn.ml/2018/09/02/Redhat7-1静默安装Oracle-11g/">
 
 
 
@@ -286,7 +286,7 @@
           
           <li class="menu-item menu-item-home">
     <a href="/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />首页</a>
+      <i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
   </li>
         
         
@@ -294,7 +294,7 @@
           
           <li class="menu-item menu-item-categories">
     <a href="/categories" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-th"></i> <br />分类</a>
+      <i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类</a>
   </li>
         
         
@@ -302,7 +302,7 @@
           
           <li class="menu-item menu-item-archives">
     <a href="/archives" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />归档</a>
+      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
   </li>
         
         
@@ -310,7 +310,7 @@
           
           <li class="menu-item menu-item-tags">
     <a href="/tags" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-tag"></i> <br />标签</a>
+      <i class="menu-item-icon fa fa-fw fa-tag"></i> <br>标签</a>
   </li>
         
         
@@ -318,7 +318,7 @@
           
           <li class="menu-item menu-item-about">
     <a href="/about" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-user"></i> <br />关于</a>
+      <i class="menu-item-icon fa fa-fw fa-user"></i> <br>关于</a>
   </li>
 
       
@@ -408,8 +408,7 @@
                 </span>
         <a href="/2018/09/02/Redhat7-1静默安装Oracle-11g/#comments" itemprop="discussionUrl">
                 
-                  <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2018/09/02/Redhat7-1静默安装Oracle-11g/" itemprop="commentCount"></span>
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2018/09/02/Redhat7-1静默安装Oracle-11g/" itemprop="commentCount"></span>
                 </a>
         </span>
            
@@ -432,10 +431,10 @@
         </span>
         
         <span class="post-meta-divider">|</span>
-        <span class="post-meta-item-icon" >
+        <span class="post-meta-item-icon">
             <i class="fa fa-eye"></i>
              阅读次数： 
-            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
         </span>
           
       </div>
@@ -474,7 +473,7 @@
 <hr>
 <h2 id="安装oracle"><a href="#安装oracle" class="headerlink" title="安装oracle"></a>安装oracle</h2><p>下面需要在root用户下执行</p>
 <h3 id="下载安装包"><a href="#下载安装包" class="headerlink" title="下载安装包"></a>下载安装包</h3><p>下载<a href="http://www.oracle.com/technetwork/database/enterprise-edition/downloads/index.html" target="_blank" rel="noopener">oracle 11g</a>，官网需要登录。</p>
-<p><img src="http://imgcq.test.upcdn.net/image20180902222159.png" alt=""><br>下载两个文件后，上传到linux服务器上。</p>
+<p><img src="http://imgcq.test.upcdn.net/image20180902222159.png" alt><br>下载两个文件后，上传到linux服务器上。</p>
 <h3 id="解压"><a href="#解压" class="headerlink" title="解压"></a>解压</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">unzip linux.x64_11gR2_database_1of2.zip -d /opt</span><br><span class="line">unzip linux.x64_11gR2_database_2of2.zip -d /opt</span><br></pre></td></tr></table></figure>
 <p>我是将其解压在/opt下，解压之后文件会在database目录下。</p>
 <h3 id="静默安装文件配置"><a href="#静默安装文件配置" class="headerlink" title="静默安装文件配置"></a>静默安装文件配置</h3><p>拷贝<code>database/response/</code>下面的<code>dbca.rsp</code>、<code>db_install.rsp</code>及<code>netca.rsp</code>三个文件至<code>/opt/oracle</code>目录下。这三个文件很重要</p>
@@ -488,19 +487,19 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./runInstaller -silent -ignorePrereq -responseFile /opt/oracle/db_install.rsp</span><br></pre></td></tr></table></figure>
 <p>安装开始，时间会有点久，如果出现问题，查看控制台日志。运维第一步，会看日志。</p>
 <p>安装完成，提示Successfully Setup Software.</p>
-<p><img src="http://imgcq.test.upcdn.net/image20180902223914.png" alt=""></p>
+<p><img src="http://imgcq.test.upcdn.net/image20180902223914.png" alt></p>
 <h3 id="执行脚本"><a href="#执行脚本" class="headerlink" title="执行脚本"></a>执行脚本</h3><p>切换回root用户，执行上图中提示的脚本。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sh /opt/oracle/inventory/orainsRot.sh</span><br><span class="line">sh /opt/oracle/product/oraHome/root.sh</span><br></pre></td></tr></table></figure>
-<h3 id="配置监听"><a href="#配置监听" class="headerlink" title="配置监听"></a>配置监听</h3><p><code>netca /silent /responsefile /opt/oracle/netca.rsp</code><br><img src="http://imgcq.test.upcdn.net/image20180902224154.png" alt=""></p>
+<h3 id="配置监听"><a href="#配置监听" class="headerlink" title="配置监听"></a>配置监听</h3><p><code>netca /silent /responsefile /opt/oracle/netca.rsp</code><br><img src="http://imgcq.test.upcdn.net/image20180902224154.png" alt></p>
 <h3 id="执行静默建库"><a href="#执行静默建库" class="headerlink" title="执行静默建库"></a>执行静默建库</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dbca -silent -responseFile /opt/oracle/dbca.rsp -sysPassword oracle -systemPassword oracle</span><br></pre></td></tr></table></figure>
 <p><code>-sysPassword oracle -systemPassword oracle</code>需要制定密码，不然报错</p>
-<p><img src="http://imgcq.test.upcdn.net/image20180902224347.png" alt=""></p>
+<p><img src="http://imgcq.test.upcdn.net/image20180902224347.png" alt></p>
 <p>如上图，安装成功。</p>
 <h2 id="查看oracle"><a href="#查看oracle" class="headerlink" title="查看oracle"></a>查看oracle</h2><p>切换oracle用户</p>
 <h3 id="查看实例进程"><a href="#查看实例进程" class="headerlink" title="查看实例进程"></a>查看实例进程</h3><p><code>ps -ef | grep ora_ | grep -v grep</code></p>
-<p><img src="http://imgcq.test.upcdn.net/image20180902224540.png" alt=""></p>
+<p><img src="http://imgcq.test.upcdn.net/image20180902224540.png" alt></p>
 <h3 id="查看监听状态"><a href="#查看监听状态" class="headerlink" title="查看监听状态"></a>查看监听状态</h3><p><code>lsnrctl status</code></p>
-<p><img src="http://imgcq.test.upcdn.net/image20180902224703.png" alt=""></p>
+<p><img src="http://imgcq.test.upcdn.net/image20180902224703.png" alt></p>
 <h3 id="其他操作"><a href="#其他操作" class="headerlink" title="其他操作"></a>其他操作</h3><p>登录sqlplus，查看实例状态</p>
 <p><code>sqlplus / as sysdba</code></p>
 <p>查看数据库编码</p>
@@ -596,9 +595,7 @@
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
-              <img class="site-author-image" itemprop="image"
-                src="http://tvax1.sinaimg.cn/crop.45.180.450.450.180/005KSE0vly8fqid3j7ifej30f00miq5t.jpg"
-                alt="苏叶新城" />
+              <img class="site-author-image" itemprop="image" src="http://tvax1.sinaimg.cn/crop.45.180.450.450.180/005KSE0vly8fqid3j7ifej30f00miq5t.jpg" alt="苏叶新城">
             
               <p class="site-author-name" itemprop="name">苏叶新城</p>
               <p class="site-description motion-element" itemprop="description">愿出走半生，归来仍是少年。</p>
@@ -693,7 +690,7 @@
           
             <div class="cc-license motion-element" itemprop="license">
               <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" target="_blank" rel="external nofollow">
-                <img src="/images/cc-by-nc-sa.svg" alt="Creative Commons" />
+                <img src="/images/cc-by-nc-sa.svg" alt="Creative Commons">
               </a>
             </div>
           
@@ -755,7 +752,7 @@
 
 
 
-  <div class="powered-by">由 <a class="theme-link" target="_blank" rel="external nofollow" href="https://hexo.io">Hexo</a> 强力驱动 v3.7.1</div>
+  <div class="powered-by">由 <a class="theme-link" target="_blank" rel="external nofollow" href="https://hexo.io">Hexo</a> 强力驱动 v3.8.0</div>
 
 
 

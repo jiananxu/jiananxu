@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://www.xujn.ml/about/index.html</loc>
+    
+    <lastmod>2019-05-14T03:50:22.355Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://www.xujn.ml/2019/01/23/Layui%E5%8A%A8%E6%80%81%E8%A1%A8%E6%A0%BC%E7%9A%84%E5%A2%9E%E5%88%A0%E6%94%B9%E6%9F%A5/</loc>
     
     <lastmod>2019-01-23T03:37:07.420Z</lastmod>
@@ -26,13 +33,6 @@
     <loc>http://www.xujn.ml/2018/09/06/Spring-MVC%E9%A1%B9%E7%9B%AE%E6%90%AD%E5%BB%BA%E8%BF%87%E7%A8%8B%E8%AF%B4%E6%98%8E/</loc>
     
     <lastmod>2018-09-06T15:20:03.078Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://www.xujn.ml/about/index.html</loc>
-    
-    <lastmod>2018-09-02T15:18:39.063Z</lastmod>
     
   </url>
   
