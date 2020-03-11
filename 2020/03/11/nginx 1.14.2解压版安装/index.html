@@ -15,7 +15,7 @@
 
 
 <html class="theme-next muse use-motion" lang="zh-CN">
-<head><meta name="generator" content="Hexo 3.8.0">
+<head><meta name="generator" content="Hexo 3.9.0">
   <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
@@ -155,25 +155,27 @@
 
 
 
-  <meta name="description" content="1、 锐速1.1、 Centos 7 不能使用ifconfig命令使用下面命令安装即可yum install net-tools 1.2、Centos更换内核CentOS7 内核更换为： 3.10.0-229.1.2.el7.x86_64 rpm -ivh http://soft.91yun.org/ISO/Linux/CentOS/kernel/kernel-3.10.0-229.1.2.el7">
-<meta name="keywords" content="shadowsocks,VPS">
+  <meta name="description" content="安装包 nginx-1.14.2.tar.gz openssl-fips-2.0.16.tar.gz zlib-1.2.11.tar.gz pcre-8.43.tar.gz  安装先安装依赖，然后安装nginx openssl123tar -xzvf openssl-fips-2.0.16.tar.gzcd openssl-fips-2.0.16/./config &amp;amp;&amp;amp; make">
+<meta name="keywords" content="nginx">
 <meta property="og:type" content="article">
-<meta property="og:title" content="VPS搭建shadowsocks">
-<meta property="og:url" content="http://www.xujn.xyz/2018/08/23/VPS搭建shadowsocks/index.html">
+<meta property="og:title" content="nginx 1.14.2解压版安装">
+<meta property="og:url" content="http://www.xujn.xyz/2020/03/11/nginx 1.14.2解压版安装/index.html">
 <meta property="og:site_name" content="X笔记">
-<meta property="og:description" content="1、 锐速1.1、 Centos 7 不能使用ifconfig命令使用下面命令安装即可yum install net-tools 1.2、Centos更换内核CentOS7 内核更换为： 3.10.0-229.1.2.el7.x86_64 rpm -ivh http://soft.91yun.org/ISO/Linux/CentOS/kernel/kernel-3.10.0-229.1.2.el7">
+<meta property="og:description" content="安装包 nginx-1.14.2.tar.gz openssl-fips-2.0.16.tar.gz zlib-1.2.11.tar.gz pcre-8.43.tar.gz  安装先安装依赖，然后安装nginx openssl123tar -xzvf openssl-fips-2.0.16.tar.gzcd openssl-fips-2.0.16/./config &amp;amp;&amp;amp; make">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-11-04T13:25:53.220Z">
+<meta property="og:image" content="http://imgcq.test.upcdn.net/20190404144507.png?!">
+<meta property="og:updated_time" content="2020-03-11T09:35:13.453Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="VPS搭建shadowsocks">
-<meta name="twitter:description" content="1、 锐速1.1、 Centos 7 不能使用ifconfig命令使用下面命令安装即可yum install net-tools 1.2、Centos更换内核CentOS7 内核更换为： 3.10.0-229.1.2.el7.x86_64 rpm -ivh http://soft.91yun.org/ISO/Linux/CentOS/kernel/kernel-3.10.0-229.1.2.el7">
+<meta name="twitter:title" content="nginx 1.14.2解压版安装">
+<meta name="twitter:description" content="安装包 nginx-1.14.2.tar.gz openssl-fips-2.0.16.tar.gz zlib-1.2.11.tar.gz pcre-8.43.tar.gz  安装先安装依赖，然后安装nginx openssl123tar -xzvf openssl-fips-2.0.16.tar.gzcd openssl-fips-2.0.16/./config &amp;amp;&amp;amp; make">
+<meta name="twitter:image" content="http://imgcq.test.upcdn.net/20190404144507.png?!">
 
 
 
 
 
 
-  <link rel="canonical" href="http://www.xujn.xyz/2018/08/23/VPS搭建shadowsocks/">
+  <link rel="canonical" href="http://www.xujn.xyz/2020/03/11/nginx 1.14.2解压版安装/">
 
 
 
@@ -183,7 +185,7 @@
   };
 </script>
 
-  <title>VPS搭建shadowsocks | X笔记</title>
+  <title>nginx 1.14.2解压版安装 | X笔记</title>
   
 
 
@@ -351,7 +353,7 @@
 <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
     
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://www.xujn.xyz/2018/08/23/VPS搭建shadowsocks/">
+    <link itemprop="mainEntityOfPage" href="http://www.xujn.xyz/2020/03/11/nginx 1.14.2解压版安装/">
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="苏叶新城">
       <meta itemprop="description" content="愿出走半生，归来仍是少年。">
@@ -362,7 +364,7 @@
     </span> 
     <header class="post-header">
        
-      <h2 class="post-title" itemprop="name headline">VPS搭建shadowsocks  
+      <h2 class="post-title" itemprop="name headline">nginx 1.14.2解压版安装  
       </h2>
       
       <div class="post-meta">
@@ -377,15 +379,8 @@
                 <i class="fa fa-calendar-o"></i>
               </span> 
         <span class="post-meta-item-text">发表于</span>    
-        <time title="创建时间：2018-08-23 12:26:10" itemprop="dateCreated datePublished" datetime="2018-08-23T12:26:10+08:00">2018-08-23</time>
+        <time title="创建时间：2020-03-11 18:31:59 / 修改时间：17:35:13" itemprop="dateCreated datePublished" datetime="2020-03-11T18:31:59+08:00">2020-03-11</time>
             
-        <span class="post-meta-divider">|</span> 
-        <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span> 
-        <span class="post-meta-item-text">更新于</span> 
-        <time title="修改时间：2018-11-04 21:25:53" itemprop="dateModified" datetime="2018-11-04T21:25:53+08:00">2018-11-04</time>
-         
         </span>
         
         <span class="post-category">
@@ -395,7 +390,7 @@
                 <i class="fa fa-folder-o"></i>
               </span> 
         <span class="post-meta-item-text">分类于</span>  
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/shadowsocks/" itemprop="url" rel="index"><span itemprop="name">shadowsocks</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/软件安装/" itemprop="url" rel="index"><span itemprop="name">软件安装</span>
         </a>
         </span>
           
@@ -406,9 +401,9 @@
         <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-        <a href="/2018/08/23/VPS搭建shadowsocks/#comments" itemprop="discussionUrl">
+        <a href="/2020/03/11/nginx 1.14.2解压版安装/#comments" itemprop="discussionUrl">
                 
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2018/08/23/VPS搭建shadowsocks/" itemprop="commentCount"></span>
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2020/03/11/nginx 1.14.2解压版安装/" itemprop="commentCount"></span>
                 </a>
         </span>
            
@@ -419,7 +414,7 @@
              <i class="fa fa-calendar-o"></i>
            </span>
         <span class="post-meta-item-text">字数统计:</span>
-        <span class="post-count">602(字)</span>
+        <span class="post-count">191(字)</span>
         </span>
         <span class="post-time">
        &nbsp; | &nbsp;
@@ -427,7 +422,7 @@
              <i class="fa fa-calendar-o"></i>
            </span>
         <span class="post-meta-item-text">阅读时长:</span>
-        <span class="post-count">3(分)</span>
+        <span class="post-count">1(分)</span>
         </span>
         
         <span class="post-meta-divider">|</span>
@@ -441,44 +436,40 @@
     </header>
        
     <div class="post-body" itemprop="articleBody">
-         <h2 id="1、-锐速"><a href="#1、-锐速" class="headerlink" title="1、 锐速"></a>1、 锐速</h2><h3 id="1-1、-Centos-7-不能使用ifconfig命令"><a href="#1-1、-Centos-7-不能使用ifconfig命令" class="headerlink" title="1.1、 Centos 7 不能使用ifconfig命令"></a>1.1、 Centos 7 不能使用<code>ifconfig</code>命令</h3><p>使用下面命令安装即可<br><code>yum install net-tools</code></p>
-<h3 id="1-2、Centos更换内核"><a href="#1-2、Centos更换内核" class="headerlink" title="1.2、Centos更换内核"></a>1.2、Centos更换内核</h3><p><strong>CentOS7 内核更换为： 3.10.0-229.1.2.el7.x86_64</strong></p>
-<p><code>rpm -ivh http://soft.91yun.org/ISO/Linux/CentOS/kernel/kernel-3.10.0-229.1.2.el7.x86_64.rpm --force</code></p>
-<p><strong>查看内核是否安装成功</strong></p>
-<p><code>rpm -qa | grep kernel</code></p>
-<p><strong>重启，查看内核是否更换成功</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">reboot</span><br><span class="line">uname -r</span><br></pre></td></tr></table></figure></p>
-<h3 id="1-3、安装锐速"><a href="#1-3、安装锐速" class="headerlink" title="1.3、安装锐速"></a>1.3、安装锐速</h3><p><strong>安装</strong><br><code>wget -N --no-check-certificate https://github.com/91yun/serverspeeder/raw/master/serverspeeder.sh &amp;&amp; bash serverspeeder.sh</code></p>
-<p><strong>卸载</strong><br><code>chattr -i /serverspeeder/etc/apx* &amp;&amp; /serverspeeder/bin/serverSpeeder.sh uninstall -f</code><br><strong>查看锐速状态</strong><br><code>service serverSpeeder status</code></p>
-<h2 id="2、CentOS-7安装shadowsocks脚本"><a href="#2、CentOS-7安装shadowsocks脚本" class="headerlink" title="2、CentOS 7安装shadowsocks脚本"></a>2、CentOS 7安装shadowsocks脚本</h2><h3 id="2-1、新建install-sh"><a href="#2-1、新建install-sh" class="headerlink" title="2.1、新建install.sh"></a>2.1、新建install.sh</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br></pre></td><td class="code"><pre><span class="line">#!/bin/bash</span><br><span class="line"># Install Shadowsocks on CentOS 7</span><br><span class="line"></span><br><span class="line">echo &quot;Installing Shadowsocks...&quot;</span><br><span class="line"></span><br><span class="line">random-string()</span><br><span class="line">&#123;</span><br><span class="line">    cat /dev/urandom | tr -dc &apos;a-zA-Z0-9&apos; | fold -w $&#123;1:-32&#125; | head -n 1</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">CONFIG_FILE=/etc/shadowsocks.json</span><br><span class="line">SERVICE_FILE=/etc/systemd/system/shadowsocks.service</span><br><span class="line">SS_PASSWORD=$(random-string 32)</span><br><span class="line">SS_PORT=8388</span><br><span class="line">SS_METHOD=aes-256-cfb</span><br><span class="line">SS_IP=`ip route get 1 | awk &apos;&#123;print $NF;exit&#125;&apos;`</span><br><span class="line">GET_PIP_FILE=/tmp/get-pip.py</span><br><span class="line"></span><br><span class="line"># install pip</span><br><span class="line">curl &quot;https://bootstrap.pypa.io/get-pip.py&quot; -o &quot;$&#123;GET_PIP_FILE&#125;&quot;</span><br><span class="line">python $&#123;GET_PIP_FILE&#125;</span><br><span class="line"></span><br><span class="line"># install shadowsocks</span><br><span class="line">pip install --upgrade pip</span><br><span class="line">pip install shadowsocks</span><br><span class="line"></span><br><span class="line"># create shadowsocls config</span><br><span class="line">cat &lt;&lt;EOF | sudo tee $&#123;CONFIG_FILE&#125;</span><br><span class="line">&#123;</span><br><span class="line">  &quot;server&quot;: &quot;0.0.0.0&quot;,</span><br><span class="line">  &quot;server_port&quot;: $&#123;SS_PORT&#125;,</span><br><span class="line">  &quot;password&quot;: &quot;$&#123;SS_PASSWORD&#125;&quot;,</span><br><span class="line">  &quot;method&quot;: &quot;$&#123;SS_METHOD&#125;&quot;</span><br><span class="line">&#125;</span><br><span class="line">EOF</span><br><span class="line"></span><br><span class="line"># create service</span><br><span class="line">cat &lt;&lt;EOF | sudo tee $&#123;SERVICE_FILE&#125;</span><br><span class="line">[Unit]</span><br><span class="line">Description=Shadowsocks</span><br><span class="line"></span><br><span class="line">[Service]</span><br><span class="line">Type=simple</span><br><span class="line">User=root</span><br><span class="line">TimeoutStartSec=0</span><br><span class="line">ExecStart=/usr/bin/sslocal -c $&#123;CONFIG_FILE&#125;</span><br><span class="line"></span><br><span class="line">[Install]</span><br><span class="line">WantedBy=multi-user.target</span><br><span class="line">EOF</span><br><span class="line"></span><br><span class="line"># start service</span><br><span class="line">systemctl enable /etc/systemd/system/shadowsocks.service #后加的</span><br><span class="line">systemctl enable shadowsocks</span><br><span class="line">systemctl start shadowsocks</span><br><span class="line"></span><br><span class="line"># view service status</span><br><span class="line">sleep 5</span><br><span class="line">systemctl status shadowsocks -l</span><br><span class="line"></span><br><span class="line">echo &quot;================================&quot;</span><br><span class="line">echo &quot;&quot;</span><br><span class="line">echo &quot;Congratulations! Shadowsocks has been installed on your system.&quot;</span><br><span class="line">echo &quot;You shadowsocks connection info:&quot;</span><br><span class="line">echo &quot;--------------------------------&quot;</span><br><span class="line">echo &quot;server:      $&#123;SS_IP&#125;&quot;</span><br><span class="line">echo &quot;server_port: $&#123;SS_PORT&#125;&quot;</span><br><span class="line">echo &quot;password:    $&#123;SS_PASSWORD&#125;&quot;</span><br><span class="line">echo &quot;method:      $&#123;SS_METHOD&#125;&quot;</span><br><span class="line">echo &quot;--------------------------------&quot;</span><br></pre></td></tr></table></figure>
-<pre><code>运行文件
-</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ chmod +x install-shadowsocks.sh</span><br><span class="line">$ ./install-shadowsocks.sh</span><br></pre></td></tr></table></figure>
-<h3 id="2-2、防火墙"><a href="#2-2、防火墙" class="headerlink" title="2.2、防火墙"></a>2.2、防火墙</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">$ firewall-cmd --query-port=443/tcp // 检查端口是不是已经启用了 如果已经占用了换个端口就好, 改一下上面的json文件</span><br><span class="line">no</span><br><span class="line">$ firewall-cmd --zone=public --add-port=443/tcp --permanent // 永久开启443端口</span><br><span class="line">success</span><br><span class="line">$ firewall-cmd --reload</span><br><span class="line">success</span><br><span class="line"></span><br><span class="line">查看所有打开的端口： firewall-cmd --zone=public --list-ports</span><br></pre></td></tr></table></figure>
-<h3 id="2-3、启动ss服务"><a href="#2-3、启动ss服务" class="headerlink" title="2.3、启动ss服务"></a>2.3、启动ss服务</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ ssserver -c /etc/shadowsocks.json -d start</span><br><span class="line"># 关闭服务把 start 改 stop</span><br></pre></td></tr></table></figure>
-<h2 id="3、多用户配置"><a href="#3、多用户配置" class="headerlink" title="3、多用户配置"></a>3、多用户配置</h2><h3 id="3-1、配置"><a href="#3-1、配置" class="headerlink" title="3.1、配置"></a>3.1、配置</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  &quot;server&quot;: &quot;0.0.0.0&quot;,</span><br><span class="line">  &quot;port_password&quot;:&#123;</span><br><span class="line">    &quot;8388&quot;:&quot;password&quot;,</span><br><span class="line">    &quot;9999&quot;:&quot;password&quot;</span><br><span class="line">    &#125;,</span><br><span class="line">  &quot;method&quot;: &quot;aes-256-cfb&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>多用户不支持<code>systemctl satrt shadowsocks</code><br>使用<code>ssserver -c /etc/shadowsocks.json -d start</code>代替。</p>
- 
+         <h2 id="安装包"><a href="#安装包" class="headerlink" title="安装包"></a>安装包</h2><ul>
+<li>nginx-1.14.2.tar.gz</li>
+<li>openssl-fips-2.0.16.tar.gz</li>
+<li>zlib-1.2.11.tar.gz</li>
+<li>pcre-8.43.tar.gz</li>
+</ul>
+<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p>先安装依赖，然后安装nginx</p>
+<p>openssl<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">tar -xzvf openssl-fips-2.0.16.tar.gz</span><br><span class="line">cd openssl-fips-2.0.16/</span><br><span class="line">./config &amp;&amp; make &amp;&amp; make install</span><br></pre></td></tr></table></figure></p>
+<p>pcre<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">tar -xzvf pcre-8.43.tar.gz </span><br><span class="line">cd pcre-8.43/</span><br><span class="line">./configure &amp;&amp; make &amp;&amp; make install</span><br></pre></td></tr></table></figure></p>
+<p>zlib<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">tar -zxvf zlib-1.2.11.tar.gz</span><br><span class="line"> cd zlib-1.2.11</span><br><span class="line"> ./configure &amp;&amp; make &amp;&amp; make install</span><br></pre></td></tr></table></figure></p>
+<p>最后nginx<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">tar -zxvf nginx-1.14.2.tar.gz </span><br><span class="line">cd nginx-1.14.2</span><br><span class="line"> ./configure &amp;&amp; make &amp;&amp; make install</span><br></pre></td></tr></table></figure></p>
+<h2 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h2><p><img src="http://imgcq.test.upcdn.net/20190404144507.png?!" alt></p>
+<h2 id="操作"><a href="#操作" class="headerlink" title="操作"></a>操作</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">&lt;!---启动-&gt;</span><br><span class="line">/usr/local/nginx/sbin/nginx</span><br><span class="line"></span><br><span class="line">&lt;!--重启--&gt;</span><br><span class="line">/usr/local/nginx/sbin/nginx -s reload</span><br><span class="line"></span><br><span class="line">&lt;!--停止--&gt;</span><br><span class="line">/usr/local/nginx/sbin/nginx -s stop</span><br><span class="line"></span><br><span class="line">&lt;!--查看nginx安装位置--&gt;</span><br><span class="line">whereis nginx</span><br><span class="line"></span><br><span class="line">&lt;!---配置文件-&gt;</span><br><span class="line">cd /usr/local/nginx/conf</span><br><span class="line">vim nginx.conf</span><br></pre></td></tr></table></figure> 
   </div>
         
   <footer class="post-footer">
     
     <div class="post-tags">
       
-      <a href="/tags/shadowsocks/" rel="tag"><i class="fa fa-tag"></i>shadowsocks</a> 
-      <a href="/tags/VPS/" rel="tag"><i class="fa fa-tag"></i>VPS</a> 
+      <a href="/tags/nginx/" rel="tag"><i class="fa fa-tag"></i>nginx</a> 
     </div>
         
     <div class="post-nav">
       <div class="post-nav-next post-nav-item">
         
-        <a href="/2018/08/23/IntelliJ-IDEA-SSM框架整合/" rel="next" title="IntelliJ IDEA SSM框架整合">
-                <i class="fa fa-chevron-left"></i> IntelliJ IDEA SSM框架整合
+        <a href="/2020/03/11/Docker安装oracle/" rel="next" title="Docker安装oracle 11g">
+                <i class="fa fa-chevron-left"></i> Docker安装oracle 11g
               </a> 
       </div>
       <span class="post-nav-divider"></span>
       <div class="post-nav-prev post-nav-item">
         
-        <a href="/2018/08/23/Centos7下Nginx安装配置/" rel="prev" title="Centos7下Nginx安装配置">
-                Centos7下Nginx安装配置 <i class="fa fa-chevron-right"></i>
+        <a href="/2020/03/11/redis 4.14哨兵模式搭建/" rel="prev" title="redis 4.14单机\哨兵模式搭建">
+                redis 4.14单机\哨兵模式搭建 <i class="fa fa-chevron-right"></i>
               </a> 
       </div>
     </div>
@@ -558,7 +549,7 @@
                 
                   <a href="/archives">
                 
-                    <span class="site-state-item-count">11</span>
+                    <span class="site-state-item-count">13</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -583,9 +574,7 @@
                     
                       
                     
-                      
-                    
-                    <span class="site-state-item-count">7</span>
+                    <span class="site-state-item-count">6</span>
                     <span class="site-state-item-name">分类</span>
                   </a>
                 </div>
@@ -624,7 +613,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">13</span>
+                      
+                    
+                    <span class="site-state-item-count">14</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
@@ -666,7 +657,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1、-锐速"><span class="nav-number">1.</span> <span class="nav-text">1、 锐速</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-1、-Centos-7-不能使用ifconfig命令"><span class="nav-number">1.1.</span> <span class="nav-text">1.1、 Centos 7 不能使用ifconfig命令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-2、Centos更换内核"><span class="nav-number">1.2.</span> <span class="nav-text">1.2、Centos更换内核</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-3、安装锐速"><span class="nav-number">1.3.</span> <span class="nav-text">1.3、安装锐速</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2、CentOS-7安装shadowsocks脚本"><span class="nav-number">2.</span> <span class="nav-text">2、CentOS 7安装shadowsocks脚本</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-1、新建install-sh"><span class="nav-number">2.1.</span> <span class="nav-text">2.1、新建install.sh</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-2、防火墙"><span class="nav-number">2.2.</span> <span class="nav-text">2.2、防火墙</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-3、启动ss服务"><span class="nav-number">2.3.</span> <span class="nav-text">2.3、启动ss服务</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3、多用户配置"><span class="nav-number">3.</span> <span class="nav-text">3、多用户配置</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#3-1、配置"><span class="nav-number">3.1.</span> <span class="nav-text">3.1、配置</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#安装包"><span class="nav-number">1.</span> <span class="nav-text">安装包</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装"><span class="nav-number">2.</span> <span class="nav-text">安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#测试"><span class="nav-number">3.</span> <span class="nav-text">测试</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#操作"><span class="nav-number">4.</span> <span class="nav-text">操作</span></a></li></ol></div>
             
 
           </div>
@@ -702,7 +693,7 @@
 
 
 
-  <div class="powered-by">由 <a class="theme-link" target="_blank" rel="external nofollow" href="https://hexo.io">Hexo</a> 强力驱动 v3.8.0</div>
+  <div class="powered-by">由 <a class="theme-link" target="_blank" rel="external nofollow" href="https://hexo.io">Hexo</a> 强力驱动 v3.9.0</div>
 
 
 
@@ -712,7 +703,11 @@
 
   <div class="theme-info">主题 – <a class="theme-link" target="_blank" rel="external nofollow" href="https://theme-next.org">NexT.Muse</a> v6.4.0</div>
 
-
+<div class="BbeiAn-info"">
+  吉ICP备 -
+  <a href="http://www.miitbeian.gov.cn/">20000854号</a>
+  
+</div>
 
 
         
@@ -847,9 +842,9 @@
       var disqus = {    //插入这一行代码 (1/5)
           load : function disqus(){ 
       var disqus_config = function () {
-        this.page.url = 'http://www.xujn.xyz/2018/08/23/VPS搭建shadowsocks/';
-        this.page.identifier = '2018/08/23/VPS搭建shadowsocks/';
-        this.page.title = 'VPS搭建shadowsocks';
+        this.page.url = 'http://www.xujn.xyz/2020/03/11/nginx 1.14.2解压版安装/';
+        this.page.identifier = '2020/03/11/nginx 1.14.2解压版安装/';
+        this.page.title = 'nginx 1.14.2解压版安装';
         };
       function loadComments () {
         var d = document, s = d.createElement('script');
