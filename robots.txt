@@ -10,5 +10,5 @@ Disallow: /fonts/
 Disallow: /vendors/
 Disallow: /fancybox/
 
-Sitemap: http://www.xujn.ml/sitemap.xml
-Sitemap: http://www.xujn.ml/baidusitemap.xml
+Sitemap: http://www.xujn.xyz/sitemap.xml
+Sitemap: http://www.xujn.xyz/baidusitemap.xml
