@@ -1,3 +1,4 @@
+http://www.xujn.xyz/2020/03/25/nginx解压版平滑升级/
 http://www.xujn.xyz/2020/03/11/redis 4.14哨兵模式搭建/
 http://www.xujn.xyz/2020/03/11/nginx 1.14.2解压版安装/
 http://www.xujn.xyz/2020/03/11/Docker安装oracle/
@@ -7,4 +8,3 @@ http://www.xujn.xyz/2018/09/06/Spring-MVC项目搭建过程说明/
 http://www.xujn.xyz/2018/09/02/Redhat7-1静默安装Oracle-11g/
 http://www.xujn.xyz/2018/08/27/Linux下解决TNS-12541-TNS-no-listener问题/
 http://www.xujn.xyz/2018/08/23/Centos7下Nginx安装配置/
-http://www.xujn.xyz/2018/08/23/Linux下MySQL 5.7.22安装和忘记密码/

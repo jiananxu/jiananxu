@@ -155,25 +155,27 @@
 
 
 
-  <meta name="description" content="IgcSBWx6c8">
-<meta name="keywords" content="博客 苏叶新城 X笔记">
-<meta property="og:type" content="website">
-<meta property="og:title" content="X笔记">
-<meta property="og:url" content="http://www.xujn.xyz/baidu_verify_IgcSBWx6c8.html">
+  <meta name="description" content="配置 nginx 1.16.1 redhat  操作过程做好配置备份 下载nginx1.16.1,进行解压操作。12wget http://nginx.org/download/nginx-1.16.1.tar.gztar -xzvf nginx-1.16.1.tar.gz 进入解压后的文件夹，进行编译，不进行安装操作12cd nginx-1.16.1./configure &amp;amp;&amp;amp;">
+<meta name="keywords" content="nginx">
+<meta property="og:type" content="article">
+<meta property="og:title" content="nginx解压版平滑升级">
+<meta property="og:url" content="http://www.xujn.xyz/2020/03/25/nginx解压版平滑升级/index.html">
 <meta property="og:site_name" content="X笔记">
-<meta property="og:description" content="IgcSBWx6c8">
+<meta property="og:description" content="配置 nginx 1.16.1 redhat  操作过程做好配置备份 下载nginx1.16.1,进行解压操作。12wget http://nginx.org/download/nginx-1.16.1.tar.gztar -xzvf nginx-1.16.1.tar.gz 进入解压后的文件夹，进行编译，不进行安装操作12cd nginx-1.16.1./configure &amp;amp;&amp;amp;">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-03-11T09:54:42.633Z">
+<meta property="og:image" content="http://imgcq.test.upcdn.net/20200325175159.png?!">
+<meta property="og:updated_time" content="2020-03-25T10:50:05.493Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="X笔记">
-<meta name="twitter:description" content="IgcSBWx6c8">
+<meta name="twitter:title" content="nginx解压版平滑升级">
+<meta name="twitter:description" content="配置 nginx 1.16.1 redhat  操作过程做好配置备份 下载nginx1.16.1,进行解压操作。12wget http://nginx.org/download/nginx-1.16.1.tar.gztar -xzvf nginx-1.16.1.tar.gz 进入解压后的文件夹，进行编译，不进行安装操作12cd nginx-1.16.1./configure &amp;amp;&amp;amp;">
+<meta name="twitter:image" content="http://imgcq.test.upcdn.net/20200325175159.png?!">
 
 
 
 
 
 
-  <link rel="canonical" href="http://www.xujn.xyz/baidu_verify_IgcSBWx6c8.html">
+  <link rel="canonical" href="http://www.xujn.xyz/2020/03/25/nginx解压版平滑升级/">
 
 
 
@@ -183,7 +185,7 @@
   };
 </script>
 
-  <title> | X笔记</title>
+  <title>nginx解压版平滑升级 | X笔记</title>
   
 
 
@@ -322,28 +324,6 @@
   
     
 
-    
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-    
-
-  
-
-
   
 
   
@@ -369,44 +349,135 @@
             
 
   <div id="posts" class="posts-expand">
+         
+<article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
     
-    
-    
-    <div class="post-block page">
-      <header class="post-header">
-
-<h2 class="post-title" itemprop="name headline"></h2>
-
-<div class="post-meta">
-  
-  
-
-
-
-</div>
-
-</header>
-
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://www.xujn.xyz/2020/03/25/nginx解压版平滑升级/">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="苏叶新城">
+      <meta itemprop="description" content="愿出走半生，归来仍是少年。">
+      <meta itemprop="image" content="http://tvax1.sinaimg.cn/crop.45.180.450.450.180/005KSE0vly8fqid3j7ifej30f00miq5t.jpg">
+    </span>
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="X笔记">
+    </span> 
+    <header class="post-header">
+       
+      <h2 class="post-title" itemprop="name headline">nginx解压版平滑升级  
+      </h2>
       
-      
-      
-      <div class="post-body">
+      <div class="post-meta">
+        <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span> 
+        <span class="post-meta-item-text">发表于</span>    
+        <time title="创建时间：2020-03-25 18:49:19 / 修改时间：18:50:05" itemprop="dateCreated datePublished" datetime="2020-03-25T18:49:19+08:00">2020-03-25</time>
+            
+        </span>
         
+        <span class="post-category">
+            
+              <span class="post-meta-divider">|</span> 
+        <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span> 
+        <span class="post-meta-item-text">分类于</span>  
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/软件安装/" itemprop="url" rel="index"><span itemprop="name">软件安装</span>
+        </a>
+        </span>
+          
+        </span>
+          
+        <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+        <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+        <a href="/2020/03/25/nginx解压版平滑升级/#comments" itemprop="discussionUrl">
+                
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2020/03/25/nginx解压版平滑升级/" itemprop="commentCount"></span>
+                </a>
+        </span>
+           
+        <!-- 字数统计、阅读时长插入代码 -->
+        <span class="post-time">
+       &nbsp; | &nbsp;
+           <span class="post-meta-item-icon">
+             <i class="fa fa-calendar-o"></i>
+           </span>
+        <span class="post-meta-item-text">字数统计:</span>
+        <span class="post-count">211(字)</span>
+        </span>
+        <span class="post-time">
+       &nbsp; | &nbsp;
+           <span class="post-meta-item-icon">
+             <i class="fa fa-calendar-o"></i>
+           </span>
+        <span class="post-meta-item-text">阅读时长:</span>
+        <span class="post-count">1(分)</span>
+        </span>
         
-          IgcSBWx6c8
+        <span class="post-meta-divider">|</span>
+        <span class="post-meta-item-icon">
+            <i class="fa fa-eye"></i>
+             阅读次数： 
+            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+        </span>
+          
+      </div>
+    </header>
+       
+    <div class="post-body" itemprop="articleBody">
+         <h1 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h1><ul>
+<li>nginx 1.16.1</li>
+<li>redhat</li>
+</ul>
+<h1 id="操作过程"><a href="#操作过程" class="headerlink" title="操作过程"></a>操作过程</h1><p><strong><em>做好配置备份</em></strong></p>
+<p>下载<a href="http://nginx.org/download/nginx-1.16.1.tar.gz" target="_blank" rel="noopener">nginx1.16.1</a>,进行解压操作。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">wget http://nginx.org/download/nginx-1.16.1.tar.gz</span><br><span class="line">tar -xzvf nginx-1.16.1.tar.gz</span><br></pre></td></tr></table></figure></p>
+<p>进入解压后的文件夹，进行编译，不进行安装操作<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd nginx-1.16.1</span><br><span class="line">./configure &amp;&amp; make</span><br></pre></td></tr></table></figure></p>
+<p>备份旧版本nginx<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mv /usr/local/nginx/sbin/nginx /usr/local/nginx/sbin/nginx114.old</span><br></pre></td></tr></table></figure></p>
+<p>将刚编译后的文件替换原有文件，编译后的文件在<code>objs</code>目录下<br> <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cp objs/nginx /usr/local/nginx/sbin/</span><br></pre></td></tr></table></figure></p>
+<p>平滑升级，旧的Nginx主进程会变为<code>xxx.oldbin</code>，然后执行新版 nginx。两个版本会同时存在，共同处理请求。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kill -USR2 `cat /usr/local/nginx/logs/nginx.pid`</span><br></pre></td></tr></table></figure></p>
+<p>关闭旧版本nginx<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kill -QUIT `cat /usr/local/nginx/logs/nginx.pid.oldbin`</span><br></pre></td></tr></table></figure></p>
+<p>查看升级后版本<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/usr/local/nginx/sbin/nginx -v</span><br></pre></td></tr></table></figure></p>
+<p>操作过程</p>
+<p><img src="http://imgcq.test.upcdn.net/20200325175159.png?!" alt></p>
+ 
+  </div>
+        
+  <footer class="post-footer">
+    
+    <div class="post-tags">
+      
+      <a href="/tags/nginx/" rel="tag"><i class="fa fa-tag"></i>nginx</a> 
+    </div>
+        
+    <div class="post-nav">
+      <div class="post-nav-next post-nav-item">
+        
+        <a href="/2020/03/11/redis 4.14哨兵模式搭建/" rel="next" title="redis 4.14单机\哨兵模式搭建">
+                <i class="fa fa-chevron-left"></i> redis 4.14单机\哨兵模式搭建
+              </a> 
+      </div>
+      <span class="post-nav-divider"></span>
+      <div class="post-nav-prev post-nav-item">
         
       </div>
-      
-      
-      
     </div>
+      
+  </footer>
+  </div>
     
+</article>
 
-
-
-    
-    
-    
   </div>
 
 
@@ -450,8 +521,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -468,7 +548,7 @@
                 
                   <a href="/archives">
                 
-                    <span class="site-state-item-count">13</span>
+                    <span class="site-state-item-count">14</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -566,6 +646,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#配置"><span class="nav-number">1.</span> <span class="nav-text">配置</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#操作过程"><span class="nav-number">2.</span> <span class="nav-text">操作过程</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -745,9 +841,9 @@
       var disqus = {    //插入这一行代码 (1/5)
           load : function disqus(){ 
       var disqus_config = function () {
-        this.page.url = 'http://www.xujn.xyz/baidu_verify_IgcSBWx6c8.html';
-        this.page.identifier = 'baidu_verify_IgcSBWx6c8.html';
-        this.page.title = '';
+        this.page.url = 'http://www.xujn.xyz/2020/03/25/nginx解压版平滑升级/';
+        this.page.identifier = '2020/03/25/nginx解压版平滑升级/';
+        this.page.title = 'nginx解压版平滑升级';
         };
       function loadComments () {
         var d = document, s = d.createElement('script');
