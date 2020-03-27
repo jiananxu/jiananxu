@@ -2,105 +2,126 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://www.xujn.xyz/2020/03/25/nginx%E8%A7%A3%E5%8E%8B%E7%89%88%E5%B9%B3%E6%BB%91%E5%8D%87%E7%BA%A7/</loc>
+    <loc>http://www.xujn.xyz/2018/09/06/spring-mvc-xiang-mu-da-jian-guo-cheng-shuo-ming/</loc>
     
-    <lastmod>2020-03-25T10:50:05.493Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://www.xujn.xyz/2020/03/11/redis%204.14%E5%93%A8%E5%85%B5%E6%A8%A1%E5%BC%8F%E6%90%AD%E5%BB%BA/</loc>
-    
-    <lastmod>2020-03-11T09:47:52.842Z</lastmod>
+    <lastmod>2020-03-27T16:03:15.017Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://www.xujn.xyz/2020/03/11/nginx%201.14.2%E8%A7%A3%E5%8E%8B%E7%89%88%E5%AE%89%E8%A3%85/</loc>
+    <loc>http://www.xujn.xyz/contact/index.html</loc>
     
-    <lastmod>2020-03-11T09:35:13.453Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://www.xujn.xyz/2020/03/11/Docker%E5%AE%89%E8%A3%85oracle/</loc>
-    
-    <lastmod>2020-03-11T09:30:14.171Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://www.xujn.xyz/2020/03/11/oracle%E7%AC%94%E8%AE%B0/</loc>
-    
-    <lastmod>2020-03-11T09:22:10.500Z</lastmod>
+    <lastmod>2020-03-27T01:22:23.413Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://www.xujn.xyz/about/index.html</loc>
     
-    <lastmod>2019-05-14T03:50:22.355Z</lastmod>
+    <lastmod>2020-03-27T01:21:41.442Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://www.xujn.xyz/2019/01/23/Layui%E5%8A%A8%E6%80%81%E8%A1%A8%E6%A0%BC%E7%9A%84%E5%A2%9E%E5%88%A0%E6%94%B9%E6%9F%A5/</loc>
+    <loc>http://www.xujn.xyz/categories/index.html</loc>
+    
+    <lastmod>2020-03-27T01:21:23.090Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.xujn.xyz/tags/index.html</loc>
+    
+    <lastmod>2020-03-27T01:21:10.328Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.xujn.xyz/2020/03/25/nginx-jie-ya-ban-ping-hua-sheng-ji/</loc>
+    
+    <lastmod>2020-03-25T10:50:05.493Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.xujn.xyz/2020/03/11/redis-4.14-shao-bing-mo-shi-da-jian/</loc>
+    
+    <lastmod>2020-03-11T09:47:52.842Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.xujn.xyz/2020/03/11/nginx-1.14.2-jie-ya-ban-an-zhuang/</loc>
+    
+    <lastmod>2020-03-11T09:35:13.453Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.xujn.xyz/2020/03/11/docker-an-zhuang-oracle/</loc>
+    
+    <lastmod>2020-03-11T09:30:14.171Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.xujn.xyz/2020/03/11/oracle-bi-ji/</loc>
+    
+    <lastmod>2020-03-11T09:22:10.500Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.xujn.xyz/2019/01/23/layui-dong-tai-biao-ge-de-zeng-shan-gai-cha/</loc>
     
     <lastmod>2019-01-23T03:37:07.420Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://www.xujn.xyz/2018/09/06/Spring-MVC%E9%A1%B9%E7%9B%AE%E6%90%AD%E5%BB%BA%E8%BF%87%E7%A8%8B%E8%AF%B4%E6%98%8E/</loc>
-    
-    <lastmod>2018-09-06T15:20:03.078Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://www.xujn.xyz/2018/09/02/Redhat7-1%E9%9D%99%E9%BB%98%E5%AE%89%E8%A3%85Oracle-11g/</loc>
+    <loc>http://www.xujn.xyz/2018/09/02/redhat7-1-jing-mo-an-zhuang-oracle-11g/</loc>
     
     <lastmod>2018-09-02T14:54:55.702Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://www.xujn.xyz/2018/08/23/Centos7%E4%B8%8BNginx%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE/</loc>
+    <loc>http://www.xujn.xyz/2018/08/23/centos7-xia-nginx-an-zhuang-pei-zhi/</loc>
     
     <lastmod>2018-08-30T05:57:21.332Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://www.xujn.xyz/2017/12/30/IntelliJ-IDEA-license-server%E6%90%AD%E5%BB%BA/</loc>
+    <loc>http://www.xujn.xyz/2017/12/30/intellij-idea-license-server-da-jian/</loc>
     
     <lastmod>2018-08-30T05:57:16.871Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://www.xujn.xyz/2018/08/23/Linux%E4%B8%8BMySQL%205.7.22%E5%AE%89%E8%A3%85%E5%92%8C%E5%BF%98%E8%AE%B0%E5%AF%86%E7%A0%81/</loc>
+    <loc>http://www.xujn.xyz/2018/08/23/linux-xia-mysql-5.7.22-an-zhuang-he-wang-ji-mi-ma/</loc>
     
     <lastmod>2018-08-30T05:38:03.904Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://www.xujn.xyz/2018/08/27/Linux%E4%B8%8B%E8%A7%A3%E5%86%B3TNS-12541-TNS-no-listener%E9%97%AE%E9%A2%98/</loc>
+    <loc>http://www.xujn.xyz/2018/08/27/linux-xia-jie-jue-tns-12541-tns-no-listener-wen-ti/</loc>
     
     <lastmod>2018-08-27T02:36:02.097Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://www.xujn.xyz/2018/08/23/IntelliJ-IDEA-SSM%E6%A1%86%E6%9E%B6%E6%95%B4%E5%90%88/</loc>
+    <loc>http://www.xujn.xyz/2018/08/23/intellij-idea-ssm-kuang-jia-zheng-he/</loc>
     
     <lastmod>2018-08-23T04:19:06.925Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://www.xujn.xyz/2018/08/14/Redhat%E6%9B%B4%E6%8D%A2yum%E6%BA%90/</loc>
+    <loc>http://www.xujn.xyz/2018/08/14/redhat-geng-huan-yum-yuan/</loc>
     
     <lastmod>2018-08-14T13:02:33.228Z</lastmod>
     
@@ -110,20 +131,6 @@
     <loc>http://www.xujn.xyz/archives/index.html</loc>
     
     <lastmod>2018-08-14T12:35:52.134Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://www.xujn.xyz/categories/index.html</loc>
-    
-    <lastmod>2018-08-14T12:33:22.493Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://www.xujn.xyz/tags/index.html</loc>
-    
-    <lastmod>2018-08-14T12:31:15.240Z</lastmod>
     
   </url>
   

@@ -1,546 +1,484 @@
-<!DOCTYPE html>
+<!DOCTYPE HTML>
+<html lang="zh-CN">
 
 
-
-
-
-
-
-
-
-
-
-
-  
-
-
-<html class="theme-next muse use-motion" lang="zh-CN">
 <head><meta name="generator" content="Hexo 3.9.0">
-  <meta charset="UTF-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
-<meta name="theme-color" content="#222">
-<!-- 顶部加载条 -->
-<script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
-<link href="//cdn.bootcss.com/pace/1.0.2/themes/pink/pace-theme-flash.css" rel="stylesheet">
+    <meta charset="utf-8">
+    <meta name="keywords" content="博客 苏叶新城 X笔记">
+    <meta name="description" content="愿出走半生，归来仍是少年。">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>X笔记</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+    <script src="/libs/jquery/jquery.min.js"></script>
+    
+<link rel="stylesheet" href="/css/prism-atom-dark.css" type="text/css">
+<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"><script src="/js/prism.js"></script>
+<script src="/js/prism-line-numbers.min.js"></script></head>
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">X笔记</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/contact" class="waves-effect waves-light">
+      
+      <i class="fas fa-comments" style="zoom: 0.6;"></i>
+      
+      <span>留言板</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">X笔记</div>
+        <div class="logo-desc">
+            
+            愿出走半生，归来仍是少年。
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/contact" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-comments"></i>
+			
+			留言板
+		</a>
+          
+        </li>
+        
+        
+    </ul>
+</div>
+
+        </div>
+
+        
+    </nav>
+
+</header>
+
+    
 <style>
-    .pace .pace-progress {
-        background: #1E92FB; /*进度条颜色*/
-        height: 3px;
+    .carousel-control {
+        width: 45px;
+        height: 45px;
+        line-height: 55px;
+        border-radius: 45px;
+        background: transparent;
+        cursor: pointer;
+        z-index: 100;
     }
-    .pace .pace-progress-inner {
-         box-shadow: 0 0 10px #1E92FB, 0 0 5px     #1E92FB; /*阴影颜色*/
+
+    #prev-cover {
+        position: absolute;
+        top: 48%;
+        left: 8px;
     }
-    .pace .pace-activity {
-        border-top-color: #1E92FB;    /*上边框颜色*/
-        border-left-color: #1E92FB;    /*左边框颜色*/
+
+    #next-cover {
+        position: absolute;
+        top: 48%;
+        right: 8px;;
+    }
+
+    #prev-cover i {
+        margin-right: 3px;
+    }
+
+    #next-cover i {
+        margin-left: 3px;
+    }
+
+    .carousel-control:hover {
+        background-color: rgba(0, 0, 0, .4);
+    }
+
+    .carousel-control i {
+        color: #fff;
+        font-size: 2.4rem;
     }
 </style>
 
 
 
-
-  
-  
-    
-    
-  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
-  <link href="/lib/pace/pace-theme-minimal.min.css?v=1.0.2" rel="stylesheet">
-
-
-
-
-
-
-
-<meta http-equiv="Cache-Control" content="no-transform">
-<meta http-equiv="Cache-Control" content="no-siteapp">
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  
-  
-  
-  
-
-  
-    
-    
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-    
-    
-    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
-  
-
-
-
-
-
-
-<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
-
-<link href="/css/main.css?v=6.4.0" rel="stylesheet" type="text/css">
-
-
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.4.0">
-
-
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.4.0">
-
-
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.4.0">
-
-
-  <link rel="mask-icon" href="/images/logo.svg?v=6.4.0" color="#222">
-
-
-
-
-
-
-
-
-
-<script type="text/javascript" id="hexo.configurations">
-  var NexT = window.NexT || {};
-  var CONFIG = {
-    root: '/',
-    scheme: 'Muse',
-    version: '6.4.0',
-    sidebar: {"position":"right","display":"post","offset":12,"b2t":false,"scrollpercent":true,"onmobile":false},
-    fancybox: false,
-    fastclick: false,
-    lazyload: false,
-    tabs: true,
-    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
-    algolia: {
-      applicationID: '',
-      apiKey: '',
-      indexName: '',
-      hits: {"per_page":10},
-      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
-    }
-  };
-</script>
-
-
-  
-
-
-
-
-  <meta name="description" content="愿出走半生，归来仍是少年。">
-<meta name="keywords" content="博客 苏叶新城 X笔记">
-<meta property="og:type" content="website">
-<meta property="og:title" content="X笔记">
-<meta property="og:url" content="http://www.xujn.xyz/index.html">
-<meta property="og:site_name" content="X笔记">
-<meta property="og:description" content="愿出走半生，归来仍是少年。">
-<meta property="og:locale" content="zh-CN">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="X笔记">
-<meta name="twitter:description" content="愿出走半生，归来仍是少年。">
-
-
-
-
-
-
-  <link rel="canonical" href="http://www.xujn.xyz/">
-
-
-
-<script type="text/javascript" id="page.configurations">
-  CONFIG.page = {
-    sidebar: "",
-  };
-</script>
-
-  <title>X笔记</title>
-  
-
-
-
-
-
-
-  <script type="text/javascript">
-    var _hmt = _hmt || [];
-    (function() {
-      var hm = document.createElement("script");
-      hm.src = "https://hm.baidu.com/hm.js?54661689cad17bb7955f67cd67ec128c";
-      var s = document.getElementsByTagName("script")[0];
-      s.parentNode.insertBefore(hm, s);
-    })();
-  </script>
-
-
-
-
-  <noscript>
-  <style type="text/css">
-    .use-motion .motion-element,
-    .use-motion .brand,
-    .use-motion .menu-item,
-    .sidebar-inner,
-    .use-motion .post-block,
-    .use-motion .pagination,
-    .use-motion .comments,
-    .use-motion .post-header,
-    .use-motion .post-body,
-    .use-motion .collection-title { opacity: initial; }
-
-    .use-motion .logo,
-    .use-motion .site-title,
-    .use-motion .site-subtitle {
-      opacity: initial;
-      top: initial;
-    }
-
-    .use-motion {
-      .logo-line-before i { left: initial; }
-      .logo-line-after i { right: initial; }
-    }
-  </style>
-</noscript>
-
-</head>
-
-<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
-
-  
-  
-    
-  
-
-  <div class="container sidebar-position-right 
-  page-home">
-    <div class="headband"></div>
-
-    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
-      <div class="header-inner"><div class="site-brand-wrapper">
-  <div class="site-meta ">
+<div class="carousel carousel-slider center index-cover" data-indicators="true" style="margin-top: -64px;">
     
 
-    <div class="custom-logo-site-title">
-      <a href="/" class="brand" rel="start">
-        <span class="logo-line-before"><i></i></span>
-        <span class="site-title">X笔记</span>
-        <span class="logo-line-after"><i></i></span>
-      </a>
-    </div>
-    
-  </div>
-
-  <div class="site-nav-toggle">
-    <button aria-label="切换导航栏">
-      <span class="btn-bar"></span>
-      <span class="btn-bar"></span>
-      <span class="btn-bar"></span>
-    </button>
-  </div>
-</div>
-
-
-
-<nav class="site-nav">
-  
-    <ul id="menu" class="menu">
-      
-        
-        
-        
-          
-          <li class="menu-item menu-item-home menu-item-active">
-    <a href="/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
-  </li>
-        
-        
-        
-          
-          <li class="menu-item menu-item-categories">
-    <a href="/categories" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类</a>
-  </li>
-        
-        
-        
-          
-          <li class="menu-item menu-item-archives">
-    <a href="/archives" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
-  </li>
-        
-        
-        
-          
-          <li class="menu-item menu-item-tags">
-    <a href="/tags" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-tag"></i> <br>标签</a>
-  </li>
-        
-        
-        
-          
-          <li class="menu-item menu-item-about">
-    <a href="/about" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-user"></i> <br>关于</a>
-  </li>
-
-      
-      
-    </ul>
-  
-
-  
-    
-
-  
-
-  
-</nav>
-
-
-
-  
-
-
-
-</div>
-    </header>
-
-    
-
-
-    <main id="main" class="main">
-      <div class="main-inner">
-        <div class="content-wrap">
-          
-          <div id="content" class="content">
-            
-  <section id="posts" class="posts-expand">
-    
-           
-<article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://www.xujn.xyz/2020/03/25/nginx解压版平滑升级/">
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="苏叶新城">
-      <meta itemprop="description" content="愿出走半生，归来仍是少年。">
-      <meta itemprop="image" content="http://tvax1.sinaimg.cn/crop.45.180.450.450.180/005KSE0vly8fqid3j7ifej30f00miq5t.jpg">
-    </span>
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="X笔记">
-    </span> 
-    <header class="post-header">
-       
-      <h2 class="post-title" itemprop="name headline"> 
-        <a class="post-title-link" href="/2020/03/25/nginx解压版平滑升级/" itemprop="url">
-                  nginx解压版平滑升级
-                </a>  
-      </h2>
-      
-      <div class="post-meta">
-        <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span> 
-        <span class="post-meta-item-text">发表于</span>    
-        <time title="创建时间：2020-03-25 18:49:19 / 修改时间：18:50:05" itemprop="dateCreated datePublished" datetime="2020-03-25T18:49:19+08:00">2020-03-25</time>
-            
-        </span>
-        
-        <span class="post-category">
-            
-              <span class="post-meta-divider">|</span> 
-        <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span> 
-        <span class="post-meta-item-text">分类于</span>  
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/软件安装/" itemprop="url" rel="index"><span itemprop="name">软件安装</span>
-        </a>
-        </span>
-          
-        </span>
-          
-        <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-        <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-        <a href="/2020/03/25/nginx解压版平滑升级/#comments" itemprop="discussionUrl">
+    <div class="carousel-item red white-text bg-cover about-cover">
+        <div class="container">
+            <div class="row">
+    <div class="col s10 offset-s1 m8 offset-m2 l8 offset-l2">
+        <div class="brand">
+            <div class="title center-align">
                 
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2020/03/25/nginx解压版平滑升级/" itemprop="commentCount"></span>
+                苏叶新城
+                
+            </div>
+
+            <div class="description center-align">
+                
+                <span id="subtitle"></span>
+                <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11"></script>
+                <script>
+                    var typed = new Typed("#subtitle", {
+                        strings: ['山水相逢又一程','.............'],
+                        startDelay: 300,
+                        typeSpeed: 100,
+                        loop: true,
+                        backSpeed: 50,
+                        showCursor: true
+                    });
+                </script>
+                
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script>
+    // 每天切换 banner 图.  Switch banner image every day.
+    $('.bg-cover').css('background-image', 'url(/medias/banner/' + new Date().getDay() + '.jpg)');
+</script>
+
+
+
+            <div class="cover-btns">
+                <a href="#indexCard" class="waves-effect waves-light btn">
+                    <i class="fa fa-angle-double-down"></i>开始阅读
                 </a>
-        </span>
-           
-        <!-- 字数统计、阅读时长插入代码 -->
-        <span class="post-time">
-       &nbsp; | &nbsp;
-           <span class="post-meta-item-icon">
-             <i class="fa fa-calendar-o"></i>
-           </span>
-        <span class="post-meta-item-text">字数统计:</span>
-        <span class="post-count">211(字)</span>
-        </span>
-        <span class="post-time">
-       &nbsp; | &nbsp;
-           <span class="post-meta-item-icon">
-             <i class="fa fa-calendar-o"></i>
-           </span>
-        <span class="post-meta-item-text">阅读时长:</span>
-        <span class="post-count">1(分)</span>
-        </span>
-          
-      </div>
-    </header>
-       
-    <div class="post-body" itemprop="articleBody">
-           配置
+
+                
+            </div>
+            <div class="cover-social-link">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script>
+    // TODO 此处的轮播尚需优化，PC/Mobile 在触摸切换时都感觉相当不灵活
+    $(function () {
+        let coverSlider = $('.carousel');
+
+        //用户触摸轮播自动 restartPlay 是否生效
+        let initUserPressedOrDraggedActive = false
+
+        //用户触摸轮播自动 restartPlay
+        function initUserPressedOrDragged(instance) {
+            setInterval(() => {
+                if (instance.pressed || instance.dragged) {
+                    // console.log('initUserPressedOrDragged: ',instance.pressed,instance.dragged)
+                    restartPlay()
+                }
+            }, 1000)
+        }
+
+        coverSlider.carousel({
+            duration: Number('120'),
+            fullWidth: true,
+            indicators: 'true' === 'true',
+            onCycleTo() {
+                if (!initUserPressedOrDraggedActive) {
+                    // console.log('initUserPressedOrDraggedActive')
+                    initUserPressedOrDragged(this)
+                    initUserPressedOrDraggedActive = true
+                }
+            },
+        })
+
+        let carouselIntervalId;
+        
+        // Loop to call the next cover article picture.
+        let autoCarousel = function () {
+            carouselIntervalId = setInterval(function () {
+                coverSlider.carousel('next');
+            }, 5000);
+        };
+        autoCarousel();
+        
+
+        function restartPlay() {
+            
+            clearInterval(carouselIntervalId);
+            autoCarousel();
+            
+        };
+
+        
+        // prev and next cover post.
+        $('#prev-cover').click(function () {
+            coverSlider.carousel('prev');
+            restartPlay();
+        });
+        $('#next-cover').click(function () {
+            coverSlider.carousel('next');
+            restartPlay();
+        });
+        
+    });
+</script>
+
+
+
+<main class="content">
+
+    
+
+    
+
+    <!-- 所有文章卡片 -->
+    <article id="articles" class="container articles">
+        <div class="row article-row">
+            
+            <div class="article col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/2020/03/25/nginx-jie-ya-ban-ping-hua-sheng-ji/">
+                        <div class="card-image">
+                            
+                            
+                            <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="nginx解压版平滑升级">
+                            
+                            <span class="card-title">nginx解压版平滑升级</span>
+                        </div>
+                    </a>
+
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                配置
 nginx 1.16.1
 redhat
 
 操作过程做好配置备份
-下载nginx1.16.1,进行解压操作。12wget http://nginx.org/download/nginx-1.16.1.tar.gztar -xzvf nginx-1.16.1.tar.gz
-进入解压后的文件夹，进行 ...
-    <!--noindex-->
-    <div class="post-button text-center">
-      <a class="btn" href="/2020/03/25/nginx解压版平滑升级/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-    </div>
-    <!--/noindex-->
-     
-  </div>
-        
-  <footer class="post-footer">
-        
-    <div class="post-eof"></div>
-    
-  </footer>
-  </div>
-    
-</article>
+下载nginx1.16.1,进行解压操作。
+wget http://nginx.org/download/nginx-1.16.1.tar.gz
+tar -xzvf ng
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-03-25
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fas fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/软件安装/" class="post-category">
+                                    软件安装
+                                </a>
+                                
+                                
+                            </span>
+                        </div>
+                    </div>
 
-    
-           
-<article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://www.xujn.xyz/2020/03/11/redis 4.14哨兵模式搭建/">
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="苏叶新城">
-      <meta itemprop="description" content="愿出走半生，归来仍是少年。">
-      <meta itemprop="image" content="http://tvax1.sinaimg.cn/crop.45.180.450.450.180/005KSE0vly8fqid3j7ifej30f00miq5t.jpg">
-    </span>
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="X笔记">
-    </span> 
-    <header class="post-header">
-       
-      <h2 class="post-title" itemprop="name headline"> 
-        <a class="post-title-link" href="/2020/03/11/redis 4.14哨兵模式搭建/" itemprop="url">
-                  redis 4.14单机\哨兵模式搭建
-                </a>  
-      </h2>
-      
-      <div class="post-meta">
-        <span class="post-time">
+                    
+                    <div class="card-action article-tags">
+                        
+                        <a href="/tags/nginx/">
+                            <span class="chip bg-color">nginx</span>
+                        </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+            
+            <div class="article col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/2020/03/11/redis-4.14-shao-bing-mo-shi-da-jian/">
+                        <div class="card-image">
+                            
+                            
+                            <img src="/medias/featureimages/3.jpg" class="responsive-img" alt="redis 4.14单机\哨兵模式搭建">
+                            
+                            <span class="card-title">redis 4.14单机\哨兵模式搭建</span>
+                        </div>
+                    </a>
 
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span> 
-        <span class="post-meta-item-text">发表于</span>    
-        <time title="创建时间：2020-03-11 18:37:45 / 修改时间：17:47:52" itemprop="dateCreated datePublished" datetime="2020-03-11T18:37:45+08:00">2020-03-11</time>
-            
-        </span>
-        
-        <span class="post-category">
-            
-              <span class="post-meta-divider">|</span> 
-        <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span> 
-        <span class="post-meta-item-text">分类于</span>  
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/软件安装/" itemprop="url" rel="index"><span itemprop="name">软件安装</span>
-        </a>
-        </span>
-          
-        </span>
-          
-        <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-        <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-        <a href="/2020/03/11/redis 4.14哨兵模式搭建/#comments" itemprop="discussionUrl">
-                
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2020/03/11/redis 4.14哨兵模式搭建/" itemprop="commentCount"></span>
-                </a>
-        </span>
-           
-        <!-- 字数统计、阅读时长插入代码 -->
-        <span class="post-time">
-       &nbsp; | &nbsp;
-           <span class="post-meta-item-icon">
-             <i class="fa fa-calendar-o"></i>
-           </span>
-        <span class="post-meta-item-text">字数统计:</span>
-        <span class="post-count">957(字)</span>
-        </span>
-        <span class="post-time">
-       &nbsp; | &nbsp;
-           <span class="post-meta-item-icon">
-             <i class="fa fa-calendar-o"></i>
-           </span>
-        <span class="post-meta-item-text">阅读时长:</span>
-        <span class="post-count">5(分)</span>
-        </span>
-          
-      </div>
-    </header>
-       
-    <div class="post-body" itemprop="articleBody">
-           环境
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                环境
 redis:4.0.14
 linux
 1主2从
@@ -548,1363 +486,770 @@ linux
 安装下载redisredis-4.0.14.tar.gz
 配置redis解压 tar -xzvf redis-4.0.14.tar.gz
 编译cd redis-4.0.14/
-执行make
-结束后，在redis-4.0.14新建config文件 ...
-    <!--noindex-->
-    <div class="post-button text-center">
-      <a class="btn" href="/2020/03/11/redis 4.14哨兵模式搭建/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-    </div>
-    <!--/noindex-->
-     
-  </div>
-        
-  <footer class="post-footer">
-        
-    <div class="post-eof"></div>
-    
-  </footer>
-  </div>
-    
-</article>
+执行ma
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-03-11
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fas fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/软件安装/" class="post-category">
+                                    软件安装
+                                </a>
+                                
+                                
+                            </span>
+                        </div>
+                    </div>
 
-    
-           
-<article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://www.xujn.xyz/2020/03/11/nginx 1.14.2解压版安装/">
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="苏叶新城">
-      <meta itemprop="description" content="愿出走半生，归来仍是少年。">
-      <meta itemprop="image" content="http://tvax1.sinaimg.cn/crop.45.180.450.450.180/005KSE0vly8fqid3j7ifej30f00miq5t.jpg">
-    </span>
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="X笔记">
-    </span> 
-    <header class="post-header">
-       
-      <h2 class="post-title" itemprop="name headline"> 
-        <a class="post-title-link" href="/2020/03/11/nginx 1.14.2解压版安装/" itemprop="url">
-                  nginx 1.14.2解压版安装
-                </a>  
-      </h2>
-      
-      <div class="post-meta">
-        <span class="post-time">
+                    
+                    <div class="card-action article-tags">
+                        
+                        <a href="/tags/redis/">
+                            <span class="chip bg-color">redis</span>
+                        </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+            
+            <div class="article col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/2020/03/11/nginx-1.14.2-jie-ya-ban-an-zhuang/">
+                        <div class="card-image">
+                            
+                            
+                            <img src="/medias/featureimages/14.jpg" class="responsive-img" alt="nginx 1.14.2解压版安装">
+                            
+                            <span class="card-title">nginx 1.14.2解压版安装</span>
+                        </div>
+                    </a>
 
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span> 
-        <span class="post-meta-item-text">发表于</span>    
-        <time title="创建时间：2020-03-11 18:31:59 / 修改时间：17:35:13" itemprop="dateCreated datePublished" datetime="2020-03-11T18:31:59+08:00">2020-03-11</time>
-            
-        </span>
-        
-        <span class="post-category">
-            
-              <span class="post-meta-divider">|</span> 
-        <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span> 
-        <span class="post-meta-item-text">分类于</span>  
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/软件安装/" itemprop="url" rel="index"><span itemprop="name">软件安装</span>
-        </a>
-        </span>
-          
-        </span>
-          
-        <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-        <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-        <a href="/2020/03/11/nginx 1.14.2解压版安装/#comments" itemprop="discussionUrl">
-                
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2020/03/11/nginx 1.14.2解压版安装/" itemprop="commentCount"></span>
-                </a>
-        </span>
-           
-        <!-- 字数统计、阅读时长插入代码 -->
-        <span class="post-time">
-       &nbsp; | &nbsp;
-           <span class="post-meta-item-icon">
-             <i class="fa fa-calendar-o"></i>
-           </span>
-        <span class="post-meta-item-text">字数统计:</span>
-        <span class="post-count">191(字)</span>
-        </span>
-        <span class="post-time">
-       &nbsp; | &nbsp;
-           <span class="post-meta-item-icon">
-             <i class="fa fa-calendar-o"></i>
-           </span>
-        <span class="post-meta-item-text">阅读时长:</span>
-        <span class="post-count">1(分)</span>
-        </span>
-          
-      </div>
-    </header>
-       
-    <div class="post-body" itemprop="articleBody">
-           安装包
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                安装包
 nginx-1.14.2.tar.gz
 openssl-fips-2.0.16.tar.gz
 zlib-1.2.11.tar.gz
 pcre-8.43.tar.gz
 
 安装先安装依赖，然后安装nginx
-openssl123tar -xzvf openssl-fips-2.0.16.tar. ...
-    <!--noindex-->
-    <div class="post-button text-center">
-      <a class="btn" href="/2020/03/11/nginx 1.14.2解压版安装/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-    </div>
-    <!--/noindex-->
-     
-  </div>
-        
-  <footer class="post-footer">
-        
-    <div class="post-eof"></div>
-    
-  </footer>
-  </div>
-    
-</article>
+openssl
+tar -x
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-03-11
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fas fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/软件安装/" class="post-category">
+                                    软件安装
+                                </a>
+                                
+                                
+                            </span>
+                        </div>
+                    </div>
 
-    
-           
-<article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://www.xujn.xyz/2020/03/11/Docker安装oracle/">
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="苏叶新城">
-      <meta itemprop="description" content="愿出走半生，归来仍是少年。">
-      <meta itemprop="image" content="http://tvax1.sinaimg.cn/crop.45.180.450.450.180/005KSE0vly8fqid3j7ifej30f00miq5t.jpg">
-    </span>
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="X笔记">
-    </span> 
-    <header class="post-header">
-       
-      <h2 class="post-title" itemprop="name headline"> 
-        <a class="post-title-link" href="/2020/03/11/Docker安装oracle/" itemprop="url">
-                  Docker安装oracle 11g
-                </a>  
-      </h2>
-      
-      <div class="post-meta">
-        <span class="post-time">
+                    
+                    <div class="card-action article-tags">
+                        
+                        <a href="/tags/nginx/">
+                            <span class="chip bg-color">nginx</span>
+                        </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+            
+            <div class="article col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/2020/03/11/docker-an-zhuang-oracle/">
+                        <div class="card-image">
+                            
+                            
+                            <img src="/medias/featureimages/9.jpg" class="responsive-img" alt="Docker安装oracle 11g">
+                            
+                            <span class="card-title">Docker安装oracle 11g</span>
+                        </div>
+                    </a>
 
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span> 
-        <span class="post-meta-item-text">发表于</span>    
-        <time title="创建时间：2020-03-11 18:28:08 / 修改时间：17:30:14" itemprop="dateCreated datePublished" datetime="2020-03-11T18:28:08+08:00">2020-03-11</time>
-            
-        </span>
-        
-        <span class="post-category">
-            
-              <span class="post-meta-divider">|</span> 
-        <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span> 
-        <span class="post-meta-item-text">分类于</span>  
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/数据库/" itemprop="url" rel="index"><span itemprop="name">数据库</span>
-        </a>
-        </span>
-          
-        </span>
-          
-        <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-        <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-        <a href="/2020/03/11/Docker安装oracle/#comments" itemprop="discussionUrl">
-                
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2020/03/11/Docker安装oracle/" itemprop="commentCount"></span>
-                </a>
-        </span>
-           
-        <!-- 字数统计、阅读时长插入代码 -->
-        <span class="post-time">
-       &nbsp; | &nbsp;
-           <span class="post-meta-item-icon">
-             <i class="fa fa-calendar-o"></i>
-           </span>
-        <span class="post-meta-item-text">字数统计:</span>
-        <span class="post-count">603(字)</span>
-        </span>
-        <span class="post-time">
-       &nbsp; | &nbsp;
-           <span class="post-meta-item-icon">
-             <i class="fa fa-calendar-o"></i>
-           </span>
-        <span class="post-meta-item-text">阅读时长:</span>
-        <span class="post-count">3(分)</span>
-        </span>
-          
-      </div>
-    </header>
-       
-    <div class="post-body" itemprop="articleBody">
-           环境
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                环境
 主机win10,宿主机 Ubuntu 18.04
 Docker version 18.09.2
 oracle 11g
 Vmware Workstaion 15 Pro
 
-安装docker安装docker有两种方式，一种从Ubuntu的存储库安装，这种安装方式docker版本不是最新的。第二种从 ...
-    <!--noindex-->
-    <div class="post-button text-center">
-      <a class="btn" href="/2020/03/11/Docker安装oracle/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-    </div>
-    <!--/noindex-->
-     
-  </div>
-        
-  <footer class="post-footer">
-        
-    <div class="post-eof"></div>
-    
-  </footer>
-  </div>
-    
-</article>
+安装docker安装docker有两种方式，一种从Ubuntu的
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-03-11
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fas fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/数据库/" class="post-category">
+                                    数据库
+                                </a>
+                                
+                                
+                            </span>
+                        </div>
+                    </div>
 
-    
-           
-<article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://www.xujn.xyz/2020/03/11/oracle笔记/">
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="苏叶新城">
-      <meta itemprop="description" content="愿出走半生，归来仍是少年。">
-      <meta itemprop="image" content="http://tvax1.sinaimg.cn/crop.45.180.450.450.180/005KSE0vly8fqid3j7ifej30f00miq5t.jpg">
-    </span>
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="X笔记">
-    </span> 
-    <header class="post-header">
-       
-      <h2 class="post-title" itemprop="name headline"> 
-        <a class="post-title-link" href="/2020/03/11/oracle笔记/" itemprop="url">
-                  Oracle笔记
-                </a>  
-      </h2>
-      
-      <div class="post-meta">
-        <span class="post-time">
+                    
+                    <div class="card-action article-tags">
+                        
+                        <a href="/tags/Oracle-Docker/">
+                            <span class="chip bg-color">Oracle Docker</span>
+                        </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+            
+            <div class="article col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/2020/03/11/oracle-bi-ji/">
+                        <div class="card-image">
+                            
+                            
+                            <img src="/medias/featureimages/10.jpg" class="responsive-img" alt="Oracle笔记">
+                            
+                            <span class="card-title">Oracle笔记</span>
+                        </div>
+                    </a>
 
-            
-            
-            
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                Oracle权限赋予和新建序列赋予表和序列权限grant select,insert,update on res.plan_task to ishare
+grant select,insert,update on res.plan_task
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-03-11
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fas fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/数据库/" class="post-category">
+                                    数据库
+                                </a>
+                                
+                                
+                            </span>
+                        </div>
+                    </div>
 
+                    
+                    <div class="card-action article-tags">
+                        
+                        <a href="/tags/ORACLE/">
+                            <span class="chip bg-color">ORACLE</span>
+                        </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
             
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span> 
-        <span class="post-meta-item-text">发表于</span>    
-        <time title="创建时间：2020-03-11 18:11:28 / 修改时间：17:22:10" itemprop="dateCreated datePublished" datetime="2020-03-11T18:11:28+08:00">2020-03-11</time>
-            
-        </span>
-        
-        <span class="post-category">
-            
-              <span class="post-meta-divider">|</span> 
-        <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span> 
-        <span class="post-meta-item-text">分类于</span>  
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/数据库/" itemprop="url" rel="index"><span itemprop="name">数据库</span>
-        </a>
-        </span>
-          
-        </span>
-          
-        <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-        <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-        <a href="/2020/03/11/oracle笔记/#comments" itemprop="discussionUrl">
-                
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2020/03/11/oracle笔记/" itemprop="commentCount"></span>
-                </a>
-        </span>
-           
-        <!-- 字数统计、阅读时长插入代码 -->
-        <span class="post-time">
-       &nbsp; | &nbsp;
-           <span class="post-meta-item-icon">
-             <i class="fa fa-calendar-o"></i>
-           </span>
-        <span class="post-meta-item-text">字数统计:</span>
-        <span class="post-count">451(字)</span>
-        </span>
-        <span class="post-time">
-       &nbsp; | &nbsp;
-           <span class="post-meta-item-icon">
-             <i class="fa fa-calendar-o"></i>
-           </span>
-        <span class="post-meta-item-text">阅读时长:</span>
-        <span class="post-count">2(分)</span>
-        </span>
-          
-      </div>
-    </header>
-       
-    <div class="post-body" itemprop="articleBody">
-           Oracle权限赋予和新建序列赋予表和序列权限123456789grant select,insert,update on res.plan_task to isharegrant select,insert,update on res.plan_task_instance to isharegra ...
-    <!--noindex-->
-    <div class="post-button text-center">
-      <a class="btn" href="/2020/03/11/oracle笔记/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-    </div>
-    <!--/noindex-->
-     
-  </div>
-        
-  <footer class="post-footer">
-        
-    <div class="post-eof"></div>
-    
-  </footer>
-  </div>
-    
-</article>
+            <div class="article col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/2019/01/23/layui-dong-tai-biao-ge-de-zeng-shan-gai-cha/">
+                        <div class="card-image">
+                            
+                            
+                            <img src="/medias/featureimages/19.jpg" class="responsive-img" alt="Layui动态表格的增删改查">
+                            
+                            <span class="card-title">Layui动态表格的增删改查</span>
+                        </div>
+                    </a>
 
-    
-           
-<article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://www.xujn.xyz/2019/01/23/Layui动态表格的增删改查/">
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="苏叶新城">
-      <meta itemprop="description" content="愿出走半生，归来仍是少年。">
-      <meta itemprop="image" content="http://tvax1.sinaimg.cn/crop.45.180.450.450.180/005KSE0vly8fqid3j7ifej30f00miq5t.jpg">
-    </span>
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="X笔记">
-    </span> 
-    <header class="post-header">
-       
-      <h2 class="post-title" itemprop="name headline"> 
-        <a class="post-title-link" href="/2019/01/23/Layui动态表格的增删改查/" itemprop="url">
-                  Layui动态表格的增删改查
-                </a>  
-      </h2>
-      
-      <div class="post-meta">
-        <span class="post-time">
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                表格查询按钮
+ &lt;button class=&quot;layui-btn&quot; lay-submit lay-filter=&quot;lay-index-search&quot;&gt;
+        &lt;i clas
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2019-01-23
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fas fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/Layui/" class="post-category">
+                                    Layui
+                                </a>
+                                
+                                
+                            </span>
+                        </div>
+                    </div>
 
+                    
+                    <div class="card-action article-tags">
+                        
+                        <a href="/tags/Layui/">
+                            <span class="chip bg-color">Layui</span>
+                        </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
             
-            
-            
+            <div class="article col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/2018/09/06/spring-mvc-xiang-mu-da-jian-guo-cheng-shuo-ming/">
+                        <div class="card-image">
+                            
+                            
+                            <img src="/medias/featureimages/7.jpg" class="responsive-img" alt="Spring MVC项目搭建过程说明">
+                            
+                            <span class="card-title">Spring MVC项目搭建过程说明</span>
+                        </div>
+                    </a>
 
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span> 
-        <span class="post-meta-item-text">发表于</span>    
-        <time title="创建时间：2019-01-23 11:24:55 / 修改时间：11:37:07" itemprop="dateCreated datePublished" datetime="2019-01-23T11:24:55+08:00">2019-01-23</time>
-            
-        </span>
-        
-        <span class="post-category">
-            
-              <span class="post-meta-divider">|</span> 
-        <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span> 
-        <span class="post-meta-item-text">分类于</span>  
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Layui/" itemprop="url" rel="index"><span itemprop="name">Layui</span>
-        </a>
-        </span>
-          
-        </span>
-          
-        <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-        <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-        <a href="/2019/01/23/Layui动态表格的增删改查/#comments" itemprop="discussionUrl">
-                
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2019/01/23/Layui动态表格的增删改查/" itemprop="commentCount"></span>
-                </a>
-        </span>
-           
-        <!-- 字数统计、阅读时长插入代码 -->
-        <span class="post-time">
-       &nbsp; | &nbsp;
-           <span class="post-meta-item-icon">
-             <i class="fa fa-calendar-o"></i>
-           </span>
-        <span class="post-meta-item-text">字数统计:</span>
-        <span class="post-count">827(字)</span>
-        </span>
-        <span class="post-time">
-       &nbsp; | &nbsp;
-           <span class="post-meta-item-icon">
-             <i class="fa fa-calendar-o"></i>
-           </span>
-        <span class="post-meta-item-text">阅读时长:</span>
-        <span class="post-count">5(分)</span>
-        </span>
-          
-      </div>
-    </header>
-       
-    <div class="post-body" itemprop="articleBody">
-           表格查询按钮123&lt;button class=&quot;layui-btn&quot; lay-submit lay-filter=&quot;lay-index-search&quot;&gt;       &lt;i class=&quot;layui-icon layui-icon-s ...
-    <!--noindex-->
-    <div class="post-button text-center">
-      <a class="btn" href="/2019/01/23/Layui动态表格的增删改查/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-    </div>
-    <!--/noindex-->
-     
-  </div>
-        
-  <footer class="post-footer">
-        
-    <div class="post-eof"></div>
-    
-  </footer>
-  </div>
-    
-</article>
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                基本的项目结构
+pom.xml文件&lt;properties>
+    &lt;project.build.sourceEncoding>UTF-8&lt;/project.build.sourceEncoding>
+    &lt;!-
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2018-09-06
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fas fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/Spring/" class="post-category">
+                                    Spring
+                                </a>
+                                
+                                
+                            </span>
+                        </div>
+                    </div>
 
-    
-           
-<article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://www.xujn.xyz/2018/09/06/Spring-MVC项目搭建过程说明/">
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="苏叶新城">
-      <meta itemprop="description" content="愿出走半生，归来仍是少年。">
-      <meta itemprop="image" content="http://tvax1.sinaimg.cn/crop.45.180.450.450.180/005KSE0vly8fqid3j7ifej30f00miq5t.jpg">
-    </span>
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="X笔记">
-    </span> 
-    <header class="post-header">
-       
-      <h2 class="post-title" itemprop="name headline"> 
-        <a class="post-title-link" href="/2018/09/06/Spring-MVC项目搭建过程说明/" itemprop="url">
-                  Spring MVC项目搭建过程说明
-                </a>  
-      </h2>
-      
-      <div class="post-meta">
-        <span class="post-time">
+                    
+                    <div class="card-action article-tags">
+                        
+                        <a href="/tags/Spring-MVC/">
+                            <span class="chip bg-color">Spring MVC</span>
+                        </a>
+                        
+                        <a href="/tags/Spring/">
+                            <span class="chip bg-color">Spring</span>
+                        </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+            
+            <div class="article col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/2018/09/02/redhat7-1-jing-mo-an-zhuang-oracle-11g/">
+                        <div class="card-image">
+                            
+                            
+                            <img src="/medias/featureimages/8.jpg" class="responsive-img" alt="Redhat7.1静默安装Oracle 11g">
+                            
+                            <span class="card-title">Redhat7.1静默安装Oracle 11g</span>
+                        </div>
+                    </a>
 
-            
-            
-            
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                安装前环境配置以下配置在root用户下执行
+安装依赖先将redhat自带yum源更换，然后安装下面依赖。
+yum -y install binutils \
+compat-libstdc++-33 \
+elfutils-libelf \
+e
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2018-09-02
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fas fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/Oracle/" class="post-category">
+                                    Oracle
+                                </a>
+                                
+                                
+                            </span>
+                        </div>
+                    </div>
 
+                    
+                    <div class="card-action article-tags">
+                        
+                        <a href="/tags/Oracle-11g/">
+                            <span class="chip bg-color">Oracle 11g</span>
+                        </a>
+                        
+                        <a href="/tags/Redhat7/">
+                            <span class="chip bg-color">Redhat7</span>
+                        </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
             
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span> 
-        <span class="post-meta-item-text">发表于</span>    
-        <time title="创建时间：2018-09-06 23:19:00 / 修改时间：23:20:03" itemprop="dateCreated datePublished" datetime="2018-09-06T23:19:00+08:00">2018-09-06</time>
-            
-        </span>
-        
-        <span class="post-category">
-            
-              <span class="post-meta-divider">|</span> 
-        <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span> 
-        <span class="post-meta-item-text">分类于</span>  
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Spring/" itemprop="url" rel="index"><span itemprop="name">Spring</span>
-        </a>
-        </span>
-          
-        </span>
-          
-        <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-        <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-        <a href="/2018/09/06/Spring-MVC项目搭建过程说明/#comments" itemprop="discussionUrl">
-                
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2018/09/06/Spring-MVC项目搭建过程说明/" itemprop="commentCount"></span>
-                </a>
-        </span>
-           
-        <!-- 字数统计、阅读时长插入代码 -->
-        <span class="post-time">
-       &nbsp; | &nbsp;
-           <span class="post-meta-item-icon">
-             <i class="fa fa-calendar-o"></i>
-           </span>
-        <span class="post-meta-item-text">字数统计:</span>
-        <span class="post-count">1,809(字)</span>
-        </span>
-        <span class="post-time">
-       &nbsp; | &nbsp;
-           <span class="post-meta-item-icon">
-             <i class="fa fa-calendar-o"></i>
-           </span>
-        <span class="post-meta-item-text">阅读时长:</span>
-        <span class="post-count">11(分)</span>
-        </span>
-          
-      </div>
-    </header>
-       
-    <div class="post-body" itemprop="articleBody">
-           基本的项目结构
-pom.xml文件1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556575859606162636465666768697071 ...
-    <!--noindex-->
-    <div class="post-button text-center">
-      <a class="btn" href="/2018/09/06/Spring-MVC项目搭建过程说明/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-    </div>
-    <!--/noindex-->
-     
-  </div>
-        
-  <footer class="post-footer">
-        
-    <div class="post-eof"></div>
-    
-  </footer>
-  </div>
-    
-</article>
+            <div class="article col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/2018/08/27/linux-xia-jie-jue-tns-12541-tns-no-listener-wen-ti/">
+                        <div class="card-image">
+                            
+                            
+                            <img src="/medias/featureimages/6.jpg" class="responsive-img" alt="Linux下解决TNS-12541 TNS  no listener问题">
+                            
+                            <span class="card-title">Linux下解决TNS-12541 TNS  no listener问题</span>
+                        </div>
+                    </a>
 
-    
-           
-<article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://www.xujn.xyz/2018/09/02/Redhat7-1静默安装Oracle-11g/">
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="苏叶新城">
-      <meta itemprop="description" content="愿出走半生，归来仍是少年。">
-      <meta itemprop="image" content="http://tvax1.sinaimg.cn/crop.45.180.450.450.180/005KSE0vly8fqid3j7ifej30f00miq5t.jpg">
-    </span>
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="X笔记">
-    </span> 
-    <header class="post-header">
-       
-      <h2 class="post-title" itemprop="name headline"> 
-        <a class="post-title-link" href="/2018/09/02/Redhat7-1静默安装Oracle-11g/" itemprop="url">
-                  Redhat7.1静默安装Oracle 11g
-                </a>  
-      </h2>
-      
-      <div class="post-meta">
-        <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span> 
-        <span class="post-meta-item-text">发表于</span>    
-        <time title="创建时间：2018-09-02 22:50:55 / 修改时间：22:54:55" itemprop="dateCreated datePublished" datetime="2018-09-02T22:50:55+08:00">2018-09-02</time>
-            
-        </span>
-        
-        <span class="post-category">
-            
-              <span class="post-meta-divider">|</span> 
-        <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span> 
-        <span class="post-meta-item-text">分类于</span>  
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Oracle/" itemprop="url" rel="index"><span itemprop="name">Oracle</span>
-        </a>
-        </span>
-          
-        </span>
-          
-        <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-        <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-        <a href="/2018/09/02/Redhat7-1静默安装Oracle-11g/#comments" itemprop="discussionUrl">
-                
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2018/09/02/Redhat7-1静默安装Oracle-11g/" itemprop="commentCount"></span>
-                </a>
-        </span>
-           
-        <!-- 字数统计、阅读时长插入代码 -->
-        <span class="post-time">
-       &nbsp; | &nbsp;
-           <span class="post-meta-item-icon">
-             <i class="fa fa-calendar-o"></i>
-           </span>
-        <span class="post-meta-item-text">字数统计:</span>
-        <span class="post-count">1,199(字)</span>
-        </span>
-        <span class="post-time">
-       &nbsp; | &nbsp;
-           <span class="post-meta-item-icon">
-             <i class="fa fa-calendar-o"></i>
-           </span>
-        <span class="post-meta-item-text">阅读时长:</span>
-        <span class="post-count">6(分)</span>
-        </span>
-          
-      </div>
-    </header>
-       
-    <div class="post-body" itemprop="articleBody">
-           安装前环境配置以下配置在root用户下执行
-安装依赖先将redhat自带yum源更换，然后安装下面依赖。123456789101112131415161718192021yum -y install binutils \compat-libstdc++-33 \elfutils-libelf \el ...
-    <!--noindex-->
-    <div class="post-button text-center">
-      <a class="btn" href="/2018/09/02/Redhat7-1静默安装Oracle-11g/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-    </div>
-    <!--/noindex-->
-     
-  </div>
-        
-  <footer class="post-footer">
-        
-    <div class="post-eof"></div>
-    
-  </footer>
-  </div>
-    
-</article>
-
-    
-           
-<article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://www.xujn.xyz/2018/08/27/Linux下解决TNS-12541-TNS-no-listener问题/">
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="苏叶新城">
-      <meta itemprop="description" content="愿出走半生，归来仍是少年。">
-      <meta itemprop="image" content="http://tvax1.sinaimg.cn/crop.45.180.450.450.180/005KSE0vly8fqid3j7ifej30f00miq5t.jpg">
-    </span>
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="X笔记">
-    </span> 
-    <header class="post-header">
-       
-      <h2 class="post-title" itemprop="name headline"> 
-        <a class="post-title-link" href="/2018/08/27/Linux下解决TNS-12541-TNS-no-listener问题/" itemprop="url">
-                  Linux下解决TNS-12541 TNS  no listener问题
-                </a>  
-      </h2>
-      
-      <div class="post-meta">
-        <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span> 
-        <span class="post-meta-item-text">发表于</span>    
-        <time title="创建时间：2018-08-27 10:32:36 / 修改时间：10:36:02" itemprop="dateCreated datePublished" datetime="2018-08-27T10:32:36+08:00">2018-08-27</time>
-            
-        </span>
-        
-        <span class="post-category">
-            
-              <span class="post-meta-divider">|</span> 
-        <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span> 
-        <span class="post-meta-item-text">分类于</span>  
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Oracle/" itemprop="url" rel="index"><span itemprop="name">Oracle</span>
-        </a>
-        </span>
-          
-        </span>
-          
-        <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-        <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-        <a href="/2018/08/27/Linux下解决TNS-12541-TNS-no-listener问题/#comments" itemprop="discussionUrl">
-                
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2018/08/27/Linux下解决TNS-12541-TNS-no-listener问题/" itemprop="commentCount"></span>
-                </a>
-        </span>
-           
-        <!-- 字数统计、阅读时长插入代码 -->
-        <span class="post-time">
-       &nbsp; | &nbsp;
-           <span class="post-meta-item-icon">
-             <i class="fa fa-calendar-o"></i>
-           </span>
-        <span class="post-meta-item-text">字数统计:</span>
-        <span class="post-count">248(字)</span>
-        </span>
-        <span class="post-time">
-       &nbsp; | &nbsp;
-           <span class="post-meta-item-icon">
-             <i class="fa fa-calendar-o"></i>
-           </span>
-        <span class="post-meta-item-text">阅读时长:</span>
-        <span class="post-count">1(分)</span>
-        </span>
-          
-      </div>
-    </header>
-       
-    <div class="post-body" itemprop="articleBody">
-           场景Navicat连接远程oracle数据库，数据库搭建在Redhat 7.1服务器上，莫名出现这个问题。
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                场景Navicat连接远程oracle数据库，数据库搭建在Redhat 7.1服务器上，莫名出现这个问题。
 解决办法
 检查监听状态
 无监听，则查看监听文件
 
 查看监听状态lsnrctl status
-如果有监听，则如下图，显示有服务orcl(服务名)监听。
+如果有监听，则如下图，显示有服务orcl
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2018-08-27
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fas fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/Oracle/" class="post-category">
+                                    Oracle
+                                </a>
+                                
+                                
+                            </span>
+                        </div>
+                    </div>
 
-如果没有监听，查看监听文件
-cd /op ...
-    <!--noindex-->
-    <div class="post-button text-center">
-      <a class="btn" href="/2018/08/27/Linux下解决TNS-12541-TNS-no-listener问题/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-    </div>
-    <!--/noindex-->
-     
-  </div>
-        
-  <footer class="post-footer">
-        
-    <div class="post-eof"></div>
-    
-  </footer>
-  </div>
-    
-</article>
+                    
+                    <div class="card-action article-tags">
+                        
+                        <a href="/tags/Oracle/">
+                            <span class="chip bg-color">Oracle</span>
+                        </a>
+                        
+                        <a href="/tags/Linux/">
+                            <span class="chip bg-color">Linux</span>
+                        </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+            
+            <div class="article col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/2018/08/23/centos7-xia-nginx-an-zhuang-pei-zhi/">
+                        <div class="card-image">
+                            
+                            
+                            <img src="/medias/featureimages/23.jpg" class="responsive-img" alt="Centos7下Nginx安装配置">
+                            
+                            <span class="card-title">Centos7下Nginx安装配置</span>
+                        </div>
+                    </a>
 
-    
-           
-<article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://www.xujn.xyz/2018/08/23/Centos7下Nginx安装配置/">
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="苏叶新城">
-      <meta itemprop="description" content="愿出走半生，归来仍是少年。">
-      <meta itemprop="image" content="http://tvax1.sinaimg.cn/crop.45.180.450.450.180/005KSE0vly8fqid3j7ifej30f00miq5t.jpg">
-    </span>
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="X笔记">
-    </span> 
-    <header class="post-header">
-       
-      <h2 class="post-title" itemprop="name headline"> 
-        <a class="post-title-link" href="/2018/08/23/Centos7下Nginx安装配置/" itemprop="url">
-                  Centos7下Nginx安装配置
-                </a>  
-      </h2>
-      
-      <div class="post-meta">
-        <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span> 
-        <span class="post-meta-item-text">发表于</span>    
-        <time title="创建时间：2018-08-23 12:51:52" itemprop="dateCreated datePublished" datetime="2018-08-23T12:51:52+08:00">2018-08-23</time>
-            
-        <span class="post-meta-divider">|</span> 
-        <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span> 
-        <span class="post-meta-item-text">更新于</span> 
-        <time title="修改时间：2018-08-30 13:57:21" itemprop="dateModified" datetime="2018-08-30T13:57:21+08:00">2018-08-30</time>
-         
-        </span>
-        
-        <span class="post-category">
-            
-              <span class="post-meta-divider">|</span> 
-        <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span> 
-        <span class="post-meta-item-text">分类于</span>  
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/软件安装/" itemprop="url" rel="index"><span itemprop="name">软件安装</span>
-        </a>
-        </span>
-          
-        </span>
-          
-        <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-        <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-        <a href="/2018/08/23/Centos7下Nginx安装配置/#comments" itemprop="discussionUrl">
-                
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2018/08/23/Centos7下Nginx安装配置/" itemprop="commentCount"></span>
-                </a>
-        </span>
-           
-        <!-- 字数统计、阅读时长插入代码 -->
-        <span class="post-time">
-       &nbsp; | &nbsp;
-           <span class="post-meta-item-icon">
-             <i class="fa fa-calendar-o"></i>
-           </span>
-        <span class="post-meta-item-text">字数统计:</span>
-        <span class="post-count">443(字)</span>
-        </span>
-        <span class="post-time">
-       &nbsp; | &nbsp;
-           <span class="post-meta-item-icon">
-             <i class="fa fa-calendar-o"></i>
-           </span>
-        <span class="post-meta-item-text">阅读时长:</span>
-        <span class="post-count">2(分)</span>
-        </span>
-          
-      </div>
-    </header>
-       
-    <div class="post-body" itemprop="articleBody">
-           安装yum install epel-release
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                安装yum install epel-release
 yum -y install nginx
 service nginx start
 systemctl enable nginx
 访问自己的地址http://server_ip
-记得开启80端口
+记得开启8
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2018-08-23
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fas fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/软件安装/" class="post-category">
+                                    软件安装
+                                </a>
+                                
+                                
+                            </span>
+                        </div>
+                    </div>
 
-firewalld支持动态更新和zone概念。fi ...
-    <!--noindex-->
-    <div class="post-button text-center">
-      <a class="btn" href="/2018/08/23/Centos7下Nginx安装配置/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-    </div>
-    <!--/noindex-->
-     
-  </div>
-        
-  <footer class="post-footer">
-        
-    <div class="post-eof"></div>
-    
-  </footer>
-  </div>
-    
-</article>
-
-    
-  </section>
-
-  
-  <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
-  </nav>
-
-
-
-          </div>
-          
-
-        </div>
-        
-          
-  
-  <div class="sidebar-toggle">
-    <div class="sidebar-toggle-line-wrap">
-      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
-      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
-      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
-    </div>
-  </div>
-
-  <aside id="sidebar" class="sidebar">
-    
-    <div class="sidebar-inner">
-
-      
-
-      
-
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
-        <div class="site-overview">
-          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-            
-              <img class="site-author-image" itemprop="image" src="http://tvax1.sinaimg.cn/crop.45.180.450.450.180/005KSE0vly8fqid3j7ifej30f00miq5t.jpg" alt="苏叶新城">
-            
-              <p class="site-author-name" itemprop="name">苏叶新城</p>
-              <p class="site-description motion-element" itemprop="description">愿出走半生，归来仍是少年。</p>
-          </div>
-
-          
-            <nav class="site-state motion-element">
-              
-                <div class="site-state-item site-state-posts">
-                
-                  <a href="/archives">
-                
-                    <span class="site-state-item-count">14</span>
-                    <span class="site-state-item-name">日志</span>
-                  </a>
+                    
+                    <div class="card-action article-tags">
+                        
+                        <a href="/tags/nginx/">
+                            <span class="chip bg-color">nginx</span>
+                        </a>
+                        
+                    </div>
+                    
                 </div>
-              
-
-              
-                
-                
-                <div class="site-state-item site-state-categories">
-                  <a href="/categories/index.html">
-                    
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                    <span class="site-state-item-count">6</span>
-                    <span class="site-state-item-name">分类</span>
-                  </a>
-                </div>
-              
-
-              
-                
-                
-                <div class="site-state-item site-state-tags">
-                  <a href="/tags/index.html">
-                    
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                    <span class="site-state-item-count">14</span>
-                    <span class="site-state-item-name">标签</span>
-                  </a>
-                </div>
-              
-            </nav>
-          
-
-          
-
-          
-
-          
-          
-            <div class="cc-license motion-element" itemprop="license">
-              <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" target="_blank" rel="external nofollow">
-                <img src="/images/cc-by-nc-sa.svg" alt="Creative Commons">
-              </a>
             </div>
-          
-
-          
-          
-
-          
             
-          
-          
+            <div class="article col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/2018/08/23/linux-xia-mysql-5.7.22-an-zhuang-he-wang-ji-mi-ma/">
+                        <div class="card-image">
+                            
+                            
+                            <img src="/medias/featureimages/18.jpg" class="responsive-img" alt="Linux下MySQL 5.7.22安装和忘记密码">
+                            
+                            <span class="card-title">Linux下MySQL 5.7.22安装和忘记密码</span>
+                        </div>
+                    </a>
 
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                简述Redhat下安装MySQL5.7.22教程,安装完成后成功忘记密码-_-
+安装MySQL1. 压缩包处理解压压缩包
+tar -zxvf mysql-5.7.22-linux-glibc2.12-x86_64.tar.gz  
+重命名m
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2018-08-23
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fas fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/数据库/" class="post-category">
+                                    数据库
+                                </a>
+                                
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                    <div class="card-action article-tags">
+                        
+                        <a href="/tags/MySQL/">
+                            <span class="chip bg-color">MySQL</span>
+                        </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+            
+            <div class="article col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/2018/08/23/intellij-idea-ssm-kuang-jia-zheng-he/">
+                        <div class="card-image">
+                            
+                            
+                            <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="IntelliJ IDEA SSM框架整合">
+                            
+                            <span class="card-title">IntelliJ IDEA SSM框架整合</span>
+                        </div>
+                    </a>
+
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                web.xml文件参考自：web.xml配置
+web.xml是网络程序中的一个很重要的配置文件。在启动一个WEB项目的时候，WEB容器（比如tomcat）会去读取它的配置文件web.xml，读取到不同的节点时，WEB容器就会创建相应的过滤器
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2018-08-23
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fas fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/Spring/" class="post-category">
+                                    Spring
+                                </a>
+                                
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                    <div class="card-action article-tags">
+                        
+                        <a href="/tags/IDEA/">
+                            <span class="chip bg-color">IDEA</span>
+                        </a>
+                        
+                        <a href="/tags/SSM/">
+                            <span class="chip bg-color">SSM</span>
+                        </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+            
         </div>
-      </section>
+    </article>
 
-      
+</main>
 
-      
 
+<div class="container paging">
+    <div class="row">
+        <div class="col s6 m4 l4">
+            
+            <a class="left btn-floating btn-large disabled">
+                <i class="fas fa-angle-left"></i>
+            </a>
+            
+        </div>
+        <div class="page-info col m4 l4 hide-on-small-only">
+            <div class="center-align b-text-gray">1 / 2</div>
+        </div>
+        <div class="col s6 m4 l4">
+            
+            <a href="/page/2/"
+               class="right btn-floating btn-large waves-effect waves-light bg-color">
+                <i class="fas fa-angle-right"></i>
+            </a>
+            
+        </div>
     </div>
-  </aside>
-
-
-        
-      </div>
-    </main>
-
-    <footer id="footer" class="footer">
-      <div class="footer-inner">
-        <div class="copyright">&copy; 2017 – <span itemprop="copyrightYear">2020</span>
-  <span class="with-love" id="animate">
-    <i class="fa fa-user"></i>
-  </span>
-  <span class="author" itemprop="copyrightHolder">苏叶新城</span>
-
-  
-
-  
-</div>
-
-
-  
-
-
-
-  <div class="powered-by">由 <a class="theme-link" target="_blank" rel="external nofollow" href="https://hexo.io">Hexo</a> 强力驱动 v3.9.0</div>
-
-
-
-  <span class="post-meta-divider">|</span>
-
-
-
-  <div class="theme-info">主题 – <a class="theme-link" target="_blank" rel="external nofollow" href="https://theme-next.org">NexT.Muse</a> v6.4.0</div>
-
-<div class="BbeiAn-info"">
-  吉ICP备 -
-  <a href="http://www.miitbeian.gov.cn/">20000854号</a>
-  
-</div>
-
-
-        
-<div class="busuanzi-count">
-  <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-
-  
-    <span class="site-uv" title="总访客量">
-      <i class="fa fa-user"></i>
-      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
-    </span>
-  
-
-  
-    <span class="site-pv" title="总访问量">
-      <i class="fa fa-eye"></i>
-      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
-    </span>
-  
 </div>
 
 
 
 
-
-
-
-
-
-        
-      </div>
-    </footer>
-
+    <footer class="page-footer bg-color">
     
-      <div class="back-to-top">
-        <i class="fa fa-arrow-up"></i>
-        
-          <span id="scrollpercent"><span>0</span>%</span>
-        
-      </div>
-    
+    <div class="container row center-align" style="margin-bottom: 15px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            <span id="year">2020</span>
+            <a href="http://www.xujn.xyz" target="_blank">苏叶新城</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            <br>
+            
+            
+            
+            
+            
+            
+            <span id="busuanzi_container_site_pv">
+                |&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span id="busuanzi_value_site_pv"
+                    class="white-color"></span>&nbsp;次
+            </span>
+            
+            
+            <span id="busuanzi_container_site_uv">
+                |&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;<span id="busuanzi_value_site_uv"
+                    class="white-color"></span>&nbsp;人
+            </span>
+            
+            <br>
+            
+            <span id="sitetime">载入运行时间...</span>
+            <script>
+                function siteTime() {
+                    var seconds = 1000;
+                    var minutes = seconds * 60;
+                    var hours = minutes * 60;
+                    var days = hours * 24;
+                    var years = days * 365;
+                    var today = new Date();
+                    var startYear = "2020";
+                    var startMonth = "3";
+                    var startDate = "1";
+                    var startHour = "0";
+                    var startMinute = "0";
+                    var startSecond = "0";
+                    var todayYear = today.getFullYear();
+                    var todayMonth = today.getMonth() + 1;
+                    var todayDate = today.getDate();
+                    var todayHour = today.getHours();
+                    var todayMinute = today.getMinutes();
+                    var todaySecond = today.getSeconds();
+                    var t1 = Date.UTC(startYear, startMonth, startDate, startHour, startMinute, startSecond);
+                    var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
+                    var diff = t2 - t1;
+                    var diffYears = Math.floor(diff / years);
+                    var diffDays = Math.floor((diff / days) - diffYears * 365);
+                    var diffHours = Math.floor((diff - (diffYears * 365 + diffDays) * days) / hours);
+                    var diffMinutes = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours) /
+                        minutes);
+                    var diffSeconds = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours -
+                        diffMinutes * minutes) / seconds);
+                    if (startYear == todayYear) {
+                        document.getElementById("year").innerHTML = todayYear;
+                        document.getElementById("sitetime").innerHTML = "本站已安全运行 " + diffDays + " 天 " + diffHours +
+                            " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+                    } else {
+                        document.getElementById("year").innerHTML = startYear + " - " + todayYear;
+                        document.getElementById("sitetime").innerHTML = "本站已安全运行 " + diffYears + " 年 " + diffDays +
+                            " 天 " + diffHours + " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+                    }
+                }
+                setInterval(siteTime, 1000);
+            </script>
+            
+            <br>
+            
+            <span id="icp"><img src="/medias/icp.png" style="vertical-align: text-bottom;" />
+                <a href="http://beian.miit.gov.cn" target="_blank">吉ICP备20000854号</a>
+            </span>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
 
-    
-	
-    
 
-    
-  </div>
 
-  
 
+
+
+
+
+
+
+
+
+
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script src="/js/search.js"></script>
 <script type="text/javascript">
-  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
-    window.Promise = null;
-  }
+$(function () {
+    searchFunc("/" + "search.xml", 'searchInput', 'searchResult');
+});
 </script>
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
 
 
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
 
+    <!-- Baidu Analytics -->
 
+    <!-- Baidu Push -->
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  
-  
-    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
-  
-
-  
-  
-    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
-  
-
-  
-  
-    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
-  
-
-
-  
-
-
-  <script type="text/javascript" src="/js/src/utils.js?v=6.4.0"></script>
-
-  <script type="text/javascript" src="/js/src/motion.js?v=6.4.0"></script>
-
-
-
-  
-  
-
-  
-
-  
-
-
-  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.4.0"></script>
-
-
-
-  
-
-  
-    <script id="dsq-count-scr" src="https://hexo-6.disqus.com/count.js" async></script>
-  
-
-  
-
-
-
-
-
-
-
-
-
-
-  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
-  
-  
-  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
-  
-  <script type="text/javascript">
-    var GUEST = ['nick','mail','link'];
-    var guest = 'nick,mail';
-    guest = guest.split(',').filter(function (item) {
-      return GUEST.indexOf(item)>-1;
-    });
-    new Valine({
-        el: '#comments' ,
-        verify: false,
-        notify: true,
-        appId: 'Sz4FRH1b0UaJd4fs5CxgdRQd-gzGzoHsz',
-        appKey: 'Y2pWFXbf3px0AlwvAR1hWkOr',
-        placeholder: '',
-        avatar:'retro',
-        meta:guest,
-        pageSize:'10' || 10,
-        visitor: false
-    });
-  </script>
-
-
-
-  
-
-
-
-
-
-  
-
-  
-
-  
 <script>
-(function(){
-    var bp = document.createElement('script');
-    var curProtocol = window.location.protocol.split(':')[0];
-    if (curProtocol === 'https') {
-        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
-    }
-    else {
-        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
-    }
-    var s = document.getElementsByTagName("script")[0];
-    s.parentNode.insertBefore(bp, s);
-})();
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
 </script>
 
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
 
-  
+    
 
-  
-  
+    
 
-  
+    
 
-  
+    
 
-  
-
-  
-
-  
-  <style>
-    .copy-btn {
-      display: inline-block;
-      padding: 6px 12px;
-      font-size: 13px;
-      font-weight: 700;
-      line-height: 20px;
-      color: #333;
-      white-space: nowrap;
-      vertical-align: middle;
-      cursor: pointer;
-      background-color: #eee;
-      background-image: linear-gradient(#fcfcfc, #eee);
-      border: 1px solid #d5d5d5;
-      border-radius: 3px;
-      user-select: none;
-      outline: 0;
-    }
-
-    .highlight-wrap .copy-btn {
-      transition: opacity .3s ease-in-out;
-      opacity: 0;
-      padding: 2px 6px;
-      position: absolute;
-      right: 4px;
-      top: 8px;
-    }
-
-    .highlight-wrap:hover .copy-btn,
-    .highlight-wrap .copy-btn:focus {
-      opacity: 1
-    }
-
-    .highlight-wrap {
-      position: relative;
-    }
-  </style>
-  <script>
-    $('.highlight').each(function (i, e) {
-      var $wrap = $('<div>').addClass('highlight-wrap')
-      $(e).after($wrap)
-      $wrap.append($('<button>').addClass('copy-btn').append('复制').on('click', function (e) {
-        var code = $(this).parent().find('.code').find('.line').map(function (i, e) {
-          return $(e).text()
-        }).toArray().join('\n')
-        var ta = document.createElement('textarea')
-        document.body.appendChild(ta)
-        ta.style.position = 'absolute'
-        ta.style.top = '0px'
-        ta.style.left = '0px'
-        ta.value = code
-        ta.select()
-        ta.focus()
-        var result = document.execCommand('copy')
-        document.body.removeChild(ta)
-        
-          if(result)$(this).text('复制成功')
-          else $(this).text('复制失败')
-        
-        $(this).blur()
-      })).on('mouseleave', function (e) {
-        var $b = $(this).find('.copy-btn')
-        setTimeout(function () {
-          $b.text('复制')
-        }, 300)
-      }).append(e)
-    })
-  </script>
-
+    
+    
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
 
 </body>
+
 </html>

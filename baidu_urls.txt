@@ -1,10 +1,10 @@
-http://www.xujn.xyz/2020/03/25/nginx解压版平滑升级/
-http://www.xujn.xyz/2020/03/11/redis 4.14哨兵模式搭建/
-http://www.xujn.xyz/2020/03/11/nginx 1.14.2解压版安装/
-http://www.xujn.xyz/2020/03/11/Docker安装oracle/
-http://www.xujn.xyz/2020/03/11/oracle笔记/
-http://www.xujn.xyz/2019/01/23/Layui动态表格的增删改查/
-http://www.xujn.xyz/2018/09/06/Spring-MVC项目搭建过程说明/
-http://www.xujn.xyz/2018/09/02/Redhat7-1静默安装Oracle-11g/
-http://www.xujn.xyz/2018/08/27/Linux下解决TNS-12541-TNS-no-listener问题/
-http://www.xujn.xyz/2018/08/23/Centos7下Nginx安装配置/
+http://www.xujn.xyz/2020/03/25/nginx-jie-ya-ban-ping-hua-sheng-ji/
+http://www.xujn.xyz/2020/03/11/redis-4.14-shao-bing-mo-shi-da-jian/
+http://www.xujn.xyz/2020/03/11/nginx-1.14.2-jie-ya-ban-an-zhuang/
+http://www.xujn.xyz/2020/03/11/docker-an-zhuang-oracle/
+http://www.xujn.xyz/2020/03/11/oracle-bi-ji/
+http://www.xujn.xyz/2019/01/23/layui-dong-tai-biao-ge-de-zeng-shan-gai-cha/
+http://www.xujn.xyz/2018/09/06/spring-mvc-xiang-mu-da-jian-guo-cheng-shuo-ming/
+http://www.xujn.xyz/2018/09/02/redhat7-1-jing-mo-an-zhuang-oracle-11g/
+http://www.xujn.xyz/2018/08/27/linux-xia-jie-jue-tns-12541-tns-no-listener-wen-ti/
+http://www.xujn.xyz/2018/08/23/centos7-xia-nginx-an-zhuang-pei-zhi/
