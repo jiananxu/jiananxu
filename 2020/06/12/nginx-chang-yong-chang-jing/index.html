@@ -4,7 +4,7 @@
 
 <head><meta name="generator" content="Hexo 3.9.0">
     <meta charset="utf-8">
-    <meta name="keywords" content="nginx解压版平滑升级, 博客 苏叶新城 X笔记">
+    <meta name="keywords" content="Nginx常用场景, 博客 苏叶新城 X笔记">
     <meta name="description" content="愿出走半生，归来仍是少年。">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>nginx解压版平滑升级 | X笔记</title>
+    <title>Nginx常用场景 | X笔记</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -223,12 +223,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/12.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/9.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">nginx解压版平滑升级</h1>
+                    <h1 class="description center-align post-title">Nginx常用场景</h1>
                 </div>
             </div>
         </div>
@@ -357,8 +357,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/软件安装/" class="post-category">
-                                软件安装
+                            <a href="/categories/Linux/" class="post-category">
+                                Linux
                             </a>
                         
                     </div>
@@ -370,7 +370,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-03-25
+                    2020-06-12
                 </div>
                 
 
@@ -379,7 +379,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    202
+                    604
                 </div>
                 
 
@@ -397,31 +397,118 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h1><ul>
-<li>nginx 1.16.1</li>
-<li>redhat</li>
-</ul>
-<h1 id="操作过程"><a href="#操作过程" class="headerlink" title="操作过程"></a>操作过程</h1><p><strong><em>做好配置备份</em></strong></p>
-<p>下载<a href="http://nginx.org/download/nginx-1.16.1.tar.gz" target="_blank" rel="noopener">nginx1.16.1</a>,进行解压操作。</p>
-<pre><code>wget http://nginx.org/download/nginx-1.16.1.tar.gz
-tar -xzvf nginx-1.16.1.tar.gz
-</code></pre><p>进入解压后的文件夹，进行编译，不进行安装操作</p>
-<pre><code>cd nginx-1.16.1
-./configure &amp;&amp; make
-</code></pre><p>备份旧版本nginx</p>
-<pre><code>  mv /usr/local/nginx/sbin/nginx /usr/local/nginx/sbin/nginx114.old
-</code></pre><p>将刚编译后的文件替换原有文件，编译后的文件在<code>objs</code>目录下 </p>
-<pre><code> cp objs/nginx /usr/local/nginx/sbin/
-</code></pre><p>平滑升级，旧的Nginx主进程会变为<code>xxx.oldbin</code>，然后执行新版 nginx。两个版本会同时存在，共同处理请求。</p>
-<pre><code> kill -USR2 `cat /usr/local/nginx/logs/nginx.pid`
-</code></pre><p>关闭旧版本nginx</p>
-<pre><code> kill -QUIT `cat /usr/local/nginx/logs/nginx.pid.oldbin`
-</code></pre><p>查看升级后版本</p>
-<pre><code> /usr/local/nginx/sbin/nginx -v
+                <h1 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h1><p>Nginx是一款轻量级的Web服务器、反向代理服务器，由于它的内存占用少，启动极快，高并发能力强，在互联网项目中广泛应用。</p>
+<h1 id="应用场景"><a href="#应用场景" class="headerlink" title="应用场景"></a>应用场景</h1><h2 id="负载均衡"><a href="#负载均衡" class="headerlink" title="负载均衡"></a>负载均衡</h2><p><strong>轮询</strong></p>
+<pre><code>upstream test {
+  server 10.200.100.3:8080;
+  server 10.200.100.4:8081;
+}
+upstream admin {
+  server 10.200.100.3:9080;
+  server 10.200.100.4:9081;
+}
+server {
+  listen       81;                                                         
+  server_name  localhost;                                               
+#映射地址
+  location / {
+    ssi on;
+    ssi_silent_errors on;
+    proxy_read_timeout 300;
+    proxy_set_header Host $host:$server_port;
+    proxy_set_header X-Real-IP $remote_addr;
+    proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+    # proxy_pass内容与upstream对应
+    proxy_pass http://test;
+    proxy_redirect default;
 
-</code></pre><p>操作过程</p>
-<p><img src="http://imgcq.test.upcdn.net/20200325175159.png?!" alt></p>
+  }
+  #映射地址指定多个，根据访问路径匹配不同地址`location`
+  location /admin {
+    ssi on;
+    ssi_silent_errors on;
+    proxy_read_timeout 300;
+    proxy_set_header Host $host:$server_port;
+    proxy_set_header X-Real-IP $remote_addr;
+    proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+    # proxy_pass内容与upstream对应
+    proxy_pass http://admin;
+    proxy_redirect default;
 
+  }
+}
+
+</code></pre><p><strong>设置权重</strong></p>
+<p>通过weight指定访问服务器权重，权重越高代表服务器被访问的几率的越大。</p>
+<pre><code>  upstream test {
+    server localhost:8080 weight=9;
+    server localhost:8081 weight=1;
+  }
+
+</code></pre><p><strong>iphash</strong></p>
+<p>iphash的每个请求按访问ip的hash结果分配，这样每个访客固定访问一个后端服务器，可以解决session的问题。(分布式session同步可采用redis解决)</p>
+<pre><code>upstream test {
+  ip_hash;
+  server localhost:8080;
+  server localhost:8081;
+}
+
+</code></pre><h2 id="反正代理"><a href="#反正代理" class="headerlink" title="反正代理"></a>反正代理</h2><blockquote>
+<p>反向代理隐藏了真实的服务端，例如访问<a href="http://www.baidu.com，可能有成千上万的程序为我们服务。代理对象为服务端。" target="_blank" rel="noopener">http://www.baidu.com，可能有成千上万的程序为我们服务。代理对象为服务端。</a></p>
+</blockquote>
+<pre><code>server {  
+  listen       80;                                                         
+  server_name  localhost;                                               
+
+  location / {
+    proxy_pass http://10.200.100.2:8080;
+    proxy_set_header Host $host:$server_port;
+  }
+}
+
+</code></pre><blockquote>
+<p>正向代理: 它隐藏了真实的请求客户端，服务端不知道真实的客户端是谁，客户端请求的服务都被代理服务器代替来请求.代理对象为客户端。</p>
+</blockquote>
+<h2 id="HTTP服务器"><a href="#HTTP服务器" class="headerlink" title="HTTP服务器"></a>HTTP服务器</h2><p>Nginx本身也是一个静态资源的服务器，当只有静态资源的时候，就可以使用Nginx来做服务器。</p>
+<pre><code>server {
+  listen       80;                                                         
+  server_name  localhost;                                               
+
+  location / {
+  #指定静态文件位置
+    root   /opt/dist;
+    #访问首页
+    index  index.html;
+  }
+}
+
+</code></pre><h2 id="常用操作"><a href="#常用操作" class="headerlink" title="常用操作"></a>常用操作</h2><p><strong>解压安装常用</strong></p>
+<pre><code>查看nginx安装位置：
+whereis nginx
+
+启动：
+$ /usr/local/nginx/sbin/nginx
+
+热重启：
+$ /usr/local/nginx/sbin/nginx –s reload
+
+停止：
+$ /usr/local/nginx/sbin/nginx –s stop
+
+测试配置文件是否正常：
+$ /usr/local/nginx/sbin/nginx –t
+
+强制关闭：
+$ pkill nginx
+</code></pre><p><strong>yum安装常用</strong></p>
+<pre><code>systemctl enable nginx   # 设置开机启动 Nginx
+systemctl disable nginx  # 关闭开机启动 Nginx
+systemctl start nginx    # 启动 Nginx
+systemctl stop nginx     # 停止 Nginx
+systemctl restart nginx  # 重启 Nginx
+systemctl reload nginx   # 重新加载 Nginx
+systemctl status nginx   # 查看 Nginx 运行状态
+</code></pre>
             </div>
             <hr/>
 
@@ -446,7 +533,7 @@ tar -xzvf nginx-1.16.1.tar.gz
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://www.xujn.xyz/2020/03/25/nginx-jie-ya-ban-ping-hua-sheng-ji/">http://www.xujn.xyz/2020/03/25/nginx-jie-ya-ban-ping-hua-sheng-ji/</a>
+                    <a href="http://www.xujn.xyz/2020/06/12/nginx-chang-yong-chang-jing/">http://www.xujn.xyz/2020/06/12/nginx-chang-yong-chang-jing/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -789,9 +876,10 @@ tar -xzvf nginx-1.16.1.tar.gz
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
                 <a href="/2020/06/12/nginx-chang-yong-chang-jing/">
                     <div class="card-image">
@@ -813,9 +901,9 @@ upstream test {
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-06-12
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-06-12
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -828,6 +916,7 @@ upstream test {
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
@@ -846,32 +935,31 @@ upstream test {
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2020/03/11/redis-4.14-shao-bing-mo-shi-da-jian/">
+                <a href="/2020/03/25/nginx-jie-ya-ban-ping-hua-sheng-ji/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/3.jpg" class="responsive-img" alt="redis 4.14单机\哨兵模式搭建">
+                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="nginx解压版平滑升级">
                         
-                        <span class="card-title">redis 4.14单机\哨兵模式搭建</span>
+                        <span class="card-title">nginx解压版平滑升级</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            环境
-redis:4.0.14
-linux
-1主2从
+                            配置
+nginx 1.16.1
+redhat
 
-安装下载redisredis-4.0.14.tar.gz
-配置redis解压 tar -xzvf redis-4.0.14.tar.gz
-编译cd redis-4.0.14/
-执行ma
+操作过程做好配置备份
+下载nginx1.16.1,进行解压操作。
+wget http://nginx.org/download/nginx-1.16.1.tar.gz
+tar -xzvf ng
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-03-11
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-03-25
                             </span>
                         <span class="publish-author">
                             
@@ -888,8 +976,8 @@ linux
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/redis/">
-                        <span class="chip bg-color">redis</span>
+                    <a href="/tags/nginx/">
+                        <span class="chip bg-color">nginx</span>
                     </a>
                     
                 </div>

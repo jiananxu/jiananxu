@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>Nginx常用场景</title>
+      <link href="/2020/06/12/nginx-chang-yong-chang-jing/"/>
+      <url>/2020/06/12/nginx-chang-yong-chang-jing/</url>
+      
+        <content type="html"><![CDATA[<h1 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h1><p>Nginx是一款轻量级的Web服务器、反向代理服务器，由于它的内存占用少，启动极快，高并发能力强，在互联网项目中广泛应用。</p><h1 id="应用场景"><a href="#应用场景" class="headerlink" title="应用场景"></a>应用场景</h1><h2 id="负载均衡"><a href="#负载均衡" class="headerlink" title="负载均衡"></a>负载均衡</h2><p><strong>轮询</strong></p><pre><code>upstream test {  server 10.200.100.3:8080;  server 10.200.100.4:8081;}upstream admin {  server 10.200.100.3:9080;  server 10.200.100.4:9081;}server {  listen       81;                                                           server_name  localhost;                                               #映射地址  location / {    ssi on;    ssi_silent_errors on;    proxy_read_timeout 300;    proxy_set_header Host $host:$server_port;    proxy_set_header X-Real-IP $remote_addr;    proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;    # proxy_pass内容与upstream对应    proxy_pass http://test;    proxy_redirect default;  }  #映射地址指定多个，根据访问路径匹配不同地址`location`  location /admin {    ssi on;    ssi_silent_errors on;    proxy_read_timeout 300;    proxy_set_header Host $host:$server_port;    proxy_set_header X-Real-IP $remote_addr;    proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;    # proxy_pass内容与upstream对应    proxy_pass http://admin;    proxy_redirect default;  }}</code></pre><p><strong>设置权重</strong></p><p>通过weight指定访问服务器权重，权重越高代表服务器被访问的几率的越大。</p><pre><code>  upstream test {    server localhost:8080 weight=9;    server localhost:8081 weight=1;  }</code></pre><p><strong>iphash</strong></p><p>iphash的每个请求按访问ip的hash结果分配，这样每个访客固定访问一个后端服务器，可以解决session的问题。(分布式session同步可采用redis解决)</p><pre><code>upstream test {  ip_hash;  server localhost:8080;  server localhost:8081;}</code></pre><h2 id="反正代理"><a href="#反正代理" class="headerlink" title="反正代理"></a>反正代理</h2><blockquote><p>反向代理隐藏了真实的服务端，例如访问<a href="http://www.baidu.com，可能有成千上万的程序为我们服务。代理对象为服务端。" target="_blank" rel="noopener">http://www.baidu.com，可能有成千上万的程序为我们服务。代理对象为服务端。</a></p></blockquote><pre><code>server {    listen       80;                                                           server_name  localhost;                                                 location / {    proxy_pass http://10.200.100.2:8080;    proxy_set_header Host $host:$server_port;  }}</code></pre><blockquote><p>正向代理: 它隐藏了真实的请求客户端，服务端不知道真实的客户端是谁，客户端请求的服务都被代理服务器代替来请求.代理对象为客户端。</p></blockquote><h2 id="HTTP服务器"><a href="#HTTP服务器" class="headerlink" title="HTTP服务器"></a>HTTP服务器</h2><p>Nginx本身也是一个静态资源的服务器，当只有静态资源的时候，就可以使用Nginx来做服务器。</p><pre><code>server {  listen       80;                                                           server_name  localhost;                                                 location / {  #指定静态文件位置    root   /opt/dist;    #访问首页    index  index.html;  }}</code></pre><h2 id="常用操作"><a href="#常用操作" class="headerlink" title="常用操作"></a>常用操作</h2><p><strong>解压安装常用</strong></p><pre><code>查看nginx安装位置：whereis nginx启动：$ /usr/local/nginx/sbin/nginx热重启：$ /usr/local/nginx/sbin/nginx –s reload停止：$ /usr/local/nginx/sbin/nginx –s stop测试配置文件是否正常：$ /usr/local/nginx/sbin/nginx –t强制关闭：$ pkill nginx</code></pre><p><strong>yum安装常用</strong></p><pre><code>systemctl enable nginx   # 设置开机启动 Nginxsystemctl disable nginx  # 关闭开机启动 Nginxsystemctl start nginx    # 启动 Nginxsystemctl stop nginx     # 停止 Nginxsystemctl restart nginx  # 重启 Nginxsystemctl reload nginx   # 重新加载 Nginxsystemctl status nginx   # 查看 Nginx 运行状态</code></pre>]]></content>
+      
+      
+      <categories>
+          
+          <category> Linux </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> nginx </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>nginx解压版平滑升级</title>
       <link href="/2020/03/25/nginx-jie-ya-ban-ping-hua-sheng-ji/"/>
       <url>/2020/03/25/nginx-jie-ya-ban-ping-hua-sheng-ji/</url>
