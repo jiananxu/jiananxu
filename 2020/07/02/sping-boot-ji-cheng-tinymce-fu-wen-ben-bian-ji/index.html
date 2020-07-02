@@ -4,7 +4,7 @@
 
 <head><meta name="generator" content="Hexo 3.9.0">
     <meta charset="utf-8">
-    <meta name="keywords" content="Nginx常用场景, 博客 苏叶新城 X笔记">
+    <meta name="keywords" content="Spring Boot集成Tinymce富文本编辑器, 博客 苏叶新城 X笔记">
     <meta name="description" content="愿出走半生，归来仍是少年。">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>Nginx常用场景 | X笔记</title>
+    <title>Spring Boot集成Tinymce富文本编辑器 | X笔记</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -223,12 +223,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/9.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/20.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">Nginx常用场景</h1>
+                    <h1 class="description center-align post-title">Spring Boot集成Tinymce富文本编辑器</h1>
                 </div>
             </div>
         </div>
@@ -345,8 +345,12 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/nginx/">
-                                <span class="chip bg-color">nginx</span>
+                            <a href="/tags/Tinymce/">
+                                <span class="chip bg-color">Tinymce</span>
+                            </a>
+                        
+                            <a href="/tags/Spring-Boot/">
+                                <span class="chip bg-color">Spring Boot</span>
                             </a>
                         
                     </div>
@@ -357,8 +361,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/Linux/" class="post-category">
-                                Linux
+                            <a href="/categories/Spring-Boot/" class="post-category">
+                                Spring Boot
                             </a>
                         
                     </div>
@@ -370,7 +374,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-06-12
+                    2020-07-02
                 </div>
                 
 
@@ -379,7 +383,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    604
+                    1,568
                 </div>
                 
 
@@ -397,117 +401,299 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h1><p>Nginx是一款轻量级的Web服务器、反向代理服务器，由于它的内存占用少，启动极快，高并发能力强，在互联网项目中广泛应用。</p>
-<h1 id="应用场景"><a href="#应用场景" class="headerlink" title="应用场景"></a>应用场景</h1><h2 id="负载均衡"><a href="#负载均衡" class="headerlink" title="负载均衡"></a>负载均衡</h2><p><strong>轮询</strong></p>
-<pre><code>upstream test {
-  server 10.200.100.3:8080;
-  server 10.200.100.4:8081;
-}
-upstream admin {
-  server 10.200.100.3:9080;
-  server 10.200.100.4:9081;
-}
-server {
-  listen       81;                                                         
-  server_name  localhost;                                               
-#映射地址
-  location / {
-    ssi on;
-    ssi_silent_errors on;
-    proxy_read_timeout 300;
-    proxy_set_header Host $host:$server_port;
-    proxy_set_header X-Real-IP $remote_addr;
-    proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
-    # proxy_pass内容与upstream对应
-    proxy_pass http://test;
-    proxy_redirect default;
-
-  }
-  #映射地址指定多个，根据访问路径匹配不同地址`location`
-  location /admin {
-    ssi on;
-    ssi_silent_errors on;
-    proxy_read_timeout 300;
-    proxy_set_header Host $host:$server_port;
-    proxy_set_header X-Real-IP $remote_addr;
-    proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
-    # proxy_pass内容与upstream对应
-    proxy_pass http://admin;
-    proxy_redirect default;
-
-  }
-}
-
-</code></pre><p><strong>设置权重</strong></p>
-<p>通过weight指定访问服务器权重，权重越高代表服务器被访问的几率的越大。</p>
-<pre><code>  upstream test {
-    server localhost:8080 weight=9;
-    server localhost:8081 weight=1;
-  }
-
-</code></pre><p><strong>iphash</strong></p>
-<p>iphash的每个请求按访问ip的hash结果分配，这样每个访客固定访问一个后端服务器，可以解决session的问题。(分布式session同步可采用redis解决)</p>
-<pre><code>upstream test {
-  ip_hash;
-  server localhost:8080;
-  server localhost:8081;
-}
-
-</code></pre><h2 id="反正代理"><a href="#反正代理" class="headerlink" title="反正代理"></a>反正代理</h2><blockquote>
-<p>反向代理隐藏了真实的服务端，例如访问<code>http://www.baidu.com</code>，可能有成千上万的程序为我们服务。代理对象为服务端。</p>
+                <h1 id="基础环境"><a href="#基础环境" class="headerlink" title="基础环境"></a>基础环境</h1><ul>
+<li>IDEA</li>
+<li>Spring Boot 2.2.1</li>
+<li>Freemarker</li>
+</ul>
+<h1 id="tinymce简介"><a href="#tinymce简介" class="headerlink" title="tinymce简介"></a>tinymce简介</h1><blockquote>
+<p>TinyMCE是一款易用、且功能强大的所见即所得的富文本编辑器。同类程序有：UEditor、Kindeditor、Simditor、CKEditor、wangEditor、Suneditor、froala等。</p>
 </blockquote>
-<pre><code>server {  
-  listen       80;                                                         
-  server_name  localhost;                                               
+<p>经过多番对比（<del>界面好看</del>），认定Tinymce功能更加完善，并且具备可扩展特性，功能完善，遂采用。</p>
+<h1 id="小例子"><a href="#小例子" class="headerlink" title="小例子"></a>小例子</h1><p>下面是tinymce实例化的例子，通过id绑定，渲染页面。tinymce可以嵌入到任意web项目中。编辑内容的保存可以通过post表单的形式提交，也可以自己获取内容提交。</p>
+<pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
 
-  location / {
-    proxy_pass http://10.200.100.2:8080;
-    proxy_set_header Host $host:$server_port;
-  }
-}
+&lt;/head&gt;
 
-</code></pre><blockquote>
-<p>正向代理: 它隐藏了真实的请求客户端，服务端不知道真实的客户端是谁，客户端请求的服务都被代理服务器代替来请求.代理对象为客户端。</p>
-</blockquote>
-<h2 id="HTTP服务器"><a href="#HTTP服务器" class="headerlink" title="HTTP服务器"></a>HTTP服务器</h2><p>Nginx本身也是一个静态资源的服务器，当只有静态资源的时候，就可以使用Nginx来做服务器。</p>
-<pre><code>server {
-  listen       80;                                                         
-  server_name  localhost;                                               
+&lt;body&gt;
+&lt;h1&gt;TinyMCE快速开始示例&lt;/h1&gt;
+  &lt;form method=&quot;post&quot;&gt;
+    &lt;textarea id=&quot;demo&quot;&gt;Hello, World!&lt;/textarea&gt;
+  &lt;/form&gt;
+&lt;/body
+  &lt;script src=&#39;tinymce.min.js&#39;&gt;&lt;/script&gt;
+  &lt;script&gt;
+  tinymce.init({
+    selector: &#39;#demo&#39;//ID绑定
+    //此处可添加更多特性
+  });
+  &lt;/script&gt;
+&lt;/html&gt;
 
-  location / {
-  #指定静态文件位置
-    root   /opt/dist;
-    #访问首页
-    index  index.html;
-  }
-}
+</code></pre><h1 id="正式开始"><a href="#正式开始" class="headerlink" title="正式开始"></a>正式开始</h1><h2 id="引入Tinymce脚本"><a href="#引入Tinymce脚本" class="headerlink" title="引入Tinymce脚本"></a>引入Tinymce脚本</h2><pre><code>&lt;script src=&quot;/complaints/tinymce/tinymce.min.js&quot;&gt;&lt;/script&gt;
 
-</code></pre><h1 id="常用操作"><a href="#常用操作" class="headerlink" title="常用操作"></a>常用操作</h1><p><strong>解压安装常用</strong></p>
-<pre><code>查看nginx安装位置：
-whereis nginx
+</code></pre><h2 id="渲染区域"><a href="#渲染区域" class="headerlink" title="渲染区域"></a>渲染区域</h2><pre><code>&lt;div class=&quot;layui-form-item&quot;&gt;
+    &lt;textarea id=&quot;content&quot; name=&quot;content&quot;&gt;&lt;/textarea&gt;
+&lt;/div&gt;
+</code></pre><h2 id="实例化"><a href="#实例化" class="headerlink" title="实例化"></a>实例化</h2><p>支持图片、视频</p>
+<pre><code>tinymce.init({
+            selector: &#39;#content&#39;,//绑定渲染区
+            height: 600,
+            plugins: &#39;paste importcss code table advlist fullscreen imagetools  textcolor colorpicker hr  autolink link image lists preview media wordcount&#39;,
+            toolbar: &#39;styleselect |  formatselect | fontsizeselect | forecolor backcolor | bold italic underline strikethrough | image  media | table | alignleft aligncenter alignright alignjustify | outdent indent | numlist bullist | preview removeformat  hr | paste code  link | undo redo | fullscreen&#39;,
+            skin: &#39;oxide&#39;,
+            language: &#39;zh_CN&#39;,//汉化
+            convert_urls: false,
+            // relative_urls : true,
+            images_upload_url: &#39;../tmmedia/upload&#39;,//图片上传地址
+            images_upload_credentials: true,
+            image_dimensions: false,
+            image_class_list: [
+                {title: &#39;无&#39;, value: &#39;&#39;},
+                {title: &#39;预览&#39;, value: &#39;preview&#39;},
+            ],
+            // images_upload_base_path: &#39;/&#39;,
+            forced_root_block: &#39;p&#39;,
+            force_p_newlines: true,
+            importcss_append: true,
+            content_style: `
+    *                         { padding:0; margin:0; }
+    html, body                { height:100%; }
+    img                       { max-width:100%; display:block;height:auto; }
+    a                         { text-decoration: none; }
+    iframe                    { width: 100%; }
+    p                         { line-height:1.6; margin: 0px; }
+    table                     { word-wrap:break-word; word-break:break-all; max-width:100%; border:none; border-color:#999; }
+    .mce-object-iframe        { width:100%; box-sizing:border-box; margin:0; padding:0; }
+    ul,ol                     { list-style-position:inside; }
+  `,
+            insert_button_items: &#39;image link | inserttable&#39;,
+            // CONFIG: Paste
+            paste_retain_style_properties: &#39;all&#39;,
+            paste_word_valid_elements: &#39;*[*]&#39;,        // word需要它
+            paste_data_images: true,                  // 粘贴的同时能把内容里的图片自动上传
+            paste_convert_word_fake_lists: false,     // 插入word文档需要该属性
+            paste_webkit_styles: &#39;all&#39;,
+            paste_merge_formats: true,
+            nonbreaking_force_tab: false,
+            paste_auto_cleanup_on_paste: false,
 
-启动：
-$ /usr/local/nginx/sbin/nginx
+            // CONFIG: Font
+            fontsize_formats: &#39;10px 11px 12px 14px 16px 18px 20px 24px&#39;,
 
-热重启：
-$ /usr/local/nginx/sbin/nginx –s reload
+            // CONFIG: StyleSelect
+            style_formats: [
+                {
+                    title: &#39;首行缩进&#39;,
+                    block: &#39;p&#39;,
+                    styles: {&#39;text-indent&#39;: &#39;2em&#39;}
+                },
+                {
+                    title: &#39;行高&#39;,
+                    items: [
+                        {title: &#39;1&#39;, styles: {&#39;line-height&#39;: &#39;1&#39;}, inline: &#39;span&#39;},
+                        {title: &#39;1.5&#39;, styles: {&#39;line-height&#39;: &#39;1.5&#39;}, inline: &#39;span&#39;},
+                        {title: &#39;2&#39;, styles: {&#39;line-height&#39;: &#39;2&#39;}, inline: &#39;span&#39;},
+                        {title: &#39;2.5&#39;, styles: {&#39;line-height&#39;: &#39;2.5&#39;}, inline: &#39;span&#39;},
+                        {title: &#39;3&#39;, styles: {&#39;line-height&#39;: &#39;3&#39;}, inline: &#39;span&#39;}
+                    ]
+                }
+            ],
+            // Tab
+            tabfocus_elements: &#39;:prev,:next&#39;,
+            object_resizing: true,
 
-停止：
-$ /usr/local/nginx/sbin/nginx –s stop
+            // Image
+            imagetools_toolbar: &#39;rotateleft rotateright | flipv fliph | editimage imageoptions&#39;,
+            file_picker_types: &#39;media&#39;,
+            media_live_embeds: true,
+            //be used to add custom file picker to those dialogs that have it.
+            file_picker_callback: function (cb, value, meta) {
+                if (meta.filetype == &#39;media&#39;) {
+                    //创建一个隐藏的type=file的文件选择input
+                    let input = document.createElement(&#39;input&#39;);
+                    input.setAttribute(&#39;type&#39;, &#39;file&#39;);
+                    input.onchange = function(){
+                        let file = this.files[0];//只选取第一个文件。如果要选取全部，后面注意做修改
+                        let xhr, formData;
+                        xhr = new XMLHttpRequest();
+                        xhr.open(&#39;POST&#39;, &#39;../tmmedia/upload&#39;);//自定义文件上传
+                        xhr.withCredentials = true;
+                        xhr.upload.onprogress = function (e) {
+                            // 进度(e.loaded / e.total * 100)
+                        };
+                        xhr.onerror = function () {
+                            console.log(xhr.status);
+                            return;
+                        };
+                        xhr.onload = function () {
+                            let json;
+                            if (xhr.status &lt; 200 || xhr.status &gt;= 300) {
+                                console.log(&#39;HTTP 错误: &#39; + xhr.status);
+                                return;
+                            }
+                            json = JSON.parse(xhr.responseText);
+                            console.log(json)
+                            //接口返回的文件保存地址
+                            let mediaLocation=json.location;
+                            //cb()回调函数，将mediaLocation显示在弹框输入框中
+                            cb(mediaLocation, { title: file.name });
 
-测试配置文件是否正常：
-$ /usr/local/nginx/sbin/nginx –t
+                        };
+                        formData = new FormData();
+                        //假设接口接收参数为file,值为选中的文件
+                        formData.append(&#39;file&#39;, file);
+                        //正式使用将下面被注释的内容恢复
+                        xhr.send(formData);
+                    }
+                    //触发点击
+                    input.click();
+                }
+            }
+        });
+</code></pre><p>实现效果<br><img src="http://imgcq.test.upcdn.net/20200702182102.png?!" alt></p>
+<h2 id="保存功能"><a href="#保存功能" class="headerlink" title="保存功能"></a>保存功能</h2><p>通过 <code>tinymce.activeEditor.getContent()</code>获取编辑区内容，内容为html代码。</p>
+<pre><code>form.on(&#39;submit(save)&#39;, function (data) {
+            var field = data.field;
+            //获取内容核心
+            field.content = tinymce.activeEditor.getContent()
 
-强制关闭：
-$ pkill nginx
-</code></pre><p><strong>yum安装常用</strong></p>
-<pre><code>systemctl enable nginx   # 设置开机启动 Nginx
-systemctl disable nginx  # 关闭开机启动 Nginx
-systemctl start nginx    # 启动 Nginx
-systemctl stop nginx     # 停止 Nginx
-systemctl restart nginx  # 重启 Nginx
-systemctl reload nginx   # 重新加载 Nginx
-systemctl status nginx   # 查看 Nginx 运行状态
+            var loadIndex;
+            loadIndex = layer.load(2);
+            $.post(&quot;../tmknowledgebase/saveOrUpdate&quot;, field, function (data) {
+                if (data.code === 200) {
+                    tools.success(&quot;保存成功!&quot;);
+                    layer.msg(&quot;成功!&quot;, {time: 1000}, function () {
+                        layer.close(loadIndex);
+                        //传给上个页面，刷新table用
+                        tools.putTempData(&#39;submitOK&#39;, true);
+                        //关掉对话框
+                        tools.closeThisDialog();
+                    });
+                } else {
+                    layer.close(loadIndex)
+                    tools.error(data.msg);
+                }
+            })
+        })
+</code></pre><h2 id="内容回显"><a href="#内容回显" class="headerlink" title="内容回显"></a>内容回显</h2><p>在保存编辑内容后，如果我们想要再次编辑，需要对以保存内容进行回显，之前提到，保存的内容实际是html片段，因此采用html渲染即可。在此项目中采用Freemarker框架，渲染代码如下：</p>
+<p><code>${data.content!&quot;&quot;}</code>为后台返回的编辑区内容</p>
+<pre><code> &lt;div class=&quot;layui-card-body layui-form-item&quot;&gt;
+    &lt;textarea id=&quot;content&quot; name=&quot;content&quot;&gt;${data.content!&quot;&quot;}&lt;/textarea&gt;
+&lt;/div&gt;
+</code></pre><p>实例化区域代码与上文相同</p>
+<pre><code> tinymce.init({
+            selector: &#39;#content&#39;,
+            height: 600,
+            ...
+</code></pre><h2 id="汉化"><a href="#汉化" class="headerlink" title="汉化"></a>汉化</h2><p>tinymce默认是英文的，需要引入汉化包zh_CN.js到langs目录下,在<code>language</code>属性下添加<code>zh_CN</code>.</p>
+<pre><code>tinymce.init({
+    selector: &#39;#content&#39;,
+    language:&#39;zh_CN&#39;,//注意大小写
+});
+</code></pre><h2 id="图片上传"><a href="#图片上传" class="headerlink" title="图片上传"></a>图片上传</h2><p>首先后台自定义文件上传接口</p>
+<p><strong>注意</strong>：需要指定具体的下载地址，否则上传后文件无法回显<code>map.put(&quot;location&quot;, &quot;当前文件实际下载地址&quot;);</code></p>
+<pre><code>@PostMapping(value = &quot;/tmmedia/upload&quot;)
+    public Object downloadFile(@RequestParam MultipartFile file) {
+        Map&lt;String, String&gt; map = new HashMap&lt;&gt;();
+        try {
+            String fileName = file.getOriginalFilename();
+            String extension = StringUtils.getFilenameExtension(fileName);
+            String name = IdUtil.fastUUID() + &quot;.&quot; + extension;
+            ftpUtils.upload(dir, name, file);
+//            文件下载，供前台回显
+            map.put(&quot;location&quot;, downloadUrl + dir + &quot;/&quot; + name);
+        } catch (Exception e) {
+            e.printStackTrace();
+            map.put(&quot;location&quot;, &quot;&quot;);
+        }
+        return map;
+    }
+</code></pre><p>渲染区配置</p>
+<pre><code>tinymce.init({
+    selector: &#39;#content&#39;,
+    language:&#39;zh_CN&#39;,//注意大小写
+    plugins:  image &#39;,
+    images_upload_url: &#39;../tmmedia/upload&#39;,//图片上传地址
+    images_upload_credentials: true,
+    image_dimensions: false,
+    image_class_list: [
+        {title: &#39;无&#39;, value: &#39;&#39;},
+        {title: &#39;预览&#39;, value: &#39;preview&#39;},
+    ],
+});
+</code></pre><h2 id="视频播放"><a href="#视频播放" class="headerlink" title="视频播放"></a>视频播放</h2><p>首先后台自定义文件上传接口</p>
+<p>==注意==：需要指定具体的下载地址，否则上传后文件无法回显<code>map.put(&quot;location&quot;, &quot;当前文件实际下载地址&quot;);</code></p>
+<pre><code>@PostMapping(value = &quot;/tmmedia/upload&quot;)
+    public Object downloadFile(@RequestParam MultipartFile file) {
+        Map&lt;String, String&gt; map = new HashMap&lt;&gt;();
+        try {
+            String fileName = file.getOriginalFilename();
+            String extension = StringUtils.getFilenameExtension(fileName);
+            String name = IdUtil.fastUUID() + &quot;.&quot; + extension;
+            ftpUtils.upload(dir, name, file);
+//            文件下载，供前台回显
+            map.put(&quot;location&quot;, downloadUrl + dir + &quot;/&quot; + name);
+        } catch (Exception e) {
+            e.printStackTrace();
+            map.put(&quot;location&quot;, &quot;&quot;);
+        }
+        return map;
+    }
+</code></pre><p>渲染区配置</p>
+<pre><code>tinymce.init({
+    selector: &#39;#content&#39;,
+    language:&#39;zh_CN&#39;,//注意大小写
+    plugins:  media &#39;,
+    file_picker_types: &#39;media&#39;,
+            media_live_embeds: true,
+            //be used to add custom file picker to those dialogs that have it.
+            file_picker_callback: function (cb, value, meta) {
+                if (meta.filetype == &#39;media&#39;) {
+                    //创建一个隐藏的type=file的文件选择input
+                    let input = document.createElement(&#39;input&#39;);
+                    input.setAttribute(&#39;type&#39;, &#39;file&#39;);
+                    input.onchange = function(){
+                        let file = this.files[0];//只选取第一个文件。如果要选取全部，后面注意做修改
+                        let xhr, formData;
+                        xhr = new XMLHttpRequest();
+                        xhr.open(&#39;POST&#39;, &#39;../tmmedia/upload&#39;);//自定义文件上传
+                        xhr.withCredentials = true;
+                        xhr.upload.onprogress = function (e) {
+                            // 进度(e.loaded / e.total * 100)
+                        };
+                        xhr.onerror = function () {
+                            console.log(xhr.status);
+                            return;
+                        };
+                        xhr.onload = function () {
+                            let json;
+                            if (xhr.status &lt; 200 || xhr.status &gt;= 300) {
+                                console.log(&#39;HTTP 错误: &#39; + xhr.status);
+                                return;
+                            }
+                            json = JSON.parse(xhr.responseText);
+                            console.log(json)
+                            //接口返回的文件保存地址
+                            let mediaLocation=json.location;
+                            //cb()回调函数，将mediaLocation显示在弹框输入框中
+                            cb(mediaLocation, { title: file.name });
+
+
+                        };
+                        formData = new FormData();
+                        //假设接口接收参数为file,值为选中的文件
+                        formData.append(&#39;file&#39;, file);
+                        //正式使用将下面被注释的内容恢复
+                        xhr.send(formData);
+                    }
+                    //触发点击
+                    input.click();
+                }
+            }
+});
 </code></pre>
             </div>
             <hr/>
@@ -533,7 +719,7 @@ systemctl status nginx   # 查看 Nginx 运行状态
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://www.xujn.xyz/2020/06/12/nginx-chang-yong-chang-jing/">http://www.xujn.xyz/2020/06/12/nginx-chang-yong-chang-jing/</a>
+                    <a href="http://www.xujn.xyz/2020/07/02/sping-boot-ji-cheng-tinymce-fu-wen-ben-bian-ji/">http://www.xujn.xyz/2020/07/02/sping-boot-ji-cheng-tinymce-fu-wen-ben-bian-ji/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -571,8 +757,12 @@ systemctl status nginx   # 查看 Nginx 运行状态
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/nginx/">
-                                    <span class="chip bg-color">nginx</span>
+                                <a href="/tags/Tinymce/">
+                                    <span class="chip bg-color">Tinymce</span>
+                                </a>
+                            
+                                <a href="/tags/Spring-Boot/">
+                                    <span class="chip bg-color">Spring Boot</span>
                                 </a>
                             
                         </div>
@@ -876,9 +1066,10 @@ systemctl status nginx   # 查看 Nginx 运行状态
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
                 <a href="/2020/07/02/sping-boot-ji-cheng-tinymce-fu-wen-ben-bian-ji/">
                     <div class="card-image">
@@ -902,9 +1093,9 @@ TinyMCE是一款易用、且功能强大的所见即所得的富文本编辑器�
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-07-02
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-07-02
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -917,6 +1108,7 @@ TinyMCE是一款易用、且功能强大的所见即所得的富文本编辑器�
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
@@ -939,38 +1131,35 @@ TinyMCE是一款易用、且功能强大的所见即所得的富文本编辑器�
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2020/03/25/nginx-jie-ya-ban-ping-hua-sheng-ji/">
+                <a href="/2020/06/12/nginx-chang-yong-chang-jing/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="nginx解压版平滑升级">
+                        <img src="/medias/featureimages/9.jpg" class="responsive-img" alt="Nginx常用场景">
                         
-                        <span class="card-title">nginx解压版平滑升级</span>
+                        <span class="card-title">Nginx常用场景</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            配置
-nginx 1.16.1
-redhat
-
-操作过程做好配置备份
-下载nginx1.16.1,进行解压操作。
-wget http://nginx.org/download/nginx-1.16.1.tar.gz
-tar -xzvf ng
+                            简介Nginx是一款轻量级的Web服务器、反向代理服务器，由于它的内存占用少，启动极快，高并发能力强，在互联网项目中广泛应用。
+应用场景负载均衡轮询
+upstream test {
+  server 10.200.100.3:8080;
+ 
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-03-25
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-06-12
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/软件安装/" class="post-category">
-                                    软件安装
+                            <a href="/categories/Linux/" class="post-category">
+                                    Linux
                                 </a>
                             
                             
