@@ -2,7 +2,7 @@
 <html lang="zh-CN">
 
 
-<head><meta name="generator" content="Hexo 3.9.0">
+<head>
     <meta charset="utf-8">
     <meta name="keywords" content="Docker安装oracle 11g, 博客 苏叶新城 X笔记">
     <meta name="description" content="愿出走半生，归来仍是少年。">
@@ -29,7 +29,7 @@
 
     <script src="/libs/jquery/jquery.min.js"></script>
     
-<link rel="stylesheet" href="/css/prism-atom-dark.css" type="text/css">
+<meta name="generator" content="Hexo 5.0.2"><link rel="stylesheet" href="/css/prism-atom-dark.css" type="text/css">
 <link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"><script src="/js/prism.js"></script>
 <script src="/js/prism-line-numbers.min.js"></script></head>
 
@@ -357,7 +357,7 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/数据库/" class="post-category">
+                            <a href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/" class="post-category">
                                 数据库
                             </a>
                         
@@ -379,7 +379,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    577
+                    572
                 </div>
                 
 
@@ -405,74 +405,74 @@
 </ul>
 <h2 id="安装docker"><a href="#安装docker" class="headerlink" title="安装docker"></a>安装docker</h2><p>安装docker有两种方式，一种从Ubuntu的存储库安装，这种安装方式docker版本不是最新的。第二种从Docker存储库安装。这里我选用的是第一种。</p>
 <p><strong>安装</strong></p>
-<pre><code>sudo apt install docker.io
-</code></pre><p><strong>启动，并添加开机启动</strong></p>
+<pre><code>sudo apt install docker.io</code></pre>
+<p><strong>启动，并添加开机启动</strong></p>
 <pre><code>systemctl start docker  //启动
-systemctl enable docker  //开机启动
-</code></pre><p><strong>查看安装版本</strong></p>
-<pre><code>docker --version
-</code></pre><h2 id="docker常用命令"><a href="#docker常用命令" class="headerlink" title="docker常用命令"></a>docker常用命令</h2><p><strong>搜索镜像</strong></p>
+systemctl enable docker  //开机启动</code></pre>
+<p><strong>查看安装版本</strong></p>
+<pre><code>docker --version</code></pre>
+<h2 id="docker常用命令"><a href="#docker常用命令" class="headerlink" title="docker常用命令"></a>docker常用命令</h2><p><strong>搜索镜像</strong></p>
 <pre><code>//搜索oracle镜像
-docker search oracle  
-</code></pre><p><strong>下载镜像</strong></p>
+docker search oracle  </code></pre>
+<p><strong>下载镜像</strong></p>
 <p>pull命令将从指定Docker Register上下载镜像</p>
-<pre><code>docker pull oracle 
-</code></pre><p><strong>列出镜像</strong></p>
+<pre><code>docker pull oracle </code></pre>
+<p><strong>列出镜像</strong></p>
 <p>images命令将列出已下载镜像</p>
-<pre><code>docker images
-</code></pre><p><strong>删除镜像</strong></p>
+<pre><code>docker images</code></pre>
+<p><strong>删除镜像</strong></p>
 <p>rmi命令可删除指定镜像</p>
-<pre><code>docker rmi  hello-world
-</code></pre><h2 id="安装oracle"><a href="#安装oracle" class="headerlink" title="安装oracle"></a>安装oracle</h2><p><strong>下载镜像</strong></p>
+<pre><code>docker rmi  hello-world</code></pre>
+<h2 id="安装oracle"><a href="#安装oracle" class="headerlink" title="安装oracle"></a>安装oracle</h2><p><strong>下载镜像</strong></p>
 <p>文件有点大，建议先将Ubuntu的下载源更改为国内的。</p>
 <pre><code>docker pull registry.cn-hangzhou.aliyuncs.com/helowin/oracle_11g
-
-</code></pre><p><strong>新建镜像并启动</strong></p>
+</code></pre>
+<p><strong>新建镜像并启动</strong></p>
 <p>使用root用户操作</p>
 <p>docker run命令 <code>-d</code>后台启动，<code>-p</code>指定端口映射 </p>
-<pre><code>docker run -d -p 1521:1521 --name oracle_11g registry.aliyuncs.com/helowin/oracle_11g
-</code></pre><p>如果容器停止使用docker start 命令启动</p>
-<pre><code>docker start oracle_11g
-</code></pre><p>查看容器状态</p>
-<pre><code>docker ps
-</code></pre><h2 id="修改用户信息"><a href="#修改用户信息" class="headerlink" title="修改用户信息"></a>修改用户信息</h2><ol>
+<pre><code>docker run -d -p 1521:1521 --name oracle_11g registry.aliyuncs.com/helowin/oracle_11g</code></pre>
+<p>如果容器停止使用docker start 命令启动</p>
+<pre><code>docker start oracle_11g</code></pre>
+<p>查看容器状态</p>
+<pre><code>docker ps</code></pre>
+<h2 id="修改用户信息"><a href="#修改用户信息" class="headerlink" title="修改用户信息"></a>修改用户信息</h2><ol>
 <li>进入镜像内，修改信息</li>
 </ol>
 <pre><code>docker exec -it oracle_11g bash
-
-</code></pre><ol start="2">
+</code></pre>
+<ol start="2">
 <li>root用户操作，root用户密码<code>helowin</code></li>
 </ol>
 <p>编辑<code>/etc/profile</code></p>
 <pre><code>export ORACLE_HOME=/home/oracle/app/oracle/product/11.2.0/dbhome_2
 export ORACLE_SID=helowin
-export PATH=$ORACLE_HOME/bin:$PATH
-</code></pre><p>使文件生效<code>source /etc/profile</code></p>
+export PATH=$ORACLE_HOME/bin:$PATH</code></pre>
+<p>使文件生效<code>source /etc/profile</code></p>
 <ol start="3">
 <li>添加软链接</li>
 </ol>
-<pre><code>ln -s $ORACLE_HOME/bin/sqlplus /usr/bin
-</code></pre><ol start="4">
+<pre><code>ln -s $ORACLE_HOME/bin/sqlplus /usr/bin</code></pre>
+<ol start="4">
 <li>切换oracle用户,修改密码</li>
 </ol>
 <p><code>su - oracle</code></p>
 <pre><code>alter user system identified by 密码;
 alter user sys identified by 密码;
-ALTER PROFILE DEFAULT LIMIT PASSWORD_LIFE_TIME UNLIMITED;
-</code></pre><h2 id="测试一下"><a href="#测试一下" class="headerlink" title="测试一下"></a>测试一下</h2><pre><code>ip:宿主机ip
+ALTER PROFILE DEFAULT LIMIT PASSWORD_LIFE_TIME UNLIMITED;</code></pre>
+<h2 id="测试一下"><a href="#测试一下" class="headerlink" title="测试一下"></a>测试一下</h2><pre><code>ip:宿主机ip
 端口:1521
 SID: helowin
 用户名:****
-密码:****
-</code></pre><h2 id="结束了么？"><a href="#结束了么？" class="headerlink" title="结束了么？"></a>结束了么？</h2><p>并没有，我的最终目的是让其他同事也访问我的oracle，所以需要做一步端口转发，将虚拟机1521端口映射到主机的某个端口上，然后通过主机暴露出的ip:port访问。</p>
+密码:****</code></pre>
+<h2 id="结束了么？"><a href="#结束了么？" class="headerlink" title="结束了么？"></a>结束了么？</h2><p>并没有，我的最终目的是让其他同事也访问我的oracle，所以需要做一步端口转发，将虚拟机1521端口映射到主机的某个端口上，然后通过主机暴露出的ip:port访问。</p>
 <h3 id="选择编辑，打开虚拟网络编辑器"><a href="#选择编辑，打开虚拟网络编辑器" class="headerlink" title="选择编辑，打开虚拟网络编辑器"></a>选择编辑，打开虚拟网络编辑器</h3><p>1.前提虚拟机已关机<br>2.选择更改设置<br>3.选择NAT设置</p>
-<p><img src="http://imgcq.test.upcdn.net/EB5F7A58E52B7087FFF188704B0EFC2F.png?!" alt></p>
+<p><img src="http://imgcq.test.upcdn.net/EB5F7A58E52B7087FFF188704B0EFC2F.png?!"></p>
 <p>4.选择添加</p>
 <p>我选择1522端口作为映射</p>
 <p>222为远程访问虚拟机的端口（如果需要，现在虚拟机安装<code>openssh-server</code>）</p>
-<p><img src="http://imgcq.test.upcdn.net/4C9D950D53CE966D298E7818EA869429.png?!" alt></p>
+<p><img src="http://imgcq.test.upcdn.net/4C9D950D53CE966D298E7818EA869429.png?!"></p>
 <p><strong>参考文章</strong></p>
-<p><a href="https://www.howtoing.com/ubuntu-docker" target="_blank" rel="noopener">Docker：Ubuntu 18.04 LTS上的安装和基本使用</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.howtoing.com/ubuntu-docker">Docker：Ubuntu 18.04 LTS上的安装和基本使用</a></p>
 
             </div>
             <hr/>
@@ -876,7 +876,7 @@ tar -x
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/软件安装/" class="post-category">
+                            <a href="/categories/%E8%BD%AF%E4%BB%B6%E5%AE%89%E8%A3%85/" class="post-category">
                                     软件安装
                                 </a>
                             
@@ -926,7 +926,7 @@ grant select,insert,update on res.plan_task
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/数据库/" class="post-category">
+                            <a href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/" class="post-category">
                                     数据库
                                 </a>
                             

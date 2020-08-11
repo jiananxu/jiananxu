@@ -2,7 +2,7 @@
 <html lang="zh-CN">
 
 
-<head><meta name="generator" content="Hexo 3.9.0">
+<head>
     <meta charset="utf-8">
     <meta name="keywords" content="Redhat更换yum源, 博客 苏叶新城 X笔记">
     <meta name="description" content="愿出走半生，归来仍是少年。">
@@ -29,7 +29,7 @@
 
     <script src="/libs/jquery/jquery.min.js"></script>
     
-<link rel="stylesheet" href="/css/prism-atom-dark.css" type="text/css">
+<meta name="generator" content="Hexo 5.0.2"><link rel="stylesheet" href="/css/prism-atom-dark.css" type="text/css">
 <link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"><script src="/js/prism.js"></script>
 <script src="/js/prism-line-numbers.min.js"></script></head>
 
@@ -357,7 +357,7 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/软件安装/" class="post-category">
+                            <a href="/categories/%E8%BD%AF%E4%BB%B6%E5%AE%89%E8%A3%85/" class="post-category">
                                 软件安装
                             </a>
                         
@@ -379,7 +379,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    523
+                    527
                 </div>
                 
 
@@ -406,22 +406,22 @@ yum-langpacks-0.4.2-3.el7.noarch
 yum-metadata-parser-1.1.4-10.el7.x86_64
 yum-rhn-plugin-2.0.1-4.el7.noarch
 PackageKit-yum-0.8.9-11.el7.x86_64
-yum-3.4.3-118.el7.noarch
-</code></pre><p><code>(这些安装包都需要从阿里源重新下载)</code></p>
+yum-3.4.3-118.el7.noarch</code></pre>
+<p><code>(这些安装包都需要从阿里源重新下载)</code></p>
 <p>卸载RedHat自带yum源</p>
-<pre><code>rpm -qa|grep yum|xargs rpm -e --nodeps
-</code></pre><p>配置redhat DNS解析（否则不能解析域名）</p>
+<pre><code>rpm -qa|grep yum|xargs rpm -e --nodeps</code></pre>
+<p>配置redhat DNS解析（否则不能解析域名）</p>
 <p><code>vim /etc/sysconfig/network-scripts/ifcfg-lo</code></p>
 <pre><code>#ifcfg-lo文件添加DNS映射
 DNS1=8.8.8.8
-DNS2=8.8.8.4
-</code></pre><p>使用<code>wget</code>将需要的安装包从<a href="https://mirrors.aliyun.com/centos/7/os/x86_64/Packages/" target="_blank" rel="noopener">阿里yum源</a><br>下载下来</p>
+DNS2=8.8.8.4</code></pre>
+<p>使用<code>wget</code>将需要的安装包从<a target="_blank" rel="noopener" href="https://mirrors.aliyun.com/centos/7/os/x86_64/Packages/">阿里yum源</a><br>下载下来</p>
 <pre><code>wget https://mirrors.aliyun.com/centos/7/os/x86_64/Packages/yum-3.4.3-158.el7.centos.noarch.rpm
 ...
-...
-</code></pre><p>安装</p>
-<pre><code>rpm -ivh yum-3.4.3-158.el7.centos.noarch.rpm --nodes --force
-</code></pre><p><code>建议一个一个安装</code></p>
+...</code></pre>
+<p>安装</p>
+<pre><code>rpm -ivh yum-3.4.3-158.el7.centos.noarch.rpm --nodes --force</code></pre>
+<p><code>建议一个一个安装</code></p>
 <p>新建配置文件(用于阿里源配置)<br><code>vim /etc/yum.repos.d/CentOS-Base.repo</code></p>
 <pre><code>baseurl=https://mirrors.aliyun.com/centos/7/os/$basearch/
 gpgcheck=1
@@ -451,10 +451,10 @@ gpgcheck=1
 enabled=0
 
 gpgkey=https://mirrors.aliyun.com/centos/RPM-GPG-KEY-CentOS-7
-
-</code></pre><p>下载软件测试下</p>
-<pre><code>yum -y install tree
-</code></pre><h2 id="用过的命令"><a href="#用过的命令" class="headerlink" title="用过的命令"></a>用过的命令</h2><p><strong>RPM—&gt;Redhat package Manager软件管理工具</strong></p>
+</code></pre>
+<p>下载软件测试下</p>
+<pre><code>yum -y install tree</code></pre>
+<h2 id="用过的命令"><a href="#用过的命令" class="headerlink" title="用过的命令"></a>用过的命令</h2><p><strong>RPM—&gt;Redhat package Manager软件管理工具</strong></p>
 <p>常用命令：</p>
 <ul>
 <li>-ivh : 安装显示安装进度 –install–verbose–hash</li>
@@ -465,7 +465,7 @@ gpgkey=https://mirrors.aliyun.com/centos/RPM-GPG-KEY-CentOS-7
 <li>-qf ：查找指定文件属于哪个RPM软件包Query File</li>
 <li>-Va：校验所有的RPM软件包，查找丢失的文件View Lost</li>
 </ul>
-<p>参考自：<br><br><a href="https://blog.csdn.net/hongbin_xu/article/details/79316614" target="_blank" rel="noopener">yum</a><br><a href="https://www.cnblogs.com/xiaochaohuashengmi/archive/2011/10/08/2203153.html" target="_blank" rel="noopener">rpm</a></p>
+<p>参考自：<br><br><a target="_blank" rel="noopener" href="https://blog.csdn.net/hongbin_xu/article/details/79316614">yum</a><br><a target="_blank" rel="noopener" href="https://www.cnblogs.com/xiaochaohuashengmi/archive/2011/10/08/2203153.html">rpm</a></p>
 
             </div>
             <hr/>
@@ -838,20 +838,22 @@ gpgkey=https://mirrors.aliyun.com/centos/RPM-GPG-KEY-CentOS-7
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2018/08/23/intellij-idea-ssm-kuang-jia-zheng-he/">
+                <a href="/2018/08/23/linux-xia-mysql-5.7.22-an-zhuang-he-wang-ji-mi-ma/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="IntelliJ IDEA SSM框架整合">
+                        <img src="/medias/featureimages/18.jpg" class="responsive-img" alt="Linux下MySQL 5.7.22安装和忘记密码">
                         
-                        <span class="card-title">IntelliJ IDEA SSM框架整合</span>
+                        <span class="card-title">Linux下MySQL 5.7.22安装和忘记密码</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            web.xml文件参考自：web.xml配置
-web.xml是网络程序中的一个很重要的配置文件。在启动一个WEB项目的时候，WEB容器（比如tomcat）会去读取它的配置文件web.xml，读取到不同的节点时，WEB容器就会创建相应的过滤器
+                            简述Redhat下安装MySQL5.7.22教程,安装完成后成功忘记密码-_-
+安装MySQL1. 压缩包处理解压压缩包
+tar -zxvf mysql-5.7.22-linux-glibc2.12-x86_64.tar.gz  
+重命名m
                         
                     </div>
                     <div class="publish-info">
@@ -862,8 +864,8 @@ web.xml是网络程序中的一个很重要的配置文件。在启动一个WEB�
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/Spring/" class="post-category">
-                                    Spring
+                            <a href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/" class="post-category">
+                                    数据库
                                 </a>
                             
                             
@@ -873,12 +875,8 @@ web.xml是网络程序中的一个很重要的配置文件。在启动一个WEB�
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/IDEA/">
-                        <span class="chip bg-color">IDEA</span>
-                    </a>
-                    
-                    <a href="/tags/SSM/">
-                        <span class="chip bg-color">SSM</span>
+                    <a href="/tags/MySQL/">
+                        <span class="chip bg-color">MySQL</span>
                     </a>
                     
                 </div>
@@ -904,8 +902,7 @@ web.xml是网络程序中的一个很重要的配置文件。在启动一个WEB�
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            本文用于搭建JetBrains系列软件激活服务器，如有能力，请支持正版
-##准备
+                            本文用于搭建JetBrains系列软件激活服务器，如有能力，请支持正版##准备
 
 Centos 7
 Nginx
@@ -913,7 +910,7 @@ Nginx
 
 ##安装nginx
     yum install epel-release
-    yum 
+    yum -
                         
                     </div>
                     <div class="publish-info">

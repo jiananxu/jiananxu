@@ -2,7 +2,7 @@
 <html lang="zh-CN">
 
 
-<head><meta name="generator" content="Hexo 3.9.0">
+<head>
     <meta charset="utf-8">
     <meta name="keywords" content="redis 4.14单机\哨兵模式搭建, 博客 苏叶新城 X笔记">
     <meta name="description" content="愿出走半生，归来仍是少年。">
@@ -29,7 +29,7 @@
 
     <script src="/libs/jquery/jquery.min.js"></script>
     
-<link rel="stylesheet" href="/css/prism-atom-dark.css" type="text/css">
+<meta name="generator" content="Hexo 5.0.2"><link rel="stylesheet" href="/css/prism-atom-dark.css" type="text/css">
 <link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"><script src="/js/prism.js"></script>
 <script src="/js/prism-line-numbers.min.js"></script></head>
 
@@ -357,7 +357,7 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/软件安装/" class="post-category">
+                            <a href="/categories/%E8%BD%AF%E4%BB%B6%E5%AE%89%E8%A3%85/" class="post-category">
                                 软件安装
                             </a>
                         
@@ -379,7 +379,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    833
+                    920
                 </div>
                 
 
@@ -402,7 +402,7 @@
 <li>linux</li>
 <li>1主2从</li>
 </ul>
-<h1 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h1><h2 id="下载redis"><a href="#下载redis" class="headerlink" title="下载redis"></a>下载redis</h2><p><a href="http://download.redis.io/releases/redis-4.0.14.tar.gz" target="_blank" rel="noopener">redis-4.0.14.tar.gz</a></p>
+<h1 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h1><h2 id="下载redis"><a href="#下载redis" class="headerlink" title="下载redis"></a>下载redis</h2><p><a target="_blank" rel="noopener" href="http://download.redis.io/releases/redis-4.0.14.tar.gz">redis-4.0.14.tar.gz</a></p>
 <h2 id="配置redis"><a href="#配置redis" class="headerlink" title="配置redis"></a>配置redis</h2><p>解压 <code>tar -xzvf redis-4.0.14.tar.gz</code></p>
 <p>编译<br><code>cd redis-4.0.14/</code></p>
 <p>执行<code>make</code></p>
@@ -410,10 +410,10 @@
 <p>拷贝redis配置文件</p>
 <pre><code>cp redis.conf ../config/redis-6301.conf
 cp redis.conf ../config/redis-6302.conf
-cp redis.conf ../config/redis-6303.conf
-</code></pre><p>配置三个redis.conf</p>
-<pre><code>vim redis-6301.conf
-</code></pre><p>主节点</p>
+cp redis.conf ../config/redis-6303.conf</code></pre>
+<p>配置三个redis.conf</p>
+<pre><code>vim redis-6301.conf</code></pre>
+<p>主节点</p>
 <pre><code>//服务器ip
 #bind 192.168.18.128
 protected-mode no
@@ -425,24 +425,24 @@ pidfile &quot;/var/run/redis_6301.pid&quot;
 dbfilename &quot;6301dump.rdb&quot;
 masterauth &quot;redis&quot;
 
-slave-read-only no   # 从节点不仅可以读，也可以写，yes为从节点只读
-</code></pre><p>从节点添加</p>
+slave-read-only no   # 从节点不仅可以读，也可以写，yes为从节点只读</code></pre>
+<p>从节点添加</p>
 <pre><code>//主节点ip port
-slaveof 192.168.18.128 6301
-</code></pre><p>另外修改对应端口</p>
+slaveof 192.168.18.128 6301</code></pre>
+<p>另外修改对应端口</p>
 <p>启动</p>
 <pre><code>./redis-server ../config/redis-6301.conf
 ./redis-server ../config/redis-6302.conf 
-./redis-server ../config/redis-6303.conf 
-</code></pre><p>查看</p>
+./redis-server ../config/redis-6303.conf </code></pre>
+<p>查看</p>
 <pre><code>./redis-cli -h 192.168.18.128 -p 6301
 
 &lt;!--验证--&gt;
 auth redis
 &lt;!--显示信息--&gt;
 info
-
-</code></pre><p>显示主从信息</p>
+</code></pre>
+<p>显示主从信息</p>
 <pre><code># Replication
 role:master  //主节点
 connected_slaves:2
@@ -456,8 +456,8 @@ repl_backlog_active:1
 repl_backlog_size:1048576
 repl_backlog_first_byte_offset:5310990
 repl_backlog_histlen:1048576
-
-</code></pre><h1 id="哨兵模式配置"><a href="#哨兵模式配置" class="headerlink" title="哨兵模式配置"></a>哨兵模式配置</h1><p>配置项</p>
+</code></pre>
+<h1 id="哨兵模式配置"><a href="#哨兵模式配置" class="headerlink" title="哨兵模式配置"></a>哨兵模式配置</h1><p>配置项</p>
 <pre><code>port 26301
 sentinel monitor mymaster 192.168.18.128 6301 2
 sentinel auth-pass mymaster redis
@@ -467,18 +467,18 @@ sentinel failover-timeout mymaster 80000
 bind 192.168.18.128
 protected-mode no
 daemonize yes //允许后台启动
-
-</code></pre><p>向config文件夹中拷贝三个配置文件</p>
+</code></pre>
+<p>向config文件夹中拷贝三个配置文件</p>
 <pre><code>cp sentinel.conf ../config/sentinel-6301.conf
 cp sentinel.conf ../config/sentinel-6302.conf
-cp sentinel.conf ../config/sentinel-6303.conf
-</code></pre><p>从节点修改端口26302，26303</p>
+cp sentinel.conf ../config/sentinel-6303.conf</code></pre>
+<p>从节点修改端口26302，26303</p>
 <p>启动</p>
 <pre><code>./redis-sentinel ../config/sentinel-26301.conf
 ./redis-sentinel ../config/sentinel-26302.conf
-./redis-sentinel ../config/sentinel-26303.conf
-</code></pre><h2 id="结果验证"><a href="#结果验证" class="headerlink" title="结果验证"></a>结果验证</h2><p>查看进程<br><code>ps -ef|grep redis</code></p>
-<p><img src="http://imgcq.test.upcdn.net/20190403162358.png?!" alt></p>
+./redis-sentinel ../config/sentinel-26303.conf</code></pre>
+<h2 id="结果验证"><a href="#结果验证" class="headerlink" title="结果验证"></a>结果验证</h2><p>查看进程<br><code>ps -ef|grep redis</code></p>
+<p><img src="http://imgcq.test.upcdn.net/20190403162358.png?!"></p>
 <p>验证下主从同步</p>
 <p><code>kill -9 13028</code><br>查看主节点变更情况</p>
 <h2 id="spring-boot集成"><a href="#spring-boot集成" class="headerlink" title="spring boot集成"></a>spring boot集成</h2><p>配置文件application.yml</p>
@@ -491,72 +491,72 @@ cp sentinel.conf ../config/sentinel-6303.conf
         password: redis
         sentinel:
               nodes: 192.168.18.128:26301,192.168.18.128:26302,192.168.18.128:26303
-              master: mymaster
-</code></pre><p>WebMvcConfigurer配置</p>
+              master: mymaster</code></pre>
+<p>WebMvcConfigurer配置</p>
 <pre><code>@Configuration
-public class WebConfig implements WebMvcConfigurer {
-    @Value(&quot;#{&#39;${spring.redis.sentinel.nodes}&#39;.split(&#39;,&#39;)}&quot;)
+public class WebConfig implements WebMvcConfigurer &amp;#123;
+    @Value(&quot;#&amp;#123;&#39;$&amp;#123;spring.redis.sentinel.nodes&amp;#125;&#39;.split(&#39;,&#39;)&amp;#125;&quot;)
     private List&lt;String&gt; nodes;
-    @Value(&quot;${spring.redis.password}&quot;)
+    @Value(&quot;$&amp;#123;spring.redis.password&amp;#125;&quot;)
     private String redisPassword;
-    @Value(&quot;${spring.redis.sentinel.master}&quot;)
+    @Value(&quot;$&amp;#123;spring.redis.sentinel.master&amp;#125;&quot;)
     private String redisMaster;
     @Autowired
     private FastJsonHttpMessageConverter fastJsonHttpMessageConverter;
 
 
     @Bean
-    public RestTemplateBuilder restTemplateBuilder() {
+    public RestTemplateBuilder restTemplateBuilder() &amp;#123;
         RestTemplateBuilder builder = new RestTemplateBuilder();
         return builder.messageConverters(fastJsonHttpMessageConverter);
-    }
+    &amp;#125;
 
     @Bean
-    public RestTemplate restTemplate() {
+    public RestTemplate restTemplate() &amp;#123;
         return restTemplateBuilder().build();
-    }
+    &amp;#125;
 
 
     @Bean
-    JedisConnectionFactory jedisConnectionFactory() {
+    JedisConnectionFactory jedisConnectionFactory() &amp;#123;
         return new JedisConnectionFactory(sentinelConfiguration());
-    }
+    &amp;#125;
     @Bean
-    public RedisSentinelConfiguration sentinelConfiguration(){
+    public RedisSentinelConfiguration sentinelConfiguration()&amp;#123;
         RedisSentinelConfiguration redisSentinelConfiguration = new RedisSentinelConfiguration();
         //配置matser的名称
         redisSentinelConfiguration.master(redisMaster);
         //配置redis的哨兵sentinel
         Set&lt;RedisNode&gt; redisNodeSet = new HashSet&lt;&gt;();
-        nodes.forEach(x-&gt;{
+        nodes.forEach(x-&gt;&amp;#123;
             redisNodeSet.add(new RedisNode(x.split(&quot;:&quot;)[0],Integer.parseInt(x.split(&quot;:&quot;)[1])));
-        });
-        log.info(&quot;\nredisNodeSet --&gt;{}&quot;,redisNodeSet);
+        &amp;#125;);
+        log.info(&quot;\nredisNodeSet --&gt;&amp;#123;&amp;#125;&quot;,redisNodeSet);
         redisSentinelConfiguration.setSentinels(redisNodeSet);
         redisSentinelConfiguration.setPassword(RedisPassword.of(redisPassword));
         return redisSentinelConfiguration;
-    }
+    &amp;#125;
 
 
     @Bean
-    public RedisTemplate&lt;String, Object&gt; redisTemplate() {
+    public RedisTemplate&lt;String, Object&gt; redisTemplate() &amp;#123;
         RedisTemplate&lt;String, Object&gt; template = new RedisTemplate&lt;&gt;();
         template.setConnectionFactory(jedisConnectionFactory());
         return template;
-    }
-}
-
-</code></pre><p>启动，连接成功会显示具体信息</p>
+    &amp;#125;
+&amp;#125;
+</code></pre>
+<p>启动，连接成功会显示具体信息</p>
 <pre><code>redis.clients.jedis.JedisSentinelPool    : Trying to find master from available Sentinels...
 redis.clients.jedis.JedisSentinelPool    : Redis master running at 192.168.18.128:6303, starting Sentinel listeners...
-redis.clients.jedis.JedisSentinelPool    : Created JedisPool to master at 192.168.18.128:6303
-</code></pre><p>连接异常情况</p>
+redis.clients.jedis.JedisSentinelPool    : Created JedisPool to master at 192.168.18.128:6303</code></pre>
+<p>连接异常情况</p>
 <pre><code>2019-04-04 09:55:44.961  INFO 24056 --- [           main] redis.clients.jedis.JedisSentinelPool    : Trying to find master from available Sentinels...
 2019-04-04 09:55:44.973  WARN 24056 --- [           main] redis.clients.jedis.JedisSentinelPool    : Cannot get master address from sentinel running @ 192.168.18.1281:26302. Reason: redis.clients.jedis.exceptions.JedisConnectionException: java.net.UnknownHostException: 192.168.18.1281. Trying next one.
 2019-04-04 09:55:44.973  WARN 24056 --- [           main] redis.clients.jedis.JedisSentinelPool    : Cannot get master address from sentinel running @ 192.168.18.1281:26301. Reason: redis.clients.jedis.exceptions.JedisConnectionException: java.net.UnknownHostException: 192.168.18.1281. Trying next one.
 2019-04-04 09:55:44.973  WARN 24056 --- [           main] redis.clients.jedis.JedisSentinelPool    : Cannot get master address from sentinel running @ 192.168.18.1281:26303. Reason: redis.clients.jedis.exceptions.JedisConnectionException: java.net.UnknownHostException: 192.168.18.1281. Trying next one.
-
-</code></pre><h2 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h2><p>防火墙端口开启</p>
+</code></pre>
+<h2 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h2><p>防火墙端口开启</p>
 
             </div>
             <hr/>
@@ -959,7 +959,7 @@ tar -xzvf ng
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/软件安装/" class="post-category">
+                            <a href="/categories/%E8%BD%AF%E4%BB%B6%E5%AE%89%E8%A3%85/" class="post-category">
                                     软件安装
                                 </a>
                             
@@ -1016,7 +1016,7 @@ tar -x
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/软件安装/" class="post-category">
+                            <a href="/categories/%E8%BD%AF%E4%BB%B6%E5%AE%89%E8%A3%85/" class="post-category">
                                     软件安装
                                 </a>
                             

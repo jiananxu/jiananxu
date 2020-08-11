@@ -2,7 +2,7 @@
 <html lang="zh-CN">
 
 
-<head><meta name="generator" content="Hexo 3.9.0">
+<head>
     <meta charset="utf-8">
     <meta name="keywords" content="Linux下MySQL 5.7.22安装和忘记密码, 博客 苏叶新城 X笔记">
     <meta name="description" content="愿出走半生，归来仍是少年。">
@@ -29,7 +29,7 @@
 
     <script src="/libs/jquery/jquery.min.js"></script>
     
-<link rel="stylesheet" href="/css/prism-atom-dark.css" type="text/css">
+<meta name="generator" content="Hexo 5.0.2"><link rel="stylesheet" href="/css/prism-atom-dark.css" type="text/css">
 <link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"><script src="/js/prism.js"></script>
 <script src="/js/prism-line-numbers.min.js"></script></head>
 
@@ -357,7 +357,7 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/数据库/" class="post-category">
+                            <a href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/" class="post-category">
                                 数据库
                             </a>
                         
@@ -379,7 +379,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    611
+                    627
                 </div>
                 
 
@@ -399,25 +399,25 @@
             <div id="articleContent">
                 <h2 id="简述"><a href="#简述" class="headerlink" title="简述"></a>简述</h2><p>Redhat下安装MySQL5.7.22教程,安装完成后成功忘记密码-_-</p>
 <h2 id="安装MySQL"><a href="#安装MySQL" class="headerlink" title="安装MySQL"></a>安装MySQL</h2><h4 id="1-压缩包处理"><a href="#1-压缩包处理" class="headerlink" title="1. 压缩包处理"></a>1. 压缩包处理</h4><p>解压压缩包</p>
-<pre><code>tar -zxvf mysql-5.7.22-linux-glibc2.12-x86_64.tar.gz  
-</code></pre><p>重命名mysql解压文件</p>
-<pre><code>mv mysql-5.7.22-linux-glibc2.12-x86_64 mysql
-</code></pre><p>复制mysql文件</p>
-<pre><code>cp -r mysql /usr/local/mysql
-</code></pre><h4 id="2-添加系统mysql组合mysql用户"><a href="#2-添加系统mysql组合mysql用户" class="headerlink" title="2. 添加系统mysql组合mysql用户"></a>2. 添加系统mysql组合mysql用户</h4><p>添加系统mysql组</p>
-<pre><code>groupadd mysql
-</code></pre><p>添加mysql用户</p>
-<pre><code>useradd -r -g mysql mysql
-</code></pre><p>添加mysql目录所有者为mysql</p>
-<pre><code>chown -R mysql:mysql /usr/local/mysql
-</code></pre><p>添加data目录所有者为mysql(<em>在mysql目录下新建data文件夹</em>)</p>
-<pre><code>chown -R mysql:mysql data
-</code></pre><h4 id="3-安装数据库"><a href="#3-安装数据库" class="headerlink" title="3. 安装数据库"></a>3. 安装数据库</h4><p>在mysql目录下，初始化数据库</p>
-<pre><code> bin/mysqld --initialize --user=mysql --basedir=/usr/local/mysql --datadir=/usr/local/mysql/data
-</code></pre><p>成功后,会生成临时密码,在最后一行。记住这个密码（我就记不住，所有才有忘记密码的部分）</p>
+<pre><code>tar -zxvf mysql-5.7.22-linux-glibc2.12-x86_64.tar.gz  </code></pre>
+<p>重命名mysql解压文件</p>
+<pre><code>mv mysql-5.7.22-linux-glibc2.12-x86_64 mysql</code></pre>
+<p>复制mysql文件</p>
+<pre><code>cp -r mysql /usr/local/mysql</code></pre>
+<h4 id="2-添加系统mysql组合mysql用户"><a href="#2-添加系统mysql组合mysql用户" class="headerlink" title="2. 添加系统mysql组合mysql用户"></a>2. 添加系统mysql组合mysql用户</h4><p>添加系统mysql组</p>
+<pre><code>groupadd mysql</code></pre>
+<p>添加mysql用户</p>
+<pre><code>useradd -r -g mysql mysql</code></pre>
+<p>添加mysql目录所有者为mysql</p>
+<pre><code>chown -R mysql:mysql /usr/local/mysql</code></pre>
+<p>添加data目录所有者为mysql(<em>在mysql目录下新建data文件夹</em>)</p>
+<pre><code>chown -R mysql:mysql data</code></pre>
+<h4 id="3-安装数据库"><a href="#3-安装数据库" class="headerlink" title="3. 安装数据库"></a>3. 安装数据库</h4><p>在mysql目录下，初始化数据库</p>
+<pre><code> bin/mysqld --initialize --user=mysql --basedir=/usr/local/mysql --datadir=/usr/local/mysql/data</code></pre>
+<p>成功后,会生成临时密码,在最后一行。记住这个密码（我就记不住，所有才有忘记密码的部分）</p>
 <p>执行以下命令创建RSA private key </p>
-<pre><code>  bin/mysql_ssl_rsa_setup --datadir=/usr/local/mysql/data
-</code></pre><h4 id="4-配置my-cnf"><a href="#4-配置my-cnf" class="headerlink" title="4. 配置my.cnf"></a>4. 配置my.cnf</h4><p><code>vim /etc/my.cnf</code><br>(如果没有这个文件，直接新建)</p>
+<pre><code>  bin/mysql_ssl_rsa_setup --datadir=/usr/local/mysql/data</code></pre>
+<h4 id="4-配置my-cnf"><a href="#4-配置my-cnf" class="headerlink" title="4. 配置my.cnf"></a>4. 配置my.cnf</h4><p><code>vim /etc/my.cnf</code><br>(如果没有这个文件，直接新建)</p>
 <pre><code>[mysqld]
 character_set_server=utf8
 init_connect=&#39;SET NAMES utf8&#39;
@@ -428,52 +428,52 @@ socket=/tmp/mysql.sock
 sql_mode=NO_ENGINE_SUBSTITUTION,STRICT_TRANS_TABLES
 lower_case_table_names = 1
 log-error=/var/log/mysqld.log
-pid-file=/usr/local/mysql/data/mysqld.pid
-</code></pre><h4 id="5-添加开机启动"><a href="#5-添加开机启动" class="headerlink" title="5. 添加开机启动"></a>5. 添加开机启动</h4><p>复制mysql.server</p>
-<pre><code>cp /usr/local/mysql/support-files/mysql.server  /etc/init.d/mysqld
-</code></pre><p>修改mysql.server</p>
-<p><code>vim /etc/init.d/mysqld</code></p>
+pid-file=/usr/local/mysql/data/mysqld.pid</code></pre>
+<h4 id="5-添加开机启动"><a href="#5-添加开机启动" class="headerlink" title="5. 添加开机启动"></a>5. 添加开机启动</h4><p>复制mysql.server</p>
+<pre><code>cp /usr/local/mysql/support-files/mysql.server  /etc/init.d/mysqld</code></pre>
+<p>修改mysql.server</p>
+<p><code>vim /etc/init.d/mysqld </code></p>
 <p>添加basedir和datadir</p>
 <pre><code> basedir=/usr/local/mysql
- datadir=/usr/local/mysql/data
-</code></pre><p>开机启动</p>
-<pre><code> chkconfig --add mysqld
-</code></pre><h4 id="6-启动MySQL"><a href="#6-启动MySQL" class="headerlink" title="6.启动MySQL"></a>6.启动MySQL</h4><pre><code>service mysqld start  #启动
+ datadir=/usr/local/mysql/data</code></pre>
+<p>开机启动</p>
+<pre><code> chkconfig --add mysqld</code></pre>
+<h4 id="6-启动MySQL"><a href="#6-启动MySQL" class="headerlink" title="6.启动MySQL"></a>6.启动MySQL</h4><pre><code>service mysqld start  #启动
 service mysqld stop   #停止
-service mysqld status #查看状态
-</code></pre><h4 id="7-登陆修改密码"><a href="#7-登陆修改密码" class="headerlink" title="7. 登陆修改密码"></a>7. 登陆修改密码</h4><p>首次登陆,密码为之前的临时密码</p>
+service mysqld status #查看状态</code></pre>
+<h4 id="7-登陆修改密码"><a href="#7-登陆修改密码" class="headerlink" title="7. 登陆修改密码"></a>7. 登陆修改密码</h4><p>首次登陆,密码为之前的临时密码</p>
 <p><code>mysql -uroot -p</code></p>
 <pre><code>如果出现`-bash: mysql:command not found`问题
 
-添加软连接`  ln -s /usr/local/mysql/bin/mysql /usr/bin`
-</code></pre><p>输入密码后</p>
+添加软连接`  ln -s /usr/local/mysql/bin/mysql /usr/bin`</code></pre>
+<p>输入密码后</p>
 <pre><code>如果出现Your password has expired. To log in you must change it using a client that supports expired passwords
-这样的问题，那么跟我一样，重置密码
-</code></pre><p>正常访问，进入<code>mysql&gt;</code></p>
+这样的问题，那么跟我一样，重置密码</code></pre>
+<p>正常访问，进入<code>mysql&gt;</code></p>
 <p>修改之前的临时密码</p>
-<pre><code>alter user &#39;root&#39;@&#39;localhost&#39; identified by &#39;your password&#39;;   
-</code></pre><p>刷新权限</p>
-<pre><code>flush privileges;   
-</code></pre><p>授权新用户</p>
-<pre><code>GRANT ALL PRIVILEGES ON *.* TO &#39;test&#39;@&#39;%&#39; IDENTIFIED BY &#39;test password&#39; WITH GRANT OPTION;   
-</code></pre><h2 id="忘记密码"><a href="#忘记密码" class="headerlink" title="忘记密码"></a>忘记密码</h2><p>关闭mysql</p>
+<pre><code>alter user &#39;root&#39;@&#39;localhost&#39; identified by &#39;your password&#39;;   </code></pre>
+<p>刷新权限</p>
+<pre><code>flush privileges;   </code></pre>
+<p>授权新用户</p>
+<pre><code>GRANT ALL PRIVILEGES ON *.* TO &#39;test&#39;@&#39;%&#39; IDENTIFIED BY &#39;test password&#39; WITH GRANT OPTION;   </code></pre>
+<h2 id="忘记密码"><a href="#忘记密码" class="headerlink" title="忘记密码"></a>忘记密码</h2><p>关闭mysql</p>
 <pre><code>service mysql stop
 # 或者
-kill MYSQL_PID
-</code></pre><p>进入安全模式(mysql的bin目录下<code>cd mysql/bin</code>)</p>
-<pre><code>./mysqld_safe --skip-grant-tables &amp;
-</code></pre><p>root用户无密码登陆</p>
-<pre><code>mysql -uroot
-</code></pre><p>进入之后，选择mysql数据库</p>
-<pre><code>use mysql;
-</code></pre><p>更新密码 </p>
-<pre><code>update user set authentication_string=password(&#39;your password&#39;) where user=&#39;root&#39;; 
-</code></pre><p><em>authentication_string字段变化，以前为password字段</em><br>刷新权限表 </p>
-<pre><code>flush privileges;
-</code></pre><p>退出</p>
-<pre><code>quit;
-</code></pre><p>重启mysql，新密码登录（陆？）</p>
-<p><a href="https://blog.csdn.net/zmx729618/article/details/78026497" target="_blank" rel="noopener">mysql.user表权限</a></p>
+kill MYSQL_PID</code></pre>
+<p>进入安全模式(mysql的bin目录下<code>cd mysql/bin</code>)</p>
+<pre><code>./mysqld_safe --skip-grant-tables &amp;</code></pre>
+<p>root用户无密码登陆</p>
+<pre><code>mysql -uroot</code></pre>
+<p>进入之后，选择mysql数据库</p>
+<pre><code>use mysql;</code></pre>
+<p>更新密码 </p>
+<pre><code>update user set authentication_string=password(&#39;your password&#39;) where user=&#39;root&#39;; </code></pre>
+<p><em>authentication_string字段变化，以前为password字段</em><br>刷新权限表 </p>
+<pre><code>flush privileges;</code></pre>
+<p>退出</p>
+<pre><code>quit;</code></pre>
+<p>重启mysql，新密码登录（陆？）</p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/zmx729618/article/details/78026497">mysql.user表权限</a></p>
 
             </div>
             <hr/>
@@ -846,60 +846,6 @@ kill MYSQL_PID
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2018/08/23/centos7-xia-nginx-an-zhuang-pei-zhi/">
-                    <div class="card-image">
-                        
-                        
-                        <img src="/medias/featureimages/23.jpg" class="responsive-img" alt="Centos7下Nginx安装配置">
-                        
-                        <span class="card-title">Centos7下Nginx安装配置</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            安装yum install epel-release
-yum -y install nginx
-service nginx start
-systemctl enable nginx
-访问自己的地址http://server_ip
-记得开启8
-                        
-                    </div>
-                    <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2018-08-23
-                        </span>
-                        <span class="publish-author">
-                            
-                            <i class="fas fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/软件安装/" class="post-category">
-                                    软件安装
-                                </a>
-                            
-                            
-                        </span>
-                    </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/nginx/">
-                        <span class="chip bg-color">nginx</span>
-                    </a>
-                    
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
-            </div>
-            <div class="card">
                 <a href="/2018/08/23/intellij-idea-ssm-kuang-jia-zheng-he/">
                     <div class="card-image">
                         
@@ -917,9 +863,9 @@ web.xml是网络程序中的一个很重要的配置文件。在启动一个WEB�
                         
                     </div>
                     <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2018-08-23
-                            </span>
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2018-08-23
+                        </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -941,6 +887,60 @@ web.xml是网络程序中的一个很重要的配置文件。在启动一个WEB�
                     
                     <a href="/tags/SSM/">
                         <span class="chip bg-color">SSM</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2018/08/14/redhat-geng-huan-yum-yuan/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/15.jpg" class="responsive-img" alt="Redhat更换yum源">
+                        
+                        <span class="card-title">Redhat更换yum源</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            简述redhat没有进行注册（收费了），不能够使用其自带的yum源，所以需要第三方的源来代替。
+过程查看自带yum源
+rpm -qa | grep yum
+# 查询结果
+yum-utils-1.1.31-24.el7.noarch
+yum-
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2018-08-14
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E8%BD%AF%E4%BB%B6%E5%AE%89%E8%A3%85/" class="post-category">
+                                    软件安装
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Linux/">
+                        <span class="chip bg-color">Linux</span>
                     </a>
                     
                 </div>

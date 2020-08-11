@@ -2,7 +2,7 @@
 <html lang="zh-CN">
 
 
-<head><meta name="generator" content="Hexo 3.9.0">
+<head>
     <meta charset="utf-8">
     <meta name="keywords" content="Spring Boot集成Tinymce富文本编辑器, 博客 苏叶新城 X笔记">
     <meta name="description" content="愿出走半生，归来仍是少年。">
@@ -29,7 +29,7 @@
 
     <script src="/libs/jquery/jquery.min.js"></script>
     
-<link rel="stylesheet" href="/css/prism-atom-dark.css" type="text/css">
+<meta name="generator" content="Hexo 5.0.2"><link rel="stylesheet" href="/css/prism-atom-dark.css" type="text/css">
 <link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"><script src="/js/prism.js"></script>
 <script src="/js/prism-line-numbers.min.js"></script></head>
 
@@ -345,12 +345,12 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/Spring-Boot/">
-                                <span class="chip bg-color">Spring Boot</span>
-                            </a>
-                        
                             <a href="/tags/Tinymce/">
                                 <span class="chip bg-color">Tinymce</span>
+                            </a>
+                        
+                            <a href="/tags/Spring-Boot/">
+                                <span class="chip bg-color">Spring Boot</span>
                             </a>
                         
                     </div>
@@ -383,7 +383,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1,568
+                    2.1k
                 </div>
                 
 
@@ -425,20 +425,20 @@
 &lt;/body
   &lt;script src=&#39;tinymce.min.js&#39;&gt;&lt;/script&gt;
   &lt;script&gt;
-  tinymce.init({
+  tinymce.init(&amp;#123;
     selector: &#39;#demo&#39;//ID绑定
     //此处可添加更多特性
-  });
+  &amp;#125;);
   &lt;/script&gt;
 &lt;/html&gt;
-
-</code></pre><h1 id="正式开始"><a href="#正式开始" class="headerlink" title="正式开始"></a>正式开始</h1><h2 id="引入Tinymce脚本"><a href="#引入Tinymce脚本" class="headerlink" title="引入Tinymce脚本"></a>引入Tinymce脚本</h2><pre><code>&lt;script src=&quot;/complaints/tinymce/tinymce.min.js&quot;&gt;&lt;/script&gt;
-
-</code></pre><h2 id="渲染区域"><a href="#渲染区域" class="headerlink" title="渲染区域"></a>渲染区域</h2><pre><code>&lt;div class=&quot;layui-form-item&quot;&gt;
+</code></pre>
+<h1 id="正式开始"><a href="#正式开始" class="headerlink" title="正式开始"></a>正式开始</h1><h2 id="引入Tinymce脚本"><a href="#引入Tinymce脚本" class="headerlink" title="引入Tinymce脚本"></a>引入Tinymce脚本</h2><pre><code>&lt;script src=&quot;/complaints/tinymce/tinymce.min.js&quot;&gt;&lt;/script&gt;
+</code></pre>
+<h2 id="渲染区域"><a href="#渲染区域" class="headerlink" title="渲染区域"></a>渲染区域</h2><pre><code>&lt;div class=&quot;layui-form-item&quot;&gt;
     &lt;textarea id=&quot;content&quot; name=&quot;content&quot;&gt;&lt;/textarea&gt;
-&lt;/div&gt;
-</code></pre><h2 id="实例化"><a href="#实例化" class="headerlink" title="实例化"></a>实例化</h2><p>支持图片、视频</p>
-<pre><code>tinymce.init({
+&lt;/div&gt;</code></pre>
+<h2 id="实例化"><a href="#实例化" class="headerlink" title="实例化"></a>实例化</h2><p>支持图片、视频</p>
+<pre><code>tinymce.init(&amp;#123;
             selector: &#39;#content&#39;,//绑定渲染区
             height: 600,
             plugins: &#39;paste importcss code table advlist fullscreen imagetools  textcolor colorpicker hr  autolink link image lists preview media wordcount&#39;,
@@ -451,23 +451,23 @@
             images_upload_credentials: true,
             image_dimensions: false,
             image_class_list: [
-                {title: &#39;无&#39;, value: &#39;&#39;},
-                {title: &#39;预览&#39;, value: &#39;preview&#39;},
+                &amp;#123;title: &#39;无&#39;, value: &#39;&#39;&amp;#125;,
+                &amp;#123;title: &#39;预览&#39;, value: &#39;preview&#39;&amp;#125;,
             ],
             // images_upload_base_path: &#39;/&#39;,
             forced_root_block: &#39;p&#39;,
             force_p_newlines: true,
             importcss_append: true,
             content_style: `
-    *                         { padding:0; margin:0; }
-    html, body                { height:100%; }
-    img                       { max-width:100%; display:block;height:auto; }
-    a                         { text-decoration: none; }
-    iframe                    { width: 100%; }
-    p                         { line-height:1.6; margin: 0px; }
-    table                     { word-wrap:break-word; word-break:break-all; max-width:100%; border:none; border-color:#999; }
-    .mce-object-iframe        { width:100%; box-sizing:border-box; margin:0; padding:0; }
-    ul,ol                     { list-style-position:inside; }
+    *                         &amp;#123; padding:0; margin:0; &amp;#125;
+    html, body                &amp;#123; height:100%; &amp;#125;
+    img                       &amp;#123; max-width:100%; display:block;height:auto; &amp;#125;
+    a                         &amp;#123; text-decoration: none; &amp;#125;
+    iframe                    &amp;#123; width: 100%; &amp;#125;
+    p                         &amp;#123; line-height:1.6; margin: 0px; &amp;#125;
+    table                     &amp;#123; word-wrap:break-word; word-break:break-all; max-width:100%; border:none; border-color:#999; &amp;#125;
+    .mce-object-iframe        &amp;#123; width:100%; box-sizing:border-box; margin:0; padding:0; &amp;#125;
+    ul,ol                     &amp;#123; list-style-position:inside; &amp;#125;
   `,
             insert_button_items: &#39;image link | inserttable&#39;,
             // CONFIG: Paste
@@ -485,21 +485,21 @@
 
             // CONFIG: StyleSelect
             style_formats: [
-                {
+                &amp;#123;
                     title: &#39;首行缩进&#39;,
                     block: &#39;p&#39;,
-                    styles: {&#39;text-indent&#39;: &#39;2em&#39;}
-                },
-                {
+                    styles: &amp;#123;&#39;text-indent&#39;: &#39;2em&#39;&amp;#125;
+                &amp;#125;,
+                &amp;#123;
                     title: &#39;行高&#39;,
                     items: [
-                        {title: &#39;1&#39;, styles: {&#39;line-height&#39;: &#39;1&#39;}, inline: &#39;span&#39;},
-                        {title: &#39;1.5&#39;, styles: {&#39;line-height&#39;: &#39;1.5&#39;}, inline: &#39;span&#39;},
-                        {title: &#39;2&#39;, styles: {&#39;line-height&#39;: &#39;2&#39;}, inline: &#39;span&#39;},
-                        {title: &#39;2.5&#39;, styles: {&#39;line-height&#39;: &#39;2.5&#39;}, inline: &#39;span&#39;},
-                        {title: &#39;3&#39;, styles: {&#39;line-height&#39;: &#39;3&#39;}, inline: &#39;span&#39;}
+                        &amp;#123;title: &#39;1&#39;, styles: &amp;#123;&#39;line-height&#39;: &#39;1&#39;&amp;#125;, inline: &#39;span&#39;&amp;#125;,
+                        &amp;#123;title: &#39;1.5&#39;, styles: &amp;#123;&#39;line-height&#39;: &#39;1.5&#39;&amp;#125;, inline: &#39;span&#39;&amp;#125;,
+                        &amp;#123;title: &#39;2&#39;, styles: &amp;#123;&#39;line-height&#39;: &#39;2&#39;&amp;#125;, inline: &#39;span&#39;&amp;#125;,
+                        &amp;#123;title: &#39;2.5&#39;, styles: &amp;#123;&#39;line-height&#39;: &#39;2.5&#39;&amp;#125;, inline: &#39;span&#39;&amp;#125;,
+                        &amp;#123;title: &#39;3&#39;, styles: &amp;#123;&#39;line-height&#39;: &#39;3&#39;&amp;#125;, inline: &#39;span&#39;&amp;#125;
                     ]
-                }
+                &amp;#125;
             ],
             // Tab
             tabfocus_elements: &#39;:prev,:next&#39;,
@@ -510,109 +510,109 @@
             file_picker_types: &#39;media&#39;,
             media_live_embeds: true,
             //be used to add custom file picker to those dialogs that have it.
-            file_picker_callback: function (cb, value, meta) {
-                if (meta.filetype == &#39;media&#39;) {
+            file_picker_callback: function (cb, value, meta) &amp;#123;
+                if (meta.filetype == &#39;media&#39;) &amp;#123;
                     //创建一个隐藏的type=file的文件选择input
                     let input = document.createElement(&#39;input&#39;);
                     input.setAttribute(&#39;type&#39;, &#39;file&#39;);
-                    input.onchange = function(){
+                    input.onchange = function()&amp;#123;
                         let file = this.files[0];//只选取第一个文件。如果要选取全部，后面注意做修改
                         let xhr, formData;
                         xhr = new XMLHttpRequest();
                         xhr.open(&#39;POST&#39;, &#39;../tmmedia/upload&#39;);//自定义文件上传
                         xhr.withCredentials = true;
-                        xhr.upload.onprogress = function (e) {
+                        xhr.upload.onprogress = function (e) &amp;#123;
                             // 进度(e.loaded / e.total * 100)
-                        };
-                        xhr.onerror = function () {
+                        &amp;#125;;
+                        xhr.onerror = function () &amp;#123;
                             console.log(xhr.status);
                             return;
-                        };
-                        xhr.onload = function () {
+                        &amp;#125;;
+                        xhr.onload = function () &amp;#123;
                             let json;
-                            if (xhr.status &lt; 200 || xhr.status &gt;= 300) {
+                            if (xhr.status &lt; 200 || xhr.status &gt;= 300) &amp;#123;
                                 console.log(&#39;HTTP 错误: &#39; + xhr.status);
                                 return;
-                            }
+                            &amp;#125;
                             json = JSON.parse(xhr.responseText);
                             console.log(json)
                             //接口返回的文件保存地址
                             let mediaLocation=json.location;
                             //cb()回调函数，将mediaLocation显示在弹框输入框中
-                            cb(mediaLocation, { title: file.name });
+                            cb(mediaLocation, &amp;#123; title: file.name &amp;#125;);
 
-                        };
+                        &amp;#125;;
                         formData = new FormData();
                         //假设接口接收参数为file,值为选中的文件
                         formData.append(&#39;file&#39;, file);
                         //正式使用将下面被注释的内容恢复
                         xhr.send(formData);
-                    }
+                    &amp;#125;
                     //触发点击
                     input.click();
-                }
-            }
-        });
-</code></pre><p>实现效果<br><img src="http://imgcq.test.upcdn.net/20200702182102.png?!" alt></p>
+                &amp;#125;
+            &amp;#125;
+        &amp;#125;);</code></pre>
+<p>实现效果<br><img src="http://imgcq.test.upcdn.net/20200702182102.png?!"></p>
 <h2 id="保存功能"><a href="#保存功能" class="headerlink" title="保存功能"></a>保存功能</h2><p>通过 <code>tinymce.activeEditor.getContent()</code>获取编辑区内容，内容为html代码。</p>
-<pre><code>form.on(&#39;submit(save)&#39;, function (data) {
+<pre><code>form.on(&#39;submit(save)&#39;, function (data) &amp;#123;
             var field = data.field;
             //获取内容核心
             field.content = tinymce.activeEditor.getContent()
 
             var loadIndex;
             loadIndex = layer.load(2);
-            $.post(&quot;../tmknowledgebase/saveOrUpdate&quot;, field, function (data) {
-                if (data.code === 200) {
+            $.post(&quot;../tmknowledgebase/saveOrUpdate&quot;, field, function (data) &amp;#123;
+                if (data.code === 200) &amp;#123;
                     tools.success(&quot;保存成功!&quot;);
-                    layer.msg(&quot;成功!&quot;, {time: 1000}, function () {
+                    layer.msg(&quot;成功!&quot;, &amp;#123;time: 1000&amp;#125;, function () &amp;#123;
                         layer.close(loadIndex);
                         //传给上个页面，刷新table用
                         tools.putTempData(&#39;submitOK&#39;, true);
                         //关掉对话框
                         tools.closeThisDialog();
-                    });
-                } else {
+                    &amp;#125;);
+                &amp;#125; else &amp;#123;
                     layer.close(loadIndex)
                     tools.error(data.msg);
-                }
-            })
-        })
-</code></pre><h2 id="内容回显"><a href="#内容回显" class="headerlink" title="内容回显"></a>内容回显</h2><p>在保存编辑内容后，如果我们想要再次编辑，需要对以保存内容进行回显，之前提到，保存的内容实际是html片段，因此采用html渲染即可。在此项目中采用Freemarker框架，渲染代码如下：</p>
-<p><code>${data.content!&quot;&quot;}</code>为后台返回的编辑区内容</p>
+                &amp;#125;
+            &amp;#125;)
+        &amp;#125;)</code></pre>
+<h2 id="内容回显"><a href="#内容回显" class="headerlink" title="内容回显"></a>内容回显</h2><p>在保存编辑内容后，如果我们想要再次编辑，需要对以保存内容进行回显，之前提到，保存的内容实际是html片段，因此采用html渲染即可。在此项目中采用Freemarker框架，渲染代码如下：</p>
+<p><code>$&#123;data.content!&quot;&quot;&#125;</code>为后台返回的编辑区内容</p>
 <pre><code> &lt;div class=&quot;layui-card-body layui-form-item&quot;&gt;
-    &lt;textarea id=&quot;content&quot; name=&quot;content&quot;&gt;${data.content!&quot;&quot;}&lt;/textarea&gt;
-&lt;/div&gt;
-</code></pre><p>实例化区域代码与上文相同</p>
-<pre><code> tinymce.init({
+    &lt;textarea id=&quot;content&quot; name=&quot;content&quot;&gt;$&amp;#123;data.content!&quot;&quot;&amp;#125;&lt;/textarea&gt;
+&lt;/div&gt;</code></pre>
+<p>实例化区域代码与上文相同</p>
+<pre><code> tinymce.init(&amp;#123;
             selector: &#39;#content&#39;,
             height: 600,
-            ...
-</code></pre><h2 id="汉化"><a href="#汉化" class="headerlink" title="汉化"></a>汉化</h2><p>tinymce默认是英文的，需要引入汉化包zh_CN.js到langs目录下,在<code>language</code>属性下添加<code>zh_CN</code>.</p>
-<pre><code>tinymce.init({
+            ...</code></pre>
+<h2 id="汉化"><a href="#汉化" class="headerlink" title="汉化"></a>汉化</h2><p>tinymce默认是英文的，需要引入汉化包zh_CN.js到langs目录下,在<code>language</code>属性下添加<code>zh_CN</code>.</p>
+<pre><code>tinymce.init(&amp;#123;
     selector: &#39;#content&#39;,
     language:&#39;zh_CN&#39;,//注意大小写
-});
-</code></pre><h2 id="图片上传"><a href="#图片上传" class="headerlink" title="图片上传"></a>图片上传</h2><p>首先后台自定义文件上传接口</p>
-<p><strong>注意</strong>：需要指定具体的下载地址，否则上传后文件无法回显<code>map.put(&quot;location&quot;, &quot;当前文件实际下载地址&quot;);</code></p>
+&amp;#125;);</code></pre>
+<h2 id="图片上传"><a href="#图片上传" class="headerlink" title="图片上传"></a>图片上传</h2><p>首先后台自定义文件上传接口</p>
+<p><strong>注意</strong>：需要指定具体的下载地址，否则上传后文件无法回显<code> map.put(&quot;location&quot;, &quot;当前文件实际下载地址&quot;);</code></p>
 <pre><code>@PostMapping(value = &quot;/tmmedia/upload&quot;)
-    public Object downloadFile(@RequestParam MultipartFile file) {
+    public Object downloadFile(@RequestParam MultipartFile file) &amp;#123;
         Map&lt;String, String&gt; map = new HashMap&lt;&gt;();
-        try {
+        try &amp;#123;
             String fileName = file.getOriginalFilename();
             String extension = StringUtils.getFilenameExtension(fileName);
             String name = IdUtil.fastUUID() + &quot;.&quot; + extension;
             ftpUtils.upload(dir, name, file);
 //            文件下载，供前台回显
             map.put(&quot;location&quot;, downloadUrl + dir + &quot;/&quot; + name);
-        } catch (Exception e) {
+        &amp;#125; catch (Exception e) &amp;#123;
             e.printStackTrace();
             map.put(&quot;location&quot;, &quot;&quot;);
-        }
+        &amp;#125;
         return map;
-    }
-</code></pre><p>渲染区配置</p>
-<pre><code>tinymce.init({
+    &amp;#125;</code></pre>
+<p>渲染区配置</p>
+<pre><code>tinymce.init(&amp;#123;
     selector: &#39;#content&#39;,
     language:&#39;zh_CN&#39;,//注意大小写
     plugins:  image &#39;,
@@ -620,81 +620,81 @@
     images_upload_credentials: true,
     image_dimensions: false,
     image_class_list: [
-        {title: &#39;无&#39;, value: &#39;&#39;},
-        {title: &#39;预览&#39;, value: &#39;preview&#39;},
+        &amp;#123;title: &#39;无&#39;, value: &#39;&#39;&amp;#125;,
+        &amp;#123;title: &#39;预览&#39;, value: &#39;preview&#39;&amp;#125;,
     ],
-});
-</code></pre><h2 id="视频播放"><a href="#视频播放" class="headerlink" title="视频播放"></a>视频播放</h2><p>首先后台自定义文件上传接口</p>
-<p>==注意==：需要指定具体的下载地址，否则上传后文件无法回显<code>map.put(&quot;location&quot;, &quot;当前文件实际下载地址&quot;);</code></p>
+&amp;#125;);</code></pre>
+<h2 id="视频播放"><a href="#视频播放" class="headerlink" title="视频播放"></a>视频播放</h2><p>首先后台自定义文件上传接口</p>
+<p>==注意==：需要指定具体的下载地址，否则上传后文件无法回显<code> map.put(&quot;location&quot;, &quot;当前文件实际下载地址&quot;);</code></p>
 <pre><code>@PostMapping(value = &quot;/tmmedia/upload&quot;)
-    public Object downloadFile(@RequestParam MultipartFile file) {
+    public Object downloadFile(@RequestParam MultipartFile file) &amp;#123;
         Map&lt;String, String&gt; map = new HashMap&lt;&gt;();
-        try {
+        try &amp;#123;
             String fileName = file.getOriginalFilename();
             String extension = StringUtils.getFilenameExtension(fileName);
             String name = IdUtil.fastUUID() + &quot;.&quot; + extension;
             ftpUtils.upload(dir, name, file);
 //            文件下载，供前台回显
             map.put(&quot;location&quot;, downloadUrl + dir + &quot;/&quot; + name);
-        } catch (Exception e) {
+        &amp;#125; catch (Exception e) &amp;#123;
             e.printStackTrace();
             map.put(&quot;location&quot;, &quot;&quot;);
-        }
+        &amp;#125;
         return map;
-    }
-</code></pre><p>渲染区配置</p>
-<pre><code>tinymce.init({
+    &amp;#125;</code></pre>
+<p>渲染区配置</p>
+<pre><code>tinymce.init(&amp;#123;
     selector: &#39;#content&#39;,
     language:&#39;zh_CN&#39;,//注意大小写
     plugins:  media &#39;,
     file_picker_types: &#39;media&#39;,
             media_live_embeds: true,
             //be used to add custom file picker to those dialogs that have it.
-            file_picker_callback: function (cb, value, meta) {
-                if (meta.filetype == &#39;media&#39;) {
+            file_picker_callback: function (cb, value, meta) &amp;#123;
+                if (meta.filetype == &#39;media&#39;) &amp;#123;
                     //创建一个隐藏的type=file的文件选择input
                     let input = document.createElement(&#39;input&#39;);
                     input.setAttribute(&#39;type&#39;, &#39;file&#39;);
-                    input.onchange = function(){
+                    input.onchange = function()&amp;#123;
                         let file = this.files[0];//只选取第一个文件。如果要选取全部，后面注意做修改
                         let xhr, formData;
                         xhr = new XMLHttpRequest();
                         xhr.open(&#39;POST&#39;, &#39;../tmmedia/upload&#39;);//自定义文件上传
                         xhr.withCredentials = true;
-                        xhr.upload.onprogress = function (e) {
+                        xhr.upload.onprogress = function (e) &amp;#123;
                             // 进度(e.loaded / e.total * 100)
-                        };
-                        xhr.onerror = function () {
+                        &amp;#125;;
+                        xhr.onerror = function () &amp;#123;
                             console.log(xhr.status);
                             return;
-                        };
-                        xhr.onload = function () {
+                        &amp;#125;;
+                        xhr.onload = function () &amp;#123;
                             let json;
-                            if (xhr.status &lt; 200 || xhr.status &gt;= 300) {
+                            if (xhr.status &lt; 200 || xhr.status &gt;= 300) &amp;#123;
                                 console.log(&#39;HTTP 错误: &#39; + xhr.status);
                                 return;
-                            }
+                            &amp;#125;
                             json = JSON.parse(xhr.responseText);
                             console.log(json)
                             //接口返回的文件保存地址
                             let mediaLocation=json.location;
                             //cb()回调函数，将mediaLocation显示在弹框输入框中
-                            cb(mediaLocation, { title: file.name });
+                            cb(mediaLocation, &amp;#123; title: file.name &amp;#125;);
 
 
-                        };
+                        &amp;#125;;
                         formData = new FormData();
                         //假设接口接收参数为file,值为选中的文件
                         formData.append(&#39;file&#39;, file);
                         //正式使用将下面被注释的内容恢复
                         xhr.send(formData);
-                    }
+                    &amp;#125;
                     //触发点击
                     input.click();
-                }
-            }
-});
-</code></pre>
+                &amp;#125;
+            &amp;#125;
+&amp;#125;);</code></pre>
+
             </div>
             <hr/>
 
@@ -757,12 +757,12 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/Spring-Boot/">
-                                    <span class="chip bg-color">Spring Boot</span>
-                                </a>
-                            
                                 <a href="/tags/Tinymce/">
                                     <span class="chip bg-color">Tinymce</span>
+                                </a>
+                            
+                                <a href="/tags/Spring-Boot/">
+                                    <span class="chip bg-color">Spring Boot</span>
                                 </a>
                             
                         </div>
@@ -1070,28 +1070,23 @@
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2020/08/11/spring-boot-mail-fa-song-you-jian/">
+                <a href="/2020/08/11/elasticsearch-an-zhuang/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/22.jpg" class="responsive-img" alt="Spring Boot Mail发送邮件">
+                        <img src="/medias/featureimages/7.jpg" class="responsive-img" alt="elasticsearch安装">
                         
-                        <span class="card-title">Spring Boot Mail发送邮件</span>
+                        <span class="card-title">elasticsearch安装</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            邮件协议
-示例引用于网易邮箱，不同邮箱服务器地址不同
+                            环境说明
+redhat
+java 8
 
-
-
-IMAP和POP3区别
-
-
-POP3 接收邮件服务器
- POP3是Post Office Protocol 3的简称，即邮局协议的第3个版本,它规定怎样将个人计算机连接到Inter
+安装elasticsearches安装默认不支持使用root用户安装，否则会提示java.lang.RuntimeException: can not run elasticsearch as roo
                         
                     </div>
                     <div class="publish-info">
@@ -1100,27 +1095,11 @@ POP3 接收邮件服务器
                         </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/Spring-Boot/" class="post-category">
-                                    Spring Boot
-                                </a>
-                            
+                            <i class="fas fa-user fa-fw"></i>
+                            苏叶新城
                             
                         </span>
                     </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/Mail/">
-                        <span class="chip bg-color">Mail</span>
-                    </a>
-                    
-                    <a href="/tags/Spring-Boot/">
-                        <span class="chip bg-color">Spring Boot</span>
-                    </a>
-                    
                 </div>
                 
             </div>
@@ -1146,9 +1125,8 @@ POP3 接收邮件服务器
                         
                             简介Nginx是一款轻量级的Web服务器、反向代理服务器，由于它的内存占用少，启动极快，高并发能力强，在互联网项目中广泛应用。
 应用场景负载均衡轮询
-upstream test {
-  server 10.200.100.3:8080;
- 
+upstream test &amp;#123;
+  server 10.200.100.
                         
                     </div>
                     <div class="publish-info">

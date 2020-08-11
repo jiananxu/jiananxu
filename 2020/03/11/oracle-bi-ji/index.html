@@ -2,7 +2,7 @@
 <html lang="zh-CN">
 
 
-<head><meta name="generator" content="Hexo 3.9.0">
+<head>
     <meta charset="utf-8">
     <meta name="keywords" content="Oracle笔记, 博客 苏叶新城 X笔记">
     <meta name="description" content="愿出走半生，归来仍是少年。">
@@ -29,7 +29,7 @@
 
     <script src="/libs/jquery/jquery.min.js"></script>
     
-<link rel="stylesheet" href="/css/prism-atom-dark.css" type="text/css">
+<meta name="generator" content="Hexo 5.0.2"><link rel="stylesheet" href="/css/prism-atom-dark.css" type="text/css">
 <link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"><script src="/js/prism.js"></script>
 <script src="/js/prism-line-numbers.min.js"></script></head>
 
@@ -357,7 +357,7 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/数据库/" class="post-category">
+                            <a href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/" class="post-category">
                                 数据库
                             </a>
                         
@@ -379,7 +379,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    394
+                    509
                 </div>
                 
 
@@ -406,15 +406,15 @@ grant select,alter on res.seq_plan_task to ishare
 grant select,alter on res.seq_plan_task_instance to ishare
 grant select,alter on res.seq_plan_task_object to ishare
 grant select,alter on res.seq_plan_task_photo to ishare
-
-</code></pre><h2 id="新建序列"><a href="#新建序列" class="headerlink" title="新建序列"></a>新建序列</h2><pre><code>CREATE SEQUENCE RES.seq_plan_task_photo
+</code></pre>
+<h2 id="新建序列"><a href="#新建序列" class="headerlink" title="新建序列"></a>新建序列</h2><pre><code>CREATE SEQUENCE RES.seq_plan_task_photo
 INCREMENT BY 1   
 START WITH 1      
 MINVALUE 1
 MAXVALUE 99999999999999
 NOCYCLE  
-CACHE 2;
-</code></pre><p>序列说明<br><img src="http://imgcq.test.upcdn.net/image20181015113548.png" alt="序列说明"></p>
+CACHE 2;</code></pre>
+<p>序列说明<br><img src="http://imgcq.test.upcdn.net/image20181015113548.png" alt="序列说明"></p>
 <h2 id="索引"><a href="#索引" class="headerlink" title="索引"></a>索引</h2><pre><code>--在数据库中查找表名
 select * from user_tables where  table_name like &#39;tablename%&#39;;
 
@@ -424,24 +424,24 @@ select * from all_indexes where table_name = &#39;MANAGEDELEMENT&#39;;
 --查看该表的所有索引列
 select* from all_ind_columns where table_name = &#39;MANAGEDELEMENT&#39;;
 --创建索引
-create index INDEX_MANAGEDELEMENT on MANAGEDELEMENT(EMS);
-</code></pre><h1 id="新建表空间-用户授权"><a href="#新建表空间-用户授权" class="headerlink" title="新建表空间/用户授权"></a>新建表空间/用户授权</h1><ul>
-<li>查询数据表空间位置<pre><code>select name from v$datafile;
-</code></pre></li>
+create index INDEX_MANAGEDELEMENT on MANAGEDELEMENT(EMS);</code></pre>
+<h1 id="新建表空间-用户授权"><a href="#新建表空间-用户授权" class="headerlink" title="新建表空间/用户授权"></a>新建表空间/用户授权</h1><ul>
+<li>查询数据表空间位置<pre><code>select name from v$datafile;</code></pre>
+</li>
 <li>创建表空间 <pre><code>CREATE tablespace etl_space datafile &#39;/opt/oracle/oradata/orcl/etl01.dbf&#39;
-size 500m autoextend on next 5M maxsize unlimited;
-</code></pre></li>
+size 500m autoextend on next 5M maxsize unlimited;</code></pre>
+</li>
 <li>创建用户 <pre><code>CREATE USER tomcat_etl IDENTIFIED BY tomcat_etl
 DEFAULT tablespace etl_space 
 temporary tablespace temp
-profile DEFAULT ;
-</code></pre></li>
-<li>用户授权 <pre><code>grant connect,resource,dba to tomcat_etl;
-</code></pre></li>
+profile DEFAULT ;</code></pre>
+</li>
+<li>用户授权 <pre><code>grant connect,resource,dba to tomcat_etl;</code></pre>
+</li>
 </ul>
 <h1 id="修改字符集"><a href="#修改字符集" class="headerlink" title="修改字符集"></a>修改字符集</h1><p>进入sqlplus</p>
-<pre><code>sqlplus / as sysdba
-</code></pre><p>修改字符集</p>
+<pre><code>sqlplus / as sysdba</code></pre>
+<p>修改字符集</p>
 <pre><code>SQL&gt;SHUTDOWN IMMEDIATE
 SQL&gt;STARTUP MOUNT
 SQL&gt;ALTER SYSTEM ENABLE RESTRICTED SESSION;
@@ -454,25 +454,38 @@ SQL&gt;SHUTDOWN IMMEDIATE;
 //启动数据库
 SQL&gt;STARTUP;
 //查看字符集
-SQL&gt;select userenv(&#39;language&#39;) from dual;
-</code></pre><h1 id="卸载oracle"><a href="#卸载oracle" class="headerlink" title="卸载oracle"></a>卸载oracle</h1><p>进入sqlplus</p>
-<pre><code>sqlplus / as sysdba
-</code></pre><p>停止Oracle数据库服务</p>
-<pre><code>shutdown immediate;
-</code></pre><p>停止监听服务</p>
-<pre><code>lsnrctl stop
-</code></pre><p>删除/usr/local/bin下的文件</p>
-<pre><code>coraenv  dbhome  oraenv
-</code></pre><p>删除/etc下的文件</p>
-<pre><code>oraInst.loc oratab
-</code></pre><p>删除/opt下ORCLfmap</p>
-<pre><code>rm –rf ORCLfmap
-</code></pre><p>删除oracle安装目录<code>ORACLE_HOME</code></p>
+SQL&gt;select userenv(&#39;language&#39;) from dual;</code></pre>
+<h1 id="卸载oracle"><a href="#卸载oracle" class="headerlink" title="卸载oracle"></a>卸载oracle</h1><p>进入sqlplus</p>
+<pre><code>sqlplus / as sysdba</code></pre>
+<p>停止Oracle数据库服务</p>
+<pre><code>shutdown immediate;</code></pre>
+<p>停止监听服务</p>
+<pre><code>lsnrctl stop</code></pre>
+<p>删除/usr/local/bin下的文件</p>
+<pre><code>coraenv  dbhome  oraenv</code></pre>
+<p>删除/etc下的文件</p>
+<pre><code>oraInst.loc oratab</code></pre>
+<p>删除/opt下ORCLfmap</p>
+<pre><code>rm –rf ORCLfmap</code></pre>
+<p>删除oracle安装目录<code>ORACLE_HOME</code></p>
 <p>删除用户和组</p>
 <pre><code>userdel –r oracle
 groupdel oinstall
-groupdel dba
-</code></pre>
+groupdel dba</code></pre>
+<h1 id="密码过期"><a href="#密码过期" class="headerlink" title="密码过期"></a>密码过期</h1><pre><code>-- 查询用户
+select username,profile from dba_users
+--查看密码有效期
+Select * FROM dba_profiles s Where s.profile=&#39;DEFAULT&#39; AND resource_name=&#39;PASSWORD_LIFE_TIME&#39;
+
+-- 设置密码永久有效
+ ALTER PROFILE DEFAULT LIMIT PASSWORD_LIFE_TIME UNLIMITED
+--修改密码
+alter user ishare identified by 111111</code></pre>
+<h1 id="常见问题"><a href="#常见问题" class="headerlink" title="常见问题"></a>常见问题</h1><h2 id="ORA－00054：资源正忙，要求指定NOWAIT"><a href="#ORA－00054：资源正忙，要求指定NOWAIT" class="headerlink" title="ORA－00054：资源正忙，要求指定NOWAIT"></a>ORA－00054：资源正忙，要求指定NOWAIT</h2><pre><code>select session_id from v$locked_object;
+ SELECT sid, serial#, username, osuser FROM v$session where sid = 39;
+
+ ALTER SYSTEM KILL SESSION &#39;39,1290&#39;;</code></pre>
+
             </div>
             <hr/>
 
@@ -873,7 +886,7 @@ Vmware Workstaion 15 Pro
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/数据库/" class="post-category">
+                            <a href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/" class="post-category">
                                     数据库
                                 </a>
                             

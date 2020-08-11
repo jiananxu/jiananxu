@@ -2,7 +2,7 @@
 <html lang="zh-CN">
 
 
-<head><meta name="generator" content="Hexo 3.9.0">
+<head>
     <meta charset="utf-8">
     <meta name="keywords" content="Centos7下Nginx安装配置, 博客 苏叶新城 X笔记">
     <meta name="description" content="愿出走半生，归来仍是少年。">
@@ -29,7 +29,7 @@
 
     <script src="/libs/jquery/jquery.min.js"></script>
     
-<link rel="stylesheet" href="/css/prism-atom-dark.css" type="text/css">
+<meta name="generator" content="Hexo 5.0.2"><link rel="stylesheet" href="/css/prism-atom-dark.css" type="text/css">
 <link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"><script src="/js/prism.js"></script>
 <script src="/js/prism-line-numbers.min.js"></script></head>
 
@@ -357,7 +357,7 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/软件安装/" class="post-category">
+                            <a href="/categories/%E8%BD%AF%E4%BB%B6%E5%AE%89%E8%A3%85/" class="post-category">
                                 软件安装
                             </a>
                         
@@ -400,8 +400,8 @@
                 <h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><pre><code>yum install epel-release
 yum -y install nginx
 service nginx start
-systemctl enable nginx
-</code></pre><p>访问自己的地址<code>http://server_ip</code></p>
+systemctl enable nginx</code></pre>
+<p>访问自己的地址<code>http://server_ip</code></p>
 <p>记得开启80端口</p>
 <p><img src="http://imgcq.test.upcdn.net/image20180823124919.png" alt="nginx默认界面"></p>
 <p>firewalld支持动态更新和zone概念。firewalld有图形界面和命令行界面。</p>
@@ -435,8 +435,8 @@ systemctl enable nginx
     firewall-cmd –zone=pulic –list-ports 查看所有打开的端口
     firewall-cmd –zone=pulic –add-port=80/tcp 把tcp 80端口加入到区域
     firewall-cmd –zone=public –add-service=http 把http服务加入到区域
-    firewall-cmd –zone=public –remove-service=http 移除http服务
-</code></pre>
+    firewall-cmd –zone=public –remove-service=http 移除http服务</code></pre>
+
             </div>
             <hr/>
 
@@ -867,22 +867,20 @@ systemctl enable nginx
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2018/08/23/linux-xia-mysql-5.7.22-an-zhuang-he-wang-ji-mi-ma/">
+                <a href="/2018/08/23/intellij-idea-ssm-kuang-jia-zheng-he/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/18.jpg" class="responsive-img" alt="Linux下MySQL 5.7.22安装和忘记密码">
+                        <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="IntelliJ IDEA SSM框架整合">
                         
-                        <span class="card-title">Linux下MySQL 5.7.22安装和忘记密码</span>
+                        <span class="card-title">IntelliJ IDEA SSM框架整合</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            简述Redhat下安装MySQL5.7.22教程,安装完成后成功忘记密码-_-
-安装MySQL1. 压缩包处理解压压缩包
-tar -zxvf mysql-5.7.22-linux-glibc2.12-x86_64.tar.gz  
-重命名m
+                            web.xml文件参考自：web.xml配置
+web.xml是网络程序中的一个很重要的配置文件。在启动一个WEB项目的时候，WEB容器（比如tomcat）会去读取它的配置文件web.xml，读取到不同的节点时，WEB容器就会创建相应的过滤器
                         
                     </div>
                     <div class="publish-info">
@@ -893,8 +891,8 @@ tar -zxvf mysql-5.7.22-linux-glibc2.12-x86_64.tar.gz
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/数据库/" class="post-category">
-                                    数据库
+                            <a href="/categories/Spring/" class="post-category">
+                                    Spring
                                 </a>
                             
                             
@@ -904,8 +902,12 @@ tar -zxvf mysql-5.7.22-linux-glibc2.12-x86_64.tar.gz
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/MySQL/">
-                        <span class="chip bg-color">MySQL</span>
+                    <a href="/tags/IDEA/">
+                        <span class="chip bg-color">IDEA</span>
+                    </a>
+                    
+                    <a href="/tags/SSM/">
+                        <span class="chip bg-color">SSM</span>
                     </a>
                     
                 </div>

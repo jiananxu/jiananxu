@@ -1,4 +1,5 @@
 http://www.xujn.xyz/2020/08/11/spring-boot-mail-fa-song-you-jian/
+http://www.xujn.xyz/2020/08/11/elasticsearch-an-zhuang/
 http://www.xujn.xyz/2020/07/02/sping-boot-ji-cheng-tinymce-fu-wen-ben-bian-ji/
 http://www.xujn.xyz/2020/06/12/nginx-chang-yong-chang-jing/
 http://www.xujn.xyz/2020/03/25/nginx-jie-ya-ban-ping-hua-sheng-ji/
@@ -7,4 +8,3 @@ http://www.xujn.xyz/2020/03/11/nginx-1.14.2-jie-ya-ban-an-zhuang/
 http://www.xujn.xyz/2020/03/11/docker-an-zhuang-oracle/
 http://www.xujn.xyz/2020/03/11/oracle-bi-ji/
 http://www.xujn.xyz/2019/01/23/layui-dong-tai-biao-ge-de-zeng-shan-gai-cha/
-http://www.xujn.xyz/2018/09/06/spring-mvc-xiang-mu-da-jian-guo-cheng-shuo-ming/

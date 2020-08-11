@@ -2,7 +2,7 @@
 <html lang="zh-CN">
 
 
-<head><meta name="generator" content="Hexo 3.9.0">
+<head>
     <meta charset="utf-8">
     <meta name="keywords" content="Spring Boot Mail发送邮件, 博客 苏叶新城 X笔记">
     <meta name="description" content="愿出走半生，归来仍是少年。">
@@ -29,7 +29,7 @@
 
     <script src="/libs/jquery/jquery.min.js"></script>
     
-<link rel="stylesheet" href="/css/prism-atom-dark.css" type="text/css">
+<meta name="generator" content="Hexo 5.0.2"><link rel="stylesheet" href="/css/prism-atom-dark.css" type="text/css">
 <link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"><script src="/js/prism.js"></script>
 <script src="/js/prism-line-numbers.min.js"></script></head>
 
@@ -345,12 +345,12 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/Mail/">
-                                <span class="chip bg-color">Mail</span>
-                            </a>
-                        
                             <a href="/tags/Spring-Boot/">
                                 <span class="chip bg-color">Spring Boot</span>
+                            </a>
+                        
+                            <a href="/tags/Mail/">
+                                <span class="chip bg-color">Mail</span>
                             </a>
                         
                     </div>
@@ -383,7 +383,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1,127
+                    1.2k
                 </div>
                 
 
@@ -404,11 +404,11 @@
                 <h1 id="邮件协议"><a href="#邮件协议" class="headerlink" title="邮件协议"></a>邮件协议</h1><blockquote>
 <p>示例引用于网易邮箱，不同邮箱<code>服务器地址</code>不同</p>
 </blockquote>
-<p><img src="http://imgcq.test.upcdn.net/20200713173053.png?!" alt></p>
+<p><img src="http://imgcq.test.upcdn.net/20200713173053.png?!"></p>
 <blockquote>
 <p>IMAP和POP3区别</p>
 </blockquote>
-<p><img src="http://imgcq.test.upcdn.net/20200713173655.png?!" alt></p>
+<p><img src="http://imgcq.test.upcdn.net/20200713173655.png?!"></p>
 <h2 id="POP3-接收邮件服务器"><a href="#POP3-接收邮件服务器" class="headerlink" title="POP3 接收邮件服务器"></a>POP3 接收邮件服务器</h2><blockquote>
 <p> <strong>POP3</strong>是Post Office Protocol 3的简称，即邮局协议的第3个版本,它规定怎样将个人计算机连接到Internet的邮件服务器和下载电子邮件的电子协议。它是因特网电子邮件的第一个离线协议标准,POP3允许用户从服务器上把邮件存储到本地主机（即自己的计算机）上,同时删除保存在邮件服务器上的邮件，而POP3服务器则是遵循POP3协议的接收邮件服务器，用来接收电子邮件的。</p>
 </blockquote>
@@ -422,8 +422,8 @@
 <h1 id="项目依赖"><a href="#项目依赖" class="headerlink" title="项目依赖"></a>项目依赖</h1><pre><code>&lt;dependency&gt;
     &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
     &lt;artifactId&gt;spring-boot-starter-mail&lt;/artifactId&gt;
-&lt;/dependency&gt;
-</code></pre><h1 id="项目配置"><a href="#项目配置" class="headerlink" title="项目配置"></a>项目配置</h1><p>aplication.yml</p>
+&lt;/dependency&gt;</code></pre>
+<h1 id="项目配置"><a href="#项目配置" class="headerlink" title="项目配置"></a>项目配置</h1><p>aplication.yml</p>
 <p><strong>启用ssl</strong></p>
 <pre><code>server:
   port: 9010
@@ -456,8 +456,8 @@ spring:
 # freemarker模板配置
   freemarker:
 #    指定文件后缀
-    suffix: .html
-</code></pre><p><strong>不启用ssl</strong></p>
+    suffix: .html</code></pre>
+<p><strong>不启用ssl</strong></p>
 <pre><code>server:
   port: 9010
 
@@ -476,11 +476,11 @@ spring:
 # freemarker模板配置
   freemarker:
 #    指定文件后缀
-    suffix: .html
-</code></pre><h1 id="发送邮件"><a href="#发送邮件" class="headerlink" title="发送邮件"></a>发送邮件</h1><h2 id="简易邮件"><a href="#简易邮件" class="headerlink" title="简易邮件"></a>简易邮件</h2><pre><code>    @Autowired
+    suffix: .html</code></pre>
+<h1 id="发送邮件"><a href="#发送邮件" class="headerlink" title="发送邮件"></a>发送邮件</h1><h2 id="简易邮件"><a href="#简易邮件" class="headerlink" title="简易邮件"></a>简易邮件</h2><pre><code>    @Autowired
     private JavaMailSender javaMailSender;
 
-    public void sendSimpleMail() {
+    public void sendSimpleMail() &amp;#123;
 //        创建消息体
         SimpleMailMessage simpleMailMessage = new SimpleMailMessage();
         simpleMailMessage.setFrom(&quot;xxxxx@xxx.com&quot;);//发件人
@@ -491,11 +491,11 @@ spring:
 //        simpleMailMessage.setBcc();//密送
         javaMailSender.send(simpleMailMessage);
         log.info(&quot;发送成功&quot;);
-    }
-
-</code></pre><h2 id="附件邮件"><a href="#附件邮件" class="headerlink" title="附件邮件"></a>附件邮件</h2><pre><code>    @Autowired
+    &amp;#125;
+</code></pre>
+<h2 id="附件邮件"><a href="#附件邮件" class="headerlink" title="附件邮件"></a>附件邮件</h2><pre><code>    @Autowired
     private JavaMailSender javaMailSender;
- public void sendAttachmentMail() throws MessagingException {
+ public void sendAttachmentMail() throws MessagingException &amp;#123;
 //        创建消息体
         MimeMessage mimeMessage = javaMailSender.createMimeMessage();
         MimeMessageHelper helper = new MimeMessageHelper(mimeMessage, true);
@@ -510,13 +510,13 @@ spring:
 //        添加附件
         helper.addAttachment(&quot;测试附加&quot;, file);
         javaMailSender.send(mimeMessage);
-    }
-</code></pre><h2 id="模板邮件"><a href="#模板邮件" class="headerlink" title="模板邮件"></a>模板邮件</h2><p>添加freemarker依赖,也可以采用其他模板语言velocity、themeleaf等，用法类似</p>
+    &amp;#125;</code></pre>
+<h2 id="模板邮件"><a href="#模板邮件" class="headerlink" title="模板邮件"></a>模板邮件</h2><p>添加freemarker依赖,也可以采用其他模板语言velocity、themeleaf等，用法类似</p>
 <pre><code> &lt;dependency&gt;
     &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
     &lt;artifactId&gt;spring-boot-starter-freemarker&lt;/artifactId&gt;
-&lt;/dependency&gt;
-</code></pre><p>创建freemarker模板,新建vm.html模板文件</p>
+&lt;/dependency&gt;</code></pre>
+<p>创建freemarker模板,新建vm.html模板文件</p>
 <pre><code>&lt;!DOCTYPE html&gt;
 &lt;html lang=&quot;en&quot;&gt;
 &lt;head&gt;
@@ -524,14 +524,14 @@ spring:
     &lt;title&gt;邮件模板&lt;/title&gt;
 &lt;/head&gt;
 &lt;body&gt;
-${username}您好:
+$&amp;#123;username&amp;#125;您好:
     欢迎使用xxx系统
 &lt;/body&gt;
-&lt;/html&gt;
-</code></pre><p>发送邮件</p>
+&lt;/html&gt;</code></pre>
+<p>发送邮件</p>
 <pre><code>    Autowired
     private JavaMailSender javaMailSender;
- public void sendTemplateMail() {
+ public void sendTemplateMail() &amp;#123;
 //        创建消息体
         MimeMessage mimeMessage = javaMailSender.createMimeMessage();
         MimeMessageHelper helper = new MimeMessageHelper(mimeMessage, true);
@@ -549,8 +549,8 @@ ${username}您好:
         helper.setText(text, true);//邮件内容
 
         javaMailSender.send(mimeMessage);
-    }
-</code></pre>
+    &amp;#125;</code></pre>
+
             </div>
             <hr/>
 
@@ -613,12 +613,12 @@ ${username}您好:
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/Mail/">
-                                    <span class="chip bg-color">Mail</span>
-                                </a>
-                            
                                 <a href="/tags/Spring-Boot/">
                                     <span class="chip bg-color">Spring Boot</span>
+                                </a>
+                            
+                                <a href="/tags/Mail/">
+                                    <span class="chip bg-color">Mail</span>
                                 </a>
                             
                         </div>
@@ -971,12 +971,12 @@ POP3 接收邮件服务器
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Mail/">
-                        <span class="chip bg-color">Mail</span>
-                    </a>
-                    
                     <a href="/tags/Spring-Boot/">
                         <span class="chip bg-color">Spring Boot</span>
+                    </a>
+                    
+                    <a href="/tags/Mail/">
+                        <span class="chip bg-color">Mail</span>
                     </a>
                     
                 </div>
@@ -990,54 +990,36 @@ POP3 接收邮件服务器
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2020/07/02/sping-boot-ji-cheng-tinymce-fu-wen-ben-bian-ji/">
+                <a href="/2020/08/11/elasticsearch-an-zhuang/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/20.jpg" class="responsive-img" alt="Spring Boot集成Tinymce富文本编辑器">
+                        <img src="/medias/featureimages/7.jpg" class="responsive-img" alt="elasticsearch安装">
                         
-                        <span class="card-title">Spring Boot集成Tinymce富文本编辑器</span>
+                        <span class="card-title">elasticsearch安装</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            基础环境
-IDEA
-Spring Boot 2.2.1
-Freemarker
+                            环境说明
+redhat
+java 8
 
-tinymce简介
-TinyMCE是一款易用、且功能强大的所见即所得的富文本编辑器。同类程序有：UEditor、Kindeditor、Simditor、CKEd
+安装elasticsearches安装默认不支持使用root用户安装，否则会提示java.lang.RuntimeException: can not run elasticsearch as roo
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-07-02
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-08-11
                             </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/Spring-Boot/" class="post-category">
-                                    Spring Boot
-                                </a>
-                            
+                            <i class="fas fa-user fa-fw"></i>
+                            苏叶新城
                             
                         </span>
                     </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/Spring-Boot/">
-                        <span class="chip bg-color">Spring Boot</span>
-                    </a>
-                    
-                    <a href="/tags/Tinymce/">
-                        <span class="chip bg-color">Tinymce</span>
-                    </a>
-                    
                 </div>
                 
             </div>

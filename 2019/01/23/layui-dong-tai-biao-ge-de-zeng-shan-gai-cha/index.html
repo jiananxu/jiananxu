@@ -2,7 +2,7 @@
 <html lang="zh-CN">
 
 
-<head><meta name="generator" content="Hexo 3.9.0">
+<head>
     <meta charset="utf-8">
     <meta name="keywords" content="Layui动态表格的增删改查, 博客 苏叶新城 X笔记">
     <meta name="description" content="愿出走半生，归来仍是少年。">
@@ -29,7 +29,7 @@
 
     <script src="/libs/jquery/jquery.min.js"></script>
     
-<link rel="stylesheet" href="/css/prism-atom-dark.css" type="text/css">
+<meta name="generator" content="Hexo 5.0.2"><link rel="stylesheet" href="/css/prism-atom-dark.css" type="text/css">
 <link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"><script src="/js/prism.js"></script>
 <script src="/js/prism-line-numbers.min.js"></script></head>
 
@@ -379,7 +379,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    670
+                    1.1k
                 </div>
                 
 
@@ -400,36 +400,36 @@
                 <h2 id="表格"><a href="#表格" class="headerlink" title="表格"></a>表格</h2><p>查询按钮</p>
 <pre><code> &lt;button class=&quot;layui-btn&quot; lay-submit lay-filter=&quot;lay-index-search&quot;&gt;
         &lt;i class=&quot;layui-icon layui-icon-search&quot;&gt;&lt;/i&gt;
- &lt;/button&gt;
-</code></pre><p>表格主体</p>
+ &lt;/button&gt;</code></pre>
+<p>表格主体</p>
 <pre><code>&lt;table id=&quot;lay-index-list&quot; lay-filter=&quot;lay-index-list-filter&quot;&gt;&lt;/table&gt;
-
-</code></pre><p>工具栏（表格外）</p>
+</code></pre>
+<p>工具栏（表格外）</p>
 <pre><code>&lt;script type=&quot;text/html&quot; id=&quot;toolbarindex&quot;&gt;
     &lt;div style=&quot;padding-bottom: 10px;&quot;&gt;
         &lt;button class=&quot;layui-btn layuiadmin-btn-list&quot; data-type=&quot;addindex&quot;&gt;新增&lt;/button&gt;
         &lt;button class=&quot;layui-btn layuiadmin-btn-list&quot; data-type=&quot;batchdelindex&quot;&gt;删除&lt;/button&gt;
     &lt;/div&gt;
-&lt;/script&gt;
-</code></pre><p>工具栏（表格内）</p>
+&lt;/script&gt;</code></pre>
+<p>工具栏（表格内）</p>
 <pre><code>&lt;script type=&quot;text/html&quot; id=&quot;table-tool-list&quot;&gt;
     &lt;a class=&quot;layui-btn layui-btn-normal layui-btn-xs&quot; lay-event=&quot;edit&quot;&gt;&lt;i
             class=&quot;layui-icon layui-icon-edit&quot;&gt;&lt;/i&gt;修改&lt;/a&gt;
-&lt;/script&gt;
-</code></pre><h2 id="查询"><a href="#查询" class="headerlink" title="查询"></a>查询</h2><p>监听查询按钮</p>
+&lt;/script&gt;</code></pre>
+<h2 id="查询"><a href="#查询" class="headerlink" title="查询"></a>查询</h2><p>监听查询按钮</p>
 <pre><code>//监听搜索
-        form.on(&#39;submit(lay-index-search)&#39;, function (data) {
+        form.on(&#39;submit(lay-index-search)&#39;, function (data) &amp;#123;
             var field = data.field;
 
             //执行重载
-            table.reload(&#39;lay-index-list&#39;, {
+            table.reload(&#39;lay-index-list&#39;, &amp;#123;
                 where: field
-            });
-        });
-
-</code></pre><p>表格部分</p>
+            &amp;#125;);
+        &amp;#125;);
+</code></pre>
+<p>表格部分</p>
 <pre><code>//表格初始化
-        table.render({
+        table.render(&amp;#123;
             elem: &#39;#lay-index-list&#39;//绑定表格id
             , url: &#39;/abcefg&#39; //表格接口
             , method: &#39;post&#39; //请求方式
@@ -437,48 +437,48 @@
             , defaultToolbar: []
             , title: &#39;数据表&#39;
             , totalRow: false
-            , where: { //查询参数
+            , where: &amp;#123; //查询参数
                 &quot;name1&quot;: &#39;12&#39;,
                 &quot;name2&quot;: &#39;34&#39;
-            }
+            &amp;#125;
             , cols: [[
-                {type: &#39;checkbox&#39;, fixed: &#39;left&#39;}
-                , {field: &#39;kpiName&#39;, title: &#39;指标名称&#39;, width: 260}
-                , {
-                    field: &#39;kpiCode&#39;, title: &#39;指标编码&#39;, width: 180,  templet: function (res) {
+                &amp;#123;type: &#39;checkbox&#39;, fixed: &#39;left&#39;&amp;#125;
+                , &amp;#123;field: &#39;kpiName&#39;, title: &#39;指标名称&#39;, width: 260&amp;#125;
+                , &amp;#123;
+                    field: &#39;kpiCode&#39;, title: &#39;指标编码&#39;, width: 180,  templet: function (res) &amp;#123;
                         return &#39;&lt;em&gt;&#39; + res.kpiCode + &#39;&lt;/em&gt;&#39;
-                    }
-                }
-                , {field: &#39;kpiDevType&#39;, title: &#39;设备类型&#39;, width: 100}
-                , {field: &#39;kpiUnits&#39;, title: &#39;指标单位&#39;, width: 100}
-                , {
-                    field: &#39;kpiLevel&#39;, title: &#39;指标级别&#39;, width: 100, templet: function (res) {
-                        if (res.kpiLevel === &quot;2&quot;) {
-                            return &#39;网元&#39;} else if (res.kpiLevel === &quot;3&quot;) {
-                            return &#39;板卡&#39;} else if (res.kpiLevel === &quot;4&quot;) {
-                            return &#39;端口&#39;}}}
-                , {field: &#39;kpiDesc&#39;, title: &#39;描述&#39;, width: 150}
-                , {fixed: &#39;right&#39;, title: &#39;操作&#39;, toolbar: &#39;#table-tool-list&#39;, width: 150}  //绑定操作
+                    &amp;#125;
+                &amp;#125;
+                , &amp;#123;field: &#39;kpiDevType&#39;, title: &#39;设备类型&#39;, width: 100&amp;#125;
+                , &amp;#123;field: &#39;kpiUnits&#39;, title: &#39;指标单位&#39;, width: 100&amp;#125;
+                , &amp;#123;
+                    field: &#39;kpiLevel&#39;, title: &#39;指标级别&#39;, width: 100, templet: function (res) &amp;#123;
+                        if (res.kpiLevel === &quot;2&quot;) &amp;#123;
+                            return &#39;网元&#39;&amp;#125; else if (res.kpiLevel === &quot;3&quot;) &amp;#123;
+                            return &#39;板卡&#39;&amp;#125; else if (res.kpiLevel === &quot;4&quot;) &amp;#123;
+                            return &#39;端口&#39;&amp;#125;&amp;#125;&amp;#125;
+                , &amp;#123;field: &#39;kpiDesc&#39;, title: &#39;描述&#39;, width: 150&amp;#125;
+                , &amp;#123;fixed: &#39;right&#39;, title: &#39;操作&#39;, toolbar: &#39;#table-tool-list&#39;, width: 150&amp;#125;  //绑定操作
             ]]
             , page: true
             , limit: 10
             , limits: [10, 20, 50]
-        });
-
-</code></pre><h2 id="修改"><a href="#修改" class="headerlink" title="修改"></a>修改</h2><pre><code>table.on(&#39;tool(lay-index-list-filter)&#39;, function (obj) {
+        &amp;#125;);
+</code></pre>
+<h2 id="修改"><a href="#修改" class="headerlink" title="修改"></a>修改</h2><pre><code>table.on(&#39;tool(lay-index-list-filter)&#39;, function (obj) &amp;#123;
             var value = obj.value //得到修改后的值
                 , data = obj.data //得到所在行所有键值
                 , field = obj.field; //得到字段
             var layEvent = obj.event;
-            if (layEvent === &#39;edit&#39;) {
-                layer.open({
+            if (layEvent === &#39;edit&#39;) &amp;#123;
+                layer.open(&amp;#123;
                     type: 1,
                     title: &#39;修改指标&#39;,
                     area: [&#39;100%&#39;,&#39;100%&#39;],
                     btn: [&#39;确认&#39;, &#39;取消&#39;],
                     btnAlign: &#39;c&#39;,   // 按钮居中
                     content: $(&#39;#edit&#39;).html(),
-                    yes: function (index, layero) {
+                    yes: function (index, layero) &amp;#123;
                         var id = $(&quot;#id&quot;).val();
                         var kpiName = $(&quot;#kpiNameEdit&quot;).val();
                         var kpiCode = $(&quot;#kpiCodeEdit&quot;).val();
@@ -488,7 +488,7 @@
                         var kpiDesc = $(&quot;#kpiDescEdit&quot;).val();
 
                         $.post(&#39;/modifykpi&#39;,
-                            {
+                            &amp;#123;
                                 &quot;id&quot;:id,
                                 &quot;kpiName&quot;:kpiName,
                                 &quot;kpiCode&quot;:kpiCode,
@@ -496,29 +496,29 @@
                                 &quot;kpiUnits&quot;:kpiUnits,
                                 &quot;kpiLevel&quot;:kpiLevel,
                                 &quot;kpiDesc&quot;:kpiDesc
-                            }, function (data) {
-                                if (data.code === 200) {
-                                    layer.msg(&#39;更新成功&#39;, {icon: 1});
+                            &amp;#125;, function (data) &amp;#123;
+                                if (data.code === 200) &amp;#123;
+                                    layer.msg(&#39;更新成功&#39;, &amp;#123;icon: 1&amp;#125;);
                                     // 同步更新表格数据
-                                    obj.update({
+                                    obj.update(&amp;#123;
                                         kpiName:kpiName,
                                         kpiCode:kpiCode,
                                         devType:devType,
                                         kpiUnits:kpiUnits,
                                         kpiLevel:kpiLevel,
                                         kpiDesc:kpiDesc
-                                    })
-                                } else {
-                                    layer.msg(&#39;更新失败&#39;, {icon: 5})
-                                }
-                            });
+                                    &amp;#125;)
+                                &amp;#125; else &amp;#123;
+                                    layer.msg(&#39;更新失败&#39;, &amp;#123;icon: 5&amp;#125;)
+                                &amp;#125;
+                            &amp;#125;);
                         layer.close(index);//关闭弹出框
 
-                    }
-                });
+                    &amp;#125;
+                &amp;#125;);
                 console.log(&#39;初始化表单之前&#39;+JSON.stringify(data));
                 //初始化修改表单 &quot;name&quot;:value
-                form.val(&quot;form-kpi-edit&quot;, {
+                form.val(&quot;form-kpi-edit&quot;, &amp;#123;
                     &quot;id&quot;: data.id
                     , &quot;kpiNameEdit&quot;: data.kpiName
                     , &quot;kpiCodeEdit&quot;: data.kpiCode
@@ -526,44 +526,44 @@
                     , &quot;kpiUnitsEdit&quot;: data.kpiUnits
                     , &quot;kpiLevelEdit&quot;: data.kpiLevel
                     , &quot;kpiDescEdit&quot;: data.kpiDesc
-                });
+                &amp;#125;);
                 form.render(null, &#39;form-kpi-edit&#39;)
-            }
-        });
-</code></pre><h2 id="批量删除"><a href="#批量删除" class="headerlink" title="批量删除"></a>批量删除</h2><pre><code> var  active = {
-            batchdelindex: function () {
+            &amp;#125;
+        &amp;#125;);</code></pre>
+<h2 id="批量删除"><a href="#批量删除" class="headerlink" title="批量删除"></a>批量删除</h2><pre><code> var  active = &amp;#123;
+            batchdelindex: function () &amp;#123;
                 var checkStatus = table.checkStatus(&#39;lay-index-list&#39;)
                     , checkData = checkStatus.data; //得到选中的数据
 
-                if (checkData.length === 0) {
+                if (checkData.length === 0) &amp;#123;
                     return layer.msg(&#39;请选择数据&#39;);
-                } else {
+                &amp;#125; else &amp;#123;
                     var ids = [];
-                    $.each(checkData, function (i, v) {
+                    $.each(checkData, function (i, v) &amp;#123;
                         ids.push(v.id);
-                    });
+                    &amp;#125;);
                     console.log(ids);
-                    layer.confirm(&#39;确定删除吗？&#39;, function (index) {
+                    layer.confirm(&#39;确定删除吗？&#39;, function (index) &amp;#123;
 
                         //执行 Ajax 后重载
-                        $.post(&#39;/batchdelkpi&#39;, {&quot;ids&quot;: JSON.stringify(ids)}, function (data) {
-                            if (data.code === 200) {
+                        $.post(&#39;/batchdelkpi&#39;, &amp;#123;&quot;ids&quot;: JSON.stringify(ids)&amp;#125;, function (data) &amp;#123;
+                            if (data.code === 200) &amp;#123;
                                 layer.close(index);
                                 table.reload(&#39;lay-index-list&#39;);
-                                layer.msg(&#39;已删除&#39;, {icon: 1});
-                            } else {
+                                layer.msg(&#39;已删除&#39;, &amp;#123;icon: 1&amp;#125;);
+                            &amp;#125; else &amp;#123;
                                 layer.close(index);
-                                layer.msg(data.msg, {icon: 5});
-                            }
-                        });
-                    },function(index) {
+                                layer.msg(data.msg, &amp;#123;icon: 5&amp;#125;);
+                            &amp;#125;
+                        &amp;#125;);
+                    &amp;#125;,function(index) &amp;#123;
                         layer.close(index);
-                    });
-                }
-            },
-            edit:function{.....}
-        };
-</code></pre>
+                    &amp;#125;);
+                &amp;#125;
+            &amp;#125;,
+            edit:function&amp;#123;.....&amp;#125;
+        &amp;#125;;</code></pre>
+
             </div>
             <hr/>
 
@@ -959,7 +959,7 @@ grant select,insert,update on res.plan_task
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/数据库/" class="post-category">
+                            <a href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/" class="post-category">
                                     数据库
                                 </a>
                             

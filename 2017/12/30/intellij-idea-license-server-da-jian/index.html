@@ -2,7 +2,7 @@
 <html lang="zh-CN">
 
 
-<head><meta name="generator" content="Hexo 3.9.0">
+<head>
     <meta charset="utf-8">
     <meta name="keywords" content="IntelliJ IDEA license server搭建, 博客 苏叶新城 X笔记">
     <meta name="description" content="愿出走半生，归来仍是少年。">
@@ -29,7 +29,7 @@
 
     <script src="/libs/jquery/jquery.min.js"></script>
     
-<link rel="stylesheet" href="/css/prism-atom-dark.css" type="text/css">
+<meta name="generator" content="Hexo 5.0.2"><link rel="stylesheet" href="/css/prism-atom-dark.css" type="text/css">
 <link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"><script src="/js/prism.js"></script>
 <script src="/js/prism-line-numbers.min.js"></script></head>
 
@@ -379,7 +379,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    256
+                    271
                 </div>
                 
 
@@ -397,8 +397,7 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p><em>本文用于搭建JetBrains系列软件激活服务器，如有能力，请支持正版</em></p>
-<p>##准备</p>
+                <p><em>本文用于搭建JetBrains系列软件激活服务器，如有能力，请支持正版</em><br>##准备</p>
 <ul>
 <li>Centos 7</li>
 <li>Nginx</li>
@@ -408,8 +407,8 @@
 <pre><code>    yum install epel-release
     yum -y install nginx
     service nginx start
-    systemctl enable nginx
-</code></pre><h2 id="nginx配置"><a href="#nginx配置" class="headerlink" title="nginx配置"></a>nginx配置</h2><pre><code>server {
+    systemctl enable nginx</code></pre>
+<h2 id="nginx配置"><a href="#nginx配置" class="headerlink" title="nginx配置"></a>nginx配置</h2><pre><code>server &amp;#123;
         listen       主机IP:端口port;  
        # 需要自己配置 例： 123.33.32.23:8888
        # listen       [::]:8888 default_server ipv6only=on ;
@@ -419,33 +418,33 @@
         # Load configuration files for the default server block.
         include /etc/nginx/default.d/*.conf;
 
-        location / {
+        location / &amp;#123;
         # 反向代理
         proxy_pass http://idea.lanyus.com:80;   
         proxy_set_header X-Real-IP $remote_addr;
                 proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
-        }
+        &amp;#125;
 
 
         error_page 404 /404.html;
-            location = /40x.html {
-        }
+            location = /40x.html &amp;#123;
+        &amp;#125;
 
         error_page 500 502 503 504 /50x.html;
-            location = /50x.html {
-        }
-    }
-</code></pre><h2 id="重启nginx，加载配置"><a href="#重启nginx，加载配置" class="headerlink" title="重启nginx，加载配置"></a>重启nginx，加载配置</h2><p>查看nginx主进程</p>
-<pre><code>ps -aux |grep nginx
-</code></pre><p><img src="http://img.blog.csdn.net/20171230230816563?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvaGFoYV8yMDE1MTA=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="nginx进程"><br>master 为主进程，使用kill -HUP 777平滑重启</p>
-<pre><code>kill -HUP 777
-</code></pre><h2 id="配置防火墙"><a href="#配置防火墙" class="headerlink" title="配置防火墙"></a>配置防火墙</h2><p>centos7默认安装了firewalld，若没有安装，执行<code>yum install firewalld firewalld-config</code>安装</p>
-<pre><code>systemctl start firewalld  # 启动
-</code></pre><p>打开监听端口（上文绑定端口<code>ip:port</code>）</p>
-<pre><code>firewall-cmd --zone=public --add-port=8080/tcp --permanent // 永久开启8080端口
-</code></pre><p>重新加载防火墙</p>
-<pre><code> firewall-cmd --reload
-</code></pre><p>现在可以使用你的<code>ip:port</code>激活</p>
+            location = /50x.html &amp;#123;
+        &amp;#125;
+    &amp;#125;</code></pre>
+<h2 id="重启nginx，加载配置"><a href="#重启nginx，加载配置" class="headerlink" title="重启nginx，加载配置"></a>重启nginx，加载配置</h2><p>查看nginx主进程</p>
+<pre><code>ps -aux |grep nginx</code></pre>
+<p><img src="http://img.blog.csdn.net/20171230230816563?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvaGFoYV8yMDE1MTA=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="nginx进程"><br>master 为主进程，使用kill -HUP 777平滑重启</p>
+<pre><code>kill -HUP 777</code></pre>
+<h2 id="配置防火墙"><a href="#配置防火墙" class="headerlink" title="配置防火墙"></a>配置防火墙</h2><p>centos7默认安装了firewalld，若没有安装，执行<code>yum install firewalld firewalld-config</code>安装</p>
+<pre><code>systemctl start firewalld  # 启动</code></pre>
+<p>打开监听端口（上文绑定端口<code>ip:port</code>）</p>
+<pre><code>firewall-cmd --zone=public --add-port=8080/tcp --permanent // 永久开启8080端口</code></pre>
+<p>重新加载防火墙</p>
+<pre><code> firewall-cmd --reload</code></pre>
+<p>现在可以使用你的<code>ip:port</code>激活</p>
 
             </div>
             <hr/>
@@ -846,7 +845,7 @@ yum-
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/软件安装/" class="post-category">
+                            <a href="/categories/%E8%BD%AF%E4%BB%B6%E5%AE%89%E8%A3%85/" class="post-category">
                                     软件安装
                                 </a>
                             
@@ -884,8 +883,7 @@ yum-
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            本文用于搭建JetBrains系列软件激活服务器，如有能力，请支持正版
-##准备
+                            本文用于搭建JetBrains系列软件激活服务器，如有能力，请支持正版##准备
 
 Centos 7
 Nginx
@@ -893,7 +891,7 @@ Nginx
 
 ##安装nginx
     yum install epel-release
-    yum 
+    yum -
                         
                     </div>
                     <div class="publish-info">

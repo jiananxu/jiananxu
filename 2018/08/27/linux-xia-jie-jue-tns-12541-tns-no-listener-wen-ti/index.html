@@ -2,7 +2,7 @@
 <html lang="zh-CN">
 
 
-<head><meta name="generator" content="Hexo 3.9.0">
+<head>
     <meta charset="utf-8">
     <meta name="keywords" content="Linux下解决TNS-12541 TNS  no listener问题, 博客 苏叶新城 X笔记">
     <meta name="description" content="愿出走半生，归来仍是少年。">
@@ -29,7 +29,7 @@
 
     <script src="/libs/jquery/jquery.min.js"></script>
     
-<link rel="stylesheet" href="/css/prism-atom-dark.css" type="text/css">
+<meta name="generator" content="Hexo 5.0.2"><link rel="stylesheet" href="/css/prism-atom-dark.css" type="text/css">
 <link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"><script src="/js/prism.js"></script>
 <script src="/js/prism-line-numbers.min.js"></script></head>
 
@@ -408,9 +408,9 @@
 </ul>
 <p>查看监听状态<code>lsnrctl status</code></p>
 <p>如果有监听，则如下图，显示有服务orcl(服务名)监听。</p>
-<p><img src="http://imgcq.test.upcdn.net/image20180827102215.png" alt></p>
+<p><img src="http://imgcq.test.upcdn.net/image20180827102215.png"></p>
 <p>如果没有监听，查看监听文件</p>
-<p><code>cd /opt/oracle/product/oraHome/network/admin</code><br><img src="http://imgcq.test.upcdn.net/image20180827101607.png" alt></p>
+<p><code>cd /opt/oracle/product/oraHome/network/admin</code><br><img src="http://imgcq.test.upcdn.net/image20180827101607.png"></p>
 <p>tnsnames.ora:用于客户端,提示客户端从哪个监听实例连接。</p>
 <pre><code>ORCL =
   (DESCRIPTION =
@@ -420,8 +420,8 @@
       (SERVICE_NAME = orcl)
     )
   )
-
-</code></pre><p>listener.ora：用于服务端，用于提示服务端监听哪些实例。</p>
+</code></pre>
+<p>listener.ora：用于服务端，用于提示服务端监听哪些实例。</p>
 <pre><code>LISTENER =
   (DESCRIPTION_LIST =
     (DESCRIPTION =
@@ -431,12 +431,12 @@
   )
 
 ADR_BASE_LISTENER = /opt/oracle
-
-</code></pre><p>其中HOST为当前主机名，之前将主机名更改，忘记（<del>其实就是不知道</del>）修改oracle监听的主机名。</p>
+</code></pre>
+<p>其中HOST为当前主机名，之前将主机名更改，忘记（<del>其实就是不知道</del>）修改oracle监听的主机名。</p>
 <h2 id="开启oracle"><a href="#开启oracle" class="headerlink" title="开启oracle"></a>开启oracle</h2><p>配置完成，开启oracle</p>
 <pre><code>lsnrctl start  #开启监听
-dbstart    # 启动用户实例
-</code></pre>
+dbstart    # 启动用户实例</code></pre>
+
             </div>
             <hr/>
 
@@ -898,7 +898,7 @@ systemctl enable nginx
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/软件安装/" class="post-category">
+                            <a href="/categories/%E8%BD%AF%E4%BB%B6%E5%AE%89%E8%A3%85/" class="post-category">
                                     软件安装
                                 </a>
                             
