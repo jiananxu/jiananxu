@@ -4,6 +4,33 @@
   
     
     <entry>
+      <title>Spring Boot Mail发送邮件</title>
+      <link href="/2020/08/11/spring-boot-mail-fa-song-you-jian/"/>
+      <url>/2020/08/11/spring-boot-mail-fa-song-you-jian/</url>
+      
+        <content type="html"><![CDATA[<h1 id="邮件协议"><a href="#邮件协议" class="headerlink" title="邮件协议"></a>邮件协议</h1><blockquote><p>示例引用于网易邮箱，不同邮箱<code>服务器地址</code>不同</p></blockquote><p><img src="http://imgcq.test.upcdn.net/20200713173053.png?!" alt></p><blockquote><p>IMAP和POP3区别</p></blockquote><p><img src="http://imgcq.test.upcdn.net/20200713173655.png?!" alt></p><h2 id="POP3-接收邮件服务器"><a href="#POP3-接收邮件服务器" class="headerlink" title="POP3 接收邮件服务器"></a>POP3 接收邮件服务器</h2><blockquote><p> <strong>POP3</strong>是Post Office Protocol 3的简称，即邮局协议的第3个版本,它规定怎样将个人计算机连接到Internet的邮件服务器和下载电子邮件的电子协议。它是因特网电子邮件的第一个离线协议标准,POP3允许用户从服务器上把邮件存储到本地主机（即自己的计算机）上,同时删除保存在邮件服务器上的邮件，而POP3服务器则是遵循POP3协议的接收邮件服务器，用来接收电子邮件的。</p></blockquote><h2 id="IMAP-接收邮件服务器"><a href="#IMAP-接收邮件服务器" class="headerlink" title="IMAP 接收邮件服务器"></a>IMAP 接收邮件服务器</h2><blockquote><p> <strong>IMAP</strong>全称是Internet Mail Access Protocol，即交互式邮件存取协议，它是跟POP3类似邮件访问标准协议之一。不同的是，开启了IMAP后，您在电子邮件客户端收取的邮件仍然保留在服务器上，同时在客户端上的操作都会反馈到服务器上，如：删除邮件，标记已读等，服务器上的邮件也会做相应的动作。所以无论从浏览器登录邮箱或者客户端软件登录邮箱，看到的邮件以及状态都是一致的。</p></blockquote><h2 id="SMTP-发送邮件服务器"><a href="#SMTP-发送邮件服务器" class="headerlink" title="SMTP 发送邮件服务器"></a>SMTP 发送邮件服务器</h2><blockquote><p><strong>SMTP</strong> 的全称是“Simple Mail Transfer Protocol”，即简单邮件传输协议。它是一组用于从源地址到目的地址传输邮件的规范，通过它来控制邮件的中转方式。SMTP 协议属于 TCP/IP 协议簇，它帮助每台计算机在发送或中转信件时找到下一个目的地。SMTP 服务器就是遵循 SMTP 协议的发送邮件服务器。SMTP 认证，简单地说就是要求必须在提供了账户名和密码之后才可以登录 SMTP 服务器，这就使得那些垃圾邮件的散播者无可乘之机。增加 SMTP 认证的目的是为了使用户避免受到垃圾邮件的侵扰。　　</p></blockquote><h1 id="项目依赖"><a href="#项目依赖" class="headerlink" title="项目依赖"></a>项目依赖</h1><pre><code>&lt;dependency&gt;    &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;    &lt;artifactId&gt;spring-boot-starter-mail&lt;/artifactId&gt;&lt;/dependency&gt;</code></pre><h1 id="项目配置"><a href="#项目配置" class="headerlink" title="项目配置"></a>项目配置</h1><p>aplication.yml</p><p><strong>启用ssl</strong></p><pre><code>server:  port: 9010spring:  mail:#    发送邮件服务器地址    host: smtp.xxx.com#    用户名    username: xxx@xxx.com#    密码，对于QQ邮箱、163邮箱等填写授权码    password: 123456#    ssl 加密端口，无ssl加密为25端口    port: 465#    采用协议    protocol: smtp#    ssl配置参数    properties:      mail:        smtp:          ssl:            enable: true            socketFactory:              fallback: false              class: javax.net.ssl.SSLSocketFactory          auth: true          starttls:            enable: true            required: true# freemarker模板配置  freemarker:#    指定文件后缀    suffix: .html</code></pre><p><strong>不启用ssl</strong></p><pre><code>server:  port: 9010spring:  mail:#    发送邮件服务器地址    host: smtp.xxx.com#    用户名    username: xxx@xxx.com#    密码，对于QQ邮箱、163邮箱等填写授权码    password: 123456#    ssl 加密端口，无ssl加密为25端口    port: 25#    采用协议    protocol: smtp# freemarker模板配置  freemarker:#    指定文件后缀    suffix: .html</code></pre><h1 id="发送邮件"><a href="#发送邮件" class="headerlink" title="发送邮件"></a>发送邮件</h1><h2 id="简易邮件"><a href="#简易邮件" class="headerlink" title="简易邮件"></a>简易邮件</h2><pre><code>    @Autowired    private JavaMailSender javaMailSender;    public void sendSimpleMail() {//        创建消息体        SimpleMailMessage simpleMailMessage = new SimpleMailMessage();        simpleMailMessage.setFrom(&quot;xxxxx@xxx.com&quot;);//发件人        simpleMailMessage.setTo(&quot;1111@qq.com&quot;);//收件人        simpleMailMessage.setSubject(&quot;测试邮件&quot;);//主题        simpleMailMessage.setCc(&quot;156@163.com&quot;);//抄送，可添多个        simpleMailMessage.setText(&quot;邮件内容&quot;);//邮件内容(只能文本)//        simpleMailMessage.setBcc();//密送        javaMailSender.send(simpleMailMessage);        log.info(&quot;发送成功&quot;);    }</code></pre><h2 id="附件邮件"><a href="#附件邮件" class="headerlink" title="附件邮件"></a>附件邮件</h2><pre><code>    @Autowired    private JavaMailSender javaMailSender; public void sendAttachmentMail() throws MessagingException {//        创建消息体        MimeMessage mimeMessage = javaMailSender.createMimeMessage();        MimeMessageHelper helper = new MimeMessageHelper(mimeMessage, true);        helper.setFrom(&quot;xxxxx@xxx.com&quot;);//发件人        helper.setTo(&quot;1111@qq.com&quot;);//收件人        helper.setSubject(&quot;测试邮件&quot;);//主题        helper.setCc(&quot;156@163.com&quot;);//抄送，可添多个        helper.setText(&quot;&lt;html&gt;&lt;body&gt;&lt;b&gt;邮件内容&lt;/b&gt;&lt;/body&gt;&lt;/html&gt;&quot;, true);//邮件内容(文本或者html)        File file = new File(&quot;C:\\home\\logs\\log.2019-08-01.log&quot;);//        添加附件        helper.addAttachment(&quot;测试附加&quot;, file);        javaMailSender.send(mimeMessage);    }</code></pre><h2 id="模板邮件"><a href="#模板邮件" class="headerlink" title="模板邮件"></a>模板邮件</h2><p>添加freemarker依赖,也可以采用其他模板语言velocity、themeleaf等，用法类似</p><pre><code> &lt;dependency&gt;    &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;    &lt;artifactId&gt;spring-boot-starter-freemarker&lt;/artifactId&gt;&lt;/dependency&gt;</code></pre><p>创建freemarker模板,新建vm.html模板文件</p><pre><code>&lt;!DOCTYPE html&gt;&lt;html lang=&quot;en&quot;&gt;&lt;head&gt;    &lt;meta charset=&quot;UTF-8&quot;&gt;    &lt;title&gt;邮件模板&lt;/title&gt;&lt;/head&gt;&lt;body&gt;${username}您好:    欢迎使用xxx系统&lt;/body&gt;&lt;/html&gt;</code></pre><p>发送邮件</p><pre><code>    Autowired    private JavaMailSender javaMailSender; public void sendTemplateMail() {//        创建消息体        MimeMessage mimeMessage = javaMailSender.createMimeMessage();        MimeMessageHelper helper = new MimeMessageHelper(mimeMessage, true);        helper.setFrom(&quot;xxxxx@xxx.com&quot;);//发件人        helper.setTo(&quot;1111@qq.com&quot;);//收件人        helper.setSubject(&quot;测试邮件&quot;);//主题        helper.setCc(&quot;156@163.com&quot;);//抄送，可添多个        Map&lt;String, Object&gt; model = new HashMap&lt;&gt;();        model.put(&quot;username&quot;, &quot;Joe&quot;);//        获取模板文件        Template template = freeMarkerConfigurer.getConfiguration().getTemplate(&quot;vm.html&quot;);//        根据模型转换模板内容        String text = FreeMarkerTemplateUtils.processTemplateIntoString(template, model);        helper.setText(text, true);//邮件内容        javaMailSender.send(mimeMessage);    }</code></pre>]]></content>
+      
+      
+      <categories>
+          
+          <category> Spring Boot </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Mail </tag>
+            
+            <tag> Spring Boot </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Spring Boot集成Tinymce富文本编辑器</title>
       <link href="/2020/07/02/sping-boot-ji-cheng-tinymce-fu-wen-ben-bian-ji/"/>
       <url>/2020/07/02/sping-boot-ji-cheng-tinymce-fu-wen-ben-bian-ji/</url>
@@ -20,9 +47,9 @@
       
         <tags>
             
-            <tag> Tinymce </tag>
-            
             <tag> Spring Boot </tag>
+            
+            <tag> Tinymce </tag>
             
         </tags>
       

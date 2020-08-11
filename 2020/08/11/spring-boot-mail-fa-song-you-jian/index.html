@@ -4,7 +4,7 @@
 
 <head><meta name="generator" content="Hexo 3.9.0">
     <meta charset="utf-8">
-    <meta name="keywords" content="Nginx常用场景, 博客 苏叶新城 X笔记">
+    <meta name="keywords" content="Spring Boot Mail发送邮件, 博客 苏叶新城 X笔记">
     <meta name="description" content="愿出走半生，归来仍是少年。">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>Nginx常用场景 | X笔记</title>
+    <title>Spring Boot Mail发送邮件 | X笔记</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -223,12 +223,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/9.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/22.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">Nginx常用场景</h1>
+                    <h1 class="description center-align post-title">Spring Boot Mail发送邮件</h1>
                 </div>
             </div>
         </div>
@@ -345,8 +345,12 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/nginx/">
-                                <span class="chip bg-color">nginx</span>
+                            <a href="/tags/Mail/">
+                                <span class="chip bg-color">Mail</span>
+                            </a>
+                        
+                            <a href="/tags/Spring-Boot/">
+                                <span class="chip bg-color">Spring Boot</span>
                             </a>
                         
                     </div>
@@ -357,8 +361,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/Linux/" class="post-category">
-                                Linux
+                            <a href="/categories/Spring-Boot/" class="post-category">
+                                Spring Boot
                             </a>
                         
                     </div>
@@ -370,7 +374,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-06-12
+                    2020-08-11
                 </div>
                 
 
@@ -379,7 +383,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    604
+                    1,127
                 </div>
                 
 
@@ -397,117 +401,155 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h1><p>Nginx是一款轻量级的Web服务器、反向代理服务器，由于它的内存占用少，启动极快，高并发能力强，在互联网项目中广泛应用。</p>
-<h1 id="应用场景"><a href="#应用场景" class="headerlink" title="应用场景"></a>应用场景</h1><h2 id="负载均衡"><a href="#负载均衡" class="headerlink" title="负载均衡"></a>负载均衡</h2><p><strong>轮询</strong></p>
-<pre><code>upstream test {
-  server 10.200.100.3:8080;
-  server 10.200.100.4:8081;
-}
-upstream admin {
-  server 10.200.100.3:9080;
-  server 10.200.100.4:9081;
-}
-server {
-  listen       81;                                                         
-  server_name  localhost;                                               
-#映射地址
-  location / {
-    ssi on;
-    ssi_silent_errors on;
-    proxy_read_timeout 300;
-    proxy_set_header Host $host:$server_port;
-    proxy_set_header X-Real-IP $remote_addr;
-    proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
-    # proxy_pass内容与upstream对应
-    proxy_pass http://test;
-    proxy_redirect default;
-
-  }
-  #映射地址指定多个，根据访问路径匹配不同地址`location`
-  location /admin {
-    ssi on;
-    ssi_silent_errors on;
-    proxy_read_timeout 300;
-    proxy_set_header Host $host:$server_port;
-    proxy_set_header X-Real-IP $remote_addr;
-    proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
-    # proxy_pass内容与upstream对应
-    proxy_pass http://admin;
-    proxy_redirect default;
-
-  }
-}
-
-</code></pre><p><strong>设置权重</strong></p>
-<p>通过weight指定访问服务器权重，权重越高代表服务器被访问的几率的越大。</p>
-<pre><code>  upstream test {
-    server localhost:8080 weight=9;
-    server localhost:8081 weight=1;
-  }
-
-</code></pre><p><strong>iphash</strong></p>
-<p>iphash的每个请求按访问ip的hash结果分配，这样每个访客固定访问一个后端服务器，可以解决session的问题。(分布式session同步可采用redis解决)</p>
-<pre><code>upstream test {
-  ip_hash;
-  server localhost:8080;
-  server localhost:8081;
-}
-
-</code></pre><h2 id="反正代理"><a href="#反正代理" class="headerlink" title="反正代理"></a>反正代理</h2><blockquote>
-<p>反向代理隐藏了真实的服务端，例如访问<code>http://www.baidu.com</code>，可能有成千上万的程序为我们服务。代理对象为服务端。</p>
+                <h1 id="邮件协议"><a href="#邮件协议" class="headerlink" title="邮件协议"></a>邮件协议</h1><blockquote>
+<p>示例引用于网易邮箱，不同邮箱<code>服务器地址</code>不同</p>
 </blockquote>
-<pre><code>server {  
-  listen       80;                                                         
-  server_name  localhost;                                               
-
-  location / {
-    proxy_pass http://10.200.100.2:8080;
-    proxy_set_header Host $host:$server_port;
-  }
-}
-
-</code></pre><blockquote>
-<p>正向代理: 它隐藏了真实的请求客户端，服务端不知道真实的客户端是谁，客户端请求的服务都被代理服务器代替来请求.代理对象为客户端。</p>
+<p><img src="http://imgcq.test.upcdn.net/20200713173053.png?!" alt></p>
+<blockquote>
+<p>IMAP和POP3区别</p>
 </blockquote>
-<h2 id="HTTP服务器"><a href="#HTTP服务器" class="headerlink" title="HTTP服务器"></a>HTTP服务器</h2><p>Nginx本身也是一个静态资源的服务器，当只有静态资源的时候，就可以使用Nginx来做服务器。</p>
-<pre><code>server {
-  listen       80;                                                         
-  server_name  localhost;                                               
+<p><img src="http://imgcq.test.upcdn.net/20200713173655.png?!" alt></p>
+<h2 id="POP3-接收邮件服务器"><a href="#POP3-接收邮件服务器" class="headerlink" title="POP3 接收邮件服务器"></a>POP3 接收邮件服务器</h2><blockquote>
+<p> <strong>POP3</strong>是Post Office Protocol 3的简称，即邮局协议的第3个版本,它规定怎样将个人计算机连接到Internet的邮件服务器和下载电子邮件的电子协议。它是因特网电子邮件的第一个离线协议标准,POP3允许用户从服务器上把邮件存储到本地主机（即自己的计算机）上,同时删除保存在邮件服务器上的邮件，而POP3服务器则是遵循POP3协议的接收邮件服务器，用来接收电子邮件的。</p>
+</blockquote>
+<h2 id="IMAP-接收邮件服务器"><a href="#IMAP-接收邮件服务器" class="headerlink" title="IMAP 接收邮件服务器"></a>IMAP 接收邮件服务器</h2><blockquote>
+<p> <strong>IMAP</strong>全称是Internet Mail Access Protocol，即交互式邮件存取协议，它是跟POP3类似邮件访问标准协议之一。不同的是，开启了IMAP后，您在电子邮件客户端收取的邮件仍然保留在服务器上，同时在客户端上的操作都会反馈到服务器上，如：删除邮件，标记已读等，服务器上的邮件也会做相应的动作。所以无论从浏览器登录邮箱或者客户端软件登录邮箱，看到的邮件以及状态都是一致的。</p>
+</blockquote>
+<h2 id="SMTP-发送邮件服务器"><a href="#SMTP-发送邮件服务器" class="headerlink" title="SMTP 发送邮件服务器"></a>SMTP 发送邮件服务器</h2><blockquote>
+<p><strong>SMTP</strong> 的全称是“Simple Mail Transfer Protocol”，即简单邮件传输协议。它是一组用于从源地址到目的地址传输邮件的规范，通过它来控制邮件的中转方式。SMTP 协议属于 TCP/IP 协议簇，它帮助每台计算机在发送或中转信件时找到下一个目的地。SMTP 服务器就是遵循 SMTP 协议的发送邮件服务器。SMTP 认证，简单地说就是要求必须在提供了账户名和密码之后才可以登录 SMTP 服务器，这就使得那些垃圾邮件的散播者无可乘之机。增加 SMTP 认证的目的是为了使用户避免受到垃圾邮件的侵扰。
+　　</p>
+</blockquote>
+<h1 id="项目依赖"><a href="#项目依赖" class="headerlink" title="项目依赖"></a>项目依赖</h1><pre><code>&lt;dependency&gt;
+    &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+    &lt;artifactId&gt;spring-boot-starter-mail&lt;/artifactId&gt;
+&lt;/dependency&gt;
+</code></pre><h1 id="项目配置"><a href="#项目配置" class="headerlink" title="项目配置"></a>项目配置</h1><p>aplication.yml</p>
+<p><strong>启用ssl</strong></p>
+<pre><code>server:
+  port: 9010
 
-  location / {
-  #指定静态文件位置
-    root   /opt/dist;
-    #访问首页
-    index  index.html;
-  }
-}
+spring:
+  mail:
+#    发送邮件服务器地址
+    host: smtp.xxx.com
+#    用户名
+    username: xxx@xxx.com
+#    密码，对于QQ邮箱、163邮箱等填写授权码
+    password: 123456
+#    ssl 加密端口，无ssl加密为25端口
+    port: 465
+#    采用协议
+    protocol: smtp
+#    ssl配置参数
+    properties:
+      mail:
+        smtp:
+          ssl:
+            enable: true
+            socketFactory:
+              fallback: false
+              class: javax.net.ssl.SSLSocketFactory
+          auth: true
+          starttls:
+            enable: true
+            required: true
+# freemarker模板配置
+  freemarker:
+#    指定文件后缀
+    suffix: .html
+</code></pre><p><strong>不启用ssl</strong></p>
+<pre><code>server:
+  port: 9010
 
-</code></pre><h1 id="常用操作"><a href="#常用操作" class="headerlink" title="常用操作"></a>常用操作</h1><p><strong>解压安装常用</strong></p>
-<pre><code>查看nginx安装位置：
-whereis nginx
+spring:
+  mail:
+#    发送邮件服务器地址
+    host: smtp.xxx.com
+#    用户名
+    username: xxx@xxx.com
+#    密码，对于QQ邮箱、163邮箱等填写授权码
+    password: 123456
+#    ssl 加密端口，无ssl加密为25端口
+    port: 25
+#    采用协议
+    protocol: smtp
+# freemarker模板配置
+  freemarker:
+#    指定文件后缀
+    suffix: .html
+</code></pre><h1 id="发送邮件"><a href="#发送邮件" class="headerlink" title="发送邮件"></a>发送邮件</h1><h2 id="简易邮件"><a href="#简易邮件" class="headerlink" title="简易邮件"></a>简易邮件</h2><pre><code>    @Autowired
+    private JavaMailSender javaMailSender;
 
-启动：
-$ /usr/local/nginx/sbin/nginx
+    public void sendSimpleMail() {
+//        创建消息体
+        SimpleMailMessage simpleMailMessage = new SimpleMailMessage();
+        simpleMailMessage.setFrom(&quot;xxxxx@xxx.com&quot;);//发件人
+        simpleMailMessage.setTo(&quot;1111@qq.com&quot;);//收件人
+        simpleMailMessage.setSubject(&quot;测试邮件&quot;);//主题
+        simpleMailMessage.setCc(&quot;156@163.com&quot;);//抄送，可添多个
+        simpleMailMessage.setText(&quot;邮件内容&quot;);//邮件内容(只能文本)
+//        simpleMailMessage.setBcc();//密送
+        javaMailSender.send(simpleMailMessage);
+        log.info(&quot;发送成功&quot;);
+    }
 
-热重启：
-$ /usr/local/nginx/sbin/nginx –s reload
+</code></pre><h2 id="附件邮件"><a href="#附件邮件" class="headerlink" title="附件邮件"></a>附件邮件</h2><pre><code>    @Autowired
+    private JavaMailSender javaMailSender;
+ public void sendAttachmentMail() throws MessagingException {
+//        创建消息体
+        MimeMessage mimeMessage = javaMailSender.createMimeMessage();
+        MimeMessageHelper helper = new MimeMessageHelper(mimeMessage, true);
+        helper.setFrom(&quot;xxxxx@xxx.com&quot;);//发件人
+        helper.setTo(&quot;1111@qq.com&quot;);//收件人
+        helper.setSubject(&quot;测试邮件&quot;);//主题
+        helper.setCc(&quot;156@163.com&quot;);//抄送，可添多个
+        helper.setText(&quot;&lt;html&gt;&lt;body&gt;&lt;b&gt;邮件内容&lt;/b&gt;&lt;/body&gt;&lt;/html&gt;&quot;, true);//邮件内容(文本或者html)
 
-停止：
-$ /usr/local/nginx/sbin/nginx –s stop
 
-测试配置文件是否正常：
-$ /usr/local/nginx/sbin/nginx –t
+        File file = new File(&quot;C:\\home\\logs\\log.2019-08-01.log&quot;);
+//        添加附件
+        helper.addAttachment(&quot;测试附加&quot;, file);
+        javaMailSender.send(mimeMessage);
+    }
+</code></pre><h2 id="模板邮件"><a href="#模板邮件" class="headerlink" title="模板邮件"></a>模板邮件</h2><p>添加freemarker依赖,也可以采用其他模板语言velocity、themeleaf等，用法类似</p>
+<pre><code> &lt;dependency&gt;
+    &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+    &lt;artifactId&gt;spring-boot-starter-freemarker&lt;/artifactId&gt;
+&lt;/dependency&gt;
+</code></pre><p>创建freemarker模板,新建vm.html模板文件</p>
+<pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;title&gt;邮件模板&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+${username}您好:
+    欢迎使用xxx系统
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre><p>发送邮件</p>
+<pre><code>    Autowired
+    private JavaMailSender javaMailSender;
+ public void sendTemplateMail() {
+//        创建消息体
+        MimeMessage mimeMessage = javaMailSender.createMimeMessage();
+        MimeMessageHelper helper = new MimeMessageHelper(mimeMessage, true);
+        helper.setFrom(&quot;xxxxx@xxx.com&quot;);//发件人
+        helper.setTo(&quot;1111@qq.com&quot;);//收件人
+        helper.setSubject(&quot;测试邮件&quot;);//主题
+        helper.setCc(&quot;156@163.com&quot;);//抄送，可添多个
 
-强制关闭：
-$ pkill nginx
-</code></pre><p><strong>yum安装常用</strong></p>
-<pre><code>systemctl enable nginx   # 设置开机启动 Nginx
-systemctl disable nginx  # 关闭开机启动 Nginx
-systemctl start nginx    # 启动 Nginx
-systemctl stop nginx     # 停止 Nginx
-systemctl restart nginx  # 重启 Nginx
-systemctl reload nginx   # 重新加载 Nginx
-systemctl status nginx   # 查看 Nginx 运行状态
+        Map&lt;String, Object&gt; model = new HashMap&lt;&gt;();
+        model.put(&quot;username&quot;, &quot;Joe&quot;);
+//        获取模板文件
+        Template template = freeMarkerConfigurer.getConfiguration().getTemplate(&quot;vm.html&quot;);
+//        根据模型转换模板内容
+        String text = FreeMarkerTemplateUtils.processTemplateIntoString(template, model);
+        helper.setText(text, true);//邮件内容
+
+        javaMailSender.send(mimeMessage);
+    }
 </code></pre>
             </div>
             <hr/>
@@ -533,7 +575,7 @@ systemctl status nginx   # 查看 Nginx 运行状态
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://www.xujn.xyz/2020/06/12/nginx-chang-yong-chang-jing/">http://www.xujn.xyz/2020/06/12/nginx-chang-yong-chang-jing/</a>
+                    <a href="http://www.xujn.xyz/2020/08/11/spring-boot-mail-fa-song-you-jian/">http://www.xujn.xyz/2020/08/11/spring-boot-mail-fa-song-you-jian/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -571,8 +613,12 @@ systemctl status nginx   # 查看 Nginx 运行状态
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/nginx/">
-                                    <span class="chip bg-color">nginx</span>
+                                <a href="/tags/Mail/">
+                                    <span class="chip bg-color">Mail</span>
+                                </a>
+                            
+                                <a href="/tags/Spring-Boot/">
+                                    <span class="chip bg-color">Spring Boot</span>
                                 </a>
                             
                         </div>
@@ -876,9 +922,73 @@ systemctl status nginx   # 查看 Nginx 运行状态
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
+            <div class="card">
+                <a href="/2020/08/11/spring-boot-mail-fa-song-you-jian/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/22.jpg" class="responsive-img" alt="Spring Boot Mail发送邮件">
+                        
+                        <span class="card-title">Spring Boot Mail发送邮件</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            邮件协议
+示例引用于网易邮箱，不同邮箱服务器地址不同
+
+
+
+IMAP和POP3区别
+
+
+POP3 接收邮件服务器
+ POP3是Post Office Protocol 3的简称，即邮局协议的第3个版本,它规定怎样将个人计算机连接到Inter
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-08-11
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Spring-Boot/" class="post-category">
+                                    Spring Boot
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Mail/">
+                        <span class="chip bg-color">Mail</span>
+                    </a>
+                    
+                    <a href="/tags/Spring-Boot/">
+                        <span class="chip bg-color">Spring Boot</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
             <div class="card">
                 <a href="/2020/07/02/sping-boot-ji-cheng-tinymce-fu-wen-ben-bian-ji/">
                     <div class="card-image">
@@ -902,9 +1012,9 @@ TinyMCE是一款易用、且功能强大的所见即所得的富文本编辑器�
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-07-02
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-07-02
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -926,62 +1036,6 @@ TinyMCE是一款易用、且功能强大的所见即所得的富文本编辑器�
                     
                     <a href="/tags/Tinymce/">
                         <span class="chip bg-color">Tinymce</span>
-                    </a>
-                    
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
-            </div>
-            <div class="card">
-                <a href="/2020/03/25/nginx-jie-ya-ban-ping-hua-sheng-ji/">
-                    <div class="card-image">
-                        
-                        
-                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="nginx解压版平滑升级">
-                        
-                        <span class="card-title">nginx解压版平滑升级</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            配置
-nginx 1.16.1
-redhat
-
-操作过程做好配置备份
-下载nginx1.16.1,进行解压操作。
-wget http://nginx.org/download/nginx-1.16.1.tar.gz
-tar -xzvf ng
-                        
-                    </div>
-                    <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-03-25
-                            </span>
-                        <span class="publish-author">
-                            
-                            <i class="fas fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/软件安装/" class="post-category">
-                                    软件安装
-                                </a>
-                            
-                            
-                        </span>
-                    </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/nginx/">
-                        <span class="chip bg-color">nginx</span>
                     </a>
                     
                 </div>
