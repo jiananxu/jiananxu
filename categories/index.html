@@ -28,7 +28,7 @@
     <link rel="stylesheet" type="text/css" href="/css/my.css">
 
     <script src="/libs/jquery/jquery.min.js"></script>
-    
+
 <meta name="generator" content="Hexo 5.0.2"><link rel="stylesheet" href="/css/prism-atom-dark.css" type="text/css">
 <link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"><script src="/js/prism.js"></script>
 <script src="/js/prism-line-numbers.min.js"></script></head>
@@ -124,6 +124,7 @@
   </li>
 </ul>
 
+
 <div id="mobile-nav" class="side-nav sidenav">
 
     <div class="mobile-head bg-color">
@@ -212,6 +213,7 @@
     </ul>
 </div>
 
+
         </div>
 
         
@@ -253,7 +255,8 @@
 
 <script>
     // 每天切换 banner 图.  Switch banner image every day.
-    $('.bg-cover').css('background-image', 'url(/medias/banner/' + new Date().getDay() + '.jpg)');
+    var bannerUrl = "/medias/banner/" + new Date().getDay() + '.jpg';
+    $('.bg-cover').css('background-image', 'url(' + bannerUrl + ')');
 </script>
 
 
@@ -274,11 +277,11 @@
                 
                 
                 
-                <a href="/categories/%E8%BD%AF%E4%BB%B6%E5%AE%89%E8%A3%85/" title="软件安装: 5">
+                <a href="/categories/%E8%BD%AF%E4%BB%B6%E5%AE%89%E8%A3%85/" title="软件安装: 4">
                     <span class="chip center-align waves-effect waves-light
                              chip-default "
                             style="background-color: #F9EBEA;">软件安装
-                        <span class="tag-length">5</span>
+                        <span class="tag-length">4</span>
                     </span>
                 </a>
                 
@@ -301,19 +304,19 @@
                 </a>
                 
                 
-                <a href="/categories/IDEA/" title="IDEA: 1">
+                <a href="/categories/Layui/" title="Layui: 1">
                     <span class="chip center-align waves-effect waves-light
                              chip-default "
-                            style="background-color: #E8F8F5;">IDEA
+                            style="background-color: #E8F8F5;">Layui
                         <span class="tag-length">1</span>
                     </span>
                 </a>
                 
                 
-                <a href="/categories/Layui/" title="Layui: 1">
+                <a href="/categories/IDEA/" title="IDEA: 1">
                     <span class="chip center-align waves-effect waves-light
                              chip-default "
-                            style="background-color: #FEF9E7;">Layui
+                            style="background-color: #FEF9E7;">IDEA
                         <span class="tag-length">1</span>
                     </span>
                 </a>
@@ -328,11 +331,11 @@
                 </a>
                 
                 
-                <a href="/categories/Linux/" title="Linux: 1">
+                <a href="/categories/Linux/" title="Linux: 3">
                     <span class="chip center-align waves-effect waves-light
                              chip-default "
                             style="background-color: #82E0AA;">Linux
-                        <span class="tag-length">1</span>
+                        <span class="tag-length">3</span>
                     </span>
                 </a>
                 
@@ -350,6 +353,7 @@
         </div>
     </div>
 </div>
+
 
     
     <style type="text/css">
@@ -387,7 +391,7 @@
                     color: '#3C4858'
                 }
             },
-            indicator: [{"name":"软件安装","max":6},{"name":"数据库","max":6},{"name":"Spring","max":6},{"name":"IDEA","max":6},{"name":"Layui","max":6},{"name":"Oracle","max":6},{"name":"Linux","max":6},{"name":"Spring Boot","max":6}],
+            indicator: [{"name":"软件安装","max":5},{"name":"数据库","max":5},{"name":"Spring","max":5},{"name":"Layui","max":5},{"name":"IDEA","max":5},{"name":"Oracle","max":5},{"name":"Linux","max":5},{"name":"Spring Boot","max":5}],
             nameGap: 5,
             center: ['50%','55%'],
             radius: '66%'
@@ -398,7 +402,7 @@
             itemStyle: {normal: {areaStyle: {type: 'default'}}},
             data : [
                 {
-                    value : [5,3,2,1,1,2,1,2],
+                    value : [4,3,2,1,1,2,3,2],
                     name : '文章分类数量'
                 }
             ]
@@ -407,6 +411,7 @@
 
     radarChart.setOption(option);
 </script>
+
     
 
 </main>
@@ -418,7 +423,7 @@
         <div class="col s12 m8 l8 copy-right">
             Copyright&nbsp;&copy;
             <span id="year">2020</span>
-            <a href="http://www.xujn.xyz" target="_blank">苏叶新城</a>
+            <a href="/about" target="_blank">苏叶新城</a>
             |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
             |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
             <br>
@@ -529,9 +534,10 @@
 <script src="/js/search.js"></script>
 <script type="text/javascript">
 $(function () {
-    searchFunc("/" + "search.xml", 'searchInput', 'searchResult');
+    searchFunc("/search.xml", 'searchInput', 'searchResult');
 });
 </script>
+
     <!-- 回到顶部按钮 -->
 <div id="backTop" class="top-scroll">
     <a class="btn-floating btn-large waves-effect waves-light" href="#!">
@@ -581,7 +587,7 @@ $(function () {
     
 
     
-    
+
     
     <script src="/libs/instantpage/instantpage.js" type="module"></script>
     

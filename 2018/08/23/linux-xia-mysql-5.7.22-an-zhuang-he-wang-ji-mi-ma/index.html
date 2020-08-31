@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="Linux下MySQL 5.7.22安装和忘记密码, 博客 苏叶新城 X笔记">
+    <meta name="keywords" content="mysql 5.7">
     <meta name="description" content="愿出走半生，归来仍是少年。">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -28,7 +28,7 @@
     <link rel="stylesheet" type="text/css" href="/css/my.css">
 
     <script src="/libs/jquery/jquery.min.js"></script>
-    
+
 <meta name="generator" content="Hexo 5.0.2"><link rel="stylesheet" href="/css/prism-atom-dark.css" type="text/css">
 <link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"><script src="/js/prism.js"></script>
 <script src="/js/prism-line-numbers.min.js"></script></head>
@@ -124,6 +124,7 @@
   </li>
 </ul>
 
+
 <div id="mobile-nav" class="side-nav sidenav">
 
     <div class="mobile-head bg-color">
@@ -211,6 +212,7 @@
         
     </ul>
 </div>
+
 
         </div>
 
@@ -305,14 +307,14 @@
     #toc-content .toc-link::before {
         background-color: transparent;
         max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
     }
 
     #toc-content .is-active-link {
         color: #42b983;
-    }
-
-    #toc-content .is-active-link::before {
-        background-color: #42b983;
     }
 
     #floating-toc-btn {
@@ -379,7 +381,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    627
+                    662
                 </div>
                 
 
@@ -392,7 +394,6 @@
                     </div>
 				
             </div>
-
         </div>
         <hr class="clearfix">
         <div class="card-content article-card-content">
@@ -412,12 +413,7 @@
 <pre><code>chown -R mysql:mysql /usr/local/mysql</code></pre>
 <p>添加data目录所有者为mysql(<em>在mysql目录下新建data文件夹</em>)</p>
 <pre><code>chown -R mysql:mysql data</code></pre>
-<h4 id="3-安装数据库"><a href="#3-安装数据库" class="headerlink" title="3. 安装数据库"></a>3. 安装数据库</h4><p>在mysql目录下，初始化数据库</p>
-<pre><code> bin/mysqld --initialize --user=mysql --basedir=/usr/local/mysql --datadir=/usr/local/mysql/data</code></pre>
-<p>成功后,会生成临时密码,在最后一行。记住这个密码（我就记不住，所有才有忘记密码的部分）</p>
-<p>执行以下命令创建RSA private key </p>
-<pre><code>  bin/mysql_ssl_rsa_setup --datadir=/usr/local/mysql/data</code></pre>
-<h4 id="4-配置my-cnf"><a href="#4-配置my-cnf" class="headerlink" title="4. 配置my.cnf"></a>4. 配置my.cnf</h4><p><code>vim /etc/my.cnf</code><br>(如果没有这个文件，直接新建)</p>
+<h4 id="3-配置my-cnf"><a href="#3-配置my-cnf" class="headerlink" title="3. 配置my.cnf"></a>3. 配置my.cnf</h4><p><code>vim /etc/my.cnf</code><br>(如果没有这个文件，直接新建)</p>
 <pre><code>[mysqld]
 character_set_server=utf8
 init_connect=&#39;SET NAMES utf8&#39;
@@ -427,8 +423,13 @@ socket=/tmp/mysql.sock
 #不区分大小写
 sql_mode=NO_ENGINE_SUBSTITUTION,STRICT_TRANS_TABLES
 lower_case_table_names = 1
-log-error=/var/log/mysqld.log
+#log-error=/var/log/mysqld.log
 pid-file=/usr/local/mysql/data/mysqld.pid</code></pre>
+<h4 id="4-安装数据库"><a href="#4-安装数据库" class="headerlink" title="4. 安装数据库"></a>4. 安装数据库</h4><p>在mysql目录下，初始化数据库</p>
+<pre><code> bin/mysqld --initialize --user=mysql </code></pre>
+<p>成功后,会生成临时密码,在最后一行。记住这个密码</p>
+<p>执行以下命令创建RSA private key </p>
+<pre><code>  bin/mysql_ssl_rsa_setup --datadir=/usr/local/mysql/data</code></pre>
 <h4 id="5-添加开机启动"><a href="#5-添加开机启动" class="headerlink" title="5. 添加开机启动"></a>5. 添加开机启动</h4><p>复制mysql.server</p>
 <pre><code>cp /usr/local/mysql/support-files/mysql.server  /etc/init.d/mysqld</code></pre>
 <p>修改mysql.server</p>
@@ -436,12 +437,11 @@ pid-file=/usr/local/mysql/data/mysqld.pid</code></pre>
 <p>添加basedir和datadir</p>
 <pre><code> basedir=/usr/local/mysql
  datadir=/usr/local/mysql/data</code></pre>
-<p>开机启动</p>
-<pre><code> chkconfig --add mysqld</code></pre>
 <h4 id="6-启动MySQL"><a href="#6-启动MySQL" class="headerlink" title="6.启动MySQL"></a>6.启动MySQL</h4><pre><code>service mysqld start  #启动
 service mysqld stop   #停止
 service mysqld status #查看状态</code></pre>
-<h4 id="7-登陆修改密码"><a href="#7-登陆修改密码" class="headerlink" title="7. 登陆修改密码"></a>7. 登陆修改密码</h4><p>首次登陆,密码为之前的临时密码</p>
+<h4 id="7-开机启动"><a href="#7-开机启动" class="headerlink" title="7.开机启动"></a>7.开机启动</h4><pre><code> chkconfig --add mysqld</code></pre>
+<h4 id="8-登陆修改密码"><a href="#8-登陆修改密码" class="headerlink" title="8. 登陆修改密码"></a>8. 登陆修改密码</h4><p>首次登陆,密码为之前的临时密码</p>
 <p><code>mysql -uroot -p</code></p>
 <pre><code>如果出现`-bash: mysql:command not found`问题
 
@@ -456,8 +456,11 @@ service mysqld status #查看状态</code></pre>
 <pre><code>flush privileges;   </code></pre>
 <p>授权新用户</p>
 <pre><code>GRANT ALL PRIVILEGES ON *.* TO &#39;test&#39;@&#39;%&#39; IDENTIFIED BY &#39;test password&#39; WITH GRANT OPTION;   </code></pre>
+<h2 id="允许用户远程访问"><a href="#允许用户远程访问" class="headerlink" title="允许用户远程访问"></a>允许用户远程访问</h2><pre><code>select &#39;host&#39; from user where user=&#39;root&#39;;
+update user set host = &#39;%&#39; where user =&#39;root&#39;;
+flush privileges;</code></pre>
 <h2 id="忘记密码"><a href="#忘记密码" class="headerlink" title="忘记密码"></a>忘记密码</h2><p>关闭mysql</p>
-<pre><code>service mysql stop
+<pre><code>service mysqld stop
 # 或者
 kill MYSQL_PID</code></pre>
 <p>进入安全模式(mysql的bin目录下<code>cd mysql/bin</code>)</p>
@@ -467,13 +470,16 @@ kill MYSQL_PID</code></pre>
 <p>进入之后，选择mysql数据库</p>
 <pre><code>use mysql;</code></pre>
 <p>更新密码 </p>
-<pre><code>update user set authentication_string=password(&#39;your password&#39;) where user=&#39;root&#39;; </code></pre>
+<pre><code>update user set authentication_string=password(&#39;ustc@mysql123&#39;) where user=&#39;root&#39;; </code></pre>
 <p><em>authentication_string字段变化，以前为password字段</em><br>刷新权限表 </p>
 <pre><code>flush privileges;</code></pre>
 <p>退出</p>
 <pre><code>quit;</code></pre>
 <p>重启mysql，新密码登录（陆？）</p>
 <p><a target="_blank" rel="noopener" href="https://blog.csdn.net/zmx729618/article/details/78026497">mysql.user表权限</a></p>
+<h2 id="mysql创建用户与授权"><a href="#mysql创建用户与授权" class="headerlink" title="mysql创建用户与授权"></a>mysql创建用户与授权</h2><p>CREATE USER ‘ustc’@’%’ IDENTIFIED BY ‘ustc’;</p>
+<p>GRANT ALL ON <em>.</em> TO ‘ustc’@’%’;</p>
+<p> grant all privileges on <em>.</em> to root@”%” with grant option</p>
 
             </div>
             <hr/>
@@ -489,7 +495,7 @@ kill MYSQL_PID</code></pre>
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://www.xujn.xyz" rel="external nofollow noreferrer">苏叶新城</a>
+                    <a href="/about" rel="external nofollow noreferrer">苏叶新城</a>
                 </span>
             </div>
             <div class="reprint__type">
@@ -512,7 +518,7 @@ kill MYSQL_PID</code></pre>
                     本博客所有文章除特別声明外，均采用
                     <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
                     许可协议。转载请注明来源
-                    <a href="http://www.xujn.xyz" target="_blank">苏叶新城</a>
+                    <a href="/about" target="_blank">苏叶新城</a>
                     !
                 </span>
             </div>
@@ -546,9 +552,8 @@ kill MYSQL_PID</code></pre>
                 </div>
                 <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
                     <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
-
 <div id="article-share">
-    
+
     
     <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
     <script src="/libs/share/js/social-share.min.js"></script>
@@ -839,6 +844,8 @@ kill MYSQL_PID</code></pre>
 
     
 
+    
+
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
@@ -928,8 +935,8 @@ yum-
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E8%BD%AF%E4%BB%B6%E5%AE%89%E8%A3%85/" class="post-category">
-                                    软件安装
+                            <a href="/categories/Linux/" class="post-category">
+                                    Linux
                                 </a>
                             
                             
@@ -969,6 +976,8 @@ yum-
 
 
 <!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
 
 
 <!-- 代码块折行 -->
@@ -1078,13 +1087,14 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
 
 
 
+
     <footer class="page-footer bg-color">
     
     <div class="container row center-align" style="margin-bottom: 15px !important;">
         <div class="col s12 m8 l8 copy-right">
             Copyright&nbsp;&copy;
             <span id="year">2020</span>
-            <a href="http://www.xujn.xyz" target="_blank">苏叶新城</a>
+            <a href="/about" target="_blank">苏叶新城</a>
             |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
             |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
             <br>
@@ -1195,9 +1205,10 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
 <script src="/js/search.js"></script>
 <script type="text/javascript">
 $(function () {
-    searchFunc("/" + "search.xml", 'searchInput', 'searchResult');
+    searchFunc("/search.xml", 'searchInput', 'searchResult');
 });
 </script>
+
     <!-- 回到顶部按钮 -->
 <div id="backTop" class="top-scroll">
     <a class="btn-floating btn-large waves-effect waves-light" href="#!">
@@ -1247,7 +1258,7 @@ $(function () {
     
 
     
-    
+
     
     <script src="/libs/instantpage/instantpage.js" type="module"></script>
     
