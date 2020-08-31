@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://www.xujn.xyz/2020/03/11/docker-an-zhuang-oracle/</loc>
+    
+    <lastmod>2020-08-31</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://www.xujn.xyz/2018/09/06/spring-mvc-xiang-mu-da-jian-guo-cheng-shuo-ming/</loc>
     
     <lastmod>2020-08-31</lastmod>
@@ -114,13 +121,6 @@
   </url>
   
   <url>
-    <loc>http://www.xujn.xyz/2020/03/11/docker-an-zhuang-oracle/</loc>
-    
-    <lastmod>2020-08-31</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://www.xujn.xyz/2018/08/23/centos7-xia-nginx-an-zhuang-pei-zhi/</loc>
     
     <lastmod>2020-08-31</lastmod>
@@ -179,14 +179,14 @@
   </url>
   
   <url>
-    <loc>http://www.xujn.xyz/tags/Oracle-Docker/</loc>
+    <loc>http://www.xujn.xyz/tags/Oracle/</loc>
     <lastmod>2020-08-31</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>http://www.xujn.xyz/tags/MySQL/</loc>
+    <loc>http://www.xujn.xyz/tags/Docker/</loc>
     <lastmod>2020-08-31</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -214,7 +214,7 @@
   </url>
   
   <url>
-    <loc>http://www.xujn.xyz/tags/Oracle/</loc>
+    <loc>http://www.xujn.xyz/tags/MySQL/</loc>
     <lastmod>2020-08-31</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -256,20 +256,6 @@
   </url>
   
   <url>
-    <loc>http://www.xujn.xyz/tags/Spring-MVC/</loc>
-    <lastmod>2020-08-31</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://www.xujn.xyz/tags/Spring/</loc>
-    <lastmod>2020-08-31</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>http://www.xujn.xyz/tags/Mail/</loc>
     <lastmod>2020-08-31</lastmod>
     <changefreq>daily</changefreq>
@@ -284,7 +270,14 @@
   </url>
   
   <url>
-    <loc>http://www.xujn.xyz/tags/redis/</loc>
+    <loc>http://www.xujn.xyz/tags/Spring-MVC/</loc>
+    <lastmod>2020-08-31</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://www.xujn.xyz/tags/Spring/</loc>
     <lastmod>2020-08-31</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -292,6 +285,13 @@
   
   <url>
     <loc>http://www.xujn.xyz/tags/ORACLE/</loc>
+    <lastmod>2020-08-31</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://www.xujn.xyz/tags/redis/</loc>
     <lastmod>2020-08-31</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -321,13 +321,6 @@
   </url>
   
   <url>
-    <loc>http://www.xujn.xyz/categories/Layui/</loc>
-    <lastmod>2020-08-31</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>http://www.xujn.xyz/categories/IDEA/</loc>
     <lastmod>2020-08-31</lastmod>
     <changefreq>daily</changefreq>
@@ -335,7 +328,7 @@
   </url>
   
   <url>
-    <loc>http://www.xujn.xyz/categories/Oracle/</loc>
+    <loc>http://www.xujn.xyz/categories/Layui/</loc>
     <lastmod>2020-08-31</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -343,6 +336,13 @@
   
   <url>
     <loc>http://www.xujn.xyz/categories/Linux/</loc>
+    <lastmod>2020-08-31</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://www.xujn.xyz/categories/Oracle/</loc>
     <lastmod>2020-08-31</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
