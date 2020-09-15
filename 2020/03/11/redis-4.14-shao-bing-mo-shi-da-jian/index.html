@@ -29,9 +29,8 @@
 
     <script src="/libs/jquery/jquery.min.js"></script>
 
-<meta name="generator" content="Hexo 5.0.2"><link rel="stylesheet" href="/css/prism-atom-dark.css" type="text/css">
-<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"><script src="/js/prism.js"></script>
-<script src="/js/prism-line-numbers.min.js"></script></head>
+<meta name="generator" content="Hexo 4.2.1"><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
+<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
 
 
 <body>
@@ -381,7 +380,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    920
+                    872
                 </div>
                 
 
@@ -403,7 +402,7 @@
 <li>linux</li>
 <li>1主2从</li>
 </ul>
-<h1 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h1><h2 id="下载redis"><a href="#下载redis" class="headerlink" title="下载redis"></a>下载redis</h2><p><a target="_blank" rel="noopener" href="http://download.redis.io/releases/redis-4.0.14.tar.gz">redis-4.0.14.tar.gz</a></p>
+<h1 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h1><h2 id="下载redis"><a href="#下载redis" class="headerlink" title="下载redis"></a>下载redis</h2><p><a href="http://download.redis.io/releases/redis-4.0.14.tar.gz" target="_blank" rel="noopener">redis-4.0.14.tar.gz</a></p>
 <h2 id="配置redis"><a href="#配置redis" class="headerlink" title="配置redis"></a>配置redis</h2><p>解压 <code>tar -xzvf redis-4.0.14.tar.gz</code></p>
 <p>编译<br><code>cd redis-4.0.14/</code></p>
 <p>执行<code>make</code></p>
@@ -495,57 +494,57 @@ cp sentinel.conf ../config/sentinel-6303.conf</code></pre>
               master: mymaster</code></pre>
 <p>WebMvcConfigurer配置</p>
 <pre><code>@Configuration
-public class WebConfig implements WebMvcConfigurer &amp;#123;
-    @Value(&quot;#&amp;#123;&#39;$&amp;#123;spring.redis.sentinel.nodes&amp;#125;&#39;.split(&#39;,&#39;)&amp;#125;&quot;)
+public class WebConfig implements WebMvcConfigurer {
+    @Value(&quot;#{&#39;${spring.redis.sentinel.nodes}&#39;.split(&#39;,&#39;)}&quot;)
     private List&lt;String&gt; nodes;
-    @Value(&quot;$&amp;#123;spring.redis.password&amp;#125;&quot;)
+    @Value(&quot;${spring.redis.password}&quot;)
     private String redisPassword;
-    @Value(&quot;$&amp;#123;spring.redis.sentinel.master&amp;#125;&quot;)
+    @Value(&quot;${spring.redis.sentinel.master}&quot;)
     private String redisMaster;
     @Autowired
     private FastJsonHttpMessageConverter fastJsonHttpMessageConverter;
 
 
     @Bean
-    public RestTemplateBuilder restTemplateBuilder() &amp;#123;
+    public RestTemplateBuilder restTemplateBuilder() {
         RestTemplateBuilder builder = new RestTemplateBuilder();
         return builder.messageConverters(fastJsonHttpMessageConverter);
-    &amp;#125;
+    }
 
     @Bean
-    public RestTemplate restTemplate() &amp;#123;
+    public RestTemplate restTemplate() {
         return restTemplateBuilder().build();
-    &amp;#125;
+    }
 
 
     @Bean
-    JedisConnectionFactory jedisConnectionFactory() &amp;#123;
+    JedisConnectionFactory jedisConnectionFactory() {
         return new JedisConnectionFactory(sentinelConfiguration());
-    &amp;#125;
+    }
     @Bean
-    public RedisSentinelConfiguration sentinelConfiguration()&amp;#123;
+    public RedisSentinelConfiguration sentinelConfiguration(){
         RedisSentinelConfiguration redisSentinelConfiguration = new RedisSentinelConfiguration();
         //配置matser的名称
         redisSentinelConfiguration.master(redisMaster);
         //配置redis的哨兵sentinel
         Set&lt;RedisNode&gt; redisNodeSet = new HashSet&lt;&gt;();
-        nodes.forEach(x-&gt;&amp;#123;
+        nodes.forEach(x-&gt;{
             redisNodeSet.add(new RedisNode(x.split(&quot;:&quot;)[0],Integer.parseInt(x.split(&quot;:&quot;)[1])));
-        &amp;#125;);
-        log.info(&quot;\nredisNodeSet --&gt;&amp;#123;&amp;#125;&quot;,redisNodeSet);
+        });
+        log.info(&quot;\nredisNodeSet --&gt;{}&quot;,redisNodeSet);
         redisSentinelConfiguration.setSentinels(redisNodeSet);
         redisSentinelConfiguration.setPassword(RedisPassword.of(redisPassword));
         return redisSentinelConfiguration;
-    &amp;#125;
+    }
 
 
     @Bean
-    public RedisTemplate&lt;String, Object&gt; redisTemplate() &amp;#123;
+    public RedisTemplate&lt;String, Object&gt; redisTemplate() {
         RedisTemplate&lt;String, Object&gt; template = new RedisTemplate&lt;&gt;();
         template.setConnectionFactory(jedisConnectionFactory());
         return template;
-    &amp;#125;
-&amp;#125;
+    }
+}
 </code></pre>
 <p>启动，连接成功会显示具体信息</p>
 <pre><code>redis.clients.jedis.JedisSentinelPool    : Trying to find master from available Sentinels...

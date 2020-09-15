@@ -29,9 +29,8 @@
 
     <script src="/libs/jquery/jquery.min.js"></script>
 
-<meta name="generator" content="Hexo 5.0.2"><link rel="stylesheet" href="/css/prism-atom-dark.css" type="text/css">
-<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"><script src="/js/prism.js"></script>
-<script src="/js/prism-line-numbers.min.js"></script></head>
+<meta name="generator" content="Hexo 4.2.1"><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
+<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
 
 
 <body>
@@ -381,7 +380,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    647
+                    603
                 </div>
                 
 
@@ -400,19 +399,19 @@
             <div id="articleContent">
                 <h1 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h1><p>Nginx是一款轻量级的Web服务器、反向代理服务器，由于它的内存占用少，启动极快，高并发能力强，在互联网项目中广泛应用。</p>
 <h1 id="应用场景"><a href="#应用场景" class="headerlink" title="应用场景"></a>应用场景</h1><h2 id="负载均衡"><a href="#负载均衡" class="headerlink" title="负载均衡"></a>负载均衡</h2><p><strong>轮询</strong></p>
-<pre><code>upstream test &amp;#123;
+<pre><code>upstream test {
   server 10.200.100.3:8080;
   server 10.200.100.4:8081;
-&amp;#125;
-upstream admin &amp;#123;
+}
+upstream admin {
   server 10.200.100.3:9080;
   server 10.200.100.4:9081;
-&amp;#125;
-server &amp;#123;
+}
+server {
   listen       81;                                                         
   server_name  localhost;                                               
 #映射地址
-  location / &amp;#123;
+  location / {
     ssi on;
     ssi_silent_errors on;
     proxy_read_timeout 300;
@@ -423,9 +422,9 @@ server &amp;#123;
     proxy_pass http://test;
     proxy_redirect default;
 
-  &amp;#125;
+  }
   #映射地址指定多个，根据访问路径匹配不同地址`location`
-  location /admin &amp;#123;
+  location /admin {
     ssi on;
     ssi_silent_errors on;
     proxy_read_timeout 300;
@@ -436,52 +435,52 @@ server &amp;#123;
     proxy_pass http://admin;
     proxy_redirect default;
 
-  &amp;#125;
-&amp;#125;
+  }
+}
 </code></pre>
 <p><strong>设置权重</strong></p>
 <p>通过weight指定访问服务器权重，权重越高代表服务器被访问的几率的越大。</p>
-<pre><code>  upstream test &amp;#123;
+<pre><code>  upstream test {
     server localhost:8080 weight=9;
     server localhost:8081 weight=1;
-  &amp;#125;
+  }
 </code></pre>
 <p><strong>iphash</strong></p>
 <p>iphash的每个请求按访问ip的hash结果分配，这样每个访客固定访问一个后端服务器，可以解决session的问题。(分布式session同步可采用redis解决)</p>
-<pre><code>upstream test &amp;#123;
+<pre><code>upstream test {
   ip_hash;
   server localhost:8080;
   server localhost:8081;
-&amp;#125;
+}
 </code></pre>
 <h2 id="反正代理"><a href="#反正代理" class="headerlink" title="反正代理"></a>反正代理</h2><blockquote>
 <p>反向代理隐藏了真实的服务端，例如访问<code>http://www.baidu.com</code>，可能有成千上万的程序为我们服务。代理对象为服务端。</p>
 </blockquote>
-<pre><code>server &amp;#123;  
+<pre><code>server {  
   listen       80;                                                         
   server_name  localhost;                                               
 
-  location / &amp;#123;
+  location / {
     proxy_pass http://10.200.100.2:8080;
     proxy_set_header Host $host:$server_port;
-  &amp;#125;
-&amp;#125;
+  }
+}
 </code></pre>
 <blockquote>
 <p>正向代理: 它隐藏了真实的请求客户端，服务端不知道真实的客户端是谁，客户端请求的服务都被代理服务器代替来请求.代理对象为客户端。</p>
 </blockquote>
 <h2 id="HTTP服务器"><a href="#HTTP服务器" class="headerlink" title="HTTP服务器"></a>HTTP服务器</h2><p>Nginx本身也是一个静态资源的服务器，当只有静态资源的时候，就可以使用Nginx来做服务器。</p>
-<pre><code>server &amp;#123;
+<pre><code>server {
   listen       80;                                                         
   server_name  localhost;                                               
 
-  location / &amp;#123;
+  location / {
   #指定静态文件位置
     root   /opt/dist;
     #访问首页
     index  index.html;
-  &amp;#125;
-&amp;#125;
+  }
+}
 </code></pre>
 <h1 id="常用操作"><a href="#常用操作" class="headerlink" title="常用操作"></a>常用操作</h1><p><strong>解压安装常用</strong></p>
 <pre><code>查看nginx安装位置：
@@ -922,12 +921,12 @@ TinyMCE是一款易用、且功能强大的所见即所得的富文本编辑器�
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Tinymce/">
-                        <span class="chip bg-color">Tinymce</span>
-                    </a>
-                    
                     <a href="/tags/Spring-Boot/">
                         <span class="chip bg-color">Spring Boot</span>
+                    </a>
+                    
+                    <a href="/tags/Tinymce/">
+                        <span class="chip bg-color">Tinymce</span>
                     </a>
                     
                 </div>

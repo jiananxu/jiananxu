@@ -29,9 +29,8 @@
 
     <script src="/libs/jquery/jquery.min.js"></script>
 
-<meta name="generator" content="Hexo 5.0.2"><link rel="stylesheet" href="/css/prism-atom-dark.css" type="text/css">
-<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"><script src="/js/prism.js"></script>
-<script src="/js/prism-line-numbers.min.js"></script></head>
+<meta name="generator" content="Hexo 4.2.1"><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
+<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
 
 
 <body>
@@ -381,7 +380,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    537
+                    529
                 </div>
                 
 
@@ -409,7 +408,7 @@ passwd es
 es2020
 chown -R es:es  elasticsearch-7.6.1 
 su - es</code></pre>
-<p>从官网下载<a target="_blank" rel="noopener" href="https://www.elastic.co/cn/downloads/elasticsearch">elasticsearch</a>，然后执行以下命令。</p>
+<p>从官网下载<a href="https://www.elastic.co/cn/downloads/elasticsearch" target="_blank" rel="noopener">elasticsearch</a>，然后执行以下命令。</p>
 <pre><code>wget https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-7.6.2-linux-x86_64.tar.gz
 //解压
 tar-xzvf elasticsearch-7.6.2-linux-x86_64.tar.gz
@@ -419,11 +418,11 @@ tar-xzvf elasticsearch-7.6.2-linux-x86_64.tar.gz
 <p>执行成功后，es会使用9200端口运行</p>
 <pre><code>curl localhost:9200
 //返回一个 JSON 对象，包含当前节点、集群、版本等信息。
-&amp;#123;
+{
   &quot;name&quot; : &quot;node74&quot;,
   &quot;cluster_name&quot; : &quot;elasticsearch&quot;,
   &quot;cluster_uuid&quot; : &quot;OUU4f0tiQnazkiQOlExfFw&quot;,
-  &quot;version&quot; : &amp;#123;
+  &quot;version&quot; : {
     &quot;number&quot; : &quot;7.6.1&quot;,
     &quot;build_flavor&quot; : &quot;default&quot;,
     &quot;build_type&quot; : &quot;tar&quot;,
@@ -433,9 +432,9 @@ tar-xzvf elasticsearch-7.6.2-linux-x86_64.tar.gz
     &quot;lucene_version&quot; : &quot;8.4.0&quot;,
     &quot;minimum_wire_compatibility_version&quot; : &quot;6.8.0&quot;,
     &quot;minimum_index_compatibility_version&quot; : &quot;6.0.0-beta1&quot;
-  &amp;#125;,
+  },
   &quot;tagline&quot; : &quot;You Know, for Search&quot;
-&amp;#125;
+}
 </code></pre>
 <table>
 <thead>
@@ -921,12 +920,12 @@ POP3 接收邮件服务器
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Spring-Boot/">
-                        <span class="chip bg-color">Spring Boot</span>
-                    </a>
-                    
                     <a href="/tags/Mail/">
                         <span class="chip bg-color">Mail</span>
+                    </a>
+                    
+                    <a href="/tags/Spring-Boot/">
+                        <span class="chip bg-color">Spring Boot</span>
                     </a>
                     
                 </div>
@@ -980,12 +979,12 @@ TinyMCE是一款易用、且功能强大的所见即所得的富文本编辑器�
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Tinymce/">
-                        <span class="chip bg-color">Tinymce</span>
-                    </a>
-                    
                     <a href="/tags/Spring-Boot/">
                         <span class="chip bg-color">Spring Boot</span>
+                    </a>
+                    
+                    <a href="/tags/Tinymce/">
+                        <span class="chip bg-color">Tinymce</span>
                     </a>
                     
                 </div>

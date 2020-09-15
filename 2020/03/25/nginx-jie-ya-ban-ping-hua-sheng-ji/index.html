@@ -29,9 +29,8 @@
 
     <script src="/libs/jquery/jquery.min.js"></script>
 
-<meta name="generator" content="Hexo 5.0.2"><link rel="stylesheet" href="/css/prism-atom-dark.css" type="text/css">
-<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"><script src="/js/prism.js"></script>
-<script src="/js/prism-line-numbers.min.js"></script></head>
+<meta name="generator" content="Hexo 4.2.1"><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
+<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
 
 
 <body>
@@ -403,7 +402,7 @@
 <li>redhat</li>
 </ul>
 <h1 id="操作过程"><a href="#操作过程" class="headerlink" title="操作过程"></a>操作过程</h1><p><strong><em>做好配置备份</em></strong></p>
-<p>下载<a target="_blank" rel="noopener" href="http://nginx.org/download/nginx-1.16.1.tar.gz">nginx1.16.1</a>,进行解压操作。</p>
+<p>下载<a href="http://nginx.org/download/nginx-1.16.1.tar.gz" target="_blank" rel="noopener">nginx1.16.1</a>,进行解压操作。</p>
 <pre><code>wget http://nginx.org/download/nginx-1.16.1.tar.gz
 tar -xzvf nginx-1.16.1.tar.gz</code></pre>
 <p>进入解压后的文件夹，进行编译，不进行安装操作</p>
@@ -809,8 +808,9 @@ tar -xzvf nginx-1.16.1.tar.gz</code></pre>
                         
                             简介Nginx是一款轻量级的Web服务器、反向代理服务器，由于它的内存占用少，启动极快，高并发能力强，在互联网项目中广泛应用。
 应用场景负载均衡轮询
-upstream test &amp;#123;
-  server 10.200.100.
+upstream test {
+  server 10.200.100.3:8080;
+ 
                         
                     </div>
                     <div class="publish-info">

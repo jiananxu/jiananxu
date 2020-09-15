@@ -29,9 +29,8 @@
 
     <script src="/libs/jquery/jquery.min.js"></script>
 
-<meta name="generator" content="Hexo 5.0.2"><link rel="stylesheet" href="/css/prism-atom-dark.css" type="text/css">
-<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"><script src="/js/prism.js"></script>
-<script src="/js/prism-line-numbers.min.js"></script></head>
+<meta name="generator" content="Hexo 4.2.1"><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
+<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
 
 
 <body>
@@ -402,7 +401,7 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="web-xml文件"><a href="#web-xml文件" class="headerlink" title="web.xml文件"></a>web.xml文件</h2><p><em>参考自：</em><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/26150612">web.xml配置</a></p>
+                <h2 id="web-xml文件"><a href="#web-xml文件" class="headerlink" title="web.xml文件"></a>web.xml文件</h2><p><em>参考自：</em><a href="https://zhuanlan.zhihu.com/p/26150612" target="_blank" rel="noopener">web.xml配置</a></p>
 <p><code>web.xml</code>是网络程序中的一个很重要的配置文件。在启动一个WEB项目的时候，WEB容器（比如<code>tomcat</code>）会去读取它的配置文件web.xml，读取到不同的节点时，WEB容器就会创建相应的<code>过滤器</code>、<code>监听器</code>等为这个web项目服务。</p>
 <p>IDEA初始化后，修改web.xml文件</p>
 <pre><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
@@ -487,7 +486,7 @@
 <p>web.xml的加载过程是：context-param -&gt; listener -&gt; fileter -&gt; servlet。</p>
 </blockquote>
 <p><em>application.xml—&gt;listener—-&gt;fileter—-&gt;dispatcher-servlet.xml</em></p>
-<h2 id="数据库连接池配置"><a href="#数据库连接池配置" class="headerlink" title="数据库连接池配置"></a>数据库连接池配置</h2><p><em>参考自：</em><a target="_blank" rel="noopener" href="http://blog.csdn.net/fysuccess/article/details/66972554">java数据连接池</a></p>
+<h2 id="数据库连接池配置"><a href="#数据库连接池配置" class="headerlink" title="数据库连接池配置"></a>数据库连接池配置</h2><p><em>参考自：</em><a href="http://blog.csdn.net/fysuccess/article/details/66972554" target="_blank" rel="noopener">java数据连接池</a></p>
 <p>pom.xml</p>
 <pre><code> &lt;!--mysql依赖--&gt;
       &lt;dependency&gt;
@@ -512,9 +511,9 @@ jdbc.password=XXX</code></pre>
     &lt;bean id=&quot;dataSource&quot; class=&quot;com.alibaba.druid.pool.DruidDataSource&quot; 
           init-method=&quot;init&quot; destroy-method=&quot;close&quot;&gt;
         &lt;!-- 基本属性 url、user、password --&gt;
-        &lt;property name=&quot;url&quot; value=&quot;$&amp;#123;jdbc.url&amp;#125;&quot; /&gt;
-        &lt;property name=&quot;username&quot; value=&quot;$&amp;#123;jdbc.username&amp;#125;&quot; /&gt;
-        &lt;property name=&quot;password&quot; value=&quot;$&amp;#123;jdbc.password&amp;#125;&quot; /&gt;
+        &lt;property name=&quot;url&quot; value=&quot;${jdbc.url}&quot; /&gt;
+        &lt;property name=&quot;username&quot; value=&quot;${jdbc.username}&quot; /&gt;
+        &lt;property name=&quot;password&quot; value=&quot;${jdbc.password}&quot; /&gt;
         &lt;!-- 配置初始化大小、最小、最大 --&gt;
         &lt;property name=&quot;initialSize&quot; value=&quot;1&quot; /&gt;
         &lt;property name=&quot;minIdle&quot; value=&quot;1&quot; /&gt;
@@ -932,6 +931,60 @@ jdbc.password=XXX</code></pre>
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
+                <a href="/2018/08/23/centos7-xia-nginx-an-zhuang-pei-zhi/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/23.jpg" class="responsive-img" alt="Centos7下Nginx安装配置">
+                        
+                        <span class="card-title">Centos7下Nginx安装配置</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            安装yum install epel-release
+yum -y install nginx
+service nginx start
+systemctl enable nginx
+访问自己的地址http://server_ip
+记得开启8
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2018-08-23
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E8%BD%AF%E4%BB%B6%E5%AE%89%E8%A3%85/" class="post-category">
+                                    软件安装
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/nginx/">
+                        <span class="chip bg-color">nginx</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
                 <a href="/2018/08/23/linux-xia-mysql-5.7.22-an-zhuang-he-wang-ji-mi-ma/">
                     <div class="card-image">
                         
@@ -951,9 +1004,9 @@ tar -zxvf mysql-5.7.22-linux-glibc2.12-x86_64.tar.gz
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2018-08-23
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2018-08-23
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -971,60 +1024,6 @@ tar -zxvf mysql-5.7.22-linux-glibc2.12-x86_64.tar.gz
                     
                     <a href="/tags/MySQL/">
                         <span class="chip bg-color">MySQL</span>
-                    </a>
-                    
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
-            </div>
-            <div class="card">
-                <a href="/2018/08/14/redhat-geng-huan-yum-yuan/">
-                    <div class="card-image">
-                        
-                        
-                        <img src="/medias/featureimages/15.jpg" class="responsive-img" alt="Redhat更换yum源">
-                        
-                        <span class="card-title">Redhat更换yum源</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            简述redhat没有进行注册（收费了），不能够使用其自带的yum源，所以需要第三方的源来代替。
-过程查看自带yum源
-rpm -qa | grep yum
-# 查询结果
-yum-utils-1.1.31-24.el7.noarch
-yum-
-                        
-                    </div>
-                    <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2018-08-14
-                            </span>
-                        <span class="publish-author">
-                            
-                            <i class="fas fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/Linux/" class="post-category">
-                                    Linux
-                                </a>
-                            
-                            
-                        </span>
-                    </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/Linux/">
-                        <span class="chip bg-color">Linux</span>
                     </a>
                     
                 </div>
