@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="yum redhat linux">
+    <meta name="keywords" content="Linux安全加固, 博客 苏叶新城 X笔记 java Spring Boot">
     <meta name="description" content="愿出走半生，归来仍是少年。">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>Redhat更换yum源 | X笔记</title>
+    <title>Linux安全加固 | X笔记</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -224,12 +224,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/15.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/5.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">Redhat更换yum源</h1>
+                    <h1 class="description center-align post-title">Linux安全加固</h1>
                 </div>
             </div>
         </div>
@@ -350,6 +350,10 @@
                                 <span class="chip bg-color">Linux</span>
                             </a>
                         
+                            <a href="/tags/%E6%BC%8F%E6%B4%9E%E4%BF%AE%E5%A4%8D/">
+                                <span class="chip bg-color">漏洞修复</span>
+                            </a>
+                        
                     </div>
                     
                 </div>
@@ -371,7 +375,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2018-08-14
+                    2020-10-15
                 </div>
                 
 
@@ -380,7 +384,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    621
+                    551
                 </div>
                 
 
@@ -397,90 +401,59 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="简述"><a href="#简述" class="headerlink" title="简述"></a>简述</h2><p>redhat没有进行注册（收费了），不能够使用其自带的yum源，所以需要第三方的源来代替。</p>
-<h2 id="阿里云镜像源"><a href="#阿里云镜像源" class="headerlink" title="阿里云镜像源"></a>阿里云镜像源</h2><p>查看自带yum源</p>
-<pre><code>rpm -qa | grep yum
-# 查询结果
-yum-utils-1.1.31-24.el7.noarch
-yum-langpacks-0.4.2-3.el7.noarch
-yum-metadata-parser-1.1.4-10.el7.x86_64
-yum-rhn-plugin-2.0.1-4.el7.noarch
-PackageKit-yum-0.8.9-11.el7.x86_64
-yum-3.4.3-118.el7.noarch</code></pre>
-<p><code>(这些安装包都需要从阿里源重新下载)</code></p>
-<p>卸载RedHat自带yum源</p>
-<pre><code>rpm -qa|grep yum|xargs rpm -e --nodeps</code></pre>
-<p>配置redhat DNS解析（否则不能解析域名）</p>
-<p><code>vim /etc/sysconfig/network-scripts/ifcfg-lo</code></p>
-<pre><code>#ifcfg-lo文件添加DNS映射
-DNS1=8.8.8.8
-DNS2=8.8.8.4</code></pre>
-<p>使用<code>wget</code>将需要的安装包从<a href="https://mirrors.aliyun.com/centos/7/os/x86_64/Packages/" target="_blank" rel="noopener">阿里yum源</a><br>下载下来</p>
-<pre><code>wget https://mirrors.aliyun.com/centos/7/os/x86_64/Packages/yum-3.4.3-158.el7.centos.noarch.rpm
-...
-...</code></pre>
-<p>安装</p>
-<pre><code>rpm -ivh yum-3.4.3-158.el7.centos.noarch.rpm --nodes --force</code></pre>
-<p><code>建议一个一个安装</code></p>
-<p>新建配置文件(用于阿里源配置)<br><code>vim /etc/yum.repos.d/CentOS-Base.repo</code></p>
-<pre><code>baseurl=https://mirrors.aliyun.com/centos/7/os/$basearch/
-gpgcheck=1
-gpgkey=https://mirrors.aliyun.com/centos/RPM-GPG-KEY-CentOS-7
-
-#released updates
-[updates]
-name=CentOS-$7 - Updates - aliyun.com
-#mirrorlist=http://mirrorlist.centos.org/?release=$7&amp;arch=$basearch&amp;repo=updates
-baseurl=https://mirrors.aliyun.com/centos/7/updates/$basearch/
-gpgcheck=1
-gpgkey=https://mirrors.aliyun.com/centos/RPM-GPG-KEY-CentOS-7
-
-#additional packages that may be useful
-[extras]
-name=CentOS-$7 - Extras - aliyun.com
-#mirrorlist=http://mirrorlist.centos.org/?release=$7&amp;arch=$basearch&amp;repo=extras
-baseurl=https://mirrors.aliyun.com/centos/7/extras/$basearch/
-gpgcheck=1
-gpgkey=https://mirrors.aliyun.com/centos/RPM-GPG-KEY-CentOS-7
-
-#additional packages that extend functionality of existing packages
-[centosplus]
-name=CentOS-$7 - Plus - aliyun.com
-baseurl=https://mirrors.aliyun.com/centos/7/centosplus/$basearch/
-gpgcheck=1
-enabled=0
-
-gpgkey=https://mirrors.aliyun.com/centos/RPM-GPG-KEY-CentOS-7
-</code></pre>
-<p>下载软件测试下</p>
-<pre><code>yum -y install tree</code></pre>
-<h2 id="本地iso镜像源"><a href="#本地iso镜像源" class="headerlink" title="本地iso镜像源"></a>本地iso镜像源</h2><p>上传文件到服务器目录rhel-server-6.5-x86_64-dvd-1.iso</p>
-<pre><code># 创建文件
-mkdir /mnt/yum
-# 挂载镜像
-mount -o loop rhel-server-6.5-x86_64-dvd-1.iso /mnt/yum</code></pre>
-<p>修改配置文件vim /etc/yum.repos.d/rhel.repo</p>
-<pre><code>[redhat]
-# 改为1
-enabled=1
-# 文件挂载位置
-baseurl=file:///mnt/yum
-#其他配置不用改</code></pre>
-<p><strong>测试</strong></p>
-<pre><code>yum clean
-yum install tree</code></pre>
-<h2 id="用过的命令"><a href="#用过的命令" class="headerlink" title="用过的命令"></a>用过的命令</h2><p><strong>RPM—&gt;Redhat package Manager软件管理工具</strong></p>
-<p>常用命令：</p>
-<ul>
-<li>-ivh : 安装显示安装进度 –install–verbose–hash</li>
-<li>-Uvh : 升级软件报 –Update</li>
-<li>-e : 删除包</li>
-<li>-qpl ：列出RPM软件包内的文件信息Query Package list</li>
-<li>-qpi ：列出RPM软件包的描述信息Query Package install package(s)</li>
-<li>-qf ：查找指定文件属于哪个RPM软件包Query File</li>
-<li>-Va：校验所有的RPM软件包，查找丢失的文件View Lost</li>
-</ul>
-<p>参考自：<br><br><a href="https://blog.csdn.net/hongbin_xu/article/details/79316614" target="_blank" rel="noopener">yum</a><br><a href="https://www.cnblogs.com/xiaochaohuashengmi/archive/2011/10/08/2203153.html" target="_blank" rel="noopener">rpm</a></p>
+                <h2 id="Linux加固"><a href="#Linux加固" class="headerlink" title="Linux加固"></a>Linux加固</h2><h3 id="检查口令最小长度"><a href="#检查口令最小长度" class="headerlink" title="检查口令最小长度"></a>检查口令最小长度</h3><p>vim /etc/login.defs</p>
+<p>设置 PASS_MIN_LEN 8</p>
+<h3 id="检查是否设置口令生存周期"><a href="#检查是否设置口令生存周期" class="headerlink" title="检查是否设置口令生存周期"></a>检查是否设置口令生存周期</h3><p>vim /etc/login.defs</p>
+<p>设置PASS_MAX_DAYS 90</p>
+<h3 id="检查设备密码复杂度策略"><a href="#检查设备密码复杂度策略" class="headerlink" title="检查设备密码复杂度策略"></a>检查设备密码复杂度策略</h3><p>vim /etc/pam.d/system-auth</p>
+<p>追加到password requisite pam_cracklib.so后面（ucredit=-1 lcredit=-1 dcredit=-1）</p>
+<pre><code>password requisite pam_cracklib.so ucredit=-1 lcredit=-1 dcredit=-1</code></pre>
+<h3 id="检查是否限制用户su到root"><a href="#检查是否限制用户su到root" class="headerlink" title="检查是否限制用户su到root"></a>检查是否限制用户su到root</h3><p>vim /etc/pam.d/su<br>在开头添加下面两行：</p>
+<pre><code>auth sufficient pam_rootok.so
+auth required pam_wheel.so group=wheel 
+# 将用户添加组
+usermod -G wheel gcs</code></pre>
+<h3 id="检查是否设置文件与目录缺省权限"><a href="#检查是否设置文件与目录缺省权限" class="headerlink" title="检查是否设置文件与目录缺省权限"></a>检查是否设置文件与目录缺省权限</h3><p>vim /etc/profile</p>
+<p>在文件/etc/profile中设置umask 027或UMASK 027，</p>
+<p>如果文件中含有umask参数，则需要在最前面设置该参数</p>
+<h3 id="检查是否设置命令行界面超时退出"><a href="#检查是否设置命令行界面超时退出" class="headerlink" title="检查是否设置命令行界面超时退出"></a>检查是否设置命令行界面超时退出</h3><p>vim /etc/profile,增加 </p>
+<pre><code>export TMOUT=300</code></pre>
+<p>source /etc/profile</p>
+<h3 id="检查是否限制root用户远程登录"><a href="#检查是否限制root用户远程登录" class="headerlink" title="检查是否限制root用户远程登录"></a>检查是否限制root用户远程登录</h3><pre><code>cat /etc/ssh/sshd_config|grep PermitRootLogin
+vim /etc/ssh/sshd_config
+# 配置
+PermitRootLogin no
+service sshd restart</code></pre>
+<h3 id="检查是否配置远程日志功能"><a href="#检查是否配置远程日志功能" class="headerlink" title="检查是否配置远程日志功能"></a>检查是否配置远程日志功能</h3><p>指定具体服务器ip</p>
+<p>vim /etc/rsyslog.conf</p>
+<pre><code>rsyslog.*@192.168.212.1</code></pre>
+<h3 id="检查FTP用户上传的文件所具有的权限"><a href="#检查FTP用户上传的文件所具有的权限" class="headerlink" title="检查FTP用户上传的文件所具有的权限"></a>检查FTP用户上传的文件所具有的权限</h3><p>如果系统使用vsftp：</p>
+<p>修改/etc/vsftpd.conf（或者为/etc/vsftpd/vsftpd.conf）</p>
+<p>vi /etc/vsftpd.conf</p>
+<p>确保以下行未被注释掉，如果没有该行，请添加：</p>
+<pre><code>write_enable=YES //允许上传。如果不需要上传权限，此项可不进行更改。
+ls_recurse_enable=YES
+local_umask=022 //设置用户上传文件的属性为755
+anon_umask=022 //匿名用户上传文件(包括目录)的 umask</code></pre>
+<p>重启网络服务</p>
+<pre><code>/etc/init.d/vsftpd restart</code></pre>
+<p>如果系统使用pure-ftp<br>修改/etc/pure-ftpd/pure-ftpd.conf</p>
+<pre><code>vi /etc/pure-ftpd/pure-ftpd.conf</code></pre>
+<p>确保以下行未被注释掉，如果没有该行，请添加：</p>
+<pre><code>umask 177:077</code></pre>
+<p>重启ftp服务</p>
+<pre><code>/etc/init.d/pure-ftpd restart</code></pre>
+<h3 id="检查是否修改系统banner"><a href="#检查是否修改系统banner" class="headerlink" title="检查是否修改系统banner"></a>检查是否修改系统banner</h3><pre><code>mv /etc/issue /etc/issue.bak
+mv /etc/issue.net /etc/issue.net.bak</code></pre>
+<h3 id="检查FTP-Banner设置"><a href="#检查FTP-Banner设置" class="headerlink" title="检查FTP Banner设置"></a>检查FTP Banner设置</h3><p>修改vsftp回显信息<br>vi /etc/vsftpd.conf(或/etc/vsftpd/vsftpd.conf)</p>
+<pre><code>ftpd_banner=Authorized users only. All activity will be monitored and reported.”</code></pre>
+<p>可根据实际需要修改该文件内容。<br>重启服务：</p>
+<pre><code>/etc/init.d/vsftpd restart 或者service vsftpd restart</code></pre>
+<h3 id="检查是否启用SSH协议，禁用telnet协议"><a href="#检查是否启用SSH协议，禁用telnet协议" class="headerlink" title="检查是否启用SSH协议，禁用telnet协议"></a>检查是否启用SSH协议，禁用telnet协议</h3><pre><code>cat /etc/xinetd.d/telnet|grep disable
+vim /etc/xinetd.d/telnet
+#修改 
+disable = yes
+service xinetd restart</code></pre>
 
             </div>
             <hr/>
@@ -506,7 +479,7 @@ yum install tree</code></pre>
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://www.xujn.xyz/2018/08/14/redhat-geng-huan-yum-yuan/">http://www.xujn.xyz/2018/08/14/redhat-geng-huan-yum-yuan/</a>
+                    <a href="http://www.xujn.xyz/2020/10/15/linux-an-quan-jia-gu/">http://www.xujn.xyz/2020/10/15/linux-an-quan-jia-gu/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -546,6 +519,10 @@ yum install tree</code></pre>
                             
                                 <a href="/tags/Linux/">
                                     <span class="chip bg-color">Linux</span>
+                                </a>
+                            
+                                <a href="/tags/%E6%BC%8F%E6%B4%9E%E4%BF%AE%E5%A4%8D/">
+                                    <span class="chip bg-color">漏洞修复</span>
                                 </a>
                             
                         </div>
@@ -850,49 +827,56 @@ yum install tree</code></pre>
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2018/08/23/linux-xia-mysql-5.7.22-an-zhuang-he-wang-ji-mi-ma/">
+                <a href="/2020/10/15/linux-an-quan-jia-gu/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/18.jpg" class="responsive-img" alt="Linux下MySQL 5.7.22安装和忘记密码">
+                        <img src="/medias/featureimages/5.jpg" class="responsive-img" alt="Linux安全加固">
                         
-                        <span class="card-title">Linux下MySQL 5.7.22安装和忘记密码</span>
+                        <span class="card-title">Linux安全加固</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            简述Redhat下安装MySQL5.7.22教程,安装完成后成功忘记密码-_-
-安装MySQL1. 压缩包处理解压压缩包
-tar -zxvf mysql-5.7.22-linux-glibc2.12-x86_64.tar.gz  
-重命名m
+                            Linux加固检查口令最小长度vim /etc/login.defs
+设置 PASS_MIN_LEN 8
+检查是否设置口令生存周期vim /etc/login.defs
+设置PASS_MAX_DAYS 90
+检查设备密码复杂度策略vim /
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2018-08-23
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-10-15
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/" class="post-category">
-                                    数据库
+                            <a href="/categories/Linux/" class="post-category">
+                                    Linux
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/MySQL/">
-                        <span class="chip bg-color">MySQL</span>
+                    <a href="/tags/Linux/">
+                        <span class="chip bg-color">Linux</span>
+                    </a>
+                    
+                    <a href="/tags/%E6%BC%8F%E6%B4%9E%E4%BF%AE%E5%A4%8D/">
+                        <span class="chip bg-color">漏洞修复</span>
                     </a>
                     
                 </div>
@@ -906,39 +890,35 @@ tar -zxvf mysql-5.7.22-linux-glibc2.12-x86_64.tar.gz
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2017/12/30/intellij-idea-license-server-da-jian/">
+                <a href="/2020/10/15/openssh8-4p1-sheng-ji/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/7.jpg" class="responsive-img" alt="IntelliJ IDEA license server搭建">
+                        <img src="/medias/featureimages/15.jpg" class="responsive-img" alt="openssh8.4p1升级">
                         
-                        <span class="card-title">IntelliJ IDEA license server搭建</span>
+                        <span class="card-title">openssh8.4p1升级</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            本文用于搭建JetBrains系列软件激活服务器，如有能力，请支持正版##准备
-
-Centos 7
-Nginx
-适用于JetBrains系列
-
-##安装nginx
-    yum install epel-release
-    yum -
+                            准备工作开启telnet以防服务器升级ssh失败，造成服务器无法连接
+安装telnetredhat 7.x版本安装
+yum install telnet-server.x86_64
+yum install telnet.x86_64
+yum
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2017-12-30
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-10-15
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/IDEA/" class="post-category">
-                                    IDEA
+                            <a href="/categories/Linux/" class="post-category">
+                                    Linux
                                 </a>
                             
                             
@@ -948,8 +928,8 @@ Nginx
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/IDEA/">
-                        <span class="chip bg-color">IDEA</span>
+                    <a href="/tags/openssh/">
+                        <span class="chip bg-color">openssh</span>
                     </a>
                     
                 </div>

@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>http://www.xujn.xyz/2018/08/14/redhat-geng-huan-yum-yuan/</loc>
+    <lastmod>2020-10-15</lastmod>
+  </url>
+  <url>
+    <loc>http://www.xujn.xyz/2020/10/15/openssh8-4p1-sheng-ji/</loc>
+    <lastmod>2020-10-15</lastmod>
+  </url>
+  <url>
+    <loc>http://www.xujn.xyz/2020/10/15/linux-an-quan-jia-gu/</loc>
+    <lastmod>2020-10-15</lastmod>
+  </url>
+  <url>
     <loc>http://www.xujn.xyz/2020/09/15/spring-cache-huan-cun/</loc>
     <lastmod>2020-09-15</lastmod>
   </url>
@@ -22,10 +34,6 @@
   </url>
   <url>
     <loc>http://www.xujn.xyz/2020/03/11/redis-4.14-shao-bing-mo-shi-da-jian/</loc>
-    <lastmod>2020-08-31</lastmod>
-  </url>
-  <url>
-    <loc>http://www.xujn.xyz/2018/08/14/redhat-geng-huan-yum-yuan/</loc>
     <lastmod>2020-08-31</lastmod>
   </url>
   <url>

@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="yum redhat linux">
+    <meta name="keywords" content="openssh8.4p1升级, 博客 苏叶新城 X笔记 java Spring Boot">
     <meta name="description" content="愿出走半生，归来仍是少年。">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>Redhat更换yum源 | X笔记</title>
+    <title>openssh8.4p1升级 | X笔记</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -229,7 +229,7 @@
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">Redhat更换yum源</h1>
+                    <h1 class="description center-align post-title">openssh8.4p1升级</h1>
                 </div>
             </div>
         </div>
@@ -346,8 +346,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/Linux/">
-                                <span class="chip bg-color">Linux</span>
+                            <a href="/tags/openssh/">
+                                <span class="chip bg-color">openssh</span>
                             </a>
                         
                     </div>
@@ -371,7 +371,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2018-08-14
+                    2020-10-15
                 </div>
                 
 
@@ -380,7 +380,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    621
+                    497
                 </div>
                 
 
@@ -397,90 +397,69 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="简述"><a href="#简述" class="headerlink" title="简述"></a>简述</h2><p>redhat没有进行注册（收费了），不能够使用其自带的yum源，所以需要第三方的源来代替。</p>
-<h2 id="阿里云镜像源"><a href="#阿里云镜像源" class="headerlink" title="阿里云镜像源"></a>阿里云镜像源</h2><p>查看自带yum源</p>
-<pre><code>rpm -qa | grep yum
-# 查询结果
-yum-utils-1.1.31-24.el7.noarch
-yum-langpacks-0.4.2-3.el7.noarch
-yum-metadata-parser-1.1.4-10.el7.x86_64
-yum-rhn-plugin-2.0.1-4.el7.noarch
-PackageKit-yum-0.8.9-11.el7.x86_64
-yum-3.4.3-118.el7.noarch</code></pre>
-<p><code>(这些安装包都需要从阿里源重新下载)</code></p>
-<p>卸载RedHat自带yum源</p>
-<pre><code>rpm -qa|grep yum|xargs rpm -e --nodeps</code></pre>
-<p>配置redhat DNS解析（否则不能解析域名）</p>
-<p><code>vim /etc/sysconfig/network-scripts/ifcfg-lo</code></p>
-<pre><code>#ifcfg-lo文件添加DNS映射
-DNS1=8.8.8.8
-DNS2=8.8.8.4</code></pre>
-<p>使用<code>wget</code>将需要的安装包从<a href="https://mirrors.aliyun.com/centos/7/os/x86_64/Packages/" target="_blank" rel="noopener">阿里yum源</a><br>下载下来</p>
-<pre><code>wget https://mirrors.aliyun.com/centos/7/os/x86_64/Packages/yum-3.4.3-158.el7.centos.noarch.rpm
-...
-...</code></pre>
-<p>安装</p>
-<pre><code>rpm -ivh yum-3.4.3-158.el7.centos.noarch.rpm --nodes --force</code></pre>
-<p><code>建议一个一个安装</code></p>
-<p>新建配置文件(用于阿里源配置)<br><code>vim /etc/yum.repos.d/CentOS-Base.repo</code></p>
-<pre><code>baseurl=https://mirrors.aliyun.com/centos/7/os/$basearch/
-gpgcheck=1
-gpgkey=https://mirrors.aliyun.com/centos/RPM-GPG-KEY-CentOS-7
-
-#released updates
-[updates]
-name=CentOS-$7 - Updates - aliyun.com
-#mirrorlist=http://mirrorlist.centos.org/?release=$7&amp;arch=$basearch&amp;repo=updates
-baseurl=https://mirrors.aliyun.com/centos/7/updates/$basearch/
-gpgcheck=1
-gpgkey=https://mirrors.aliyun.com/centos/RPM-GPG-KEY-CentOS-7
-
-#additional packages that may be useful
-[extras]
-name=CentOS-$7 - Extras - aliyun.com
-#mirrorlist=http://mirrorlist.centos.org/?release=$7&amp;arch=$basearch&amp;repo=extras
-baseurl=https://mirrors.aliyun.com/centos/7/extras/$basearch/
-gpgcheck=1
-gpgkey=https://mirrors.aliyun.com/centos/RPM-GPG-KEY-CentOS-7
-
-#additional packages that extend functionality of existing packages
-[centosplus]
-name=CentOS-$7 - Plus - aliyun.com
-baseurl=https://mirrors.aliyun.com/centos/7/centosplus/$basearch/
-gpgcheck=1
-enabled=0
-
-gpgkey=https://mirrors.aliyun.com/centos/RPM-GPG-KEY-CentOS-7
-</code></pre>
-<p>下载软件测试下</p>
-<pre><code>yum -y install tree</code></pre>
-<h2 id="本地iso镜像源"><a href="#本地iso镜像源" class="headerlink" title="本地iso镜像源"></a>本地iso镜像源</h2><p>上传文件到服务器目录rhel-server-6.5-x86_64-dvd-1.iso</p>
-<pre><code># 创建文件
-mkdir /mnt/yum
-# 挂载镜像
-mount -o loop rhel-server-6.5-x86_64-dvd-1.iso /mnt/yum</code></pre>
-<p>修改配置文件vim /etc/yum.repos.d/rhel.repo</p>
-<pre><code>[redhat]
-# 改为1
-enabled=1
-# 文件挂载位置
-baseurl=file:///mnt/yum
-#其他配置不用改</code></pre>
-<p><strong>测试</strong></p>
-<pre><code>yum clean
-yum install tree</code></pre>
-<h2 id="用过的命令"><a href="#用过的命令" class="headerlink" title="用过的命令"></a>用过的命令</h2><p><strong>RPM—&gt;Redhat package Manager软件管理工具</strong></p>
-<p>常用命令：</p>
-<ul>
-<li>-ivh : 安装显示安装进度 –install–verbose–hash</li>
-<li>-Uvh : 升级软件报 –Update</li>
-<li>-e : 删除包</li>
-<li>-qpl ：列出RPM软件包内的文件信息Query Package list</li>
-<li>-qpi ：列出RPM软件包的描述信息Query Package install package(s)</li>
-<li>-qf ：查找指定文件属于哪个RPM软件包Query File</li>
-<li>-Va：校验所有的RPM软件包，查找丢失的文件View Lost</li>
-</ul>
-<p>参考自：<br><br><a href="https://blog.csdn.net/hongbin_xu/article/details/79316614" target="_blank" rel="noopener">yum</a><br><a href="https://www.cnblogs.com/xiaochaohuashengmi/archive/2011/10/08/2203153.html" target="_blank" rel="noopener">rpm</a></p>
+                <h1 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h1><h2 id="开启telnet"><a href="#开启telnet" class="headerlink" title="开启telnet"></a>开启telnet</h2><p>以防服务器升级ssh失败，造成服务器无法连接</p>
+<h3 id="安装telnet"><a href="#安装telnet" class="headerlink" title="安装telnet"></a>安装telnet</h3><p><strong>redhat 7.x版本安装</strong></p>
+<pre><code>yum install telnet-server.x86_64
+yum install telnet.x86_64
+yum install xinetd.x86_64 </code></pre>
+<p>启动服务</p>
+<pre><code>systemctl start xinetd
+systemctl start telnet.socket</code></pre>
+<p><strong>redhat 6.x版本安装</strong></p>
+<pre><code>yum install  xinetd
+yum install telnet
+yum install telnet-server</code></pre>
+<p>启动服务</p>
+<pre><code>service xinetd start</code></pre>
+<p>telnet激活需要更改以下文件</p>
+<pre><code>vim /etc/xinetd.d/telnet 将disabled 改成no
+vim  /etc/pam.d/remote 将第二行屏蔽掉
+#auth       required     pam_securetty.so
+# 重启
+service xinetd restart</code></pre>
+<h2 id="安装依赖"><a href="#安装依赖" class="headerlink" title="安装依赖"></a>安装依赖</h2><p>安装以下依赖</p>
+<pre><code>yum install  -y gcc gcc-c++ glibc make autoconf openssl openssl-devel pcre-devel  pam-devel</code></pre>
+<h1 id="开始安装"><a href="#开始安装" class="headerlink" title="开始安装"></a>开始安装</h1><p>以下操作全部在root用户下</p>
+<h2 id="1、备份openssh的配置文件"><a href="#1、备份openssh的配置文件" class="headerlink" title="1、备份openssh的配置文件"></a>1、备份openssh的配置文件</h2><pre><code>cp -r /etc/ssh/ /etc/ssh_bak_2  
+cp /etc/init.d/sshd /etc/init.d/sshd_bak_2
+cp /usr/sbin/sshd /usr/sbin/sshd_bak_2</code></pre>
+<h2 id="2、解压文件"><a href="#2、解压文件" class="headerlink" title="2、解压文件"></a>2、解压文件</h2><pre><code>tar -xzvf openssh-8.4p1.tar.gz
+tar -xzvf openssl-1.1.1h.tar.gz
+tar -xzvf zlib-1.2.11.tar.gz</code></pre>
+<h2 id="3、安装openssl"><a href="#3、安装openssl" class="headerlink" title="3、安装openssl"></a>3、安装openssl</h2><pre><code>cd  openssl-1.1.1h  
+./config --prefix=/usr --shared
+# 编译&amp;安装
+make &amp;&amp;  make install</code></pre>
+<h2 id="4、安装zlib"><a href="#4、安装zlib" class="headerlink" title="4、安装zlib"></a>4、安装zlib</h2><pre><code>cd ../zlib-1.2.11
+ ./configure &amp;&amp; make &amp;&amp; make install</code></pre>
+<h2 id="5、安装openssh"><a href="#5、安装openssh" class="headerlink" title="5、安装openssh"></a>5、安装openssh</h2><pre><code>cd ../openssh-8.4p1    
+./configure &amp;&amp; make &amp;&amp;  make install</code></pre>
+<h2 id="6、以上编译安装完成，下面替换文件"><a href="#6、以上编译安装完成，下面替换文件" class="headerlink" title="6、以上编译安装完成，下面替换文件"></a>6、以上编译安装完成，下面替换文件</h2><pre><code>cp contrib/redhat/sshd.init /etc/init.d/sshd
+chkconfig sshd --add
+cp ssh scp sftp ssh-keygen ssh-add ssh-agent ssh-keyscan /usr/bin/
+rm -rf /usr/sbin/sshd
+cp sshd /usr/sbin/
+ln -s /usr/lib64/libssl.so /usr/lib64/libssl.so.10
+ln -s /usr/lib64/libcrypto.so.1.0.0 /usr/lib64/libcrypto.so.10
+cp ssh_config sshd_config /etc/ssh/
+cp  sftp-server  ssh-keysign ssh-pkcs11-helper /usr/libexec/
+cp  scp.1 ssh-add.1 sftp.1 ssh-keyscan.1 ssh-agent.1 /usr/share/man/man1/
+cp sshd.8 sftp-server.8 ssh-keysign.8 ssh-pkcs11-helper.8 /usr/share/man/man8/
+touch /etc/ssh/ssh_host_ecdsa_key.pub</code></pre>
+<p>修改ssh配置</p>
+<pre><code>vi /etc/ssh/sshd_config
+PermitRootLogin yes #禁止root登录，8.4p1默认禁止root用户登录，如有需要，改为yes   
+PubkeyAuthentication yes
+PasswordAuthentication yes</code></pre>
+<h2 id="7、启动ssh"><a href="#7、启动ssh" class="headerlink" title="7、启动ssh"></a>7、启动ssh</h2><pre><code>service sshd restart</code></pre>
+<h2 id="8、验证"><a href="#8、验证" class="headerlink" title="8、验证"></a>8、验证</h2><pre><code>ssh -V
+提示：OpenSSH_8.4p1, OpenSSL 1.1.1h  
+表示升级成功！</code></pre>
+<h2 id="9、恢复telnet配置"><a href="#9、恢复telnet配置" class="headerlink" title="9、恢复telnet配置"></a>9、恢复telnet配置</h2><pre><code>vim /etc/xinetd.d/telnet 将disabled 改成no
+vim  /etc/pam.d/remote 
+auth       required     pam_securetty.so
+#重启
+service xinetd restart</code></pre>
 
             </div>
             <hr/>
@@ -506,7 +485,7 @@ yum install tree</code></pre>
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://www.xujn.xyz/2018/08/14/redhat-geng-huan-yum-yuan/">http://www.xujn.xyz/2018/08/14/redhat-geng-huan-yum-yuan/</a>
+                    <a href="http://www.xujn.xyz/2020/10/15/openssh8-4p1-sheng-ji/">http://www.xujn.xyz/2020/10/15/openssh8-4p1-sheng-ji/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -544,8 +523,8 @@ yum install tree</code></pre>
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/Linux/">
-                                    <span class="chip bg-color">Linux</span>
+                                <a href="/tags/openssh/">
+                                    <span class="chip bg-color">openssh</span>
                                 </a>
                             
                         </div>
@@ -854,34 +833,35 @@ yum install tree</code></pre>
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2018/08/23/linux-xia-mysql-5.7.22-an-zhuang-he-wang-ji-mi-ma/">
+                <a href="/2020/10/15/linux-an-quan-jia-gu/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/18.jpg" class="responsive-img" alt="Linux下MySQL 5.7.22安装和忘记密码">
+                        <img src="/medias/featureimages/5.jpg" class="responsive-img" alt="Linux安全加固">
                         
-                        <span class="card-title">Linux下MySQL 5.7.22安装和忘记密码</span>
+                        <span class="card-title">Linux安全加固</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            简述Redhat下安装MySQL5.7.22教程,安装完成后成功忘记密码-_-
-安装MySQL1. 压缩包处理解压压缩包
-tar -zxvf mysql-5.7.22-linux-glibc2.12-x86_64.tar.gz  
-重命名m
+                            Linux加固检查口令最小长度vim /etc/login.defs
+设置 PASS_MIN_LEN 8
+检查是否设置口令生存周期vim /etc/login.defs
+设置PASS_MAX_DAYS 90
+检查设备密码复杂度策略vim /
                         
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2018-08-23
+                            <i class="far fa-clock fa-fw icon-date"></i>2020-10-15
                         </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/" class="post-category">
-                                    数据库
+                            <a href="/categories/Linux/" class="post-category">
+                                    Linux
                                 </a>
                             
                             
@@ -891,8 +871,12 @@ tar -zxvf mysql-5.7.22-linux-glibc2.12-x86_64.tar.gz
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/MySQL/">
-                        <span class="chip bg-color">MySQL</span>
+                    <a href="/tags/Linux/">
+                        <span class="chip bg-color">Linux</span>
+                    </a>
+                    
+                    <a href="/tags/%E6%BC%8F%E6%B4%9E%E4%BF%AE%E5%A4%8D/">
+                        <span class="chip bg-color">漏洞修复</span>
                     </a>
                     
                 </div>
@@ -906,39 +890,32 @@ tar -zxvf mysql-5.7.22-linux-glibc2.12-x86_64.tar.gz
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2017/12/30/intellij-idea-license-server-da-jian/">
+                <a href="/2020/09/15/spring-cache-huan-cun/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/7.jpg" class="responsive-img" alt="IntelliJ IDEA license server搭建">
+                        <img src="/medias/featureimages/4.jpg" class="responsive-img" alt="Spring Cache缓存">
                         
-                        <span class="card-title">IntelliJ IDEA license server搭建</span>
+                        <span class="card-title">Spring Cache缓存</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            本文用于搭建JetBrains系列软件激活服务器，如有能力，请支持正版##准备
-
-Centos 7
-Nginx
-适用于JetBrains系列
-
-##安装nginx
-    yum install epel-release
-    yum -
+                            缓存介绍
+Spring3.1之后引入了基于注释（annotation）的缓存（cache）技术，它本质上不是一个具体的缓存实现方案（如EHCache 或者Redis），而是一个对缓存使用的抽象，通过在既有代码中添加少量它定义的各种annot
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2017-12-30
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-09-15
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/IDEA/" class="post-category">
-                                    IDEA
+                            <a href="/categories/Spring-Boot/" class="post-category">
+                                    Spring Boot
                                 </a>
                             
                             
@@ -948,8 +925,20 @@ Nginx
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/IDEA/">
-                        <span class="chip bg-color">IDEA</span>
+                    <a href="/tags/Spring-Boot/">
+                        <span class="chip bg-color">Spring Boot</span>
+                    </a>
+                    
+                    <a href="/tags/%E7%BC%93%E5%AD%98/">
+                        <span class="chip bg-color">缓存</span>
+                    </a>
+                    
+                    <a href="/tags/Redis/">
+                        <span class="chip bg-color">Redis</span>
+                    </a>
+                    
+                    <a href="/tags/Ehcache/">
+                        <span class="chip bg-color">Ehcache</span>
                     </a>
                     
                 </div>
