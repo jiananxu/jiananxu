@@ -5,7 +5,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="keywords" content="mysql 5.7">
-    <meta name="description" content="愿出走半生，归来仍是少年。">
+    <meta name="description" content="愿出走半生，归来仍是少年。|个人博客|记录工作|记录生活">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -14,6 +14,17 @@
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <!-- Global site tag (gtag.js) - Google Analytics -->
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-180834533-2"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {
+        dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+    gtag('config', 'UA-180834533-2');
+</script>
 
 
     <title>Linux下MySQL 5.7.22安装和忘记密码 | X笔记</title>
@@ -28,7 +39,13 @@
     <link rel="stylesheet" type="text/css" href="/css/my.css">
 
     <script src="/libs/jquery/jquery.min.js"></script>
-
+    <!-- 360 -->
+    <script>
+        (function(){
+        var src = "https://jspassport.ssl.qhimg.com/11.0.1.js?d182b3f28525f2db83acfaaf6e696dba";
+        document.write('<script src="' + src + '" id="sozz"><\/script>');
+        })();
+    </script>
 <meta name="generator" content="Hexo 4.2.1"><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
 <link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
 
@@ -133,7 +150,7 @@
         <div class="logo-name">X笔记</div>
         <div class="logo-desc">
             
-            愿出走半生，归来仍是少年。
+            愿出走半生，归来仍是少年。|个人博客|记录工作|记录生活
             
         </div>
     </div>
@@ -852,60 +869,6 @@ kill MYSQL_PID</code></pre>
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2018/08/23/centos7-xia-nginx-an-zhuang-pei-zhi/">
-                    <div class="card-image">
-                        
-                        
-                        <img src="/medias/featureimages/23.jpg" class="responsive-img" alt="Centos7下Nginx安装配置">
-                        
-                        <span class="card-title">Centos7下Nginx安装配置</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            安装yum install epel-release
-yum -y install nginx
-service nginx start
-systemctl enable nginx
-访问自己的地址http://server_ip
-记得开启8
-                        
-                    </div>
-                    <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2018-08-23
-                        </span>
-                        <span class="publish-author">
-                            
-                            <i class="fas fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/%E8%BD%AF%E4%BB%B6%E5%AE%89%E8%A3%85/" class="post-category">
-                                    软件安装
-                                </a>
-                            
-                            
-                        </span>
-                    </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/nginx/">
-                        <span class="chip bg-color">nginx</span>
-                    </a>
-                    
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
-            </div>
-            <div class="card">
                 <a href="/2018/08/23/intellij-idea-ssm-kuang-jia-zheng-he/">
                     <div class="card-image">
                         
@@ -923,9 +886,9 @@ web.xml是网络程序中的一个很重要的配置文件。在启动一个WEB�
                         
                     </div>
                     <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2018-08-23
-                            </span>
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2018-08-23
+                        </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -947,6 +910,60 @@ web.xml是网络程序中的一个很重要的配置文件。在启动一个WEB�
                     
                     <a href="/tags/SSM/">
                         <span class="chip bg-color">SSM</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2018/08/14/redhat-geng-huan-yum-yuan/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/15.jpg" class="responsive-img" alt="Redhat更换yum源">
+                        
+                        <span class="card-title">Redhat更换yum源</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            简述redhat没有进行注册（收费了），不能够使用其自带的yum源，所以需要第三方的源来代替。
+阿里云镜像源查看自带yum源
+rpm -qa | grep yum
+# 查询结果
+yum-utils-1.1.31-24.el7.noarch
+
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2018-08-14
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Linux/" class="post-category">
+                                    Linux
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Linux/">
+                        <span class="chip bg-color">Linux</span>
                     </a>
                     
                 </div>
