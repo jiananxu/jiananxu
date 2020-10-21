@@ -2,6 +2,20 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://www.xujn.xyz/2020/10/15/openssh8-4p1-sheng-ji/</loc>
+    
+    <lastmod>2020-10-21</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.xujn.xyz/2020/09/15/spring-cache-huan-cun/</loc>
+    
+    <lastmod>2020-10-21</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://www.xujn.xyz/friends/index.html</loc>
     
     <lastmod>2020-10-21</lastmod>
@@ -16,13 +30,6 @@
   </url>
   
   <url>
-    <loc>http://www.xujn.xyz/2020/10/15/openssh8-4p1-sheng-ji/</loc>
-    
-    <lastmod>2020-10-15</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://www.xujn.xyz/2018/08/14/redhat-geng-huan-yum-yuan/</loc>
     
     <lastmod>2020-10-15</lastmod>
@@ -33,13 +40,6 @@
     <loc>http://www.xujn.xyz/2020/10/15/linux-an-quan-jia-gu/</loc>
     
     <lastmod>2020-10-15</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://www.xujn.xyz/2020/09/15/spring-cache-huan-cun/</loc>
-    
-    <lastmod>2020-09-15</lastmod>
     
   </url>
   
@@ -235,7 +235,14 @@
   </url>
   
   <url>
-    <loc>http://www.xujn.xyz/tags/MySQL/</loc>
+    <loc>http://www.xujn.xyz/tags/SSM/</loc>
+    <lastmod>2020-10-21</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://www.xujn.xyz/tags/Layui/</loc>
     <lastmod>2020-10-21</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -249,7 +256,7 @@
   </url>
   
   <url>
-    <loc>http://www.xujn.xyz/tags/SSM/</loc>
+    <loc>http://www.xujn.xyz/tags/MySQL/</loc>
     <lastmod>2020-10-21</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -257,13 +264,6 @@
   
   <url>
     <loc>http://www.xujn.xyz/tags/%E6%BC%8F%E6%B4%9E%E4%BF%AE%E5%A4%8D/</loc>
-    <lastmod>2020-10-21</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://www.xujn.xyz/tags/Layui/</loc>
     <lastmod>2020-10-21</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -305,13 +305,6 @@
   </url>
   
   <url>
-    <loc>http://www.xujn.xyz/tags/ORACLE/</loc>
-    <lastmod>2020-10-21</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>http://www.xujn.xyz/tags/openssh/</loc>
     <lastmod>2020-10-21</lastmod>
     <changefreq>daily</changefreq>
@@ -319,7 +312,21 @@
   </url>
   
   <url>
+    <loc>http://www.xujn.xyz/tags/ORACLE/</loc>
+    <lastmod>2020-10-21</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>http://www.xujn.xyz/tags/redis/</loc>
+    <lastmod>2020-10-21</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://www.xujn.xyz/tags/Tinymce/</loc>
     <lastmod>2020-10-21</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -341,13 +348,6 @@
   
   <url>
     <loc>http://www.xujn.xyz/tags/Ehcache/</loc>
-    <lastmod>2020-10-21</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://www.xujn.xyz/tags/Tinymce/</loc>
     <lastmod>2020-10-21</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -384,7 +384,21 @@
   </url>
   
   <url>
+    <loc>http://www.xujn.xyz/categories/Spring/</loc>
+    <lastmod>2020-10-21</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>http://www.xujn.xyz/categories/IDEA/</loc>
+    <lastmod>2020-10-21</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://www.xujn.xyz/categories/Layui/</loc>
     <lastmod>2020-10-21</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -398,21 +412,7 @@
   </url>
   
   <url>
-    <loc>http://www.xujn.xyz/categories/Spring/</loc>
-    <lastmod>2020-10-21</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>http://www.xujn.xyz/categories/Linux/</loc>
-    <lastmod>2020-10-21</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://www.xujn.xyz/categories/Layui/</loc>
     <lastmod>2020-10-21</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
