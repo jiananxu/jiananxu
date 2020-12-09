@@ -20,11 +20,11 @@
       
         <tags>
             
-            <tag> nginx </tag>
-            
             <tag> Linux </tag>
             
             <tag> FastDFS </tag>
+            
+            <tag> nginx </tag>
             
         </tags>
       
@@ -442,9 +442,9 @@
       
         <tags>
             
-            <tag> Oracle </tag>
-            
             <tag> Linux </tag>
+            
+            <tag> Oracle </tag>
             
         </tags>
       
