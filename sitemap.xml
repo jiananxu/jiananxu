@@ -221,20 +221,6 @@
   </url>
   
   <url>
-    <loc>http://www.xujn.xyz/tags/Linux/</loc>
-    <lastmod>2020-12-09</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://www.xujn.xyz/tags/FastDFS/</loc>
-    <lastmod>2020-12-09</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>http://www.xujn.xyz/tags/Oracle/</loc>
     <lastmod>2020-12-09</lastmod>
     <changefreq>daily</changefreq>
@@ -243,6 +229,20 @@
   
   <url>
     <loc>http://www.xujn.xyz/tags/Docker/</loc>
+    <lastmod>2020-12-09</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://www.xujn.xyz/tags/Linux/</loc>
+    <lastmod>2020-12-09</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://www.xujn.xyz/tags/FastDFS/</loc>
     <lastmod>2020-12-09</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -270,14 +270,14 @@
   </url>
   
   <url>
-    <loc>http://www.xujn.xyz/tags/%E6%BC%8F%E6%B4%9E%E4%BF%AE%E5%A4%8D/</loc>
+    <loc>http://www.xujn.xyz/tags/Layui/</loc>
     <lastmod>2020-12-09</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>http://www.xujn.xyz/tags/Layui/</loc>
+    <loc>http://www.xujn.xyz/tags/%E6%BC%8F%E6%B4%9E%E4%BF%AE%E5%A4%8D/</loc>
     <lastmod>2020-12-09</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -319,14 +319,14 @@
   </url>
   
   <url>
-    <loc>http://www.xujn.xyz/tags/openssh/</loc>
+    <loc>http://www.xujn.xyz/tags/ORACLE/</loc>
     <lastmod>2020-12-09</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>http://www.xujn.xyz/tags/ORACLE/</loc>
+    <loc>http://www.xujn.xyz/tags/openssh/</loc>
     <lastmod>2020-12-09</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -391,14 +391,14 @@
   </url>
   
   <url>
-    <loc>http://www.xujn.xyz/categories/Linux/</loc>
+    <loc>http://www.xujn.xyz/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/</loc>
     <lastmod>2020-12-09</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>http://www.xujn.xyz/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/</loc>
+    <loc>http://www.xujn.xyz/categories/Linux/</loc>
     <lastmod>2020-12-09</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -419,14 +419,14 @@
   </url>
   
   <url>
-    <loc>http://www.xujn.xyz/categories/Oracle/</loc>
+    <loc>http://www.xujn.xyz/categories/Layui/</loc>
     <lastmod>2020-12-09</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>http://www.xujn.xyz/categories/Layui/</loc>
+    <loc>http://www.xujn.xyz/categories/Oracle/</loc>
     <lastmod>2020-12-09</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
