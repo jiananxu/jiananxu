@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="redhat oracle11g 静默安装">
+    <meta name="keywords" content="FastDFS分布式部署, 博客 苏叶新城 X笔记 java Spring Boot Linux">
     <meta name="description" content="清风拂面垂杨柳，艳阳高照染天涯。">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -27,7 +27,7 @@
 </script>
 
 
-    <title>Redhat7.1静默安装Oracle 11g | X笔记</title>
+    <title>FastDFS分布式部署 | X笔记</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -263,12 +263,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/8.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/1.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">Redhat7.1静默安装Oracle 11g</h1>
+                    <h1 class="description center-align post-title">FastDFS分布式部署</h1>
                 </div>
             </div>
         </div>
@@ -385,12 +385,16 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/Oracle-11g/">
-                                <span class="chip bg-color">Oracle 11g</span>
+                            <a href="/tags/nginx/">
+                                <span class="chip bg-color">nginx</span>
                             </a>
                         
-                            <a href="/tags/Redhat7/">
-                                <span class="chip bg-color">Redhat7</span>
+                            <a href="/tags/Linux/">
+                                <span class="chip bg-color">Linux</span>
+                            </a>
+                        
+                            <a href="/tags/FastDFS/">
+                                <span class="chip bg-color">FastDFS</span>
                             </a>
                         
                     </div>
@@ -401,8 +405,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/Oracle/" class="post-category">
-                                Oracle
+                            <a href="/categories/Linux/" class="post-category">
+                                Linux
                             </a>
                         
                     </div>
@@ -414,7 +418,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2018-09-02
+                    2020-12-09
                 </div>
                 
 
@@ -423,7 +427,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.1k
+                    1.6k
                 </div>
                 
 
@@ -440,182 +444,198 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="安装前环境配置"><a href="#安装前环境配置" class="headerlink" title="安装前环境配置"></a>安装前环境配置</h2><p>以下配置在root用户下执行</p>
-<h3 id="安装依赖"><a href="#安装依赖" class="headerlink" title="安装依赖"></a>安装依赖</h3><p>先将redhat自带yum源更换，然后安装下面依赖。</p>
-<pre><code>yum -y install binutils \
-compat-libstdc++-33 \
-elfutils-libelf \
-elfutils-libelf-devel \
-expat \
-gcc \
-gcc-c++ \
-glibc \
-glibc-common \
-glibc-devel \
-glibc-headers \
-libaio \
-libaio-devel \
-libgcc \
-libstdc++ \
-libstdc++-devel \
-make \
-pdksh \
-sysstat \
-unixODBC \
-unixODBC-devel
-</code></pre>
-<h3 id="检查是否安装成功"><a href="#检查是否安装成功" class="headerlink" title="检查是否安装成功"></a>检查是否安装成功</h3><pre><code>rpm -q \
-binutils \
-compat-libstdc++-33 \
-elfutils-libelf \
-elfutils-libelf-devel \
-expat \
-gcc \
-gcc-c++ \
-glibc \
-glibc-common \
-glibc-devel \
-glibc-headers \
-libaio \
-libaio-devel \
-libgcc \
-libstdc++ \
-libstdc++-devel \
-make \
-pdksh \
-sysstat \
-unixODBC \
-unixODBC-devel | grep &quot;not installed&quot;
-</code></pre>
-<p>提示pdksh没有安装，正常使用<code>yum -y install pdksh</code>安装不了，需要下载</p>
-<pre><code>wget -O pdksh-5.2.14-37.el5_8.1.x86_64.rpm http://vault.centos.org/5.11/os/x86_64/CentOS/pdksh-5.2.14-37.el5_8.1.x86_64.rpm</code></pre>
-<p>下载完成，执行下面命令安装</p>
-<pre><code>rpm -ivh pdksh-5.2.14-37.el5_8.1.x86_64.rpm</code></pre>
-<p>检查依赖包是否安装完成。</p>
-<h3 id="修改kernel参数"><a href="#修改kernel参数" class="headerlink" title="修改kernel参数"></a>修改kernel参数</h3><p><code>vim /etc/sysctl.conf</code>打开文件</p>
-<p>文件底部添加下面内容</p>
-<pre><code>net.ipv4.ip_local_port_range = 9000 65500
-fs.file-max = 6815744
-kernel.shmall = 10523004
-kernel.shmmax = 6465333657
-kernel.shmmni = 4096
-kernel.sem = 250 32000 100 128
-net.core.rmem_default=262144
-net.core.wmem_default=262144
-net.core.rmem_max=4194304
-net.core.wmem_max=1048576
-fs.aio-max-nr = 1048576
-</code></pre>
-<p>执行<code>sysctl –p</code>使内核生效</p>
-<h3 id="创建用户和相应的组"><a href="#创建用户和相应的组" class="headerlink" title="创建用户和相应的组"></a>创建用户和相应的组</h3><pre><code>groupadd –g 200 oinstall
-groupadd –g 201 dba
-useradd –u 440 –g oinstall –G dba –d /home/oracle oracle
-passwd oracle</code></pre>
-<p><code>id oracle</code>可以检查创建的用户,oracle为创建的用户。</p>
-<h3 id="修改登录系统参数"><a href="#修改登录系统参数" class="headerlink" title="修改登录系统参数"></a>修改登录系统参数</h3><p><code>vim /etc/pam.d/login</code>打开文件</p>
-<p>文件底部添加</p>
-<pre><code>session required pam_limits.so</code></pre>
-<h3 id="修改操作系统安全限制等参数"><a href="#修改操作系统安全限制等参数" class="headerlink" title="修改操作系统安全限制等参数"></a>修改操作系统安全限制等参数</h3><p><code>vim /etc/security/limits.conf</code>打开文件</p>
-<p>底部添加</p>
-<pre><code>oracle soft nproc 2047
-oracle hard nproc 16384
-oracle soft nofile 1024
-oracle hard nofile 65536
-</code></pre>
-<h3 id="修改环境变量"><a href="#修改环境变量" class="headerlink" title="修改环境变量"></a>修改环境变量</h3><p><code>vim /etc/profile</code>打开文件</p>
-<p>底部添加</p>
-<pre><code>if [ $USER = &quot;oracle&quot; ]; then
-if [ $SHELL = &quot;/bin/ksh&quot; ]; then
-ulimit -p 16384
-ulimit -n 65536
-else
-ulimit -u 16384 -n 65536
-fi
-fi</code></pre>
-<p>执行<code>source /etc/profile</code>使更改生效</p>
-<h3 id="配置oracle安装目录"><a href="#配置oracle安装目录" class="headerlink" title="配置oracle安装目录"></a>配置oracle安装目录</h3><pre><code>root@localhost opt]# mkdir -p /opt/oracle/product/oraHome #安装目录
-[root@localhost opt]# mkdir -p /opt/oracle/oradata  
-[root@localhost opt]# mkdir -p /opt/inventory
-[root@localhost opt]# chown -R oracle:oinstall /opt/oracle
-[root@localhost opt]# chown -R 755  /opt/oracle</code></pre>
-<h3 id="配置oracle用户环境变量"><a href="#配置oracle用户环境变量" class="headerlink" title="配置oracle用户环境变量"></a>配置oracle用户环境变量</h3><p>此部分需要切换到oracle用户执行，执行<code>su - oracle</code>切换用户。<code>su</code>为切换回root用户</p>
-<p><code>vim ~/.bash_profile </code></p>
-<p>在文件中添加</p>
-<pre><code>export ORACLE_BASE=/opt/oracle
-export ORACLE_HOME=$ORACLE_BASE/product/oraHome
-export ORACLE_SID=orcl
-export ORACLE_OWNER=oracle
-export ORACLE_TERM=vt100
-export PATH=$PATH:$ORACLE_HOME/bin:$HOME/bin
-export PATH=$ORACLE_HOME/bin:$ORACLE_HOME/Apache/Apache/bin:$PATH
-LD_LIBRARY_PATH=$ORACLE_HOME/lib:/lib:/usr/lib:/usr/local/lib
-export LD_LIBRARY_PATH
-CLASSPATH=$ORACLE_HOME/JRE:$ORACLE_HOME/jlib:$ORACLE_HOME/rdbms/jlib
-CLASSPATH=$CLASSPATH:$ORACLE_HOME/network/jlib
-export CLASSPATH
-export LC_ALL=&quot;en_US&quot;
-export LANG=&quot;en_US&quot;
-</code></pre>
-<p>配置生效<code>source ~/.bash_profile</code></p>
-<hr>
-<p>至此配置部分完成，开始安装oracle。</p>
-<hr>
-<h2 id="安装oracle"><a href="#安装oracle" class="headerlink" title="安装oracle"></a>安装oracle</h2><p>下面需要在root用户下执行</p>
-<h3 id="下载安装包"><a href="#下载安装包" class="headerlink" title="下载安装包"></a>下载安装包</h3><p>下载<a href="http://www.oracle.com/technetwork/database/enterprise-edition/downloads/index.html" target="_blank" rel="noopener">oracle 11g</a>，官网需要登录。</p>
-<p><img src="http://imgcq.test.upcdn.net/image20180902222159.png"><br>下载两个文件后，上传到linux服务器上。</p>
-<h3 id="解压"><a href="#解压" class="headerlink" title="解压"></a>解压</h3><pre><code>unzip linux.x64_11gR2_database_1of2.zip -d /opt
-unzip linux.x64_11gR2_database_2of2.zip -d /opt</code></pre>
-<p>我是将其解压在/opt下，解压之后文件会在database目录下。</p>
-<h3 id="静默安装文件配置"><a href="#静默安装文件配置" class="headerlink" title="静默安装文件配置"></a>静默安装文件配置</h3><p>拷贝<code>database/response/</code>下面的<code>dbca.rsp</code>、<code>db_install.rsp</code>及<code>netca.rsp</code>三个文件至<code>/opt/oracle</code>目录下。这三个文件很重要</p>
-<pre><code>cp response/* /opt/oracle</code></pre>
-<p>编辑db_install.rsp文件 </p>
-<p><code>vim /db/etc/db_install.rsp</code></p>
-<p><code>hostname</code>查看自己的主机名</p>
-<pre><code>racle.install.option=INSTALL_DB_SWONLY
-DECLINE_SECURITY_UPDATES=true
-UNIX_GROUP_NAME=oinstall
-INVENTORY_LOCATION=/opt/inventory
-SELECTED_LANGUAGES=en,zh_CN
-ORACLE_HOSTNAME=node75   #node75为自己的主机名
-ORACLE_HOME=/opt/oracle/product/oraHome
-ORACLE_BASE=/opt/oracle
-oracle.install.db.InstallEdition=EE
-oracle.install.db.isCustomInstall=true
-oracle.install.db.DBA_GROUP=dba
-oracle.install.db.OPER_GROUP= oinstall
-Oracle.install.db.config.starterdb.type=GENERAL_PURPOSE
-Oracle.install.db.config.starterdb.globalDBName=orcl
-Oracle.install.db.config.starterdb.SID=orcl
-Oracle.install.db.config.starterdb.characterSet= AL32UTF8
-Oracle.install.db.config.starterdb.password.ALL=oracle
-DECLINE_SECURITY_UPDATES=true
-</code></pre>
-<h3 id="静默安装"><a href="#静默安装" class="headerlink" title="静默安装"></a>静默安装</h3><p>切换至oracle 帐号<code>su – oracle</code></p>
-<p>进入database目录</p>
-<pre><code>./runInstaller -silent -ignorePrereq -responseFile /opt/oracle/db_install.rsp</code></pre>
-<p>安装开始，时间会有点久，如果出现问题，查看控制台日志。运维第一步，会看日志。</p>
-<p>安装完成，提示Successfully Setup Software.</p>
-<p><img src="http://imgcq.test.upcdn.net/image20180902223914.png"></p>
-<h3 id="执行脚本"><a href="#执行脚本" class="headerlink" title="执行脚本"></a>执行脚本</h3><p>切换回root用户，执行上图中提示的脚本。</p>
-<pre><code>sh /opt/oracle/inventory/orainsRot.sh
-sh /opt/oracle/product/oraHome/root.sh
-</code></pre>
-<h3 id="配置监听"><a href="#配置监听" class="headerlink" title="配置监听"></a>配置监听</h3><p><code>netca /silent /responsefile /opt/oracle/netca.rsp</code><br><img src="http://imgcq.test.upcdn.net/image20180902224154.png"></p>
-<h3 id="执行静默建库"><a href="#执行静默建库" class="headerlink" title="执行静默建库"></a>执行静默建库</h3><pre><code>dbca -silent -responseFile /opt/oracle/dbca.rsp -sysPassword oracle -systemPassword oracle</code></pre>
-<p><code>-sysPassword oracle -systemPassword oracle</code>需要制定密码，不然报错</p>
-<p><img src="http://imgcq.test.upcdn.net/image20180902224347.png"></p>
-<p>如上图，安装成功。</p>
-<h2 id="查看oracle"><a href="#查看oracle" class="headerlink" title="查看oracle"></a>查看oracle</h2><p>切换oracle用户</p>
-<h3 id="查看实例进程"><a href="#查看实例进程" class="headerlink" title="查看实例进程"></a>查看实例进程</h3><p><code>ps -ef | grep ora_ | grep -v grep</code></p>
-<p><img src="http://imgcq.test.upcdn.net/image20180902224540.png"></p>
-<h3 id="查看监听状态"><a href="#查看监听状态" class="headerlink" title="查看监听状态"></a>查看监听状态</h3><p><code>lsnrctl status</code></p>
-<p><img src="http://imgcq.test.upcdn.net/image20180902224703.png"></p>
-<h3 id="其他操作"><a href="#其他操作" class="headerlink" title="其他操作"></a>其他操作</h3><p>登录sqlplus，查看实例状态</p>
-<p><code>sqlplus / as sysdba</code></p>
-<p>查看数据库编码</p>
-<p><code>select userenv(&#39;language&#39;) from dual;</code></p>
-<p>查看数据库版本信息</p>
-<p><code>select * from v$version;</code></p>
+                <h1 id="环境准备"><a href="#环境准备" class="headerlink" title="环境准备"></a>环境准备</h1><h2 id="使用的系统软件"><a href="#使用的系统软件" class="headerlink" title="使用的系统软件"></a>使用的系统软件</h2><table>
+<thead>
+<tr>
+<th align="left">名称</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">Redhat</td>
+<td>7.x</td>
+</tr>
+<tr>
+<td align="left">libfastcommon</td>
+<td>FastDFS分离出的一些公用函数包</td>
+</tr>
+<tr>
+<td align="left">FastDFS</td>
+<td>FastDFS本体</td>
+</tr>
+<tr>
+<td align="left">fastdfs-nginx-module</td>
+<td>FastDFS和nginx的关联模块</td>
+</tr>
+<tr>
+<td align="left">nginx</td>
+<td>nginx1.18.0</td>
+</tr>
+</tbody></table>
+<h2 id="编译环境"><a href="#编译环境" class="headerlink" title="编译环境"></a>编译环境</h2><pre class="line-numbers language-shell"><code class="language-shell">yum install git gcc gcc-c++ make automake autoconf libtool pcre pcre-devel zlib zlib-devel openssl-devel wget vim -y<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h2 id="磁盘目录"><a href="#磁盘目录" class="headerlink" title="磁盘目录"></a>磁盘目录</h2><table>
+<thead>
+<tr>
+<th>说明</th>
+<th>位置</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>所有安装包</td>
+<td>/home/dfs/soft</td>
+</tr>
+<tr>
+<td>数据存储位置</td>
+<td>/home/dfs/</td>
+</tr>
+</tbody></table>
+<pre class="line-numbers language-shell"><code class="language-shell">mkdir /home/dfs #创建数据存储目录
+cd /usr/local/src #切换到安装目录准备下载安装包<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<h2 id="安装libfastcommon"><a href="#安装libfastcommon" class="headerlink" title="安装libfastcommon"></a>安装libfastcommon</h2><pre class="line-numbers language-shell"><code class="language-shell">wget https://github.com/happyfish100/libfastcommon/archive/V1.0.43.tar.gz -O libfastcommon.tar.gz
+tar -xzvf libfastcommon.tar.gz
+cd libfastcommon-1.0.43
+#编译安装
+./make.sh && ./make.sh install <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="安装FastDFS"><a href="#安装FastDFS" class="headerlink" title="安装FastDFS"></a>安装FastDFS</h2><pre class="line-numbers language-shell"><code class="language-shell">cd ../ #返回上一级目录
+wget https://github.com/happyfish100/fastdfs/archive/V6.06.tar.gz -O fastdfs.tar.gz
+tar -xzvf fastdfs.tar.gz
+cd fastdfs-6.06/
+#编译安装
+./make.sh && ./make.sh install <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>安装完成/etc/fdfs存放配置文件</p>
+<pre><code>ls /etc/fdfs
+client.conf.sample  storage.conf.sample  storage_ids.conf.sample  tracker.conf.sample</code></pre>
+<pre><code>#配置文件准备
+cp /etc/fdfs/storage.conf.sample /etc/fdfs/storage.conf
+cp /etc/fdfs/client.conf.sample /etc/fdfs/client.conf
+cp /etc/fdfs/tracker.conf.sample /etc/fdfs/tracker.conf
+ #客户端文件，测试用
+#供nginx访问使用
+cp conf/http.conf conf/mime.types /etc/fdfs/ </code></pre>
+<h2 id="安装fastdfs-nginx-module"><a href="#安装fastdfs-nginx-module" class="headerlink" title="安装fastdfs-nginx-module"></a>安装fastdfs-nginx-module</h2><pre class="line-numbers language-shell"><code class="language-shell">cd ../ #返回上一级目录
+wget https://github.com/happyfish100/fastdfs-nginx-module/archive/V1.22.tar.gz -O fastdfs-nginx-module.tar.gz
+tar -xzvf fastdfs-nginx-module.tar.gz
+cd fastdfs-nginx-module-1.22/
+cp src/mod_fastdfs.conf /etc/fdfs/<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="安装nginx"><a href="#安装nginx" class="headerlink" title="安装nginx"></a>安装nginx</h2><pre class="line-numbers language-shell"><code class="language-shell">wget https://nginx.org/download/nginx-1.18.0.tar.gz #下载nginx压缩包
+tar -xzvf nginx-1.18.0.tar.gz #解压
+cd nginx-1.18.0/
+#添加fastdfs-nginx-module模块
+./configure --add-module=/home/dfs/soft/fastdfs-nginx-module-1.22/src/ 
+make && make install #编译安装<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h1 id="单机部署"><a href="#单机部署" class="headerlink" title="单机部署"></a>单机部署</h1><h2 id="tracker配置"><a href="#tracker配置" class="headerlink" title="tracker配置"></a>tracker配置</h2><pre class="line-numbers language-shell"><code class="language-shell">#服务器ip为 192.168.81.76
+#我建议用ftp下载下来这些文件 本地修改
+vim /etc/fdfs/tracker.conf
+#需要修改的内容如下
+port=22122  # tracker服务器端口（默认22122,一般不修改）
+base_path=/home/dfs  # 存储日志和数据的根目录<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="storage配置"><a href="#storage配置" class="headerlink" title="storage配置"></a>storage配置</h2><pre class="line-numbers language-shell"><code class="language-shell">vim /etc/fdfs/storage.conf
+#需要修改的内容如下
+port=23000  # storage服务端口（默认23000,一般不修改）
+base_path=/home/dfs  # 数据和日志文件存储根目录
+store_path0=/home/dfs  # 第一个存储目录
+tracker_server=192.168.81.76:22122   # tracker服务器IP和端口
+http.server_port=8888  # http访问文件的端口(默认8888,看情况修改,和nginx中保持一致)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="client测试"><a href="#client测试" class="headerlink" title="client测试"></a>client测试</h2><pre class="line-numbers language-shell"><code class="language-shell">vim /etc/fdfs/client.conf
+#需要修改的内容如下
+base_path=/home/dfs
+tracker_server=192.168.81.76:22122 #tracker服务器IP和端口
+#保存后测试,返回ID表示成功 如：group1/M00/00/00/wKhRTF-RUImAXsvzAA_cqj_P4TU.tar.gz
+fdfs_upload_file /etc/fdfs/client.conf  /home/dfs/soft/nginx-1.18.0.tar.gz<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="配置nginx访问"><a href="#配置nginx访问" class="headerlink" title="配置nginx访问"></a>配置nginx访问</h2><pre class="line-numbers language-shell"><code class="language-shell">vim /etc/fdfs/mod_fastdfs.conf
+#需要修改的内容如下
+tracker_server=192.168.81.76:22122  #tracker服务器IP和端口
+url_have_group_name=true
+store_path0=/home/dfs
+#配置nginx.config
+vim /usr/local/nginx/conf/nginx.conf
+#添加如下配置
+server {
+    listen       8888;    ## 该端口为storage.conf中的http.server_port相同
+    server_name  localhost;
+    location ~/group[0-9]/ {
+        ngx_fastdfs_module;
+    }
+    error_page   500 502 503 504  /50x.html;
+    location = /50x.html {
+    root   html;
+    }
+}
+#测试下载，用外部浏览器访问刚才已传过的nginx安装包,引用返回的ID
+http://192.168.81.76:8888/group1/M00/00/00/wKhRTF-RUImAXsvzAA_cqj_P4TU.tar.gz
+#弹出下载,单机部署全部跑通<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h1 id="分布式部署"><a href="#分布式部署" class="headerlink" title="分布式部署"></a>分布式部署</h1><h2 id="tracker配置-1"><a href="#tracker配置-1" class="headerlink" title="tracker配置"></a>tracker配置</h2><pre class="line-numbers language-shell"><code class="language-shell">#服务器ip为 192.168.81.74,192.168.81.75,192.168.81.76
+#我建议用ftp下载下来这些文件 本地修改
+vim /etc/fdfs/tracker.conf
+#需要修改的内容如下
+port=22122  # tracker服务器端口（默认22122,一般不修改）
+base_path=/home/dfs  # 存储日志和数据的根目录<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="storage配置-1"><a href="#storage配置-1" class="headerlink" title="storage配置"></a>storage配置</h2><pre class="line-numbers language-shell"><code class="language-shell">vim /etc/fdfs/storage.conf
+#需要修改的内容如下
+port=23000  # storage服务端口（默认23000,一般不修改）
+base_path=/home/dfs  # 数据和日志文件存储根目录
+store_path0=/home/dfs  # 第一个存储目录
+tracker_server=192.168.81.74:22122  # 服务器1
+tracker_server=192.168.81.75:22122  # 服务器2
+tracker_server=192.168.81.76:22122  # 服务器3
+http.server_port=8888  # http访问文件的端口(默认8888,看情况修改,和nginx中保持一致)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="client测试-1"><a href="#client测试-1" class="headerlink" title="client测试"></a>client测试</h2><pre class="line-numbers language-shell"><code class="language-shell">vim /etc/fdfs/client.conf
+#需要修改的内容如下
+base_path=/home/moe/dfs
+tracker_server=192.168.81.74:22122  # 服务器1
+tracker_server=192.168.81.75:22122  # 服务器2
+tracker_server=192.168.81.76:22122  # 服务器3
+#保存后测试,返回ID表示成功 如：group1/M00/00/00/wKhRTF-SSf2AO6VIAAxZcPR00vw.tar.gz
+fdfs_upload_file /etc/fdfs/client.conf  /home/dfs/soft/nginx-1.18.0.tar.gz
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="配置nginx访问-1"><a href="#配置nginx访问-1" class="headerlink" title="配置nginx访问"></a>配置nginx访问</h2><pre class="line-numbers language-shell"><code class="language-shell">vim /etc/fdfs/mod_fastdfs.conf
+#需要修改的内容如下
+tracker_server=192.168.81.74:22122  # 服务器1
+tracker_server=192.168.81.75:22122  # 服务器2
+tracker_server=192.168.81.76:22122  # 服务器3
+url_have_group_name=true
+store_path0=/home/dfs
+#配置nginx.config
+vim /usr/local/nginx/conf/nginx.conf
+#添加如下配置
+server {
+    listen       8888;    ## 该端口为storage.conf中的http.server_port相同
+    server_name  localhost;
+    location ~/group[0-9]/ {
+        ngx_fastdfs_module;
+    }
+    error_page   500 502 503 504  /50x.html;
+    location = /50x.html {
+    root   html;
+    }
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>服务器启动后分别访问<code>192.168.81.74:8888/group1/M00/00/00/wKhRTF-SSf2AO6VIAAxZcPR00vw.tar.gz</code>和<code>192.168.81.76:8888/group1/M00/00/00/wKhRTF-SSf2AO6VIAAxZcPR00vw.tar.gz</code>,弹出文件下载，则分布式服务部署成功。</p>
+<h1 id="启动"><a href="#启动" class="headerlink" title="启动"></a>启动</h1><h2 id="防火墙"><a href="#防火墙" class="headerlink" title="防火墙"></a>防火墙</h2><pre class="line-numbers language-shell"><code class="language-shell">#不关闭防火墙的话无法使用
+systemctl stop firewalld.service #关闭
+systemctl restart firewalld.service #重启<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<h2 id="tracker"><a href="#tracker" class="headerlink" title="tracker"></a>tracker</h2><pre class="line-numbers language-shell"><code class="language-shell">/etc/init.d/fdfs_trackerd start #启动tracker服务
+/etc/init.d/fdfs_trackerd restart #重启动tracker服务
+/etc/init.d/fdfs_trackerd stop #停止tracker服务
+chkconfig fdfs_trackerd on #自启动tracker服务<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="storage"><a href="#storage" class="headerlink" title="storage"></a>storage</h2><pre class="line-numbers language-shell"><code class="language-shell">/etc/init.d/fdfs_storaged start #启动storage服务
+/etc/init.d/fdfs_storaged restart #重动storage服务
+/etc/init.d/fdfs_storaged stop #停止动storage服务
+chkconfig fdfs_storaged on #自启动storage服务<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="nginx"><a href="#nginx" class="headerlink" title="nginx"></a>nginx</h2><pre class="line-numbers language-shell"><code class="language-shell">/usr/local/nginx/sbin/nginx #启动nginx
+/usr/local/nginx/sbin/nginx -s reload #重启nginx
+/usr/local/nginx/sbin/nginx -s stop #停止nginx<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<h2 id="检测集群"><a href="#检测集群" class="headerlink" title="检测集群"></a>检测集群</h2><pre class="line-numbers language-shell"><code class="language-shell">/usr/bin/fdfs_monitor /etc/fdfs/storage.conf
+# 会显示会有几台服务器 有3台就会 显示 Storage 1-Storage 3的详细信息<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<h1 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h1><h2 id="配置文件"><a href="#配置文件" class="headerlink" title="配置文件"></a>配置文件</h2><pre class="line-numbers language-shell"><code class="language-shell">tracker_server #有几台服务器写几个
+group_name #地址的名称的命名
+bind_addr #服务器ip绑定
+store_path_count #store_path(数字)有几个写几个
+store_path(数字) #设置几个储存地址写几个 从0开始<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="可能遇到的问题"><a href="#可能遇到的问题" class="headerlink" title="可能遇到的问题"></a>可能遇到的问题</h2><pre class="line-numbers language-shell"><code class="language-shell">如果不是root 用户 你必须在除了cd的命令之外 全部加sudo
+如果不是root 用户 编译和安装分开进行 先编译再安装
+如果上传成功 但是nginx报错404 先检查mod_fastdfs.conf文件中的store_path0是否一致
+如果nginx无法访问 先检查防火墙 和 mod_fastdfs.conf文件tracker_server是否一致
+如果 unknown directive "ngx_fastdfs_module" in /usr/local/nginx/conf/nginx.conf:151，可能是nginx一直是启动的，必须要重启nginx才可以，`nginx -s reload`无效。<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
             </div>
             <hr/>
@@ -641,7 +661,7 @@ sh /opt/oracle/product/oraHome/root.sh
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://www.xujn.xyz/2018/09/02/redhat7-1-jing-mo-an-zhuang-oracle-11g/">http://www.xujn.xyz/2018/09/02/redhat7-1-jing-mo-an-zhuang-oracle-11g/</a>
+                    <a href="http://www.xujn.xyz/2020/12/09/fastdfs-fen-bu-shi-bu-shu/">http://www.xujn.xyz/2020/12/09/fastdfs-fen-bu-shi-bu-shu/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -679,12 +699,16 @@ sh /opt/oracle/product/oraHome/root.sh
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/Oracle-11g/">
-                                    <span class="chip bg-color">Oracle 11g</span>
+                                <a href="/tags/nginx/">
+                                    <span class="chip bg-color">nginx</span>
                                 </a>
                             
-                                <a href="/tags/Redhat7/">
-                                    <span class="chip bg-color">Redhat7</span>
+                                <a href="/tags/Linux/">
+                                    <span class="chip bg-color">Linux</span>
+                                </a>
+                            
+                                <a href="/tags/FastDFS/">
+                                    <span class="chip bg-color">FastDFS</span>
                                 </a>
                             
                         </div>
@@ -989,53 +1013,77 @@ sh /opt/oracle/product/oraHome/root.sh
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2018/09/06/spring-mvc-xiang-mu-da-jian-guo-cheng-shuo-ming/">
+                <a href="/2020/12/09/fastdfs-fen-bu-shi-bu-shu/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/7.jpg" class="responsive-img" alt="Spring MVC项目搭建过程说明">
+                        <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="FastDFS分布式部署">
                         
-                        <span class="card-title">Spring MVC项目搭建过程说明</span>
+                        <span class="card-title">FastDFS分布式部署</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            基本的项目结构
-pom.xml文件&lt;properties>
-    &lt;project.build.sourceEncoding>UTF-8&lt;/project.build.sourceEncoding>
-    &lt;!-
+                            环境准备使用的系统软件
+
+
+名称
+说明
+
+
+
+Redhat
+7.x
+
+
+libfastcommon
+FastDFS分离出的一些公用函数包
+
+
+FastDFS
+FastDFS本体
+
+
+fastdfs-nginx-module
+FastDFS和
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2018-09-06
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-12-09
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/Spring/" class="post-category">
-                                    Spring
+                            <a href="/categories/Linux/" class="post-category">
+                                    Linux
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Spring-MVC/">
-                        <span class="chip bg-color">Spring MVC</span>
+                    <a href="/tags/nginx/">
+                        <span class="chip bg-color">nginx</span>
                     </a>
                     
-                    <a href="/tags/Spring/">
-                        <span class="chip bg-color">Spring</span>
+                    <a href="/tags/Linux/">
+                        <span class="chip bg-color">Linux</span>
+                    </a>
+                    
+                    <a href="/tags/FastDFS/">
+                        <span class="chip bg-color">FastDFS</span>
                     </a>
                     
                 </div>
@@ -1049,37 +1097,35 @@ pom.xml文件&lt;properties>
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2018/08/27/linux-xia-jie-jue-tns-12541-tns-no-listener-wen-ti/">
+                <a href="/2020/10/15/linux-an-quan-jia-gu/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/6.jpg" class="responsive-img" alt="Linux下解决TNS-12541 TNS  no listener问题">
+                        <img src="/medias/featureimages/5.jpg" class="responsive-img" alt="Linux安全加固">
                         
-                        <span class="card-title">Linux下解决TNS-12541 TNS  no listener问题</span>
+                        <span class="card-title">Linux安全加固</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            场景Navicat连接远程oracle数据库，数据库搭建在Redhat 7.1服务器上，莫名出现这个问题。
-解决办法
-检查监听状态
-无监听，则查看监听文件
-
-查看监听状态lsnrctl status
-如果有监听，则如下图，显示有服务orcl
+                            Linux加固检查口令最小长度vim /etc/login.defs
+设置 PASS_MIN_LEN 8
+检查是否设置口令生存周期vim /etc/login.defs
+设置PASS_MAX_DAYS 90
+检查设备密码复杂度策略vim /
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2018-08-27
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-10-15
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/Oracle/" class="post-category">
-                                    Oracle
+                            <a href="/categories/Linux/" class="post-category">
+                                    Linux
                                 </a>
                             
                             
@@ -1093,8 +1139,8 @@ pom.xml文件&lt;properties>
                         <span class="chip bg-color">Linux</span>
                     </a>
                     
-                    <a href="/tags/Oracle/">
-                        <span class="chip bg-color">Oracle</span>
+                    <a href="/tags/%E6%BC%8F%E6%B4%9E%E4%BF%AE%E5%A4%8D/">
+                        <span class="chip bg-color">漏洞修复</span>
                     </a>
                     
                 </div>
