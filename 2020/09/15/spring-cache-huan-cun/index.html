@@ -454,16 +454,16 @@
 <blockquote>
 <p>Spring的缓存技术还具备相当的灵活性，不仅能够使用 SpEL（Spring Expression Language）来定义缓存的key和各种condition，还提供开箱即用的缓存临时存储方案，也支持和主流的专业缓存，例如Redis、EHCache集成。</p>
 </blockquote>
-<p>Spring Cache位于spring-content中，如下图<br><img src="http://imgcq.test.upcdn.net/20200914154543.png?!"></p>
+<p>Spring Cache位于spring-content中，如下图<br><img src="http://img.xujn.xyz/20200914154543.png?!"></p>
 <h1 id="Spring-Cache涉及主要类"><a href="#Spring-Cache涉及主要类" class="headerlink" title="Spring Cache涉及主要类"></a>Spring Cache涉及主要类</h1><p>Spring定义了Cache和CacheManager两个基础接口类。</p>
 <h2 id="Cache"><a href="#Cache" class="headerlink" title="Cache"></a>Cache</h2><p><code>Cache</code>接口提供了其他缓存技术实现的规范，包括缓存的各种操作，增加、删除、获取缓存等。Cache默认实现缓存如下，其中<code>Ehcache</code>、<code>RedisCache</code>都为流行的Cache实现方法。</p>
-<p><img src="http://imgcq.test.upcdn.net/20200914160019.png?!"></p>
+<p><img src="http://img.xujn.xyz/20200914160019.png?!"></p>
 <h2 id="CacheManager"><a href="#CacheManager" class="headerlink" title="CacheManager"></a>CacheManager</h2><p><code>CacheManager</code>是Spring提供的各种缓存技术抽象接口，通过它管理Spring框架内部默认实现的CacheManager，Spring框架内部默认实现的CacheManager如下</p>
-<p><img src="http://imgcq.test.upcdn.net/20200914160901.png?!"></p>
+<p><img src="http://img.xujn.xyz/20200914160901.png?!"></p>
 <h2 id="CacheResolver"><a href="#CacheResolver" class="headerlink" title="CacheResolver"></a>CacheResolver</h2><p><code>CacheResolver</code>解析器，用于根据实际情况来动态解析使用哪个Cache。</p>
-<p><img src="http://imgcq.test.upcdn.net/20200914161331.png?!"></p>
+<p><img src="http://img.xujn.xyz/20200914161331.png?!"></p>
 <h2 id="KeyGenerator"><a href="#KeyGenerator" class="headerlink" title="KeyGenerator"></a>KeyGenerator</h2><p><code>KeyGenerator</code>当使用注解时，默认key的生成规则。</p>
-<p><img src="http://imgcq.test.upcdn.net/20200914161527.png?!"></p>
+<p><img src="http://img.xujn.xyz/20200914161527.png?!"></p>
 <h1 id="Spring-Cache主要的注解"><a href="#Spring-Cache主要的注解" class="headerlink" title="Spring Cache主要的注解"></a>Spring Cache主要的注解</h1><h2 id="Cacheable"><a href="#Cacheable" class="headerlink" title="@Cacheable"></a>@Cacheable</h2><p>用于读取缓存的方法上，先从缓存中读取数据，如果没有再调用具体方法获取数据，然后将数据添加到缓存中。</p>
 <pre class="line-numbers language-java"><code class="language-java"><span class="token annotation punctuation">@Target</span><span class="token punctuation">(</span><span class="token punctuation">{</span>ElementType<span class="token punctuation">.</span>TYPE<span class="token punctuation">,</span> ElementType<span class="token punctuation">.</span>METHOD<span class="token punctuation">}</span><span class="token punctuation">)</span>
 <span class="token annotation punctuation">@Retention</span><span class="token punctuation">(</span>RetentionPolicy<span class="token punctuation">.</span>RUNTIME<span class="token punctuation">)</span>
@@ -1134,7 +1134,7 @@ yum
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2020/08/11/spring-boot-mail-fa-song-you-jian/">
+                <a href="/2020/08/11/pring-boot-mail-fa-song-you-jian/">
                     <div class="card-image">
                         
                         

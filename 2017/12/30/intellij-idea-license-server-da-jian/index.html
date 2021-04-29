@@ -475,7 +475,7 @@
     }</code></pre>
 <h2 id="重启nginx，加载配置"><a href="#重启nginx，加载配置" class="headerlink" title="重启nginx，加载配置"></a>重启nginx，加载配置</h2><p>查看nginx主进程</p>
 <pre><code>ps -aux |grep nginx</code></pre>
-<p><img src="http://img.blog.csdn.net/20171230230816563?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvaGFoYV8yMDE1MTA=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="nginx进程"><br>master 为主进程，使用kill -HUP 777平滑重启</p>
+<p>master 为主进程，使用kill -HUP 777平滑重启</p>
 <pre><code>kill -HUP 777</code></pre>
 <h2 id="配置防火墙"><a href="#配置防火墙" class="headerlink" title="配置防火墙"></a>配置防火墙</h2><p>centos7默认安装了firewalld，若没有安装，执行<code>yum install firewalld firewalld-config</code>安装</p>
 <pre><code>systemctl start firewalld  # 启动</code></pre>
