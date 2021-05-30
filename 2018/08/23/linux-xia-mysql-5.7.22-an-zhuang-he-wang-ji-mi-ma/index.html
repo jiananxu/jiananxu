@@ -39,15 +39,12 @@
     <link rel="stylesheet" type="text/css" href="/css/my.css">
 
     <script src="/libs/jquery/jquery.min.js"></script>
-    <!-- 360 -->
-    <script>
-        (function(){
-        var src = "https://jspassport.ssl.qhimg.com/11.0.1.js?d182b3f28525f2db83acfaaf6e696dba";
-        document.write('<script src="' + src + '" id="sozz"><\/script>');
-        })();
-    </script>
-<meta name="generator" content="Hexo 4.2.1"><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
-<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
+
+<meta name="generator" content="Hexo 5.4.0">
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+</head>
+
+
 
 
 <body>
@@ -311,8 +308,7 @@
     }
 
     .toc-widget .toc-title {
-        margin: 35px 0 15px 0;
-        padding-left: 17px;
+        padding: 35px 0 15px 17px;
         font-size: 1.5rem;
         font-weight: bold;
         line-height: 1.5rem;
@@ -324,7 +320,7 @@
     }
 
     #toc-content {
-        height: calc(100vh - 250px);
+        padding-bottom: 30px;
         overflow: auto;
     }
 
@@ -337,7 +333,7 @@
     }
 
     #toc-content .toc-link:hover {
-        color: #039be5;
+        color: #00d3ff;
         font-weight: 700;
         text-decoration: underline;
     }
@@ -352,7 +348,7 @@
     }
 
     #toc-content .is-active-link {
-        color: #039be5;
+        color: #00d3ff;
     }
 
     #floating-toc-btn {
@@ -417,44 +413,42 @@
                 
 
                 
-                <div class="info-break-policy">
-                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    662
-                </div>
-                
 
                 
 
                 
-                    <div id="busuanzi_container_page_pv" class="info-break-policy">
-                        <i class="far fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
-                        <span id="busuanzi_value_page_pv"></span>
-                    </div>
-				
             </div>
         </div>
         <hr class="clearfix">
+
+        
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.css">
+        
+
+        
+
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <h2 id="简述"><a href="#简述" class="headerlink" title="简述"></a>简述</h2><p>Redhat下安装MySQL5.7.22教程,安装完成后成功忘记密码-_-</p>
 <h2 id="安装MySQL"><a href="#安装MySQL" class="headerlink" title="安装MySQL"></a>安装MySQL</h2><h4 id="1-压缩包处理"><a href="#1-压缩包处理" class="headerlink" title="1. 压缩包处理"></a>1. 压缩包处理</h4><p>解压压缩包</p>
-<pre><code>tar -zxvf mysql-5.7.22-linux-glibc2.12-x86_64.tar.gz  </code></pre>
+<pre class="line-numbers language-none"><code class="language-none">tar -zxvf mysql-5.7.22-linux-glibc2.12-x86_64.tar.gz  <span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>重命名mysql解压文件</p>
-<pre><code>mv mysql-5.7.22-linux-glibc2.12-x86_64 mysql</code></pre>
+<pre class="line-numbers language-none"><code class="language-none">mv mysql-5.7.22-linux-glibc2.12-x86_64 mysql<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>复制mysql文件</p>
-<pre><code>cp -r mysql /usr/local/mysql</code></pre>
+<pre class="line-numbers language-none"><code class="language-none">cp -r mysql /usr/local/mysql<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <h4 id="2-添加系统mysql组合mysql用户"><a href="#2-添加系统mysql组合mysql用户" class="headerlink" title="2. 添加系统mysql组合mysql用户"></a>2. 添加系统mysql组合mysql用户</h4><p>添加系统mysql组</p>
-<pre><code>groupadd mysql</code></pre>
+<pre class="line-numbers language-none"><code class="language-none">groupadd mysql<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>添加mysql用户</p>
-<pre><code>useradd -r -g mysql mysql</code></pre>
+<pre class="line-numbers language-none"><code class="language-none">useradd -r -g mysql mysql<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>添加mysql目录所有者为mysql</p>
-<pre><code>chown -R mysql:mysql /usr/local/mysql</code></pre>
+<pre class="line-numbers language-none"><code class="language-none">chown -R mysql:mysql /usr/local/mysql<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>添加data目录所有者为mysql(<em>在mysql目录下新建data文件夹</em>)</p>
-<pre><code>chown -R mysql:mysql data</code></pre>
+<pre class="line-numbers language-none"><code class="language-none">chown -R mysql:mysql data<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <h4 id="3-配置my-cnf"><a href="#3-配置my-cnf" class="headerlink" title="3. 配置my.cnf"></a>3. 配置my.cnf</h4><p><code>vim /etc/my.cnf</code><br>(如果没有这个文件，直接新建)</p>
-<pre><code>[mysqld]
+<pre class="line-numbers language-none"><code class="language-none">[mysqld]
 character_set_server=utf8
-init_connect=&#39;SET NAMES utf8&#39;
+init_connect='SET NAMES utf8'
 basedir=/usr/local/mysql
 datadir=/usr/local/mysql/data
 socket=/tmp/mysql.sock
@@ -462,63 +456,73 @@ socket=/tmp/mysql.sock
 sql_mode=NO_ENGINE_SUBSTITUTION,STRICT_TRANS_TABLES
 lower_case_table_names = 1
 #log-error=/var/log/mysqld.log
-pid-file=/usr/local/mysql/data/mysqld.pid</code></pre>
+pid-file=/usr/local/mysql/data/mysqld.pid<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h4 id="4-安装数据库"><a href="#4-安装数据库" class="headerlink" title="4. 安装数据库"></a>4. 安装数据库</h4><p>在mysql目录下，初始化数据库</p>
-<pre><code> bin/mysqld --initialize --user=mysql </code></pre>
+<pre class="line-numbers language-none"><code class="language-none">bin/mysqld --initialize --user=mysql <span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>成功后,会生成临时密码,在最后一行。记住这个密码</p>
 <p>执行以下命令创建RSA private key </p>
-<pre><code>  bin/mysql_ssl_rsa_setup --datadir=/usr/local/mysql/data</code></pre>
+<pre class="line-numbers language-none"><code class="language-none">bin/mysql_ssl_rsa_setup --datadir=/usr/local/mysql/data<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+
 <h4 id="5-添加开机启动"><a href="#5-添加开机启动" class="headerlink" title="5. 添加开机启动"></a>5. 添加开机启动</h4><p>复制mysql.server</p>
-<pre><code>cp /usr/local/mysql/support-files/mysql.server  /etc/init.d/mysqld</code></pre>
+<pre class="line-numbers language-none"><code class="language-none">cp /usr/local/mysql/support-files/mysql.server  /etc/init.d/mysqld<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>修改mysql.server</p>
 <p><code>vim /etc/init.d/mysqld </code></p>
 <p>添加basedir和datadir</p>
-<pre><code> basedir=/usr/local/mysql
- datadir=/usr/local/mysql/data</code></pre>
-<h4 id="6-启动MySQL"><a href="#6-启动MySQL" class="headerlink" title="6.启动MySQL"></a>6.启动MySQL</h4><pre><code>service mysqld start  #启动
+<pre class="line-numbers language-none"><code class="language-none">basedir=/usr/local/mysql
+datadir=/usr/local/mysql/data<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+
+<h4 id="6-启动MySQL"><a href="#6-启动MySQL" class="headerlink" title="6.启动MySQL"></a>6.启动MySQL</h4><pre class="line-numbers language-none"><code class="language-none">service mysqld start  #启动
 service mysqld stop   #停止
-service mysqld status #查看状态</code></pre>
-<h4 id="7-开机启动"><a href="#7-开机启动" class="headerlink" title="7.开机启动"></a>7.开机启动</h4><pre><code> chkconfig --add mysqld</code></pre>
+service mysqld status #查看状态<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<h4 id="7-开机启动"><a href="#7-开机启动" class="headerlink" title="7.开机启动"></a>7.开机启动</h4><pre class="line-numbers language-none"><code class="language-none">chkconfig --add mysqld<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <h4 id="8-登陆修改密码"><a href="#8-登陆修改密码" class="headerlink" title="8. 登陆修改密码"></a>8. 登陆修改密码</h4><p>首次登陆,密码为之前的临时密码</p>
 <p><code>mysql -uroot -p</code></p>
 <pre><code>如果出现`-bash: mysql:command not found`问题
 
-添加软连接`  ln -s /usr/local/mysql/bin/mysql /usr/bin`</code></pre>
+添加软连接`  ln -s /usr/local/mysql/bin/mysql /usr/bin`
+</code></pre>
 <p>输入密码后</p>
 <pre><code>如果出现Your password has expired. To log in you must change it using a client that supports expired passwords
-这样的问题，那么跟我一样，重置密码</code></pre>
+这样的问题，那么跟我一样，重置密码
+</code></pre>
 <p>正常访问，进入<code>mysql&gt;</code></p>
 <p>修改之前的临时密码</p>
-<pre><code>alter user &#39;root&#39;@&#39;localhost&#39; identified by &#39;your password&#39;;   </code></pre>
+<pre class="line-numbers language-none"><code class="language-none">alter user 'root'@'localhost' identified by 'your password';   <span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>刷新权限</p>
-<pre><code>flush privileges;   </code></pre>
+<pre class="line-numbers language-none"><code class="language-none">flush privileges;   <span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>授权新用户</p>
-<pre><code>GRANT ALL PRIVILEGES ON *.* TO &#39;test&#39;@&#39;%&#39; IDENTIFIED BY &#39;test password&#39; WITH GRANT OPTION;   </code></pre>
-<h2 id="允许用户远程访问"><a href="#允许用户远程访问" class="headerlink" title="允许用户远程访问"></a>允许用户远程访问</h2><pre><code>select &#39;host&#39; from user where user=&#39;root&#39;;
-update user set host = &#39;%&#39; where user =&#39;root&#39;;
-flush privileges;</code></pre>
+<pre class="line-numbers language-none"><code class="language-none">GRANT ALL PRIVILEGES ON *.* TO 'test'@'%' IDENTIFIED BY 'test password' WITH GRANT OPTION;   <span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<h2 id="允许用户远程访问"><a href="#允许用户远程访问" class="headerlink" title="允许用户远程访问"></a>允许用户远程访问</h2><pre class="line-numbers language-none"><code class="language-none">select 'host' from user where user='root';
+update user set host = '%' where user ='root';
+flush privileges;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
 <h2 id="忘记密码"><a href="#忘记密码" class="headerlink" title="忘记密码"></a>忘记密码</h2><p>关闭mysql</p>
-<pre><code>service mysqld stop
+<pre class="line-numbers language-none"><code class="language-none">service mysqld stop
 # 或者
-kill MYSQL_PID</code></pre>
+kill MYSQL_PID<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 <p>进入安全模式(mysql的bin目录下<code>cd mysql/bin</code>)</p>
-<pre><code>./mysqld_safe --skip-grant-tables &amp;</code></pre>
+<pre class="line-numbers language-none"><code class="language-none">./mysqld_safe --skip-grant-tables &amp;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
 <p>root用户无密码登陆</p>
-<pre><code>mysql -uroot</code></pre>
+<pre class="line-numbers language-none"><code class="language-none">mysql -uroot<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>进入之后，选择mysql数据库</p>
-<pre><code>use mysql;</code></pre>
+<pre class="line-numbers language-none"><code class="language-none">use mysql;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>更新密码 </p>
-<pre><code>update user set authentication_string=password(&#39;ustc@mysql123&#39;) where user=&#39;root&#39;; </code></pre>
+<pre class="line-numbers language-none"><code class="language-none">update user set authentication_string=password('ustc@mysql123') where user='root'; <span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p><em>authentication_string字段变化，以前为password字段</em><br>刷新权限表 </p>
-<pre><code>flush privileges;</code></pre>
+<pre class="line-numbers language-none"><code class="language-none">flush privileges;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>退出</p>
-<pre><code>quit;</code></pre>
+<pre class="line-numbers language-none"><code class="language-none">quit;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>重启mysql，新密码登录（陆？）</p>
-<p><a href="https://blog.csdn.net/zmx729618/article/details/78026497" target="_blank" rel="noopener">mysql.user表权限</a></p>
-<h2 id="mysql创建用户与授权"><a href="#mysql创建用户与授权" class="headerlink" title="mysql创建用户与授权"></a>mysql创建用户与授权</h2><p>CREATE USER ‘ustc’@’%’ IDENTIFIED BY ‘ustc’;</p>
-<p>GRANT ALL ON <em>.</em> TO ‘ustc’@’%’;</p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/zmx729618/article/details/78026497">mysql.user表权限</a></p>
+<h2 id="mysql创建用户与授权"><a href="#mysql创建用户与授权" class="headerlink" title="mysql创建用户与授权"></a>mysql创建用户与授权</h2><p>CREATE USER ‘ustc‘@’%’ IDENTIFIED BY ‘ustc’;</p>
+<p>GRANT ALL ON <em>.</em> TO ‘ustc‘@’%’;</p>
 <p> grant all privileges on <em>.</em> to root@”%” with grant option</p>
 
+                
             </div>
             <hr/>
 
@@ -612,271 +616,38 @@ kill MYSQL_PID</code></pre>
     
 
     
-
-    
-
-    
-        <style>
-    .valine-card {
-        margin: 1.5rem auto;
-    }
-
-    .valine-card .card-content {
-        padding: 20px 20px 5px 20px;
-    }
-
-    #vcomments textarea {
-        box-sizing: border-box;
-        background: url("/medias/comment_bg.png") 100% 100% no-repeat;
-    }
-
-    #vcomments p {
-        margin: 2px 2px 10px;
-        font-size: 1.05rem;
-        line-height: 1.78rem;
-    }
-
-    #vcomments blockquote p {
-        text-indent: 0.2rem;
-    }
-
-    #vcomments a {
-        padding: 0 2px;
-        color: #4cbf30;
-        font-weight: 500;
-        text-decoration: none;
-    }
-
-    #vcomments img {
-        max-width: 100%;
-        height: auto;
-        cursor: pointer;
-    }
-
-    #vcomments ol li {
-        list-style-type: decimal;
-    }
-
-    #vcomments ol,
-    ul {
-        display: block;
-        padding-left: 2em;
-        word-spacing: 0.05rem;
-    }
-
-    #vcomments ul li,
-    ol li {
-        display: list-item;
-        line-height: 1.8rem;
-        font-size: 1rem;
-    }
-
-    #vcomments ul li {
-        list-style-type: disc;
-    }
-
-    #vcomments ul ul li {
-        list-style-type: circle;
-    }
-
-    #vcomments table, th, td {
-        padding: 12px 13px;
-        border: 1px solid #dfe2e5;
-    }
-
-    #vcomments table, th, td {
-        border: 0;
-    }
-
-    table tr:nth-child(2n), thead {
-        background-color: #fafafa;
-    }
-
-    #vcomments table th {
-        background-color: #f2f2f2;
-        min-width: 80px;
-    }
-
-    #vcomments table td {
-        min-width: 80px;
-    }
-
-    #vcomments h1 {
-        font-size: 1.85rem;
-        font-weight: bold;
-        line-height: 2.2rem;
-    }
-
-    #vcomments h2 {
-        font-size: 1.65rem;
-        font-weight: bold;
-        line-height: 1.9rem;
-    }
-
-    #vcomments h3 {
-        font-size: 1.45rem;
-        font-weight: bold;
-        line-height: 1.7rem;
-    }
-
-    #vcomments h4 {
-        font-size: 1.25rem;
-        font-weight: bold;
-        line-height: 1.5rem;
-    }
-
-    #vcomments h5 {
-        font-size: 1.1rem;
-        font-weight: bold;
-        line-height: 1.4rem;
-    }
-
-    #vcomments h6 {
-        font-size: 1rem;
-        line-height: 1.3rem;
-    }
-
-    #vcomments p {
-        font-size: 1rem;
-        line-height: 1.5rem;
-    }
-
-    #vcomments hr {
-        margin: 12px 0;
-        border: 0;
-        border-top: 1px solid #ccc;
-    }
-
-    #vcomments blockquote {
-        margin: 15px 0;
-        border-left: 5px solid #039be5;
-        padding: 1rem 0.8rem 0.3rem 0.8rem;
-        color: #666;
-        background-color: rgba(66, 185, 131, .1);
-    }
-
-    #vcomments pre {
-        font-family: monospace, monospace;
-        padding: 1.2em;
-        margin: .5em 0;
-        background: #272822;
-        overflow: auto;
-        border-radius: 0.3em;
-        tab-size: 4;
-    }
-
-    #vcomments code {
-        font-family: monospace, monospace;
-        padding: 1px 3px;
-        font-size: 0.92rem;
-        color: #e96900;
-        background-color: #f8f8f8;
-        border-radius: 2px;
-    }
-
-    #vcomments pre code {
-        font-family: monospace, monospace;
-        padding: 0;
-        color: #e8eaf6;
-        background-color: #272822;
-    }
-
-    #vcomments pre[class*="language-"] {
-        padding: 1.2em;
-        margin: .5em 0;
-    }
-
-    #vcomments code[class*="language-"],
-    pre[class*="language-"] {
-        color: #e8eaf6;
-    }
-
-    #vcomments [type="checkbox"]:not(:checked), [type="checkbox"]:checked {
-        position: inherit;
-        margin-left: -1.3rem;
-        margin-right: 0.4rem;
-        margin-top: -1px;
-        vertical-align: middle;
-        left: unset;
-        visibility: visible;
-    }
-
-    #vcomments b,
-    strong {
-        font-weight: bold;
-    }
-
-    #vcomments dfn {
-        font-style: italic;
-    }
-
-    #vcomments small {
-        font-size: 85%;
-    }
-
-    #vcomments cite {
-        font-style: normal;
-    }
-
-    #vcomments mark {
-        background-color: #fcf8e3;
-        padding: .2em;
-    }
-
-    #vcomments table, th, td {
-        padding: 12px 13px;
-        border: 1px solid #dfe2e5;
-    }
-
-    table tr:nth-child(2n), thead {
-        background-color: #fafafa;
-    }
-
-    #vcomments table th {
-        background-color: #f2f2f2;
-        min-width: 80px;
-    }
-
-    #vcomments table td {
-        min-width: 80px;
-    }
-
-    #vcomments [type="checkbox"]:not(:checked), [type="checkbox"]:checked {
-        position: inherit;
-        margin-left: -1.3rem;
-        margin-right: 0.4rem;
-        margin-top: -1px;
-        vertical-align: middle;
-        left: unset;
-        visibility: visible;
-    }
-</style>
-
-<div class="card valine-card" data-aos="fade-up">
-    <div class="comment_headling" style="font-size: 20px; font-weight: 700; position: relative; padding-left: 20px; top: 15px; padding-bottom: 5px;">
-        <i class="fas fa-comments fa-fw" aria-hidden="true"></i>
-        <span>评论</span>
-    </div>
-    <div id="vcomments" class="card-content" style="display: grid">
+        <div class="disqus-card card" data-aos="fade-up">
+    <div id="disqus_thread" class="card-content">
+        <noscript>Please enable JavaScript to view the
+            <a target="_blank" rel="noopener" href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
     </div>
 </div>
 
-<script src="/libs/valine/av-min.js"></script>
-<script src="/libs/valine/Valine.min.js"></script>
-<script>
-    new Valine({
-        el: '#vcomments',
-        appId: 'Sz4FRH1b0UaJd4fs5CxgdRQd-gzGzoHsz',
-        appKey: 'Y2pWFXbf3px0AlwvAR1hWkOr',
-        notify: 'false' === 'true',
-        verify: 'false' === 'true',
-        visitor: 'true' === 'true',
-        avatar: 'mm',
-        pageSize: '10',
-        lang: 'zh-cn',
-        placeholder: '聊聊'
-    });
+<script type="text/javascript">
+    disqus_config = function () {
+        this.page.url = 'http://www.xujn.xyz/2018/08/23/linux-xia-mysql-5.7.22-an-zhuang-he-wang-ji-mi-ma/';
+        this.page.identifier = '/2018/08/23/linux-xia-mysql-5.7.22-an-zhuang-he-wang-ji-mi-ma/';
+        this.page.title = 'Linux下MySQL 5.7.22安装和忘记密码';
+    };
+    let disqus_shortname = 'xujn';
+
+    (function () { // DON'T EDIT BELOW THIS LINE
+        let d = document, s = d.createElement('script');
+        // 如：s.src = 'https://blinkfox.disqus.com/embed.js';
+        s.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', new Date());
+        (d.head || d.body).appendChild(s);
+    })();
 </script>
+
+    
+
+    
+
+    
+
+    
 
     
 
@@ -903,12 +674,7 @@ kill MYSQL_PID</code></pre>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            安装yum install epel-release
-yum -y install nginx
-service nginx start
-systemctl enable nginx
-访问自己的地址http://server_ip
-记得开启8
+                            
                         
                     </div>
                     <div class="publish-info">
@@ -957,8 +723,7 @@ systemctl enable nginx
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            web.xml文件参考自：web.xml配置
-web.xml是网络程序中的一个很重要的配置文件。在启动一个WEB项目的时候，WEB容器（比如tomcat）会去读取它的配置文件web.xml，读取到不同的节点时，WEB容器就会创建相应的过滤器
+                            
                         
                     </div>
                     <div class="publish-info">
@@ -1055,16 +820,9 @@ web.xml是网络程序中的一个很重要的配置文件。在启动一个WEB�
 <script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
 
 
-<!-- 代码块折行 -->
-
-<style type="text/css">
-code[class*="language-"], pre[class*="language-"] { white-space: pre !important; }
-</style>
-
-
     </div>
     <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
-        <div class="toc-widget">
+        <div class="toc-widget card" style="background-color: white;">
             <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
             <div id="toc-content"></div>
         </div>
@@ -1088,7 +846,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             contentSelector: '#articleContent',
             headingsOffset: -($(window).height() * 0.4 - 45),
             collapseDepth: Number('0'),
-            headingSelector: 'h1,h2, h3, h4'
+            headingSelector: 'h2, h3, h4'
         });
 
         // modify the toc link href to support Chinese.
@@ -1100,7 +858,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
 
         // modify the heading title id to support Chinese.
         i = 0;
-        $('#articleContent').children('h1,h2, h3, h4').each(function () {
+        $('#articleContent').children('h2, h3, h4').each(function () {
             $(this).attr('id', tocHeading + (++i));
         });
 
@@ -1162,112 +920,101 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
 
 
 
-    <div id="weather-v2-plugin-simple"></div>
-    <script>
-    WIDGET = {
-    CONFIG: {
-        "modules": "0124",
-        "background": 1,
-        "tmpColor": "FFFEFE",
-        "tmpSize": 16,
-        "cityColor": "FFFFFF",
-        "citySize": 16,
-        "aqiSize": 16,
-        "weatherIconSize": 24,
-        "alertIconSize": 18,
-        "padding": "10px 10px 10px 10px",
-        "shadow": "1",
-        "language": "auto",
-        "borderRadius": 5,
-        "fixed": "true",
-        "vertical": "middle",
-        "horizontal": "left",
-        "left": 10,
-        "top": 10,
-        "key": "fmCYN7ec82"
-    }
-    }
-    </script>
-    <script src="https://apip.weatherdt.com/simple/static/js/weather-simple-common.js?v=2.0"></script>
+
     <footer class="page-footer bg-color">
     
-    <div class="container row center-align" style="margin-bottom: 15px !important;">
+
+    <div class="container row center-align"
+         style="margin-bottom: 15px !important;">
         <div class="col s12 m8 l8 copy-right">
             Copyright&nbsp;&copy;
+            
+                <span id="year">2020-2021</span>
+            
             <span id="year">2020</span>
             <a href="/about" target="_blank">苏叶新城</a>
             |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
             |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
             <br>
             
-            &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">18.1k</span>&nbsp;字
             
             
+                
             
             
-            
-            
-            <span id="busuanzi_container_site_pv">
-                |&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span id="busuanzi_value_site_pv"
-                    class="white-color"></span>&nbsp;次
+                <span id="busuanzi_container_site_pv">
+                &nbsp;|&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;
+                    <span id="busuanzi_value_site_pv" class="white-color"></span>
             </span>
             
             
-            <span id="busuanzi_container_site_uv">
-                |&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;<span id="busuanzi_value_site_uv"
-                    class="white-color"></span>&nbsp;人
+                <span id="busuanzi_container_site_uv">
+                &nbsp;|&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;
+                    <span id="busuanzi_value_site_uv" class="white-color"></span>
             </span>
             
             <br>
+
+            <!-- 运行天数提醒. -->
             
-            <span id="sitetime">载入运行时间...</span>
-            <script>
-                function siteTime() {
-                    var seconds = 1000;
-                    var minutes = seconds * 60;
-                    var hours = minutes * 60;
-                    var days = hours * 24;
-                    var years = days * 365;
-                    var today = new Date();
-                    var startYear = "2020";
-                    var startMonth = "3";
-                    var startDate = "1";
-                    var startHour = "0";
-                    var startMinute = "0";
-                    var startSecond = "0";
-                    var todayYear = today.getFullYear();
-                    var todayMonth = today.getMonth() + 1;
-                    var todayDate = today.getDate();
-                    var todayHour = today.getHours();
-                    var todayMinute = today.getMinutes();
-                    var todaySecond = today.getSeconds();
-                    var t1 = Date.UTC(startYear, startMonth, startDate, startHour, startMinute, startSecond);
-                    var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
-                    var diff = t2 - t1;
-                    var diffYears = Math.floor(diff / years);
-                    var diffDays = Math.floor((diff / days) - diffYears * 365);
-                    var diffHours = Math.floor((diff - (diffYears * 365 + diffDays) * days) / hours);
-                    var diffMinutes = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours) /
-                        minutes);
-                    var diffSeconds = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours -
-                        diffMinutes * minutes) / seconds);
-                    if (startYear == todayYear) {
-                        document.getElementById("year").innerHTML = todayYear;
-                        document.getElementById("sitetime").innerHTML = "本站已安全运行 " + diffDays + " 天 " + diffHours +
-                            " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
-                    } else {
-                        document.getElementById("year").innerHTML = startYear + " - " + todayYear;
-                        document.getElementById("sitetime").innerHTML = "本站已安全运行 " + diffYears + " 年 " + diffDays +
-                            " 天 " + diffHours + " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+                <span id="sitetime"> Loading ...</span>
+                <script>
+                    var calcSiteTime = function () {
+                        var seconds = 1000;
+                        var minutes = seconds * 60;
+                        var hours = minutes * 60;
+                        var days = hours * 24;
+                        var years = days * 365;
+                        var today = new Date();
+                        var startYear = "2020";
+                        var startMonth = "3";
+                        var startDate = "1";
+                        var startHour = "0";
+                        var startMinute = "0";
+                        var startSecond = "0";
+                        var todayYear = today.getFullYear();
+                        var todayMonth = today.getMonth() + 1;
+                        var todayDate = today.getDate();
+                        var todayHour = today.getHours();
+                        var todayMinute = today.getMinutes();
+                        var todaySecond = today.getSeconds();
+                        var t1 = Date.UTC(startYear, startMonth, startDate, startHour, startMinute, startSecond);
+                        var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
+                        var diff = t2 - t1;
+                        var diffYears = Math.floor(diff / years);
+                        var diffDays = Math.floor((diff / days) - diffYears * 365);
+
+                        // 区分是否有年份.
+                        var language = 'zh-CN';
+                        if (startYear === String(todayYear)) {
+                            document.getElementById("year").innerHTML = todayYear;
+                            var daysTip = 'This site has been running for ' + diffDays + ' days';
+                            if (language === 'zh-CN') {
+                                daysTip = '本站已运行 ' + diffDays + ' 天';
+                            } else if (language === 'zh-HK') {
+                                daysTip = '本站已運行 ' + diffDays + ' 天';
+                            }
+                            document.getElementById("sitetime").innerHTML = daysTip;
+                        } else {
+                            document.getElementById("year").innerHTML = startYear + " - " + todayYear;
+                            var yearsAndDaysTip = 'This site has been running for ' + diffYears + ' years and '
+                                + diffDays + ' days';
+                            if (language === 'zh-CN') {
+                                yearsAndDaysTip = '本站已运行 ' + diffYears + ' 年 ' + diffDays + ' 天';
+                            } else if (language === 'zh-HK') {
+                                yearsAndDaysTip = '本站已運行 ' + diffYears + ' 年 ' + diffDays + ' 天';
+                            }
+                            document.getElementById("sitetime").innerHTML = yearsAndDaysTip;
+                        }
                     }
-                }
-                setInterval(siteTime, 1000);
-            </script>
+
+                    calcSiteTime();
+                </script>
             
             <br>
             
-            <span id="icp"><img src="/medias/icp.png" style="vertical-align: text-bottom;" />
+                <span id="icp"><img src="/medias/icp.png"
+                                    style="vertical-align: text-bottom;"/>
                 <a href="http://beian.miit.gov.cn" target="_blank">吉ICP备20000854号-1</a>
             </span>
             
@@ -1293,6 +1040,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
 
 <div class="progress-bar"></div>
 
+
     <!-- 搜索遮罩框 -->
 <div id="searchModal" class="modal">
     <div class="modal-content">
@@ -1305,10 +1053,95 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
     </div>
 </div>
 
-<script src="/js/search.js"></script>
 <script type="text/javascript">
 $(function () {
-    searchFunc("/search.xml", 'searchInput', 'searchResult');
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
 });
 </script>
 
@@ -1366,6 +1199,8 @@ $(function () {
 
     
 
+    <!--腾讯兔小巢-->
+    
     
     <script type="text/javascript" color="0,0,255"
         pointColor="0,0,255" opacity='0.7'
@@ -1386,31 +1221,7 @@ $(function () {
     
     <script src="/libs/instantpage/instantpage.js" type="module"></script>
     
-    <script type="text/javascript">
-        window.onload = function(){
-            //屏蔽键盘事件
-            document.onkeydown = function (){
-                var e = window.event || arguments[0];
-                //F12
-                if(e.keyCode == 123){
-                    return false;
-                //Ctrl+Shift+I
-                }else if((e.ctrlKey) && (e.shiftKey) && (e.keyCode == 73)){
-                    return false;
-                //Shift+F10
-                }else if((e.shiftKey) && (e.keyCode == 121)){
-                    return false;
-                //Ctrl+U
-                }else if((e.ctrlKey) && (e.keyCode == 85)){
-                    return false;
-                }
-            };
-            //屏蔽鼠标右键
-            document.oncontextmenu = function (){
-                return false;
-            }
-        }
-    </script>
-   </body>
+
+</body>
 
 </html>

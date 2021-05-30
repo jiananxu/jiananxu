@@ -39,15 +39,12 @@
     <link rel="stylesheet" type="text/css" href="/css/my.css">
 
     <script src="/libs/jquery/jquery.min.js"></script>
-    <!-- 360 -->
-    <script>
-        (function(){
-        var src = "https://jspassport.ssl.qhimg.com/11.0.1.js?d182b3f28525f2db83acfaaf6e696dba";
-        document.write('<script src="' + src + '" id="sozz"><\/script>');
-        })();
-    </script>
-<meta name="generator" content="Hexo 4.2.1"><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
-<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
+
+<meta name="generator" content="Hexo 5.4.0">
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+</head>
+
+
 
 
 <body>
@@ -311,8 +308,7 @@
     }
 
     .toc-widget .toc-title {
-        margin: 35px 0 15px 0;
-        padding-left: 17px;
+        padding: 35px 0 15px 17px;
         font-size: 1.5rem;
         font-weight: bold;
         line-height: 1.5rem;
@@ -324,7 +320,7 @@
     }
 
     #toc-content {
-        height: calc(100vh - 250px);
+        padding-bottom: 30px;
         overflow: auto;
     }
 
@@ -337,7 +333,7 @@
     }
 
     #toc-content .toc-link:hover {
-        color: #039be5;
+        color: #00d3ff;
         font-weight: 700;
         text-decoration: underline;
     }
@@ -352,7 +348,7 @@
     }
 
     #toc-content .is-active-link {
-        color: #039be5;
+        color: #00d3ff;
     }
 
     #floating-toc-btn {
@@ -385,12 +381,12 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/Spring-Boot/">
-                                <span class="chip bg-color">Spring Boot</span>
-                            </a>
-                        
                             <a href="/tags/Tinymce/">
                                 <span class="chip bg-color">Tinymce</span>
+                            </a>
+                        
+                            <a href="/tags/Spring-Boot/">
+                                <span class="chip bg-color">Spring Boot</span>
                             </a>
                         
                     </div>
@@ -421,23 +417,21 @@
                 
 
                 
-                <div class="info-break-policy">
-                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.9k
-                </div>
-                
 
                 
 
                 
-                    <div id="busuanzi_container_page_pv" class="info-break-policy">
-                        <i class="far fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
-                        <span id="busuanzi_value_page_pv"></span>
-                    </div>
-				
             </div>
         </div>
         <hr class="clearfix">
+
+        
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.css">
+        
+
+        
+
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <h1 id="基础环境"><a href="#基础环境" class="headerlink" title="基础环境"></a>基础环境</h1><ul>
@@ -450,7 +444,7 @@
 </blockquote>
 <p>经过多番对比（<del>界面好看</del>），认定Tinymce功能更加完善，并且具备可扩展特性，功能完善，遂采用。</p>
 <h1 id="小例子"><a href="#小例子" class="headerlink" title="小例子"></a>小例子</h1><p>下面是tinymce实例化的例子，通过id绑定，渲染页面。tinymce可以嵌入到任意web项目中。编辑内容的保存可以通过post表单的形式提交，也可以自己获取内容提交。</p>
-<pre><code>&lt;!DOCTYPE html&gt;
+<pre class="line-numbers language-none"><code class="language-none">&lt;!DOCTYPE html&gt;
 &lt;html&gt;
 &lt;head&gt;
 
@@ -458,43 +452,45 @@
 
 &lt;body&gt;
 &lt;h1&gt;TinyMCE快速开始示例&lt;/h1&gt;
-  &lt;form method=&quot;post&quot;&gt;
-    &lt;textarea id=&quot;demo&quot;&gt;Hello, World!&lt;/textarea&gt;
+  &lt;form method="post"&gt;
+    &lt;textarea id="demo"&gt;Hello, World!&lt;/textarea&gt;
   &lt;/form&gt;
 &lt;/body
-  &lt;script src=&#39;tinymce.min.js&#39;&gt;&lt;/script&gt;
+  &lt;script src='tinymce.min.js'&gt;&lt;/script&gt;
   &lt;script&gt;
   tinymce.init({
-    selector: &#39;#demo&#39;//ID绑定
+    selector: '#demo'//ID绑定
     //此处可添加更多特性
   });
   &lt;/script&gt;
 &lt;/html&gt;
-</code></pre>
-<h1 id="正式开始"><a href="#正式开始" class="headerlink" title="正式开始"></a>正式开始</h1><h2 id="引入Tinymce脚本"><a href="#引入Tinymce脚本" class="headerlink" title="引入Tinymce脚本"></a>引入Tinymce脚本</h2><pre><code>&lt;script src=&quot;/complaints/tinymce/tinymce.min.js&quot;&gt;&lt;/script&gt;
-</code></pre>
-<h2 id="渲染区域"><a href="#渲染区域" class="headerlink" title="渲染区域"></a>渲染区域</h2><pre><code>&lt;div class=&quot;layui-form-item&quot;&gt;
-    &lt;textarea id=&quot;content&quot; name=&quot;content&quot;&gt;&lt;/textarea&gt;
-&lt;/div&gt;</code></pre>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h1 id="正式开始"><a href="#正式开始" class="headerlink" title="正式开始"></a>正式开始</h1><h2 id="引入Tinymce脚本"><a href="#引入Tinymce脚本" class="headerlink" title="引入Tinymce脚本"></a>引入Tinymce脚本</h2><pre class="line-numbers language-none"><code class="language-none">&lt;script src="/complaints/tinymce/tinymce.min.js"&gt;&lt;/script&gt;
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<h2 id="渲染区域"><a href="#渲染区域" class="headerlink" title="渲染区域"></a>渲染区域</h2><pre class="line-numbers language-none"><code class="language-none">&lt;div class="layui-form-item"&gt;
+    &lt;textarea id="content" name="content"&gt;&lt;/textarea&gt;
+&lt;/div&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 <h2 id="实例化"><a href="#实例化" class="headerlink" title="实例化"></a>实例化</h2><p>支持图片、视频</p>
-<pre><code>tinymce.init({
-            selector: &#39;#content&#39;,//绑定渲染区
+<pre class="line-numbers language-none"><code class="language-none">tinymce.init({
+            selector: '#content',//绑定渲染区
             height: 600,
-            plugins: &#39;paste importcss code table advlist fullscreen imagetools  textcolor colorpicker hr  autolink link image lists preview media wordcount&#39;,
-            toolbar: &#39;styleselect |  formatselect | fontsizeselect | forecolor backcolor | bold italic underline strikethrough | image  media | table | alignleft aligncenter alignright alignjustify | outdent indent | numlist bullist | preview removeformat  hr | paste code  link | undo redo | fullscreen&#39;,
-            skin: &#39;oxide&#39;,
-            language: &#39;zh_CN&#39;,//汉化
+            plugins: 'paste importcss code table advlist fullscreen imagetools  textcolor colorpicker hr  autolink link image lists preview media wordcount',
+            toolbar: 'styleselect |  formatselect | fontsizeselect | forecolor backcolor | bold italic underline strikethrough | image  media | table | alignleft aligncenter alignright alignjustify | outdent indent | numlist bullist | preview removeformat  hr | paste code  link | undo redo | fullscreen',
+            skin: 'oxide',
+            language: 'zh_CN',//汉化
             convert_urls: false,
             // relative_urls : true,
-            images_upload_url: &#39;../tmmedia/upload&#39;,//图片上传地址
+            images_upload_url: '../tmmedia/upload',//图片上传地址
             images_upload_credentials: true,
             image_dimensions: false,
             image_class_list: [
-                {title: &#39;无&#39;, value: &#39;&#39;},
-                {title: &#39;预览&#39;, value: &#39;preview&#39;},
+                {title: '无', value: ''},
+                {title: '预览', value: 'preview'},
             ],
-            // images_upload_base_path: &#39;/&#39;,
-            forced_root_block: &#39;p&#39;,
+            // images_upload_base_path: '/',
+            forced_root_block: 'p',
             force_p_newlines: true,
             importcss_append: true,
             content_style: `
@@ -508,57 +504,57 @@
     .mce-object-iframe        { width:100%; box-sizing:border-box; margin:0; padding:0; }
     ul,ol                     { list-style-position:inside; }
   `,
-            insert_button_items: &#39;image link | inserttable&#39;,
+            insert_button_items: 'image link | inserttable',
             // CONFIG: Paste
-            paste_retain_style_properties: &#39;all&#39;,
-            paste_word_valid_elements: &#39;*[*]&#39;,        // word需要它
+            paste_retain_style_properties: 'all',
+            paste_word_valid_elements: '*[*]',        // word需要它
             paste_data_images: true,                  // 粘贴的同时能把内容里的图片自动上传
             paste_convert_word_fake_lists: false,     // 插入word文档需要该属性
-            paste_webkit_styles: &#39;all&#39;,
+            paste_webkit_styles: 'all',
             paste_merge_formats: true,
             nonbreaking_force_tab: false,
             paste_auto_cleanup_on_paste: false,
 
             // CONFIG: Font
-            fontsize_formats: &#39;10px 11px 12px 14px 16px 18px 20px 24px&#39;,
+            fontsize_formats: '10px 11px 12px 14px 16px 18px 20px 24px',
 
             // CONFIG: StyleSelect
             style_formats: [
                 {
-                    title: &#39;首行缩进&#39;,
-                    block: &#39;p&#39;,
-                    styles: {&#39;text-indent&#39;: &#39;2em&#39;}
+                    title: '首行缩进',
+                    block: 'p',
+                    styles: {'text-indent': '2em'}
                 },
                 {
-                    title: &#39;行高&#39;,
+                    title: '行高',
                     items: [
-                        {title: &#39;1&#39;, styles: {&#39;line-height&#39;: &#39;1&#39;}, inline: &#39;span&#39;},
-                        {title: &#39;1.5&#39;, styles: {&#39;line-height&#39;: &#39;1.5&#39;}, inline: &#39;span&#39;},
-                        {title: &#39;2&#39;, styles: {&#39;line-height&#39;: &#39;2&#39;}, inline: &#39;span&#39;},
-                        {title: &#39;2.5&#39;, styles: {&#39;line-height&#39;: &#39;2.5&#39;}, inline: &#39;span&#39;},
-                        {title: &#39;3&#39;, styles: {&#39;line-height&#39;: &#39;3&#39;}, inline: &#39;span&#39;}
+                        {title: '1', styles: {'line-height': '1'}, inline: 'span'},
+                        {title: '1.5', styles: {'line-height': '1.5'}, inline: 'span'},
+                        {title: '2', styles: {'line-height': '2'}, inline: 'span'},
+                        {title: '2.5', styles: {'line-height': '2.5'}, inline: 'span'},
+                        {title: '3', styles: {'line-height': '3'}, inline: 'span'}
                     ]
                 }
             ],
             // Tab
-            tabfocus_elements: &#39;:prev,:next&#39;,
+            tabfocus_elements: ':prev,:next',
             object_resizing: true,
 
             // Image
-            imagetools_toolbar: &#39;rotateleft rotateright | flipv fliph | editimage imageoptions&#39;,
-            file_picker_types: &#39;media&#39;,
+            imagetools_toolbar: 'rotateleft rotateright | flipv fliph | editimage imageoptions',
+            file_picker_types: 'media',
             media_live_embeds: true,
             //be used to add custom file picker to those dialogs that have it.
             file_picker_callback: function (cb, value, meta) {
-                if (meta.filetype == &#39;media&#39;) {
+                if (meta.filetype == 'media') {
                     //创建一个隐藏的type=file的文件选择input
-                    let input = document.createElement(&#39;input&#39;);
-                    input.setAttribute(&#39;type&#39;, &#39;file&#39;);
+                    let input = document.createElement('input');
+                    input.setAttribute('type', 'file');
                     input.onchange = function(){
                         let file = this.files[0];//只选取第一个文件。如果要选取全部，后面注意做修改
                         let xhr, formData;
                         xhr = new XMLHttpRequest();
-                        xhr.open(&#39;POST&#39;, &#39;../tmmedia/upload&#39;);//自定义文件上传
+                        xhr.open('POST', '../tmmedia/upload');//自定义文件上传
                         xhr.withCredentials = true;
                         xhr.upload.onprogress = function (e) {
                             // 进度(e.loaded / e.total * 100)
@@ -570,7 +566,7 @@
                         xhr.onload = function () {
                             let json;
                             if (xhr.status &lt; 200 || xhr.status &gt;= 300) {
-                                console.log(&#39;HTTP 错误: &#39; + xhr.status);
+                                console.log('HTTP 错误: ' + xhr.status);
                                 return;
                             }
                             json = JSON.parse(xhr.responseText);
@@ -583,7 +579,7 @@
                         };
                         formData = new FormData();
                         //假设接口接收参数为file,值为选中的文件
-                        formData.append(&#39;file&#39;, file);
+                        formData.append('file', file);
                         //正式使用将下面被注释的内容恢复
                         xhr.send(formData);
                     }
@@ -591,23 +587,23 @@
                     input.click();
                 }
             }
-        });</code></pre>
+        });<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>实现效果<br><img src="http://img.xujn.xyz/20200702182102.png?!"></p>
 <h2 id="保存功能"><a href="#保存功能" class="headerlink" title="保存功能"></a>保存功能</h2><p>通过 <code>tinymce.activeEditor.getContent()</code>获取编辑区内容，内容为html代码。</p>
-<pre><code>form.on(&#39;submit(save)&#39;, function (data) {
+<pre class="line-numbers language-none"><code class="language-none">form.on('submit(save)', function (data) {
             var field = data.field;
             //获取内容核心
             field.content = tinymce.activeEditor.getContent()
 
             var loadIndex;
             loadIndex = layer.load(2);
-            $.post(&quot;../tmknowledgebase/saveOrUpdate&quot;, field, function (data) {
+            $.post("../tmknowledgebase/saveOrUpdate", field, function (data) {
                 if (data.code === 200) {
-                    tools.success(&quot;保存成功!&quot;);
-                    layer.msg(&quot;成功!&quot;, {time: 1000}, function () {
+                    tools.success("保存成功!");
+                    layer.msg("成功!", {time: 1000}, function () {
                         layer.close(loadIndex);
                         //传给上个页面，刷新table用
-                        tools.putTempData(&#39;submitOK&#39;, true);
+                        tools.putTempData('submitOK', true);
                         //关掉对话框
                         tools.closeThisDialog();
                     });
@@ -616,89 +612,91 @@
                     tools.error(data.msg);
                 }
             })
-        })</code></pre>
+        })<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h2 id="内容回显"><a href="#内容回显" class="headerlink" title="内容回显"></a>内容回显</h2><p>在保存编辑内容后，如果我们想要再次编辑，需要对以保存内容进行回显，之前提到，保存的内容实际是html片段，因此采用html渲染即可。在此项目中采用Freemarker框架，渲染代码如下：</p>
-<p><code>${data.content!&quot;&quot;}</code>为后台返回的编辑区内容</p>
-<pre><code> &lt;div class=&quot;layui-card-body layui-form-item&quot;&gt;
-    &lt;textarea id=&quot;content&quot; name=&quot;content&quot;&gt;${data.content!&quot;&quot;}&lt;/textarea&gt;
-&lt;/div&gt;</code></pre>
+<p><code>${data.content!""}</code>为后台返回的编辑区内容</p>
+<pre class="line-numbers language-none"><code class="language-none"> &lt;div class="layui-card-body layui-form-item"&gt;
+    &lt;textarea id="content" name="content"&gt;${data.content!""}&lt;/textarea&gt;
+&lt;/div&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
 <p>实例化区域代码与上文相同</p>
-<pre><code> tinymce.init({
-            selector: &#39;#content&#39;,
-            height: 600,
-            ...</code></pre>
+<pre class="line-numbers language-none"><code class="language-none">tinymce.init({
+           selector: '#content',
+           height: 600,
+           ...<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
 <h2 id="汉化"><a href="#汉化" class="headerlink" title="汉化"></a>汉化</h2><p>tinymce默认是英文的，需要引入汉化包zh_CN.js到langs目录下,在<code>language</code>属性下添加<code>zh_CN</code>.</p>
-<pre><code>tinymce.init({
-    selector: &#39;#content&#39;,
-    language:&#39;zh_CN&#39;,//注意大小写
-});</code></pre>
+<pre class="line-numbers language-none"><code class="language-none">tinymce.init({
+    selector: '#content',
+    language:'zh_CN',//注意大小写
+});<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 <h2 id="图片上传"><a href="#图片上传" class="headerlink" title="图片上传"></a>图片上传</h2><p>首先后台自定义文件上传接口</p>
-<p><strong>注意</strong>：需要指定具体的下载地址，否则上传后文件无法回显<code> map.put(&quot;location&quot;, &quot;当前文件实际下载地址&quot;);</code></p>
-<pre><code>@PostMapping(value = &quot;/tmmedia/upload&quot;)
+<p><strong>注意</strong>：需要指定具体的下载地址，否则上传后文件无法回显<code> map.put("location", "当前文件实际下载地址");</code></p>
+<pre class="line-numbers language-none"><code class="language-none">@PostMapping(value = "/tmmedia/upload")
     public Object downloadFile(@RequestParam MultipartFile file) {
         Map&lt;String, String&gt; map = new HashMap&lt;&gt;();
         try {
             String fileName = file.getOriginalFilename();
             String extension = StringUtils.getFilenameExtension(fileName);
-            String name = IdUtil.fastUUID() + &quot;.&quot; + extension;
+            String name = IdUtil.fastUUID() + "." + extension;
             ftpUtils.upload(dir, name, file);
 //            文件下载，供前台回显
-            map.put(&quot;location&quot;, downloadUrl + dir + &quot;/&quot; + name);
+            map.put("location", downloadUrl + dir + "/" + name);
         } catch (Exception e) {
             e.printStackTrace();
-            map.put(&quot;location&quot;, &quot;&quot;);
+            map.put("location", "");
         }
         return map;
-    }</code></pre>
+    }<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>渲染区配置</p>
-<pre><code>tinymce.init({
-    selector: &#39;#content&#39;,
-    language:&#39;zh_CN&#39;,//注意大小写
-    plugins:  image &#39;,
-    images_upload_url: &#39;../tmmedia/upload&#39;,//图片上传地址
+<pre class="line-numbers language-none"><code class="language-none">tinymce.init({
+    selector: '#content',
+    language:'zh_CN',//注意大小写
+    plugins:  image ',
+    images_upload_url: '../tmmedia/upload',//图片上传地址
     images_upload_credentials: true,
     image_dimensions: false,
     image_class_list: [
-        {title: &#39;无&#39;, value: &#39;&#39;},
-        {title: &#39;预览&#39;, value: &#39;preview&#39;},
+        {title: '无', value: ''},
+        {title: '预览', value: 'preview'},
     ],
-});</code></pre>
+});<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h2 id="视频播放"><a href="#视频播放" class="headerlink" title="视频播放"></a>视频播放</h2><p>首先后台自定义文件上传接口</p>
-<p>==注意==：需要指定具体的下载地址，否则上传后文件无法回显<code> map.put(&quot;location&quot;, &quot;当前文件实际下载地址&quot;);</code></p>
-<pre><code>@PostMapping(value = &quot;/tmmedia/upload&quot;)
+<p>==注意==：需要指定具体的下载地址，否则上传后文件无法回显<code> map.put("location", "当前文件实际下载地址");</code></p>
+<pre class="line-numbers language-none"><code class="language-none">@PostMapping(value = "/tmmedia/upload")
     public Object downloadFile(@RequestParam MultipartFile file) {
         Map&lt;String, String&gt; map = new HashMap&lt;&gt;();
         try {
             String fileName = file.getOriginalFilename();
             String extension = StringUtils.getFilenameExtension(fileName);
-            String name = IdUtil.fastUUID() + &quot;.&quot; + extension;
+            String name = IdUtil.fastUUID() + "." + extension;
             ftpUtils.upload(dir, name, file);
 //            文件下载，供前台回显
-            map.put(&quot;location&quot;, downloadUrl + dir + &quot;/&quot; + name);
+            map.put("location", downloadUrl + dir + "/" + name);
         } catch (Exception e) {
             e.printStackTrace();
-            map.put(&quot;location&quot;, &quot;&quot;);
+            map.put("location", "");
         }
         return map;
-    }</code></pre>
+    }<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>渲染区配置</p>
-<pre><code>tinymce.init({
-    selector: &#39;#content&#39;,
-    language:&#39;zh_CN&#39;,//注意大小写
-    plugins:  media &#39;,
-    file_picker_types: &#39;media&#39;,
+<pre class="line-numbers language-none"><code class="language-none">tinymce.init({
+    selector: '#content',
+    language:'zh_CN',//注意大小写
+    plugins:  media ',
+    file_picker_types: 'media',
             media_live_embeds: true,
             //be used to add custom file picker to those dialogs that have it.
             file_picker_callback: function (cb, value, meta) {
-                if (meta.filetype == &#39;media&#39;) {
+                if (meta.filetype == 'media') {
                     //创建一个隐藏的type=file的文件选择input
-                    let input = document.createElement(&#39;input&#39;);
-                    input.setAttribute(&#39;type&#39;, &#39;file&#39;);
+                    let input = document.createElement('input');
+                    input.setAttribute('type', 'file');
                     input.onchange = function(){
                         let file = this.files[0];//只选取第一个文件。如果要选取全部，后面注意做修改
                         let xhr, formData;
                         xhr = new XMLHttpRequest();
-                        xhr.open(&#39;POST&#39;, &#39;../tmmedia/upload&#39;);//自定义文件上传
+                        xhr.open('POST', '../tmmedia/upload');//自定义文件上传
                         xhr.withCredentials = true;
                         xhr.upload.onprogress = function (e) {
                             // 进度(e.loaded / e.total * 100)
@@ -710,7 +708,7 @@
                         xhr.onload = function () {
                             let json;
                             if (xhr.status &lt; 200 || xhr.status &gt;= 300) {
-                                console.log(&#39;HTTP 错误: &#39; + xhr.status);
+                                console.log('HTTP 错误: ' + xhr.status);
                                 return;
                             }
                             json = JSON.parse(xhr.responseText);
@@ -724,7 +722,7 @@
                         };
                         formData = new FormData();
                         //假设接口接收参数为file,值为选中的文件
-                        formData.append(&#39;file&#39;, file);
+                        formData.append('file', file);
                         //正式使用将下面被注释的内容恢复
                         xhr.send(formData);
                     }
@@ -732,8 +730,8 @@
                     input.click();
                 }
             }
-});</code></pre>
-
+});<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+                
             </div>
             <hr/>
 
@@ -796,12 +794,12 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/Spring-Boot/">
-                                    <span class="chip bg-color">Spring Boot</span>
-                                </a>
-                            
                                 <a href="/tags/Tinymce/">
                                     <span class="chip bg-color">Tinymce</span>
+                                </a>
+                            
+                                <a href="/tags/Spring-Boot/">
+                                    <span class="chip bg-color">Spring Boot</span>
                                 </a>
                             
                         </div>
@@ -831,271 +829,38 @@
     
 
     
-
-    
-
-    
-        <style>
-    .valine-card {
-        margin: 1.5rem auto;
-    }
-
-    .valine-card .card-content {
-        padding: 20px 20px 5px 20px;
-    }
-
-    #vcomments textarea {
-        box-sizing: border-box;
-        background: url("/medias/comment_bg.png") 100% 100% no-repeat;
-    }
-
-    #vcomments p {
-        margin: 2px 2px 10px;
-        font-size: 1.05rem;
-        line-height: 1.78rem;
-    }
-
-    #vcomments blockquote p {
-        text-indent: 0.2rem;
-    }
-
-    #vcomments a {
-        padding: 0 2px;
-        color: #4cbf30;
-        font-weight: 500;
-        text-decoration: none;
-    }
-
-    #vcomments img {
-        max-width: 100%;
-        height: auto;
-        cursor: pointer;
-    }
-
-    #vcomments ol li {
-        list-style-type: decimal;
-    }
-
-    #vcomments ol,
-    ul {
-        display: block;
-        padding-left: 2em;
-        word-spacing: 0.05rem;
-    }
-
-    #vcomments ul li,
-    ol li {
-        display: list-item;
-        line-height: 1.8rem;
-        font-size: 1rem;
-    }
-
-    #vcomments ul li {
-        list-style-type: disc;
-    }
-
-    #vcomments ul ul li {
-        list-style-type: circle;
-    }
-
-    #vcomments table, th, td {
-        padding: 12px 13px;
-        border: 1px solid #dfe2e5;
-    }
-
-    #vcomments table, th, td {
-        border: 0;
-    }
-
-    table tr:nth-child(2n), thead {
-        background-color: #fafafa;
-    }
-
-    #vcomments table th {
-        background-color: #f2f2f2;
-        min-width: 80px;
-    }
-
-    #vcomments table td {
-        min-width: 80px;
-    }
-
-    #vcomments h1 {
-        font-size: 1.85rem;
-        font-weight: bold;
-        line-height: 2.2rem;
-    }
-
-    #vcomments h2 {
-        font-size: 1.65rem;
-        font-weight: bold;
-        line-height: 1.9rem;
-    }
-
-    #vcomments h3 {
-        font-size: 1.45rem;
-        font-weight: bold;
-        line-height: 1.7rem;
-    }
-
-    #vcomments h4 {
-        font-size: 1.25rem;
-        font-weight: bold;
-        line-height: 1.5rem;
-    }
-
-    #vcomments h5 {
-        font-size: 1.1rem;
-        font-weight: bold;
-        line-height: 1.4rem;
-    }
-
-    #vcomments h6 {
-        font-size: 1rem;
-        line-height: 1.3rem;
-    }
-
-    #vcomments p {
-        font-size: 1rem;
-        line-height: 1.5rem;
-    }
-
-    #vcomments hr {
-        margin: 12px 0;
-        border: 0;
-        border-top: 1px solid #ccc;
-    }
-
-    #vcomments blockquote {
-        margin: 15px 0;
-        border-left: 5px solid #039be5;
-        padding: 1rem 0.8rem 0.3rem 0.8rem;
-        color: #666;
-        background-color: rgba(66, 185, 131, .1);
-    }
-
-    #vcomments pre {
-        font-family: monospace, monospace;
-        padding: 1.2em;
-        margin: .5em 0;
-        background: #272822;
-        overflow: auto;
-        border-radius: 0.3em;
-        tab-size: 4;
-    }
-
-    #vcomments code {
-        font-family: monospace, monospace;
-        padding: 1px 3px;
-        font-size: 0.92rem;
-        color: #e96900;
-        background-color: #f8f8f8;
-        border-radius: 2px;
-    }
-
-    #vcomments pre code {
-        font-family: monospace, monospace;
-        padding: 0;
-        color: #e8eaf6;
-        background-color: #272822;
-    }
-
-    #vcomments pre[class*="language-"] {
-        padding: 1.2em;
-        margin: .5em 0;
-    }
-
-    #vcomments code[class*="language-"],
-    pre[class*="language-"] {
-        color: #e8eaf6;
-    }
-
-    #vcomments [type="checkbox"]:not(:checked), [type="checkbox"]:checked {
-        position: inherit;
-        margin-left: -1.3rem;
-        margin-right: 0.4rem;
-        margin-top: -1px;
-        vertical-align: middle;
-        left: unset;
-        visibility: visible;
-    }
-
-    #vcomments b,
-    strong {
-        font-weight: bold;
-    }
-
-    #vcomments dfn {
-        font-style: italic;
-    }
-
-    #vcomments small {
-        font-size: 85%;
-    }
-
-    #vcomments cite {
-        font-style: normal;
-    }
-
-    #vcomments mark {
-        background-color: #fcf8e3;
-        padding: .2em;
-    }
-
-    #vcomments table, th, td {
-        padding: 12px 13px;
-        border: 1px solid #dfe2e5;
-    }
-
-    table tr:nth-child(2n), thead {
-        background-color: #fafafa;
-    }
-
-    #vcomments table th {
-        background-color: #f2f2f2;
-        min-width: 80px;
-    }
-
-    #vcomments table td {
-        min-width: 80px;
-    }
-
-    #vcomments [type="checkbox"]:not(:checked), [type="checkbox"]:checked {
-        position: inherit;
-        margin-left: -1.3rem;
-        margin-right: 0.4rem;
-        margin-top: -1px;
-        vertical-align: middle;
-        left: unset;
-        visibility: visible;
-    }
-</style>
-
-<div class="card valine-card" data-aos="fade-up">
-    <div class="comment_headling" style="font-size: 20px; font-weight: 700; position: relative; padding-left: 20px; top: 15px; padding-bottom: 5px;">
-        <i class="fas fa-comments fa-fw" aria-hidden="true"></i>
-        <span>评论</span>
-    </div>
-    <div id="vcomments" class="card-content" style="display: grid">
+        <div class="disqus-card card" data-aos="fade-up">
+    <div id="disqus_thread" class="card-content">
+        <noscript>Please enable JavaScript to view the
+            <a target="_blank" rel="noopener" href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
     </div>
 </div>
 
-<script src="/libs/valine/av-min.js"></script>
-<script src="/libs/valine/Valine.min.js"></script>
-<script>
-    new Valine({
-        el: '#vcomments',
-        appId: 'Sz4FRH1b0UaJd4fs5CxgdRQd-gzGzoHsz',
-        appKey: 'Y2pWFXbf3px0AlwvAR1hWkOr',
-        notify: 'false' === 'true',
-        verify: 'false' === 'true',
-        visitor: 'true' === 'true',
-        avatar: 'mm',
-        pageSize: '10',
-        lang: 'zh-cn',
-        placeholder: '聊聊'
-    });
+<script type="text/javascript">
+    disqus_config = function () {
+        this.page.url = 'http://www.xujn.xyz/2020/07/02/sping-boot-ji-cheng-tinymce-fu-wen-ben-bian-ji/';
+        this.page.identifier = '/2020/07/02/sping-boot-ji-cheng-tinymce-fu-wen-ben-bian-ji/';
+        this.page.title = 'Spring Boot集成Tinymce富文本编辑器';
+    };
+    let disqus_shortname = 'xujn';
+
+    (function () { // DON'T EDIT BELOW THIS LINE
+        let d = document, s = d.createElement('script');
+        // 如：s.src = 'https://blinkfox.disqus.com/embed.js';
+        s.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', new Date());
+        (d.head || d.body).appendChild(s);
+    })();
 </script>
+
+    
+
+    
+
+    
+
+    
 
     
 
@@ -1122,11 +887,7 @@
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            环境说明
-redhat
-java 8
-
-安装elasticsearches安装默认不支持使用root用户安装，否则会提示java.lang.RuntimeException: can not run elasticsearch as roo
+                            
                         
                     </div>
                     <div class="publish-info">
@@ -1175,11 +936,7 @@ java 8
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            简介Nginx是一款轻量级的Web服务器、反向代理服务器，由于它的内存占用少，启动极快，高并发能力强，在互联网项目中广泛应用。
-应用场景负载均衡轮询
-upstream test {
-  server 10.200.100.3:8080;
- 
+                            
                         
                     </div>
                     <div class="publish-info">
@@ -1272,16 +1029,9 @@ upstream test {
 <script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
 
 
-<!-- 代码块折行 -->
-
-<style type="text/css">
-code[class*="language-"], pre[class*="language-"] { white-space: pre !important; }
-</style>
-
-
     </div>
     <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
-        <div class="toc-widget">
+        <div class="toc-widget card" style="background-color: white;">
             <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
             <div id="toc-content"></div>
         </div>
@@ -1305,7 +1055,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             contentSelector: '#articleContent',
             headingsOffset: -($(window).height() * 0.4 - 45),
             collapseDepth: Number('0'),
-            headingSelector: 'h1,h2, h3, h4'
+            headingSelector: 'h2, h3, h4'
         });
 
         // modify the toc link href to support Chinese.
@@ -1317,7 +1067,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
 
         // modify the heading title id to support Chinese.
         i = 0;
-        $('#articleContent').children('h1,h2, h3, h4').each(function () {
+        $('#articleContent').children('h2, h3, h4').each(function () {
             $(this).attr('id', tocHeading + (++i));
         });
 
@@ -1379,112 +1129,101 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
 
 
 
-    <div id="weather-v2-plugin-simple"></div>
-    <script>
-    WIDGET = {
-    CONFIG: {
-        "modules": "0124",
-        "background": 1,
-        "tmpColor": "FFFEFE",
-        "tmpSize": 16,
-        "cityColor": "FFFFFF",
-        "citySize": 16,
-        "aqiSize": 16,
-        "weatherIconSize": 24,
-        "alertIconSize": 18,
-        "padding": "10px 10px 10px 10px",
-        "shadow": "1",
-        "language": "auto",
-        "borderRadius": 5,
-        "fixed": "true",
-        "vertical": "middle",
-        "horizontal": "left",
-        "left": 10,
-        "top": 10,
-        "key": "fmCYN7ec82"
-    }
-    }
-    </script>
-    <script src="https://apip.weatherdt.com/simple/static/js/weather-simple-common.js?v=2.0"></script>
+
     <footer class="page-footer bg-color">
     
-    <div class="container row center-align" style="margin-bottom: 15px !important;">
+
+    <div class="container row center-align"
+         style="margin-bottom: 15px !important;">
         <div class="col s12 m8 l8 copy-right">
             Copyright&nbsp;&copy;
+            
+                <span id="year">2020-2021</span>
+            
             <span id="year">2020</span>
             <a href="/about" target="_blank">苏叶新城</a>
             |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
             |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
             <br>
             
-            &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">18.1k</span>&nbsp;字
             
             
+                
             
             
-            
-            
-            <span id="busuanzi_container_site_pv">
-                |&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span id="busuanzi_value_site_pv"
-                    class="white-color"></span>&nbsp;次
+                <span id="busuanzi_container_site_pv">
+                &nbsp;|&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;
+                    <span id="busuanzi_value_site_pv" class="white-color"></span>
             </span>
             
             
-            <span id="busuanzi_container_site_uv">
-                |&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;<span id="busuanzi_value_site_uv"
-                    class="white-color"></span>&nbsp;人
+                <span id="busuanzi_container_site_uv">
+                &nbsp;|&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;
+                    <span id="busuanzi_value_site_uv" class="white-color"></span>
             </span>
             
             <br>
+
+            <!-- 运行天数提醒. -->
             
-            <span id="sitetime">载入运行时间...</span>
-            <script>
-                function siteTime() {
-                    var seconds = 1000;
-                    var minutes = seconds * 60;
-                    var hours = minutes * 60;
-                    var days = hours * 24;
-                    var years = days * 365;
-                    var today = new Date();
-                    var startYear = "2020";
-                    var startMonth = "3";
-                    var startDate = "1";
-                    var startHour = "0";
-                    var startMinute = "0";
-                    var startSecond = "0";
-                    var todayYear = today.getFullYear();
-                    var todayMonth = today.getMonth() + 1;
-                    var todayDate = today.getDate();
-                    var todayHour = today.getHours();
-                    var todayMinute = today.getMinutes();
-                    var todaySecond = today.getSeconds();
-                    var t1 = Date.UTC(startYear, startMonth, startDate, startHour, startMinute, startSecond);
-                    var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
-                    var diff = t2 - t1;
-                    var diffYears = Math.floor(diff / years);
-                    var diffDays = Math.floor((diff / days) - diffYears * 365);
-                    var diffHours = Math.floor((diff - (diffYears * 365 + diffDays) * days) / hours);
-                    var diffMinutes = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours) /
-                        minutes);
-                    var diffSeconds = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours -
-                        diffMinutes * minutes) / seconds);
-                    if (startYear == todayYear) {
-                        document.getElementById("year").innerHTML = todayYear;
-                        document.getElementById("sitetime").innerHTML = "本站已安全运行 " + diffDays + " 天 " + diffHours +
-                            " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
-                    } else {
-                        document.getElementById("year").innerHTML = startYear + " - " + todayYear;
-                        document.getElementById("sitetime").innerHTML = "本站已安全运行 " + diffYears + " 年 " + diffDays +
-                            " 天 " + diffHours + " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+                <span id="sitetime"> Loading ...</span>
+                <script>
+                    var calcSiteTime = function () {
+                        var seconds = 1000;
+                        var minutes = seconds * 60;
+                        var hours = minutes * 60;
+                        var days = hours * 24;
+                        var years = days * 365;
+                        var today = new Date();
+                        var startYear = "2020";
+                        var startMonth = "3";
+                        var startDate = "1";
+                        var startHour = "0";
+                        var startMinute = "0";
+                        var startSecond = "0";
+                        var todayYear = today.getFullYear();
+                        var todayMonth = today.getMonth() + 1;
+                        var todayDate = today.getDate();
+                        var todayHour = today.getHours();
+                        var todayMinute = today.getMinutes();
+                        var todaySecond = today.getSeconds();
+                        var t1 = Date.UTC(startYear, startMonth, startDate, startHour, startMinute, startSecond);
+                        var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
+                        var diff = t2 - t1;
+                        var diffYears = Math.floor(diff / years);
+                        var diffDays = Math.floor((diff / days) - diffYears * 365);
+
+                        // 区分是否有年份.
+                        var language = 'zh-CN';
+                        if (startYear === String(todayYear)) {
+                            document.getElementById("year").innerHTML = todayYear;
+                            var daysTip = 'This site has been running for ' + diffDays + ' days';
+                            if (language === 'zh-CN') {
+                                daysTip = '本站已运行 ' + diffDays + ' 天';
+                            } else if (language === 'zh-HK') {
+                                daysTip = '本站已運行 ' + diffDays + ' 天';
+                            }
+                            document.getElementById("sitetime").innerHTML = daysTip;
+                        } else {
+                            document.getElementById("year").innerHTML = startYear + " - " + todayYear;
+                            var yearsAndDaysTip = 'This site has been running for ' + diffYears + ' years and '
+                                + diffDays + ' days';
+                            if (language === 'zh-CN') {
+                                yearsAndDaysTip = '本站已运行 ' + diffYears + ' 年 ' + diffDays + ' 天';
+                            } else if (language === 'zh-HK') {
+                                yearsAndDaysTip = '本站已運行 ' + diffYears + ' 年 ' + diffDays + ' 天';
+                            }
+                            document.getElementById("sitetime").innerHTML = yearsAndDaysTip;
+                        }
                     }
-                }
-                setInterval(siteTime, 1000);
-            </script>
+
+                    calcSiteTime();
+                </script>
             
             <br>
             
-            <span id="icp"><img src="/medias/icp.png" style="vertical-align: text-bottom;" />
+                <span id="icp"><img src="/medias/icp.png"
+                                    style="vertical-align: text-bottom;"/>
                 <a href="http://beian.miit.gov.cn" target="_blank">吉ICP备20000854号-1</a>
             </span>
             
@@ -1510,6 +1249,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
 
 <div class="progress-bar"></div>
 
+
     <!-- 搜索遮罩框 -->
 <div id="searchModal" class="modal">
     <div class="modal-content">
@@ -1522,10 +1262,95 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
     </div>
 </div>
 
-<script src="/js/search.js"></script>
 <script type="text/javascript">
 $(function () {
-    searchFunc("/search.xml", 'searchInput', 'searchResult');
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
 });
 </script>
 
@@ -1583,6 +1408,8 @@ $(function () {
 
     
 
+    <!--腾讯兔小巢-->
+    
     
     <script type="text/javascript" color="0,0,255"
         pointColor="0,0,255" opacity='0.7'
@@ -1603,31 +1430,7 @@ $(function () {
     
     <script src="/libs/instantpage/instantpage.js" type="module"></script>
     
-    <script type="text/javascript">
-        window.onload = function(){
-            //屏蔽键盘事件
-            document.onkeydown = function (){
-                var e = window.event || arguments[0];
-                //F12
-                if(e.keyCode == 123){
-                    return false;
-                //Ctrl+Shift+I
-                }else if((e.ctrlKey) && (e.shiftKey) && (e.keyCode == 73)){
-                    return false;
-                //Shift+F10
-                }else if((e.shiftKey) && (e.keyCode == 121)){
-                    return false;
-                //Ctrl+U
-                }else if((e.ctrlKey) && (e.keyCode == 85)){
-                    return false;
-                }
-            };
-            //屏蔽鼠标右键
-            document.oncontextmenu = function (){
-                return false;
-            }
-        }
-    </script>
-   </body>
+
+</body>
 
 </html>

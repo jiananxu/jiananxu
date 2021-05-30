@@ -39,15 +39,12 @@
     <link rel="stylesheet" type="text/css" href="/css/my.css">
 
     <script src="/libs/jquery/jquery.min.js"></script>
-    <!-- 360 -->
-    <script>
-        (function(){
-        var src = "https://jspassport.ssl.qhimg.com/11.0.1.js?d182b3f28525f2db83acfaaf6e696dba";
-        document.write('<script src="' + src + '" id="sozz"><\/script>');
-        })();
-    </script>
-<meta name="generator" content="Hexo 4.2.1"><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
-<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
+
+<meta name="generator" content="Hexo 5.4.0">
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+</head>
+
+
 
 
 <body>
@@ -311,8 +308,7 @@
     }
 
     .toc-widget .toc-title {
-        margin: 35px 0 15px 0;
-        padding-left: 17px;
+        padding: 35px 0 15px 17px;
         font-size: 1.5rem;
         font-weight: bold;
         line-height: 1.5rem;
@@ -324,7 +320,7 @@
     }
 
     #toc-content {
-        height: calc(100vh - 250px);
+        padding-bottom: 30px;
         overflow: auto;
     }
 
@@ -337,7 +333,7 @@
     }
 
     #toc-content .toc-link:hover {
-        color: #039be5;
+        color: #00d3ff;
         font-weight: 700;
         text-decoration: underline;
     }
@@ -352,7 +348,7 @@
     }
 
     #toc-content .is-active-link {
-        color: #039be5;
+        color: #00d3ff;
     }
 
     #floating-toc-btn {
@@ -421,23 +417,21 @@
                 
 
                 
-                <div class="info-break-policy">
-                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    551
-                </div>
-                
 
                 
 
                 
-                    <div id="busuanzi_container_page_pv" class="info-break-policy">
-                        <i class="far fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
-                        <span id="busuanzi_value_page_pv"></span>
-                    </div>
-				
             </div>
         </div>
         <hr class="clearfix">
+
+        
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.css">
+        
+
+        
+
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <h2 id="Linux加固"><a href="#Linux加固" class="headerlink" title="Linux加固"></a>Linux加固</h2><h3 id="检查口令最小长度"><a href="#检查口令最小长度" class="headerlink" title="检查口令最小长度"></a>检查口令最小长度</h3><p>vim /etc/login.defs</p>
@@ -446,54 +440,54 @@
 <p>设置PASS_MAX_DAYS 90</p>
 <h3 id="检查设备密码复杂度策略"><a href="#检查设备密码复杂度策略" class="headerlink" title="检查设备密码复杂度策略"></a>检查设备密码复杂度策略</h3><p>vim /etc/pam.d/system-auth</p>
 <p>追加到password requisite pam_cracklib.so后面（ucredit=-1 lcredit=-1 dcredit=-1）</p>
-<pre><code>password requisite pam_cracklib.so ucredit=-1 lcredit=-1 dcredit=-1</code></pre>
+<pre class="line-numbers language-none"><code class="language-none">password requisite pam_cracklib.so ucredit=-1 lcredit=-1 dcredit=-1<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <h3 id="检查是否限制用户su到root"><a href="#检查是否限制用户su到root" class="headerlink" title="检查是否限制用户su到root"></a>检查是否限制用户su到root</h3><p>vim /etc/pam.d/su<br>在开头添加下面两行：</p>
-<pre><code>auth sufficient pam_rootok.so
+<pre class="line-numbers language-none"><code class="language-none">auth sufficient pam_rootok.so
 auth required pam_wheel.so group=wheel 
 # 将用户添加组
-usermod -G wheel gcs</code></pre>
+usermod -G wheel gcs<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 <h3 id="检查是否设置文件与目录缺省权限"><a href="#检查是否设置文件与目录缺省权限" class="headerlink" title="检查是否设置文件与目录缺省权限"></a>检查是否设置文件与目录缺省权限</h3><p>vim /etc/profile</p>
 <p>在文件/etc/profile中设置umask 027或UMASK 027，</p>
 <p>如果文件中含有umask参数，则需要在最前面设置该参数</p>
 <h3 id="检查是否设置命令行界面超时退出"><a href="#检查是否设置命令行界面超时退出" class="headerlink" title="检查是否设置命令行界面超时退出"></a>检查是否设置命令行界面超时退出</h3><p>vim /etc/profile,增加 </p>
-<pre><code>export TMOUT=300</code></pre>
+<pre class="line-numbers language-none"><code class="language-none">export TMOUT=300<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>source /etc/profile</p>
-<h3 id="检查是否限制root用户远程登录"><a href="#检查是否限制root用户远程登录" class="headerlink" title="检查是否限制root用户远程登录"></a>检查是否限制root用户远程登录</h3><pre><code>cat /etc/ssh/sshd_config|grep PermitRootLogin
+<h3 id="检查是否限制root用户远程登录"><a href="#检查是否限制root用户远程登录" class="headerlink" title="检查是否限制root用户远程登录"></a>检查是否限制root用户远程登录</h3><pre class="line-numbers language-none"><code class="language-none">cat /etc/ssh/sshd_config|grep PermitRootLogin
 vim /etc/ssh/sshd_config
 # 配置
 PermitRootLogin no
-service sshd restart</code></pre>
+service sshd restart<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h3 id="检查是否配置远程日志功能"><a href="#检查是否配置远程日志功能" class="headerlink" title="检查是否配置远程日志功能"></a>检查是否配置远程日志功能</h3><p>指定具体服务器ip</p>
 <p>vim /etc/rsyslog.conf</p>
-<pre><code>rsyslog.*@192.168.212.1</code></pre>
+<pre class="line-numbers language-none"><code class="language-none">rsyslog.*@192.168.212.1<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <h3 id="检查FTP用户上传的文件所具有的权限"><a href="#检查FTP用户上传的文件所具有的权限" class="headerlink" title="检查FTP用户上传的文件所具有的权限"></a>检查FTP用户上传的文件所具有的权限</h3><p>如果系统使用vsftp：</p>
 <p>修改/etc/vsftpd.conf（或者为/etc/vsftpd/vsftpd.conf）</p>
 <p>vi /etc/vsftpd.conf</p>
 <p>确保以下行未被注释掉，如果没有该行，请添加：</p>
-<pre><code>write_enable=YES //允许上传。如果不需要上传权限，此项可不进行更改。
+<pre class="line-numbers language-none"><code class="language-none">write_enable=YES //允许上传。如果不需要上传权限，此项可不进行更改。
 ls_recurse_enable=YES
 local_umask=022 //设置用户上传文件的属性为755
-anon_umask=022 //匿名用户上传文件(包括目录)的 umask</code></pre>
+anon_umask=022 //匿名用户上传文件(包括目录)的 umask<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 <p>重启网络服务</p>
-<pre><code>/etc/init.d/vsftpd restart</code></pre>
+<pre class="line-numbers language-none"><code class="language-none">/etc/init.d/vsftpd restart<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>如果系统使用pure-ftp<br>修改/etc/pure-ftpd/pure-ftpd.conf</p>
-<pre><code>vi /etc/pure-ftpd/pure-ftpd.conf</code></pre>
+<pre class="line-numbers language-none"><code class="language-none">vi /etc/pure-ftpd/pure-ftpd.conf<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>确保以下行未被注释掉，如果没有该行，请添加：</p>
-<pre><code>umask 177:077</code></pre>
+<pre class="line-numbers language-none"><code class="language-none">umask 177:077<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>重启ftp服务</p>
-<pre><code>/etc/init.d/pure-ftpd restart</code></pre>
-<h3 id="检查是否修改系统banner"><a href="#检查是否修改系统banner" class="headerlink" title="检查是否修改系统banner"></a>检查是否修改系统banner</h3><pre><code>mv /etc/issue /etc/issue.bak
-mv /etc/issue.net /etc/issue.net.bak</code></pre>
+<pre class="line-numbers language-none"><code class="language-none">/etc/init.d/pure-ftpd restart<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h3 id="检查是否修改系统banner"><a href="#检查是否修改系统banner" class="headerlink" title="检查是否修改系统banner"></a>检查是否修改系统banner</h3><pre class="line-numbers language-none"><code class="language-none">mv /etc/issue /etc/issue.bak
+mv /etc/issue.net /etc/issue.net.bak<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 <h3 id="检查FTP-Banner设置"><a href="#检查FTP-Banner设置" class="headerlink" title="检查FTP Banner设置"></a>检查FTP Banner设置</h3><p>修改vsftp回显信息<br>vi /etc/vsftpd.conf(或/etc/vsftpd/vsftpd.conf)</p>
-<pre><code>ftpd_banner=Authorized users only. All activity will be monitored and reported.”</code></pre>
+<pre class="line-numbers language-none"><code class="language-none">ftpd_banner=Authorized users only. All activity will be monitored and reported.”<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>可根据实际需要修改该文件内容。<br>重启服务：</p>
-<pre><code>/etc/init.d/vsftpd restart 或者service vsftpd restart</code></pre>
-<h3 id="检查是否启用SSH协议，禁用telnet协议"><a href="#检查是否启用SSH协议，禁用telnet协议" class="headerlink" title="检查是否启用SSH协议，禁用telnet协议"></a>检查是否启用SSH协议，禁用telnet协议</h3><pre><code>cat /etc/xinetd.d/telnet|grep disable
+<pre class="line-numbers language-none"><code class="language-none">/etc/init.d/vsftpd restart 或者service vsftpd restart<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h3 id="检查是否启用SSH协议，禁用telnet协议"><a href="#检查是否启用SSH协议，禁用telnet协议" class="headerlink" title="检查是否启用SSH协议，禁用telnet协议"></a>检查是否启用SSH协议，禁用telnet协议</h3><pre class="line-numbers language-none"><code class="language-none">cat /etc/xinetd.d/telnet|grep disable
 vim /etc/xinetd.d/telnet
 #修改 
 disable = yes
-service xinetd restart</code></pre>
-
+service xinetd restart<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+                
             </div>
             <hr/>
 
@@ -591,271 +585,38 @@ service xinetd restart</code></pre>
     
 
     
-
-    
-
-    
-        <style>
-    .valine-card {
-        margin: 1.5rem auto;
-    }
-
-    .valine-card .card-content {
-        padding: 20px 20px 5px 20px;
-    }
-
-    #vcomments textarea {
-        box-sizing: border-box;
-        background: url("/medias/comment_bg.png") 100% 100% no-repeat;
-    }
-
-    #vcomments p {
-        margin: 2px 2px 10px;
-        font-size: 1.05rem;
-        line-height: 1.78rem;
-    }
-
-    #vcomments blockquote p {
-        text-indent: 0.2rem;
-    }
-
-    #vcomments a {
-        padding: 0 2px;
-        color: #4cbf30;
-        font-weight: 500;
-        text-decoration: none;
-    }
-
-    #vcomments img {
-        max-width: 100%;
-        height: auto;
-        cursor: pointer;
-    }
-
-    #vcomments ol li {
-        list-style-type: decimal;
-    }
-
-    #vcomments ol,
-    ul {
-        display: block;
-        padding-left: 2em;
-        word-spacing: 0.05rem;
-    }
-
-    #vcomments ul li,
-    ol li {
-        display: list-item;
-        line-height: 1.8rem;
-        font-size: 1rem;
-    }
-
-    #vcomments ul li {
-        list-style-type: disc;
-    }
-
-    #vcomments ul ul li {
-        list-style-type: circle;
-    }
-
-    #vcomments table, th, td {
-        padding: 12px 13px;
-        border: 1px solid #dfe2e5;
-    }
-
-    #vcomments table, th, td {
-        border: 0;
-    }
-
-    table tr:nth-child(2n), thead {
-        background-color: #fafafa;
-    }
-
-    #vcomments table th {
-        background-color: #f2f2f2;
-        min-width: 80px;
-    }
-
-    #vcomments table td {
-        min-width: 80px;
-    }
-
-    #vcomments h1 {
-        font-size: 1.85rem;
-        font-weight: bold;
-        line-height: 2.2rem;
-    }
-
-    #vcomments h2 {
-        font-size: 1.65rem;
-        font-weight: bold;
-        line-height: 1.9rem;
-    }
-
-    #vcomments h3 {
-        font-size: 1.45rem;
-        font-weight: bold;
-        line-height: 1.7rem;
-    }
-
-    #vcomments h4 {
-        font-size: 1.25rem;
-        font-weight: bold;
-        line-height: 1.5rem;
-    }
-
-    #vcomments h5 {
-        font-size: 1.1rem;
-        font-weight: bold;
-        line-height: 1.4rem;
-    }
-
-    #vcomments h6 {
-        font-size: 1rem;
-        line-height: 1.3rem;
-    }
-
-    #vcomments p {
-        font-size: 1rem;
-        line-height: 1.5rem;
-    }
-
-    #vcomments hr {
-        margin: 12px 0;
-        border: 0;
-        border-top: 1px solid #ccc;
-    }
-
-    #vcomments blockquote {
-        margin: 15px 0;
-        border-left: 5px solid #039be5;
-        padding: 1rem 0.8rem 0.3rem 0.8rem;
-        color: #666;
-        background-color: rgba(66, 185, 131, .1);
-    }
-
-    #vcomments pre {
-        font-family: monospace, monospace;
-        padding: 1.2em;
-        margin: .5em 0;
-        background: #272822;
-        overflow: auto;
-        border-radius: 0.3em;
-        tab-size: 4;
-    }
-
-    #vcomments code {
-        font-family: monospace, monospace;
-        padding: 1px 3px;
-        font-size: 0.92rem;
-        color: #e96900;
-        background-color: #f8f8f8;
-        border-radius: 2px;
-    }
-
-    #vcomments pre code {
-        font-family: monospace, monospace;
-        padding: 0;
-        color: #e8eaf6;
-        background-color: #272822;
-    }
-
-    #vcomments pre[class*="language-"] {
-        padding: 1.2em;
-        margin: .5em 0;
-    }
-
-    #vcomments code[class*="language-"],
-    pre[class*="language-"] {
-        color: #e8eaf6;
-    }
-
-    #vcomments [type="checkbox"]:not(:checked), [type="checkbox"]:checked {
-        position: inherit;
-        margin-left: -1.3rem;
-        margin-right: 0.4rem;
-        margin-top: -1px;
-        vertical-align: middle;
-        left: unset;
-        visibility: visible;
-    }
-
-    #vcomments b,
-    strong {
-        font-weight: bold;
-    }
-
-    #vcomments dfn {
-        font-style: italic;
-    }
-
-    #vcomments small {
-        font-size: 85%;
-    }
-
-    #vcomments cite {
-        font-style: normal;
-    }
-
-    #vcomments mark {
-        background-color: #fcf8e3;
-        padding: .2em;
-    }
-
-    #vcomments table, th, td {
-        padding: 12px 13px;
-        border: 1px solid #dfe2e5;
-    }
-
-    table tr:nth-child(2n), thead {
-        background-color: #fafafa;
-    }
-
-    #vcomments table th {
-        background-color: #f2f2f2;
-        min-width: 80px;
-    }
-
-    #vcomments table td {
-        min-width: 80px;
-    }
-
-    #vcomments [type="checkbox"]:not(:checked), [type="checkbox"]:checked {
-        position: inherit;
-        margin-left: -1.3rem;
-        margin-right: 0.4rem;
-        margin-top: -1px;
-        vertical-align: middle;
-        left: unset;
-        visibility: visible;
-    }
-</style>
-
-<div class="card valine-card" data-aos="fade-up">
-    <div class="comment_headling" style="font-size: 20px; font-weight: 700; position: relative; padding-left: 20px; top: 15px; padding-bottom: 5px;">
-        <i class="fas fa-comments fa-fw" aria-hidden="true"></i>
-        <span>评论</span>
-    </div>
-    <div id="vcomments" class="card-content" style="display: grid">
+        <div class="disqus-card card" data-aos="fade-up">
+    <div id="disqus_thread" class="card-content">
+        <noscript>Please enable JavaScript to view the
+            <a target="_blank" rel="noopener" href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
     </div>
 </div>
 
-<script src="/libs/valine/av-min.js"></script>
-<script src="/libs/valine/Valine.min.js"></script>
-<script>
-    new Valine({
-        el: '#vcomments',
-        appId: 'Sz4FRH1b0UaJd4fs5CxgdRQd-gzGzoHsz',
-        appKey: 'Y2pWFXbf3px0AlwvAR1hWkOr',
-        notify: 'false' === 'true',
-        verify: 'false' === 'true',
-        visitor: 'true' === 'true',
-        avatar: 'mm',
-        pageSize: '10',
-        lang: 'zh-cn',
-        placeholder: '聊聊'
-    });
+<script type="text/javascript">
+    disqus_config = function () {
+        this.page.url = 'http://www.xujn.xyz/2020/10/15/linux-an-quan-jia-gu/';
+        this.page.identifier = '/2020/10/15/linux-an-quan-jia-gu/';
+        this.page.title = 'Linux安全加固';
+    };
+    let disqus_shortname = 'xujn';
+
+    (function () { // DON'T EDIT BELOW THIS LINE
+        let d = document, s = d.createElement('script');
+        // 如：s.src = 'https://blinkfox.disqus.com/embed.js';
+        s.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', new Date());
+        (d.head || d.body).appendChild(s);
+    })();
 </script>
+
+    
+
+    
+
+    
+
+    
 
     
 
@@ -882,28 +643,7 @@ service xinetd restart</code></pre>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            环境准备使用的系统软件
-
-
-名称
-说明
-
-
-
-Redhat
-7.x
-
-
-libfastcommon
-FastDFS分离出的一些公用函数包
-
-
-FastDFS
-FastDFS本体
-
-
-fastdfs-nginx-module
-FastDFS和
+                            
                         
                     </div>
                     <div class="publish-info">
@@ -960,11 +700,7 @@ FastDFS和
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            准备工作开启telnet以防服务器升级ssh失败，造成服务器无法连接
-安装telnetredhat 7.x版本安装
-yum install telnet-server.x86_64
-yum install telnet.x86_64
-yum
+                            
                         
                     </div>
                     <div class="publish-info">
@@ -1057,16 +793,9 @@ yum
 <script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
 
 
-<!-- 代码块折行 -->
-
-<style type="text/css">
-code[class*="language-"], pre[class*="language-"] { white-space: pre !important; }
-</style>
-
-
     </div>
     <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
-        <div class="toc-widget">
+        <div class="toc-widget card" style="background-color: white;">
             <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
             <div id="toc-content"></div>
         </div>
@@ -1090,7 +819,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             contentSelector: '#articleContent',
             headingsOffset: -($(window).height() * 0.4 - 45),
             collapseDepth: Number('0'),
-            headingSelector: 'h1,h2, h3, h4'
+            headingSelector: 'h2, h3, h4'
         });
 
         // modify the toc link href to support Chinese.
@@ -1102,7 +831,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
 
         // modify the heading title id to support Chinese.
         i = 0;
-        $('#articleContent').children('h1,h2, h3, h4').each(function () {
+        $('#articleContent').children('h2, h3, h4').each(function () {
             $(this).attr('id', tocHeading + (++i));
         });
 
@@ -1164,112 +893,101 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
 
 
 
-    <div id="weather-v2-plugin-simple"></div>
-    <script>
-    WIDGET = {
-    CONFIG: {
-        "modules": "0124",
-        "background": 1,
-        "tmpColor": "FFFEFE",
-        "tmpSize": 16,
-        "cityColor": "FFFFFF",
-        "citySize": 16,
-        "aqiSize": 16,
-        "weatherIconSize": 24,
-        "alertIconSize": 18,
-        "padding": "10px 10px 10px 10px",
-        "shadow": "1",
-        "language": "auto",
-        "borderRadius": 5,
-        "fixed": "true",
-        "vertical": "middle",
-        "horizontal": "left",
-        "left": 10,
-        "top": 10,
-        "key": "fmCYN7ec82"
-    }
-    }
-    </script>
-    <script src="https://apip.weatherdt.com/simple/static/js/weather-simple-common.js?v=2.0"></script>
+
     <footer class="page-footer bg-color">
     
-    <div class="container row center-align" style="margin-bottom: 15px !important;">
+
+    <div class="container row center-align"
+         style="margin-bottom: 15px !important;">
         <div class="col s12 m8 l8 copy-right">
             Copyright&nbsp;&copy;
+            
+                <span id="year">2020-2021</span>
+            
             <span id="year">2020</span>
             <a href="/about" target="_blank">苏叶新城</a>
             |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
             |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
             <br>
             
-            &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">18.1k</span>&nbsp;字
             
             
+                
             
             
-            
-            
-            <span id="busuanzi_container_site_pv">
-                |&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span id="busuanzi_value_site_pv"
-                    class="white-color"></span>&nbsp;次
+                <span id="busuanzi_container_site_pv">
+                &nbsp;|&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;
+                    <span id="busuanzi_value_site_pv" class="white-color"></span>
             </span>
             
             
-            <span id="busuanzi_container_site_uv">
-                |&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;<span id="busuanzi_value_site_uv"
-                    class="white-color"></span>&nbsp;人
+                <span id="busuanzi_container_site_uv">
+                &nbsp;|&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;
+                    <span id="busuanzi_value_site_uv" class="white-color"></span>
             </span>
             
             <br>
+
+            <!-- 运行天数提醒. -->
             
-            <span id="sitetime">载入运行时间...</span>
-            <script>
-                function siteTime() {
-                    var seconds = 1000;
-                    var minutes = seconds * 60;
-                    var hours = minutes * 60;
-                    var days = hours * 24;
-                    var years = days * 365;
-                    var today = new Date();
-                    var startYear = "2020";
-                    var startMonth = "3";
-                    var startDate = "1";
-                    var startHour = "0";
-                    var startMinute = "0";
-                    var startSecond = "0";
-                    var todayYear = today.getFullYear();
-                    var todayMonth = today.getMonth() + 1;
-                    var todayDate = today.getDate();
-                    var todayHour = today.getHours();
-                    var todayMinute = today.getMinutes();
-                    var todaySecond = today.getSeconds();
-                    var t1 = Date.UTC(startYear, startMonth, startDate, startHour, startMinute, startSecond);
-                    var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
-                    var diff = t2 - t1;
-                    var diffYears = Math.floor(diff / years);
-                    var diffDays = Math.floor((diff / days) - diffYears * 365);
-                    var diffHours = Math.floor((diff - (diffYears * 365 + diffDays) * days) / hours);
-                    var diffMinutes = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours) /
-                        minutes);
-                    var diffSeconds = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours -
-                        diffMinutes * minutes) / seconds);
-                    if (startYear == todayYear) {
-                        document.getElementById("year").innerHTML = todayYear;
-                        document.getElementById("sitetime").innerHTML = "本站已安全运行 " + diffDays + " 天 " + diffHours +
-                            " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
-                    } else {
-                        document.getElementById("year").innerHTML = startYear + " - " + todayYear;
-                        document.getElementById("sitetime").innerHTML = "本站已安全运行 " + diffYears + " 年 " + diffDays +
-                            " 天 " + diffHours + " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+                <span id="sitetime"> Loading ...</span>
+                <script>
+                    var calcSiteTime = function () {
+                        var seconds = 1000;
+                        var minutes = seconds * 60;
+                        var hours = minutes * 60;
+                        var days = hours * 24;
+                        var years = days * 365;
+                        var today = new Date();
+                        var startYear = "2020";
+                        var startMonth = "3";
+                        var startDate = "1";
+                        var startHour = "0";
+                        var startMinute = "0";
+                        var startSecond = "0";
+                        var todayYear = today.getFullYear();
+                        var todayMonth = today.getMonth() + 1;
+                        var todayDate = today.getDate();
+                        var todayHour = today.getHours();
+                        var todayMinute = today.getMinutes();
+                        var todaySecond = today.getSeconds();
+                        var t1 = Date.UTC(startYear, startMonth, startDate, startHour, startMinute, startSecond);
+                        var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
+                        var diff = t2 - t1;
+                        var diffYears = Math.floor(diff / years);
+                        var diffDays = Math.floor((diff / days) - diffYears * 365);
+
+                        // 区分是否有年份.
+                        var language = 'zh-CN';
+                        if (startYear === String(todayYear)) {
+                            document.getElementById("year").innerHTML = todayYear;
+                            var daysTip = 'This site has been running for ' + diffDays + ' days';
+                            if (language === 'zh-CN') {
+                                daysTip = '本站已运行 ' + diffDays + ' 天';
+                            } else if (language === 'zh-HK') {
+                                daysTip = '本站已運行 ' + diffDays + ' 天';
+                            }
+                            document.getElementById("sitetime").innerHTML = daysTip;
+                        } else {
+                            document.getElementById("year").innerHTML = startYear + " - " + todayYear;
+                            var yearsAndDaysTip = 'This site has been running for ' + diffYears + ' years and '
+                                + diffDays + ' days';
+                            if (language === 'zh-CN') {
+                                yearsAndDaysTip = '本站已运行 ' + diffYears + ' 年 ' + diffDays + ' 天';
+                            } else if (language === 'zh-HK') {
+                                yearsAndDaysTip = '本站已運行 ' + diffYears + ' 年 ' + diffDays + ' 天';
+                            }
+                            document.getElementById("sitetime").innerHTML = yearsAndDaysTip;
+                        }
                     }
-                }
-                setInterval(siteTime, 1000);
-            </script>
+
+                    calcSiteTime();
+                </script>
             
             <br>
             
-            <span id="icp"><img src="/medias/icp.png" style="vertical-align: text-bottom;" />
+                <span id="icp"><img src="/medias/icp.png"
+                                    style="vertical-align: text-bottom;"/>
                 <a href="http://beian.miit.gov.cn" target="_blank">吉ICP备20000854号-1</a>
             </span>
             
@@ -1295,6 +1013,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
 
 <div class="progress-bar"></div>
 
+
     <!-- 搜索遮罩框 -->
 <div id="searchModal" class="modal">
     <div class="modal-content">
@@ -1307,10 +1026,95 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
     </div>
 </div>
 
-<script src="/js/search.js"></script>
 <script type="text/javascript">
 $(function () {
-    searchFunc("/search.xml", 'searchInput', 'searchResult');
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
 });
 </script>
 
@@ -1368,6 +1172,8 @@ $(function () {
 
     
 
+    <!--腾讯兔小巢-->
+    
     
     <script type="text/javascript" color="0,0,255"
         pointColor="0,0,255" opacity='0.7'
@@ -1388,31 +1194,7 @@ $(function () {
     
     <script src="/libs/instantpage/instantpage.js" type="module"></script>
     
-    <script type="text/javascript">
-        window.onload = function(){
-            //屏蔽键盘事件
-            document.onkeydown = function (){
-                var e = window.event || arguments[0];
-                //F12
-                if(e.keyCode == 123){
-                    return false;
-                //Ctrl+Shift+I
-                }else if((e.ctrlKey) && (e.shiftKey) && (e.keyCode == 73)){
-                    return false;
-                //Shift+F10
-                }else if((e.shiftKey) && (e.keyCode == 121)){
-                    return false;
-                //Ctrl+U
-                }else if((e.ctrlKey) && (e.keyCode == 85)){
-                    return false;
-                }
-            };
-            //屏蔽鼠标右键
-            document.oncontextmenu = function (){
-                return false;
-            }
-        }
-    </script>
-   </body>
+
+</body>
 
 </html>

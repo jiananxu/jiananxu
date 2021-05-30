@@ -39,15 +39,12 @@
     <link rel="stylesheet" type="text/css" href="/css/my.css">
 
     <script src="/libs/jquery/jquery.min.js"></script>
-    <!-- 360 -->
-    <script>
-        (function(){
-        var src = "https://jspassport.ssl.qhimg.com/11.0.1.js?d182b3f28525f2db83acfaaf6e696dba";
-        document.write('<script src="' + src + '" id="sozz"><\/script>');
-        })();
-    </script>
-<meta name="generator" content="Hexo 4.2.1"><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
-<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
+
+<meta name="generator" content="Hexo 5.4.0">
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+</head>
+
+
 
 
 <body>
@@ -311,8 +308,7 @@
     }
 
     .toc-widget .toc-title {
-        margin: 35px 0 15px 0;
-        padding-left: 17px;
+        padding: 35px 0 15px 17px;
         font-size: 1.5rem;
         font-weight: bold;
         line-height: 1.5rem;
@@ -324,7 +320,7 @@
     }
 
     #toc-content {
-        height: calc(100vh - 250px);
+        padding-bottom: 30px;
         overflow: auto;
     }
 
@@ -337,7 +333,7 @@
     }
 
     #toc-content .toc-link:hover {
-        color: #039be5;
+        color: #00d3ff;
         font-weight: 700;
         text-decoration: underline;
     }
@@ -352,7 +348,7 @@
     }
 
     #toc-content .is-active-link {
-        color: #039be5;
+        color: #00d3ff;
     }
 
     #floating-toc-btn {
@@ -417,63 +413,63 @@
                 
 
                 
-                <div class="info-break-policy">
-                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    502
-                </div>
-                
 
                 
 
                 
-                    <div id="busuanzi_container_page_pv" class="info-break-policy">
-                        <i class="far fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
-                        <span id="busuanzi_value_page_pv"></span>
-                    </div>
-				
             </div>
         </div>
         <hr class="clearfix">
+
+        
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.css">
+        
+
+        
+
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <h1 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h1><h2 id="开启telnet"><a href="#开启telnet" class="headerlink" title="开启telnet"></a>开启telnet</h2><p>以防服务器升级ssh失败，造成服务器无法连接</p>
 <h3 id="安装telnet"><a href="#安装telnet" class="headerlink" title="安装telnet"></a>安装telnet</h3><p><strong>redhat 7.x版本安装</strong></p>
-<pre><code>yum install telnet-server.x86_64
+<pre class="line-numbers language-none"><code class="language-none">yum install telnet-server.x86_64
 yum install telnet.x86_64
-yum install xinetd.x86_64 </code></pre>
+yum install xinetd.x86_64 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 <p>启动服务</p>
-<pre><code>systemctl start xinetd
-systemctl start telnet.socket</code></pre>
+<pre class="line-numbers language-none"><code class="language-none">systemctl start xinetd
+systemctl start telnet.socket<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 <p><strong>redhat 6.x版本安装</strong></p>
-<pre><code>yum install  xinetd
+<pre class="line-numbers language-none"><code class="language-none">yum install  xinetd
 yum install telnet
-yum install telnet-server</code></pre>
+yum install telnet-server<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
 <p>启动服务</p>
-<pre><code>service xinetd start</code></pre>
+<pre class="line-numbers language-none"><code class="language-none">service xinetd start<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>telnet激活需要更改以下文件</p>
-<pre><code>vim /etc/xinetd.d/telnet 将disabled 改成no
+<pre class="line-numbers language-none"><code class="language-none">vim /etc/xinetd.d/telnet 将disabled 改成no
 vim  /etc/pam.d/remote 将第二行屏蔽掉
 #auth       required     pam_securetty.so
 # 重启
-service xinetd restart</code></pre>
+service xinetd restart<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h2 id="安装依赖"><a href="#安装依赖" class="headerlink" title="安装依赖"></a>安装依赖</h2><p>安装以下依赖</p>
-<pre><code>yum install  -y gcc gcc-c++ glibc make autoconf openssl openssl-devel pcre-devel  pam-devel</code></pre>
+<pre class="line-numbers language-none"><code class="language-none">yum install  -y gcc gcc-c++ glibc make autoconf openssl openssl-devel pcre-devel  pam-devel<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <h1 id="开始安装"><a href="#开始安装" class="headerlink" title="开始安装"></a>开始安装</h1><p>以下操作全部在root用户下</p>
-<h2 id="1、备份openssh的配置文件"><a href="#1、备份openssh的配置文件" class="headerlink" title="1、备份openssh的配置文件"></a>1、备份openssh的配置文件</h2><pre><code>cp -r /etc/ssh/ /etc/ssh_bak_2  
+<h2 id="1、备份openssh的配置文件"><a href="#1、备份openssh的配置文件" class="headerlink" title="1、备份openssh的配置文件"></a>1、备份openssh的配置文件</h2><pre class="line-numbers language-none"><code class="language-none">cp -r /etc/ssh/ /etc/ssh_bak_2  
 cp /etc/init.d/sshd /etc/init.d/sshd_bak_2
-cp /usr/sbin/sshd /usr/sbin/sshd_bak_2</code></pre>
-<h2 id="2、解压文件"><a href="#2、解压文件" class="headerlink" title="2、解压文件"></a>2、解压文件</h2><pre><code>tar -xzvf openssh-8.4p1.tar.gz
+cp /usr/sbin/sshd /usr/sbin/sshd_bak_2<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<h2 id="2、解压文件"><a href="#2、解压文件" class="headerlink" title="2、解压文件"></a>2、解压文件</h2><pre class="line-numbers language-none"><code class="language-none">tar -xzvf openssh-8.4p1.tar.gz
 tar -xzvf openssl-1.1.1h.tar.gz
-tar -xzvf zlib-1.2.11.tar.gz</code></pre>
-<h2 id="3、安装openssl"><a href="#3、安装openssl" class="headerlink" title="3、安装openssl"></a>3、安装openssl</h2><pre><code>cd  openssl-1.1.1h  
+tar -xzvf zlib-1.2.11.tar.gz<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<h2 id="3、安装openssl"><a href="#3、安装openssl" class="headerlink" title="3、安装openssl"></a>3、安装openssl</h2><pre class="line-numbers language-none"><code class="language-none">cd  openssl-1.1.1h  
 ./config --prefix=/usr --shared
 # 编译&amp;安装
-make &amp;&amp;  make install</code></pre>
-<h2 id="4、安装zlib"><a href="#4、安装zlib" class="headerlink" title="4、安装zlib"></a>4、安装zlib</h2><pre><code>cd ../zlib-1.2.11
- ./configure &amp;&amp; make &amp;&amp; make install</code></pre>
-<h2 id="5、安装openssh"><a href="#5、安装openssh" class="headerlink" title="5、安装openssh"></a>5、安装openssh</h2><pre><code>cd ../openssh-8.4p1    
-./configure &amp;&amp; make &amp;&amp;  make install</code></pre>
-<h2 id="6、以上编译安装完成，下面替换文件"><a href="#6、以上编译安装完成，下面替换文件" class="headerlink" title="6、以上编译安装完成，下面替换文件"></a>6、以上编译安装完成，下面替换文件</h2><pre><code>cp contrib/redhat/sshd.init /etc/init.d/sshd
+make &amp;&amp;  make install<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="4、安装zlib"><a href="#4、安装zlib" class="headerlink" title="4、安装zlib"></a>4、安装zlib</h2><pre class="line-numbers language-none"><code class="language-none">cd ../zlib-1.2.11
+ ./configure &amp;&amp; make &amp;&amp; make install<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<h2 id="5、安装openssh"><a href="#5、安装openssh" class="headerlink" title="5、安装openssh"></a>5、安装openssh</h2><pre class="line-numbers language-none"><code class="language-none">cd ../openssh-8.4p1    
+./configure &amp;&amp; make &amp;&amp;  make install<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<h2 id="6、以上编译安装完成，下面替换文件"><a href="#6、以上编译安装完成，下面替换文件" class="headerlink" title="6、以上编译安装完成，下面替换文件"></a>6、以上编译安装完成，下面替换文件</h2><pre class="line-numbers language-none"><code class="language-none">cp contrib/redhat/sshd.init /etc/init.d/sshd
 chkconfig sshd --add
 cp ssh scp sftp ssh-keygen ssh-add ssh-agent ssh-keyscan /usr/bin/
 rm -rf /usr/sbin/sshd
@@ -484,23 +480,24 @@ cp ssh_config sshd_config /etc/ssh/
 cp  sftp-server  ssh-keysign ssh-pkcs11-helper /usr/libexec/
 cp  scp.1 ssh-add.1 sftp.1 ssh-keyscan.1 ssh-agent.1 /usr/share/man/man1/
 cp sshd.8 sftp-server.8 ssh-keysign.8 ssh-pkcs11-helper.8 /usr/share/man/man8/
-touch /etc/ssh/ssh_host_ecdsa_key.pub</code></pre>
+touch /etc/ssh/ssh_host_ecdsa_key.pub<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>修改ssh配置</p>
-<pre><code>vi /etc/ssh/sshd_config
+<pre class="line-numbers language-none"><code class="language-none">vi /etc/ssh/sshd_config
 PermitRootLogin yes #禁止root登录，8.4p1默认禁止root用户登录，如有需要，改为yes   
 PubkeyAuthentication yes
-PasswordAuthentication yes</code></pre>
-<h2 id="7、启动ssh"><a href="#7、启动ssh" class="headerlink" title="7、启动ssh"></a>7、启动ssh</h2><pre><code>service sshd restart</code></pre>
-<h2 id="8、验证"><a href="#8、验证" class="headerlink" title="8、验证"></a>8、验证</h2><pre><code>ssh -V
+PasswordAuthentication yes<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="7、启动ssh"><a href="#7、启动ssh" class="headerlink" title="7、启动ssh"></a>7、启动ssh</h2><pre class="line-numbers language-none"><code class="language-none">service sshd restart<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h2 id="8、验证"><a href="#8、验证" class="headerlink" title="8、验证"></a>8、验证</h2><pre class="line-numbers language-none"><code class="language-none">ssh -V
 提示：OpenSSH_8.4p1, OpenSSL 1.1.1h  
-表示升级成功！</code></pre>
-<h2 id="9、恢复telnet配置"><a href="#9、恢复telnet配置" class="headerlink" title="9、恢复telnet配置"></a>9、恢复telnet配置</h2><pre><code>vim /etc/xinetd.d/telnet 将disabled 改成no
+表示升级成功！<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<h2 id="9、恢复telnet配置"><a href="#9、恢复telnet配置" class="headerlink" title="9、恢复telnet配置"></a>9、恢复telnet配置</h2><pre class="line-numbers language-none"><code class="language-none">vim /etc/xinetd.d/telnet 将disabled 改成no
 vim  /etc/pam.d/remote 
 auth       required     pam_securetty.so
 #重启
-service xinetd restart</code></pre>
-<p><a href="https://download.csdn.net/download/haha_201510/12928276" target="_blank" rel="noopener">openssh升级文件</a></p>
+service xinetd restart<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p><a target="_blank" rel="noopener" href="https://download.csdn.net/download/haha_201510/12928276">openssh升级文件</a></p>
 
+                
             </div>
             <hr/>
 
@@ -594,271 +591,38 @@ service xinetd restart</code></pre>
     
 
     
-
-    
-
-    
-        <style>
-    .valine-card {
-        margin: 1.5rem auto;
-    }
-
-    .valine-card .card-content {
-        padding: 20px 20px 5px 20px;
-    }
-
-    #vcomments textarea {
-        box-sizing: border-box;
-        background: url("/medias/comment_bg.png") 100% 100% no-repeat;
-    }
-
-    #vcomments p {
-        margin: 2px 2px 10px;
-        font-size: 1.05rem;
-        line-height: 1.78rem;
-    }
-
-    #vcomments blockquote p {
-        text-indent: 0.2rem;
-    }
-
-    #vcomments a {
-        padding: 0 2px;
-        color: #4cbf30;
-        font-weight: 500;
-        text-decoration: none;
-    }
-
-    #vcomments img {
-        max-width: 100%;
-        height: auto;
-        cursor: pointer;
-    }
-
-    #vcomments ol li {
-        list-style-type: decimal;
-    }
-
-    #vcomments ol,
-    ul {
-        display: block;
-        padding-left: 2em;
-        word-spacing: 0.05rem;
-    }
-
-    #vcomments ul li,
-    ol li {
-        display: list-item;
-        line-height: 1.8rem;
-        font-size: 1rem;
-    }
-
-    #vcomments ul li {
-        list-style-type: disc;
-    }
-
-    #vcomments ul ul li {
-        list-style-type: circle;
-    }
-
-    #vcomments table, th, td {
-        padding: 12px 13px;
-        border: 1px solid #dfe2e5;
-    }
-
-    #vcomments table, th, td {
-        border: 0;
-    }
-
-    table tr:nth-child(2n), thead {
-        background-color: #fafafa;
-    }
-
-    #vcomments table th {
-        background-color: #f2f2f2;
-        min-width: 80px;
-    }
-
-    #vcomments table td {
-        min-width: 80px;
-    }
-
-    #vcomments h1 {
-        font-size: 1.85rem;
-        font-weight: bold;
-        line-height: 2.2rem;
-    }
-
-    #vcomments h2 {
-        font-size: 1.65rem;
-        font-weight: bold;
-        line-height: 1.9rem;
-    }
-
-    #vcomments h3 {
-        font-size: 1.45rem;
-        font-weight: bold;
-        line-height: 1.7rem;
-    }
-
-    #vcomments h4 {
-        font-size: 1.25rem;
-        font-weight: bold;
-        line-height: 1.5rem;
-    }
-
-    #vcomments h5 {
-        font-size: 1.1rem;
-        font-weight: bold;
-        line-height: 1.4rem;
-    }
-
-    #vcomments h6 {
-        font-size: 1rem;
-        line-height: 1.3rem;
-    }
-
-    #vcomments p {
-        font-size: 1rem;
-        line-height: 1.5rem;
-    }
-
-    #vcomments hr {
-        margin: 12px 0;
-        border: 0;
-        border-top: 1px solid #ccc;
-    }
-
-    #vcomments blockquote {
-        margin: 15px 0;
-        border-left: 5px solid #039be5;
-        padding: 1rem 0.8rem 0.3rem 0.8rem;
-        color: #666;
-        background-color: rgba(66, 185, 131, .1);
-    }
-
-    #vcomments pre {
-        font-family: monospace, monospace;
-        padding: 1.2em;
-        margin: .5em 0;
-        background: #272822;
-        overflow: auto;
-        border-radius: 0.3em;
-        tab-size: 4;
-    }
-
-    #vcomments code {
-        font-family: monospace, monospace;
-        padding: 1px 3px;
-        font-size: 0.92rem;
-        color: #e96900;
-        background-color: #f8f8f8;
-        border-radius: 2px;
-    }
-
-    #vcomments pre code {
-        font-family: monospace, monospace;
-        padding: 0;
-        color: #e8eaf6;
-        background-color: #272822;
-    }
-
-    #vcomments pre[class*="language-"] {
-        padding: 1.2em;
-        margin: .5em 0;
-    }
-
-    #vcomments code[class*="language-"],
-    pre[class*="language-"] {
-        color: #e8eaf6;
-    }
-
-    #vcomments [type="checkbox"]:not(:checked), [type="checkbox"]:checked {
-        position: inherit;
-        margin-left: -1.3rem;
-        margin-right: 0.4rem;
-        margin-top: -1px;
-        vertical-align: middle;
-        left: unset;
-        visibility: visible;
-    }
-
-    #vcomments b,
-    strong {
-        font-weight: bold;
-    }
-
-    #vcomments dfn {
-        font-style: italic;
-    }
-
-    #vcomments small {
-        font-size: 85%;
-    }
-
-    #vcomments cite {
-        font-style: normal;
-    }
-
-    #vcomments mark {
-        background-color: #fcf8e3;
-        padding: .2em;
-    }
-
-    #vcomments table, th, td {
-        padding: 12px 13px;
-        border: 1px solid #dfe2e5;
-    }
-
-    table tr:nth-child(2n), thead {
-        background-color: #fafafa;
-    }
-
-    #vcomments table th {
-        background-color: #f2f2f2;
-        min-width: 80px;
-    }
-
-    #vcomments table td {
-        min-width: 80px;
-    }
-
-    #vcomments [type="checkbox"]:not(:checked), [type="checkbox"]:checked {
-        position: inherit;
-        margin-left: -1.3rem;
-        margin-right: 0.4rem;
-        margin-top: -1px;
-        vertical-align: middle;
-        left: unset;
-        visibility: visible;
-    }
-</style>
-
-<div class="card valine-card" data-aos="fade-up">
-    <div class="comment_headling" style="font-size: 20px; font-weight: 700; position: relative; padding-left: 20px; top: 15px; padding-bottom: 5px;">
-        <i class="fas fa-comments fa-fw" aria-hidden="true"></i>
-        <span>评论</span>
-    </div>
-    <div id="vcomments" class="card-content" style="display: grid">
+        <div class="disqus-card card" data-aos="fade-up">
+    <div id="disqus_thread" class="card-content">
+        <noscript>Please enable JavaScript to view the
+            <a target="_blank" rel="noopener" href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
     </div>
 </div>
 
-<script src="/libs/valine/av-min.js"></script>
-<script src="/libs/valine/Valine.min.js"></script>
-<script>
-    new Valine({
-        el: '#vcomments',
-        appId: 'Sz4FRH1b0UaJd4fs5CxgdRQd-gzGzoHsz',
-        appKey: 'Y2pWFXbf3px0AlwvAR1hWkOr',
-        notify: 'false' === 'true',
-        verify: 'false' === 'true',
-        visitor: 'true' === 'true',
-        avatar: 'mm',
-        pageSize: '10',
-        lang: 'zh-cn',
-        placeholder: '聊聊'
-    });
+<script type="text/javascript">
+    disqus_config = function () {
+        this.page.url = 'http://www.xujn.xyz/2020/10/15/openssh8-4p1-sheng-ji/';
+        this.page.identifier = '/2020/10/15/openssh8-4p1-sheng-ji/';
+        this.page.title = 'openssh8.4p1升级';
+    };
+    let disqus_shortname = 'xujn';
+
+    (function () { // DON'T EDIT BELOW THIS LINE
+        let d = document, s = d.createElement('script');
+        // 如：s.src = 'https://blinkfox.disqus.com/embed.js';
+        s.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', new Date());
+        (d.head || d.body).appendChild(s);
+    })();
 </script>
+
+    
+
+    
+
+    
+
+    
 
     
 
@@ -885,11 +649,7 @@ service xinetd restart</code></pre>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            Linux加固检查口令最小长度vim /etc/login.defs
-设置 PASS_MIN_LEN 8
-检查是否设置口令生存周期vim /etc/login.defs
-设置PASS_MAX_DAYS 90
-检查设备密码复杂度策略vim /
+                            
                         
                     </div>
                     <div class="publish-info">
@@ -942,8 +702,7 @@ service xinetd restart</code></pre>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            缓存介绍
-Spring3.1之后引入了基于注释（annotation）的缓存（cache）技术，它本质上不是一个具体的缓存实现方案（如EHCache 或者Redis），而是一个对缓存使用的抽象，通过在既有代码中添加少量它定义的各种annot
+                            
                         
                     </div>
                     <div class="publish-info">
@@ -1048,16 +807,9 @@ Spring3.1之后引入了基于注释（annotation）的缓存（cache）技术�
 <script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
 
 
-<!-- 代码块折行 -->
-
-<style type="text/css">
-code[class*="language-"], pre[class*="language-"] { white-space: pre !important; }
-</style>
-
-
     </div>
     <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
-        <div class="toc-widget">
+        <div class="toc-widget card" style="background-color: white;">
             <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
             <div id="toc-content"></div>
         </div>
@@ -1081,7 +833,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             contentSelector: '#articleContent',
             headingsOffset: -($(window).height() * 0.4 - 45),
             collapseDepth: Number('0'),
-            headingSelector: 'h1,h2, h3, h4'
+            headingSelector: 'h2, h3, h4'
         });
 
         // modify the toc link href to support Chinese.
@@ -1093,7 +845,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
 
         // modify the heading title id to support Chinese.
         i = 0;
-        $('#articleContent').children('h1,h2, h3, h4').each(function () {
+        $('#articleContent').children('h2, h3, h4').each(function () {
             $(this).attr('id', tocHeading + (++i));
         });
 
@@ -1155,112 +907,101 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
 
 
 
-    <div id="weather-v2-plugin-simple"></div>
-    <script>
-    WIDGET = {
-    CONFIG: {
-        "modules": "0124",
-        "background": 1,
-        "tmpColor": "FFFEFE",
-        "tmpSize": 16,
-        "cityColor": "FFFFFF",
-        "citySize": 16,
-        "aqiSize": 16,
-        "weatherIconSize": 24,
-        "alertIconSize": 18,
-        "padding": "10px 10px 10px 10px",
-        "shadow": "1",
-        "language": "auto",
-        "borderRadius": 5,
-        "fixed": "true",
-        "vertical": "middle",
-        "horizontal": "left",
-        "left": 10,
-        "top": 10,
-        "key": "fmCYN7ec82"
-    }
-    }
-    </script>
-    <script src="https://apip.weatherdt.com/simple/static/js/weather-simple-common.js?v=2.0"></script>
+
     <footer class="page-footer bg-color">
     
-    <div class="container row center-align" style="margin-bottom: 15px !important;">
+
+    <div class="container row center-align"
+         style="margin-bottom: 15px !important;">
         <div class="col s12 m8 l8 copy-right">
             Copyright&nbsp;&copy;
+            
+                <span id="year">2020-2021</span>
+            
             <span id="year">2020</span>
             <a href="/about" target="_blank">苏叶新城</a>
             |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
             |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
             <br>
             
-            &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">18.1k</span>&nbsp;字
             
             
+                
             
             
-            
-            
-            <span id="busuanzi_container_site_pv">
-                |&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span id="busuanzi_value_site_pv"
-                    class="white-color"></span>&nbsp;次
+                <span id="busuanzi_container_site_pv">
+                &nbsp;|&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;
+                    <span id="busuanzi_value_site_pv" class="white-color"></span>
             </span>
             
             
-            <span id="busuanzi_container_site_uv">
-                |&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;<span id="busuanzi_value_site_uv"
-                    class="white-color"></span>&nbsp;人
+                <span id="busuanzi_container_site_uv">
+                &nbsp;|&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;
+                    <span id="busuanzi_value_site_uv" class="white-color"></span>
             </span>
             
             <br>
+
+            <!-- 运行天数提醒. -->
             
-            <span id="sitetime">载入运行时间...</span>
-            <script>
-                function siteTime() {
-                    var seconds = 1000;
-                    var minutes = seconds * 60;
-                    var hours = minutes * 60;
-                    var days = hours * 24;
-                    var years = days * 365;
-                    var today = new Date();
-                    var startYear = "2020";
-                    var startMonth = "3";
-                    var startDate = "1";
-                    var startHour = "0";
-                    var startMinute = "0";
-                    var startSecond = "0";
-                    var todayYear = today.getFullYear();
-                    var todayMonth = today.getMonth() + 1;
-                    var todayDate = today.getDate();
-                    var todayHour = today.getHours();
-                    var todayMinute = today.getMinutes();
-                    var todaySecond = today.getSeconds();
-                    var t1 = Date.UTC(startYear, startMonth, startDate, startHour, startMinute, startSecond);
-                    var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
-                    var diff = t2 - t1;
-                    var diffYears = Math.floor(diff / years);
-                    var diffDays = Math.floor((diff / days) - diffYears * 365);
-                    var diffHours = Math.floor((diff - (diffYears * 365 + diffDays) * days) / hours);
-                    var diffMinutes = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours) /
-                        minutes);
-                    var diffSeconds = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours -
-                        diffMinutes * minutes) / seconds);
-                    if (startYear == todayYear) {
-                        document.getElementById("year").innerHTML = todayYear;
-                        document.getElementById("sitetime").innerHTML = "本站已安全运行 " + diffDays + " 天 " + diffHours +
-                            " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
-                    } else {
-                        document.getElementById("year").innerHTML = startYear + " - " + todayYear;
-                        document.getElementById("sitetime").innerHTML = "本站已安全运行 " + diffYears + " 年 " + diffDays +
-                            " 天 " + diffHours + " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+                <span id="sitetime"> Loading ...</span>
+                <script>
+                    var calcSiteTime = function () {
+                        var seconds = 1000;
+                        var minutes = seconds * 60;
+                        var hours = minutes * 60;
+                        var days = hours * 24;
+                        var years = days * 365;
+                        var today = new Date();
+                        var startYear = "2020";
+                        var startMonth = "3";
+                        var startDate = "1";
+                        var startHour = "0";
+                        var startMinute = "0";
+                        var startSecond = "0";
+                        var todayYear = today.getFullYear();
+                        var todayMonth = today.getMonth() + 1;
+                        var todayDate = today.getDate();
+                        var todayHour = today.getHours();
+                        var todayMinute = today.getMinutes();
+                        var todaySecond = today.getSeconds();
+                        var t1 = Date.UTC(startYear, startMonth, startDate, startHour, startMinute, startSecond);
+                        var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
+                        var diff = t2 - t1;
+                        var diffYears = Math.floor(diff / years);
+                        var diffDays = Math.floor((diff / days) - diffYears * 365);
+
+                        // 区分是否有年份.
+                        var language = 'zh-CN';
+                        if (startYear === String(todayYear)) {
+                            document.getElementById("year").innerHTML = todayYear;
+                            var daysTip = 'This site has been running for ' + diffDays + ' days';
+                            if (language === 'zh-CN') {
+                                daysTip = '本站已运行 ' + diffDays + ' 天';
+                            } else if (language === 'zh-HK') {
+                                daysTip = '本站已運行 ' + diffDays + ' 天';
+                            }
+                            document.getElementById("sitetime").innerHTML = daysTip;
+                        } else {
+                            document.getElementById("year").innerHTML = startYear + " - " + todayYear;
+                            var yearsAndDaysTip = 'This site has been running for ' + diffYears + ' years and '
+                                + diffDays + ' days';
+                            if (language === 'zh-CN') {
+                                yearsAndDaysTip = '本站已运行 ' + diffYears + ' 年 ' + diffDays + ' 天';
+                            } else if (language === 'zh-HK') {
+                                yearsAndDaysTip = '本站已運行 ' + diffYears + ' 年 ' + diffDays + ' 天';
+                            }
+                            document.getElementById("sitetime").innerHTML = yearsAndDaysTip;
+                        }
                     }
-                }
-                setInterval(siteTime, 1000);
-            </script>
+
+                    calcSiteTime();
+                </script>
             
             <br>
             
-            <span id="icp"><img src="/medias/icp.png" style="vertical-align: text-bottom;" />
+                <span id="icp"><img src="/medias/icp.png"
+                                    style="vertical-align: text-bottom;"/>
                 <a href="http://beian.miit.gov.cn" target="_blank">吉ICP备20000854号-1</a>
             </span>
             
@@ -1286,6 +1027,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
 
 <div class="progress-bar"></div>
 
+
     <!-- 搜索遮罩框 -->
 <div id="searchModal" class="modal">
     <div class="modal-content">
@@ -1298,10 +1040,95 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
     </div>
 </div>
 
-<script src="/js/search.js"></script>
 <script type="text/javascript">
 $(function () {
-    searchFunc("/search.xml", 'searchInput', 'searchResult');
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
 });
 </script>
 
@@ -1359,6 +1186,8 @@ $(function () {
 
     
 
+    <!--腾讯兔小巢-->
+    
     
     <script type="text/javascript" color="0,0,255"
         pointColor="0,0,255" opacity='0.7'
@@ -1379,31 +1208,7 @@ $(function () {
     
     <script src="/libs/instantpage/instantpage.js" type="module"></script>
     
-    <script type="text/javascript">
-        window.onload = function(){
-            //屏蔽键盘事件
-            document.onkeydown = function (){
-                var e = window.event || arguments[0];
-                //F12
-                if(e.keyCode == 123){
-                    return false;
-                //Ctrl+Shift+I
-                }else if((e.ctrlKey) && (e.shiftKey) && (e.keyCode == 73)){
-                    return false;
-                //Shift+F10
-                }else if((e.shiftKey) && (e.keyCode == 121)){
-                    return false;
-                //Ctrl+U
-                }else if((e.ctrlKey) && (e.keyCode == 85)){
-                    return false;
-                }
-            };
-            //屏蔽鼠标右键
-            document.oncontextmenu = function (){
-                return false;
-            }
-        }
-    </script>
-   </body>
+
+</body>
 
 </html>

@@ -39,15 +39,12 @@
     <link rel="stylesheet" type="text/css" href="/css/my.css">
 
     <script src="/libs/jquery/jquery.min.js"></script>
-    <!-- 360 -->
-    <script>
-        (function(){
-        var src = "https://jspassport.ssl.qhimg.com/11.0.1.js?d182b3f28525f2db83acfaaf6e696dba";
-        document.write('<script src="' + src + '" id="sozz"><\/script>');
-        })();
-    </script>
-<meta name="generator" content="Hexo 4.2.1"><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
-<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
+
+<meta name="generator" content="Hexo 5.4.0">
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+</head>
+
+
 
 
 <body>
@@ -311,8 +308,7 @@
     }
 
     .toc-widget .toc-title {
-        margin: 35px 0 15px 0;
-        padding-left: 17px;
+        padding: 35px 0 15px 17px;
         font-size: 1.5rem;
         font-weight: bold;
         line-height: 1.5rem;
@@ -324,7 +320,7 @@
     }
 
     #toc-content {
-        height: calc(100vh - 250px);
+        padding-bottom: 30px;
         overflow: auto;
     }
 
@@ -337,7 +333,7 @@
     }
 
     #toc-content .toc-link:hover {
-        color: #039be5;
+        color: #00d3ff;
         font-weight: 700;
         text-decoration: underline;
     }
@@ -352,7 +348,7 @@
     }
 
     #toc-content .is-active-link {
-        color: #039be5;
+        color: #00d3ff;
     }
 
     #floating-toc-btn {
@@ -425,23 +421,21 @@
                 
 
                 
-                <div class="info-break-policy">
-                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.6k
-                </div>
-                
 
                 
 
                 
-                    <div id="busuanzi_container_page_pv" class="info-break-policy">
-                        <i class="far fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
-                        <span id="busuanzi_value_page_pv"></span>
-                    </div>
-				
             </div>
         </div>
         <hr class="clearfix">
+
+        
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.css">
+        
+
+        
+
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <h1 id="环境准备"><a href="#环境准备" class="headerlink" title="环境准备"></a>环境准备</h1><h2 id="使用的系统软件"><a href="#使用的系统软件" class="headerlink" title="使用的系统软件"></a>使用的系统软件</h2><table>
@@ -472,7 +466,7 @@
 <td>nginx1.18.0</td>
 </tr>
 </tbody></table>
-<h2 id="编译环境"><a href="#编译环境" class="headerlink" title="编译环境"></a>编译环境</h2><pre class="line-numbers language-shell"><code class="language-shell">yum install git gcc gcc-c++ make automake autoconf libtool pcre pcre-devel zlib zlib-devel openssl-devel wget vim -y<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h2 id="编译环境"><a href="#编译环境" class="headerlink" title="编译环境"></a>编译环境</h2><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">yum install git gcc gcc-c++ make automake autoconf libtool pcre pcre-devel zlib zlib-devel openssl-devel wget vim -y<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <h2 id="磁盘目录"><a href="#磁盘目录" class="headerlink" title="磁盘目录"></a>磁盘目录</h2><table>
 <thead>
 <tr>
@@ -489,60 +483,61 @@
 <td>/home/dfs/</td>
 </tr>
 </tbody></table>
-<pre class="line-numbers language-shell"><code class="language-shell">mkdir /home/dfs #创建数据存储目录
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">mkdir /home/dfs #创建数据存储目录
 cd /usr/local/src #切换到安装目录准备下载安装包<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-<h2 id="安装libfastcommon"><a href="#安装libfastcommon" class="headerlink" title="安装libfastcommon"></a>安装libfastcommon</h2><pre class="line-numbers language-shell"><code class="language-shell">wget https://github.com/happyfish100/libfastcommon/archive/V1.0.43.tar.gz -O libfastcommon.tar.gz
+<h2 id="安装libfastcommon"><a href="#安装libfastcommon" class="headerlink" title="安装libfastcommon"></a>安装libfastcommon</h2><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">wget https://github.com/happyfish100/libfastcommon/archive/V1.0.43.tar.gz -O libfastcommon.tar.gz
 tar -xzvf libfastcommon.tar.gz
 cd libfastcommon-1.0.43
 #编译安装
-./make.sh && ./make.sh install <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h2 id="安装FastDFS"><a href="#安装FastDFS" class="headerlink" title="安装FastDFS"></a>安装FastDFS</h2><pre class="line-numbers language-shell"><code class="language-shell">cd ../ #返回上一级目录
+./make.sh &amp;&amp; ./make.sh install <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="安装FastDFS"><a href="#安装FastDFS" class="headerlink" title="安装FastDFS"></a>安装FastDFS</h2><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">cd ../ #返回上一级目录
 wget https://github.com/happyfish100/fastdfs/archive/V6.06.tar.gz -O fastdfs.tar.gz
 tar -xzvf fastdfs.tar.gz
 cd fastdfs-6.06/
 #编译安装
-./make.sh && ./make.sh install <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+./make.sh &amp;&amp; ./make.sh install <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <p>安装完成/etc/fdfs存放配置文件</p>
-<pre><code>ls /etc/fdfs
-client.conf.sample  storage.conf.sample  storage_ids.conf.sample  tracker.conf.sample</code></pre>
-<pre><code>#配置文件准备
+<pre class="line-numbers language-none"><code class="language-none">ls /etc/fdfs
+client.conf.sample  storage.conf.sample  storage_ids.conf.sample  tracker.conf.sample<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-none"><code class="language-none">#配置文件准备
 cp /etc/fdfs/storage.conf.sample /etc/fdfs/storage.conf
 cp /etc/fdfs/client.conf.sample /etc/fdfs/client.conf
 cp /etc/fdfs/tracker.conf.sample /etc/fdfs/tracker.conf
  #客户端文件，测试用
 #供nginx访问使用
-cp conf/http.conf conf/mime.types /etc/fdfs/ </code></pre>
-<h2 id="安装fastdfs-nginx-module"><a href="#安装fastdfs-nginx-module" class="headerlink" title="安装fastdfs-nginx-module"></a>安装fastdfs-nginx-module</h2><pre class="line-numbers language-shell"><code class="language-shell">cd ../ #返回上一级目录
+cp conf/http.conf conf/mime.types /etc/fdfs/ <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="安装fastdfs-nginx-module"><a href="#安装fastdfs-nginx-module" class="headerlink" title="安装fastdfs-nginx-module"></a>安装fastdfs-nginx-module</h2><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">cd ../ #返回上一级目录
 wget https://github.com/happyfish100/fastdfs-nginx-module/archive/V1.22.tar.gz -O fastdfs-nginx-module.tar.gz
 tar -xzvf fastdfs-nginx-module.tar.gz
 cd fastdfs-nginx-module-1.22/
 cp src/mod_fastdfs.conf /etc/fdfs/<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h2 id="安装nginx"><a href="#安装nginx" class="headerlink" title="安装nginx"></a>安装nginx</h2><pre class="line-numbers language-shell"><code class="language-shell">wget https://nginx.org/download/nginx-1.18.0.tar.gz #下载nginx压缩包
+<h2 id="安装nginx"><a href="#安装nginx" class="headerlink" title="安装nginx"></a>安装nginx</h2><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">wget https://nginx.org/download/nginx-1.18.0.tar.gz #下载nginx压缩包
 tar -xzvf nginx-1.18.0.tar.gz #解压
 cd nginx-1.18.0/
 #添加fastdfs-nginx-module模块
 ./configure --add-module=/home/dfs/soft/fastdfs-nginx-module-1.22/src/ 
-make && make install #编译安装<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h1 id="单机部署"><a href="#单机部署" class="headerlink" title="单机部署"></a>单机部署</h1><h2 id="tracker配置"><a href="#tracker配置" class="headerlink" title="tracker配置"></a>tracker配置</h2><pre class="line-numbers language-shell"><code class="language-shell">#服务器ip为 192.168.81.76
+make &amp;&amp; make install #编译安装<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h1 id="单机部署"><a href="#单机部署" class="headerlink" title="单机部署"></a>单机部署</h1><h2 id="tracker配置"><a href="#tracker配置" class="headerlink" title="tracker配置"></a>tracker配置</h2><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">#服务器ip为 192.168.81.76
 #我建议用ftp下载下来这些文件 本地修改
 vim /etc/fdfs/tracker.conf
 #需要修改的内容如下
 port=22122  # tracker服务器端口（默认22122,一般不修改）
 base_path=/home/dfs  # 存储日志和数据的根目录<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h2 id="storage配置"><a href="#storage配置" class="headerlink" title="storage配置"></a>storage配置</h2><pre class="line-numbers language-shell"><code class="language-shell">vim /etc/fdfs/storage.conf
+<h2 id="storage配置"><a href="#storage配置" class="headerlink" title="storage配置"></a>storage配置</h2><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">vim /etc/fdfs/storage.conf
 #需要修改的内容如下
 port=23000  # storage服务端口（默认23000,一般不修改）
 base_path=/home/dfs  # 数据和日志文件存储根目录
 store_path0=/home/dfs  # 第一个存储目录
 tracker_server=192.168.81.76:22122   # tracker服务器IP和端口
 http.server_port=8888  # http访问文件的端口(默认8888,看情况修改,和nginx中保持一致)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h2 id="client测试"><a href="#client测试" class="headerlink" title="client测试"></a>client测试</h2><pre class="line-numbers language-shell"><code class="language-shell">vim /etc/fdfs/client.conf
+<h2 id="client测试"><a href="#client测试" class="headerlink" title="client测试"></a>client测试</h2><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">vim /etc/fdfs/client.conf
 #需要修改的内容如下
 base_path=/home/dfs
 tracker_server=192.168.81.76:22122 #tracker服务器IP和端口
 #保存后测试,返回ID表示成功 如：group1/M00/00/00/wKhRTF-RUImAXsvzAA_cqj_P4TU.tar.gz
 fdfs_upload_file /etc/fdfs/client.conf  /home/dfs/soft/nginx-1.18.0.tar.gz<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h2 id="配置nginx访问"><a href="#配置nginx访问" class="headerlink" title="配置nginx访问"></a>配置nginx访问</h2><pre class="line-numbers language-shell"><code class="language-shell">vim /etc/fdfs/mod_fastdfs.conf
+<h2 id="配置nginx访问"><a href="#配置nginx访问" class="headerlink" title="配置nginx访问"></a>配置nginx访问</h2><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">vim /etc/fdfs/mod_fastdfs.conf
 #需要修改的内容如下
 tracker_server=192.168.81.76:22122  #tracker服务器IP和端口
 url_have_group_name=true
@@ -564,13 +559,13 @@ server {
 #测试下载，用外部浏览器访问刚才已传过的nginx安装包,引用返回的ID
 http://192.168.81.76:8888/group1/M00/00/00/wKhRTF-RUImAXsvzAA_cqj_P4TU.tar.gz
 #弹出下载,单机部署全部跑通<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h1 id="分布式部署"><a href="#分布式部署" class="headerlink" title="分布式部署"></a>分布式部署</h1><h2 id="tracker配置-1"><a href="#tracker配置-1" class="headerlink" title="tracker配置"></a>tracker配置</h2><pre class="line-numbers language-shell"><code class="language-shell">#服务器ip为 192.168.81.74,192.168.81.75,192.168.81.76
+<h1 id="分布式部署"><a href="#分布式部署" class="headerlink" title="分布式部署"></a>分布式部署</h1><h2 id="tracker配置-1"><a href="#tracker配置-1" class="headerlink" title="tracker配置"></a>tracker配置</h2><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">#服务器ip为 192.168.81.74,192.168.81.75,192.168.81.76
 #我建议用ftp下载下来这些文件 本地修改
 vim /etc/fdfs/tracker.conf
 #需要修改的内容如下
 port=22122  # tracker服务器端口（默认22122,一般不修改）
 base_path=/home/dfs  # 存储日志和数据的根目录<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h2 id="storage配置-1"><a href="#storage配置-1" class="headerlink" title="storage配置"></a>storage配置</h2><pre class="line-numbers language-shell"><code class="language-shell">vim /etc/fdfs/storage.conf
+<h2 id="storage配置-1"><a href="#storage配置-1" class="headerlink" title="storage配置"></a>storage配置</h2><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">vim /etc/fdfs/storage.conf
 #需要修改的内容如下
 port=23000  # storage服务端口（默认23000,一般不修改）
 base_path=/home/dfs  # 数据和日志文件存储根目录
@@ -579,7 +574,7 @@ tracker_server=192.168.81.74:22122  # 服务器1
 tracker_server=192.168.81.75:22122  # 服务器2
 tracker_server=192.168.81.76:22122  # 服务器3
 http.server_port=8888  # http访问文件的端口(默认8888,看情况修改,和nginx中保持一致)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h2 id="client测试-1"><a href="#client测试-1" class="headerlink" title="client测试"></a>client测试</h2><pre class="line-numbers language-shell"><code class="language-shell">vim /etc/fdfs/client.conf
+<h2 id="client测试-1"><a href="#client测试-1" class="headerlink" title="client测试"></a>client测试</h2><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">vim /etc/fdfs/client.conf
 #需要修改的内容如下
 base_path=/home/moe/dfs
 tracker_server=192.168.81.74:22122  # 服务器1
@@ -588,7 +583,7 @@ tracker_server=192.168.81.76:22122  # 服务器3
 #保存后测试,返回ID表示成功 如：group1/M00/00/00/wKhRTF-SSf2AO6VIAAxZcPR00vw.tar.gz
 fdfs_upload_file /etc/fdfs/client.conf  /home/dfs/soft/nginx-1.18.0.tar.gz
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h2 id="配置nginx访问-1"><a href="#配置nginx访问-1" class="headerlink" title="配置nginx访问"></a>配置nginx访问</h2><pre class="line-numbers language-shell"><code class="language-shell">vim /etc/fdfs/mod_fastdfs.conf
+<h2 id="配置nginx访问-1"><a href="#配置nginx访问-1" class="headerlink" title="配置nginx访问"></a>配置nginx访问</h2><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">vim /etc/fdfs/mod_fastdfs.conf
 #需要修改的内容如下
 tracker_server=192.168.81.74:22122  # 服务器1
 tracker_server=192.168.81.75:22122  # 服务器2
@@ -610,33 +605,34 @@ server {
     }
 }<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>服务器启动后分别访问<code>192.168.81.74:8888/group1/M00/00/00/wKhRTF-SSf2AO6VIAAxZcPR00vw.tar.gz</code>和<code>192.168.81.76:8888/group1/M00/00/00/wKhRTF-SSf2AO6VIAAxZcPR00vw.tar.gz</code>,弹出文件下载，则分布式服务部署成功。</p>
-<h1 id="启动"><a href="#启动" class="headerlink" title="启动"></a>启动</h1><h2 id="防火墙"><a href="#防火墙" class="headerlink" title="防火墙"></a>防火墙</h2><pre class="line-numbers language-shell"><code class="language-shell">#不关闭防火墙的话无法使用
+<h1 id="启动"><a href="#启动" class="headerlink" title="启动"></a>启动</h1><h2 id="防火墙"><a href="#防火墙" class="headerlink" title="防火墙"></a>防火墙</h2><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">#不关闭防火墙的话无法使用
 systemctl stop firewalld.service #关闭
 systemctl restart firewalld.service #重启<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-<h2 id="tracker"><a href="#tracker" class="headerlink" title="tracker"></a>tracker</h2><pre class="line-numbers language-shell"><code class="language-shell">/etc/init.d/fdfs_trackerd start #启动tracker服务
+<h2 id="tracker"><a href="#tracker" class="headerlink" title="tracker"></a>tracker</h2><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">/etc/init.d/fdfs_trackerd start #启动tracker服务
 /etc/init.d/fdfs_trackerd restart #重启动tracker服务
 /etc/init.d/fdfs_trackerd stop #停止tracker服务
 chkconfig fdfs_trackerd on #自启动tracker服务<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-<h2 id="storage"><a href="#storage" class="headerlink" title="storage"></a>storage</h2><pre class="line-numbers language-shell"><code class="language-shell">/etc/init.d/fdfs_storaged start #启动storage服务
+<h2 id="storage"><a href="#storage" class="headerlink" title="storage"></a>storage</h2><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">/etc/init.d/fdfs_storaged start #启动storage服务
 /etc/init.d/fdfs_storaged restart #重动storage服务
 /etc/init.d/fdfs_storaged stop #停止动storage服务
 chkconfig fdfs_storaged on #自启动storage服务<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-<h2 id="nginx"><a href="#nginx" class="headerlink" title="nginx"></a>nginx</h2><pre class="line-numbers language-shell"><code class="language-shell">/usr/local/nginx/sbin/nginx #启动nginx
+<h2 id="nginx"><a href="#nginx" class="headerlink" title="nginx"></a>nginx</h2><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">/usr/local/nginx/sbin/nginx #启动nginx
 /usr/local/nginx/sbin/nginx -s reload #重启nginx
 /usr/local/nginx/sbin/nginx -s stop #停止nginx<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-<h2 id="检测集群"><a href="#检测集群" class="headerlink" title="检测集群"></a>检测集群</h2><pre class="line-numbers language-shell"><code class="language-shell">/usr/bin/fdfs_monitor /etc/fdfs/storage.conf
+<h2 id="检测集群"><a href="#检测集群" class="headerlink" title="检测集群"></a>检测集群</h2><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">/usr/bin/fdfs_monitor /etc/fdfs/storage.conf
 # 会显示会有几台服务器 有3台就会 显示 Storage 1-Storage 3的详细信息<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-<h1 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h1><h2 id="配置文件"><a href="#配置文件" class="headerlink" title="配置文件"></a>配置文件</h2><pre class="line-numbers language-shell"><code class="language-shell">tracker_server #有几台服务器写几个
+<h1 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h1><h2 id="配置文件"><a href="#配置文件" class="headerlink" title="配置文件"></a>配置文件</h2><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">tracker_server #有几台服务器写几个
 group_name #地址的名称的命名
 bind_addr #服务器ip绑定
 store_path_count #store_path(数字)有几个写几个
 store_path(数字) #设置几个储存地址写几个 从0开始<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h2 id="可能遇到的问题"><a href="#可能遇到的问题" class="headerlink" title="可能遇到的问题"></a>可能遇到的问题</h2><pre class="line-numbers language-shell"><code class="language-shell">如果不是root 用户 你必须在除了cd的命令之外 全部加sudo
+<h2 id="可能遇到的问题"><a href="#可能遇到的问题" class="headerlink" title="可能遇到的问题"></a>可能遇到的问题</h2><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">如果不是root 用户 你必须在除了cd的命令之外 全部加sudo
 如果不是root 用户 编译和安装分开进行 先编译再安装
 如果上传成功 但是nginx报错404 先检查mod_fastdfs.conf文件中的store_path0是否一致
 如果nginx无法访问 先检查防火墙 和 mod_fastdfs.conf文件tracker_server是否一致
 如果 unknown directive "ngx_fastdfs_module" in /usr/local/nginx/conf/nginx.conf:151，可能是nginx一直是启动的，必须要重启nginx才可以，`nginx -s reload`无效。<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
+                
             </div>
             <hr/>
 
@@ -738,271 +734,38 @@ store_path(数字) #设置几个储存地址写几个 从0开始<span aria-hidde
     
 
     
-
-    
-
-    
-        <style>
-    .valine-card {
-        margin: 1.5rem auto;
-    }
-
-    .valine-card .card-content {
-        padding: 20px 20px 5px 20px;
-    }
-
-    #vcomments textarea {
-        box-sizing: border-box;
-        background: url("/medias/comment_bg.png") 100% 100% no-repeat;
-    }
-
-    #vcomments p {
-        margin: 2px 2px 10px;
-        font-size: 1.05rem;
-        line-height: 1.78rem;
-    }
-
-    #vcomments blockquote p {
-        text-indent: 0.2rem;
-    }
-
-    #vcomments a {
-        padding: 0 2px;
-        color: #4cbf30;
-        font-weight: 500;
-        text-decoration: none;
-    }
-
-    #vcomments img {
-        max-width: 100%;
-        height: auto;
-        cursor: pointer;
-    }
-
-    #vcomments ol li {
-        list-style-type: decimal;
-    }
-
-    #vcomments ol,
-    ul {
-        display: block;
-        padding-left: 2em;
-        word-spacing: 0.05rem;
-    }
-
-    #vcomments ul li,
-    ol li {
-        display: list-item;
-        line-height: 1.8rem;
-        font-size: 1rem;
-    }
-
-    #vcomments ul li {
-        list-style-type: disc;
-    }
-
-    #vcomments ul ul li {
-        list-style-type: circle;
-    }
-
-    #vcomments table, th, td {
-        padding: 12px 13px;
-        border: 1px solid #dfe2e5;
-    }
-
-    #vcomments table, th, td {
-        border: 0;
-    }
-
-    table tr:nth-child(2n), thead {
-        background-color: #fafafa;
-    }
-
-    #vcomments table th {
-        background-color: #f2f2f2;
-        min-width: 80px;
-    }
-
-    #vcomments table td {
-        min-width: 80px;
-    }
-
-    #vcomments h1 {
-        font-size: 1.85rem;
-        font-weight: bold;
-        line-height: 2.2rem;
-    }
-
-    #vcomments h2 {
-        font-size: 1.65rem;
-        font-weight: bold;
-        line-height: 1.9rem;
-    }
-
-    #vcomments h3 {
-        font-size: 1.45rem;
-        font-weight: bold;
-        line-height: 1.7rem;
-    }
-
-    #vcomments h4 {
-        font-size: 1.25rem;
-        font-weight: bold;
-        line-height: 1.5rem;
-    }
-
-    #vcomments h5 {
-        font-size: 1.1rem;
-        font-weight: bold;
-        line-height: 1.4rem;
-    }
-
-    #vcomments h6 {
-        font-size: 1rem;
-        line-height: 1.3rem;
-    }
-
-    #vcomments p {
-        font-size: 1rem;
-        line-height: 1.5rem;
-    }
-
-    #vcomments hr {
-        margin: 12px 0;
-        border: 0;
-        border-top: 1px solid #ccc;
-    }
-
-    #vcomments blockquote {
-        margin: 15px 0;
-        border-left: 5px solid #039be5;
-        padding: 1rem 0.8rem 0.3rem 0.8rem;
-        color: #666;
-        background-color: rgba(66, 185, 131, .1);
-    }
-
-    #vcomments pre {
-        font-family: monospace, monospace;
-        padding: 1.2em;
-        margin: .5em 0;
-        background: #272822;
-        overflow: auto;
-        border-radius: 0.3em;
-        tab-size: 4;
-    }
-
-    #vcomments code {
-        font-family: monospace, monospace;
-        padding: 1px 3px;
-        font-size: 0.92rem;
-        color: #e96900;
-        background-color: #f8f8f8;
-        border-radius: 2px;
-    }
-
-    #vcomments pre code {
-        font-family: monospace, monospace;
-        padding: 0;
-        color: #e8eaf6;
-        background-color: #272822;
-    }
-
-    #vcomments pre[class*="language-"] {
-        padding: 1.2em;
-        margin: .5em 0;
-    }
-
-    #vcomments code[class*="language-"],
-    pre[class*="language-"] {
-        color: #e8eaf6;
-    }
-
-    #vcomments [type="checkbox"]:not(:checked), [type="checkbox"]:checked {
-        position: inherit;
-        margin-left: -1.3rem;
-        margin-right: 0.4rem;
-        margin-top: -1px;
-        vertical-align: middle;
-        left: unset;
-        visibility: visible;
-    }
-
-    #vcomments b,
-    strong {
-        font-weight: bold;
-    }
-
-    #vcomments dfn {
-        font-style: italic;
-    }
-
-    #vcomments small {
-        font-size: 85%;
-    }
-
-    #vcomments cite {
-        font-style: normal;
-    }
-
-    #vcomments mark {
-        background-color: #fcf8e3;
-        padding: .2em;
-    }
-
-    #vcomments table, th, td {
-        padding: 12px 13px;
-        border: 1px solid #dfe2e5;
-    }
-
-    table tr:nth-child(2n), thead {
-        background-color: #fafafa;
-    }
-
-    #vcomments table th {
-        background-color: #f2f2f2;
-        min-width: 80px;
-    }
-
-    #vcomments table td {
-        min-width: 80px;
-    }
-
-    #vcomments [type="checkbox"]:not(:checked), [type="checkbox"]:checked {
-        position: inherit;
-        margin-left: -1.3rem;
-        margin-right: 0.4rem;
-        margin-top: -1px;
-        vertical-align: middle;
-        left: unset;
-        visibility: visible;
-    }
-</style>
-
-<div class="card valine-card" data-aos="fade-up">
-    <div class="comment_headling" style="font-size: 20px; font-weight: 700; position: relative; padding-left: 20px; top: 15px; padding-bottom: 5px;">
-        <i class="fas fa-comments fa-fw" aria-hidden="true"></i>
-        <span>评论</span>
-    </div>
-    <div id="vcomments" class="card-content" style="display: grid">
+        <div class="disqus-card card" data-aos="fade-up">
+    <div id="disqus_thread" class="card-content">
+        <noscript>Please enable JavaScript to view the
+            <a target="_blank" rel="noopener" href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
     </div>
 </div>
 
-<script src="/libs/valine/av-min.js"></script>
-<script src="/libs/valine/Valine.min.js"></script>
-<script>
-    new Valine({
-        el: '#vcomments',
-        appId: 'Sz4FRH1b0UaJd4fs5CxgdRQd-gzGzoHsz',
-        appKey: 'Y2pWFXbf3px0AlwvAR1hWkOr',
-        notify: 'false' === 'true',
-        verify: 'false' === 'true',
-        visitor: 'true' === 'true',
-        avatar: 'mm',
-        pageSize: '10',
-        lang: 'zh-cn',
-        placeholder: '聊聊'
-    });
+<script type="text/javascript">
+    disqus_config = function () {
+        this.page.url = 'http://www.xujn.xyz/2020/12/09/fastdfs-fen-bu-shi-bu-shu/';
+        this.page.identifier = '/2020/12/09/fastdfs-fen-bu-shi-bu-shu/';
+        this.page.title = 'FastDFS分布式部署';
+    };
+    let disqus_shortname = 'xujn';
+
+    (function () { // DON'T EDIT BELOW THIS LINE
+        let d = document, s = d.createElement('script');
+        // 如：s.src = 'https://blinkfox.disqus.com/embed.js';
+        s.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', new Date());
+        (d.head || d.body).appendChild(s);
+    })();
 </script>
+
+    
+
+    
+
+    
+
+    
 
     
 
@@ -1030,28 +793,7 @@ store_path(数字) #设置几个储存地址写几个 从0开始<span aria-hidde
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            环境准备使用的系统软件
-
-
-名称
-说明
-
-
-
-Redhat
-7.x
-
-
-libfastcommon
-FastDFS分离出的一些公用函数包
-
-
-FastDFS
-FastDFS本体
-
-
-fastdfs-nginx-module
-FastDFS和
+                            
                         
                     </div>
                     <div class="publish-info">
@@ -1109,11 +851,7 @@ FastDFS和
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            Linux加固检查口令最小长度vim /etc/login.defs
-设置 PASS_MIN_LEN 8
-检查是否设置口令生存周期vim /etc/login.defs
-设置PASS_MAX_DAYS 90
-检查设备密码复杂度策略vim /
+                            
                         
                     </div>
                     <div class="publish-info">
@@ -1210,16 +948,9 @@ FastDFS和
 <script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
 
 
-<!-- 代码块折行 -->
-
-<style type="text/css">
-code[class*="language-"], pre[class*="language-"] { white-space: pre !important; }
-</style>
-
-
     </div>
     <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
-        <div class="toc-widget">
+        <div class="toc-widget card" style="background-color: white;">
             <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
             <div id="toc-content"></div>
         </div>
@@ -1243,7 +974,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             contentSelector: '#articleContent',
             headingsOffset: -($(window).height() * 0.4 - 45),
             collapseDepth: Number('0'),
-            headingSelector: 'h1,h2, h3, h4'
+            headingSelector: 'h2, h3, h4'
         });
 
         // modify the toc link href to support Chinese.
@@ -1255,7 +986,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
 
         // modify the heading title id to support Chinese.
         i = 0;
-        $('#articleContent').children('h1,h2, h3, h4').each(function () {
+        $('#articleContent').children('h2, h3, h4').each(function () {
             $(this).attr('id', tocHeading + (++i));
         });
 
@@ -1317,112 +1048,101 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
 
 
 
-    <div id="weather-v2-plugin-simple"></div>
-    <script>
-    WIDGET = {
-    CONFIG: {
-        "modules": "0124",
-        "background": 1,
-        "tmpColor": "FFFEFE",
-        "tmpSize": 16,
-        "cityColor": "FFFFFF",
-        "citySize": 16,
-        "aqiSize": 16,
-        "weatherIconSize": 24,
-        "alertIconSize": 18,
-        "padding": "10px 10px 10px 10px",
-        "shadow": "1",
-        "language": "auto",
-        "borderRadius": 5,
-        "fixed": "true",
-        "vertical": "middle",
-        "horizontal": "left",
-        "left": 10,
-        "top": 10,
-        "key": "fmCYN7ec82"
-    }
-    }
-    </script>
-    <script src="https://apip.weatherdt.com/simple/static/js/weather-simple-common.js?v=2.0"></script>
+
     <footer class="page-footer bg-color">
     
-    <div class="container row center-align" style="margin-bottom: 15px !important;">
+
+    <div class="container row center-align"
+         style="margin-bottom: 15px !important;">
         <div class="col s12 m8 l8 copy-right">
             Copyright&nbsp;&copy;
+            
+                <span id="year">2020-2021</span>
+            
             <span id="year">2020</span>
             <a href="/about" target="_blank">苏叶新城</a>
             |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
             |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
             <br>
             
-            &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">18.1k</span>&nbsp;字
             
             
+                
             
             
-            
-            
-            <span id="busuanzi_container_site_pv">
-                |&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span id="busuanzi_value_site_pv"
-                    class="white-color"></span>&nbsp;次
+                <span id="busuanzi_container_site_pv">
+                &nbsp;|&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;
+                    <span id="busuanzi_value_site_pv" class="white-color"></span>
             </span>
             
             
-            <span id="busuanzi_container_site_uv">
-                |&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;<span id="busuanzi_value_site_uv"
-                    class="white-color"></span>&nbsp;人
+                <span id="busuanzi_container_site_uv">
+                &nbsp;|&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;
+                    <span id="busuanzi_value_site_uv" class="white-color"></span>
             </span>
             
             <br>
+
+            <!-- 运行天数提醒. -->
             
-            <span id="sitetime">载入运行时间...</span>
-            <script>
-                function siteTime() {
-                    var seconds = 1000;
-                    var minutes = seconds * 60;
-                    var hours = minutes * 60;
-                    var days = hours * 24;
-                    var years = days * 365;
-                    var today = new Date();
-                    var startYear = "2020";
-                    var startMonth = "3";
-                    var startDate = "1";
-                    var startHour = "0";
-                    var startMinute = "0";
-                    var startSecond = "0";
-                    var todayYear = today.getFullYear();
-                    var todayMonth = today.getMonth() + 1;
-                    var todayDate = today.getDate();
-                    var todayHour = today.getHours();
-                    var todayMinute = today.getMinutes();
-                    var todaySecond = today.getSeconds();
-                    var t1 = Date.UTC(startYear, startMonth, startDate, startHour, startMinute, startSecond);
-                    var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
-                    var diff = t2 - t1;
-                    var diffYears = Math.floor(diff / years);
-                    var diffDays = Math.floor((diff / days) - diffYears * 365);
-                    var diffHours = Math.floor((diff - (diffYears * 365 + diffDays) * days) / hours);
-                    var diffMinutes = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours) /
-                        minutes);
-                    var diffSeconds = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours -
-                        diffMinutes * minutes) / seconds);
-                    if (startYear == todayYear) {
-                        document.getElementById("year").innerHTML = todayYear;
-                        document.getElementById("sitetime").innerHTML = "本站已安全运行 " + diffDays + " 天 " + diffHours +
-                            " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
-                    } else {
-                        document.getElementById("year").innerHTML = startYear + " - " + todayYear;
-                        document.getElementById("sitetime").innerHTML = "本站已安全运行 " + diffYears + " 年 " + diffDays +
-                            " 天 " + diffHours + " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+                <span id="sitetime"> Loading ...</span>
+                <script>
+                    var calcSiteTime = function () {
+                        var seconds = 1000;
+                        var minutes = seconds * 60;
+                        var hours = minutes * 60;
+                        var days = hours * 24;
+                        var years = days * 365;
+                        var today = new Date();
+                        var startYear = "2020";
+                        var startMonth = "3";
+                        var startDate = "1";
+                        var startHour = "0";
+                        var startMinute = "0";
+                        var startSecond = "0";
+                        var todayYear = today.getFullYear();
+                        var todayMonth = today.getMonth() + 1;
+                        var todayDate = today.getDate();
+                        var todayHour = today.getHours();
+                        var todayMinute = today.getMinutes();
+                        var todaySecond = today.getSeconds();
+                        var t1 = Date.UTC(startYear, startMonth, startDate, startHour, startMinute, startSecond);
+                        var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
+                        var diff = t2 - t1;
+                        var diffYears = Math.floor(diff / years);
+                        var diffDays = Math.floor((diff / days) - diffYears * 365);
+
+                        // 区分是否有年份.
+                        var language = 'zh-CN';
+                        if (startYear === String(todayYear)) {
+                            document.getElementById("year").innerHTML = todayYear;
+                            var daysTip = 'This site has been running for ' + diffDays + ' days';
+                            if (language === 'zh-CN') {
+                                daysTip = '本站已运行 ' + diffDays + ' 天';
+                            } else if (language === 'zh-HK') {
+                                daysTip = '本站已運行 ' + diffDays + ' 天';
+                            }
+                            document.getElementById("sitetime").innerHTML = daysTip;
+                        } else {
+                            document.getElementById("year").innerHTML = startYear + " - " + todayYear;
+                            var yearsAndDaysTip = 'This site has been running for ' + diffYears + ' years and '
+                                + diffDays + ' days';
+                            if (language === 'zh-CN') {
+                                yearsAndDaysTip = '本站已运行 ' + diffYears + ' 年 ' + diffDays + ' 天';
+                            } else if (language === 'zh-HK') {
+                                yearsAndDaysTip = '本站已運行 ' + diffYears + ' 年 ' + diffDays + ' 天';
+                            }
+                            document.getElementById("sitetime").innerHTML = yearsAndDaysTip;
+                        }
                     }
-                }
-                setInterval(siteTime, 1000);
-            </script>
+
+                    calcSiteTime();
+                </script>
             
             <br>
             
-            <span id="icp"><img src="/medias/icp.png" style="vertical-align: text-bottom;" />
+                <span id="icp"><img src="/medias/icp.png"
+                                    style="vertical-align: text-bottom;"/>
                 <a href="http://beian.miit.gov.cn" target="_blank">吉ICP备20000854号-1</a>
             </span>
             
@@ -1448,6 +1168,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
 
 <div class="progress-bar"></div>
 
+
     <!-- 搜索遮罩框 -->
 <div id="searchModal" class="modal">
     <div class="modal-content">
@@ -1460,10 +1181,95 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
     </div>
 </div>
 
-<script src="/js/search.js"></script>
 <script type="text/javascript">
 $(function () {
-    searchFunc("/search.xml", 'searchInput', 'searchResult');
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
 });
 </script>
 
@@ -1521,6 +1327,8 @@ $(function () {
 
     
 
+    <!--腾讯兔小巢-->
+    
     
     <script type="text/javascript" color="0,0,255"
         pointColor="0,0,255" opacity='0.7'
@@ -1541,31 +1349,7 @@ $(function () {
     
     <script src="/libs/instantpage/instantpage.js" type="module"></script>
     
-    <script type="text/javascript">
-        window.onload = function(){
-            //屏蔽键盘事件
-            document.onkeydown = function (){
-                var e = window.event || arguments[0];
-                //F12
-                if(e.keyCode == 123){
-                    return false;
-                //Ctrl+Shift+I
-                }else if((e.ctrlKey) && (e.shiftKey) && (e.keyCode == 73)){
-                    return false;
-                //Shift+F10
-                }else if((e.shiftKey) && (e.keyCode == 121)){
-                    return false;
-                //Ctrl+U
-                }else if((e.ctrlKey) && (e.keyCode == 85)){
-                    return false;
-                }
-            };
-            //屏蔽鼠标右键
-            document.oncontextmenu = function (){
-                return false;
-            }
-        }
-    </script>
-   </body>
+
+</body>
 
 </html>

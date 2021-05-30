@@ -39,15 +39,12 @@
     <link rel="stylesheet" type="text/css" href="/css/my.css">
 
     <script src="/libs/jquery/jquery.min.js"></script>
-    <!-- 360 -->
-    <script>
-        (function(){
-        var src = "https://jspassport.ssl.qhimg.com/11.0.1.js?d182b3f28525f2db83acfaaf6e696dba";
-        document.write('<script src="' + src + '" id="sozz"><\/script>');
-        })();
-    </script>
-<meta name="generator" content="Hexo 4.2.1"><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
-<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
+
+<meta name="generator" content="Hexo 5.4.0">
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+</head>
+
+
 
 
 <body>
@@ -311,8 +308,7 @@
     }
 
     .toc-widget .toc-title {
-        margin: 35px 0 15px 0;
-        padding-left: 17px;
+        padding: 35px 0 15px 17px;
         font-size: 1.5rem;
         font-weight: bold;
         line-height: 1.5rem;
@@ -324,7 +320,7 @@
     }
 
     #toc-content {
-        height: calc(100vh - 250px);
+        padding-bottom: 30px;
         overflow: auto;
     }
 
@@ -337,7 +333,7 @@
     }
 
     #toc-content .toc-link:hover {
-        color: #039be5;
+        color: #00d3ff;
         font-weight: 700;
         text-decoration: underline;
     }
@@ -352,7 +348,7 @@
     }
 
     #toc-content .is-active-link {
-        color: #039be5;
+        color: #00d3ff;
     }
 
     #floating-toc-btn {
@@ -421,34 +417,32 @@
                 
 
                 
-                <div class="info-break-policy">
-                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.5k
-                </div>
-                
 
                 
 
                 
-                    <div id="busuanzi_container_page_pv" class="info-break-policy">
-                        <i class="far fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
-                        <span id="busuanzi_value_page_pv"></span>
-                    </div>
-				
             </div>
         </div>
         <hr class="clearfix">
+
+        
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.css">
+        
+
+        
+
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="web-xml文件"><a href="#web-xml文件" class="headerlink" title="web.xml文件"></a>web.xml文件</h2><p><em>参考自：</em><a href="https://zhuanlan.zhihu.com/p/26150612" target="_blank" rel="noopener">web.xml配置</a></p>
+                <h2 id="web-xml文件"><a href="#web-xml文件" class="headerlink" title="web.xml文件"></a>web.xml文件</h2><p><em>参考自：</em><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/26150612">web.xml配置</a></p>
 <p><code>web.xml</code>是网络程序中的一个很重要的配置文件。在启动一个WEB项目的时候，WEB容器（比如<code>tomcat</code>）会去读取它的配置文件web.xml，读取到不同的节点时，WEB容器就会创建相应的<code>过滤器</code>、<code>监听器</code>等为这个web项目服务。</p>
 <p>IDEA初始化后，修改web.xml文件</p>
-<pre><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
-&lt;web-app xmlns=&quot;http://java.sun.com/xml/ns/javaee&quot;
-         xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;
-         xsi:schemaLocation=&quot;http://java.sun.com/xml/ns/javaee
-          http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd&quot;
-         version=&quot;3.0&quot;&gt;
+<pre class="line-numbers language-none"><code class="language-none">&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;web-app xmlns="http://java.sun.com/xml/ns/javaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://java.sun.com/xml/ns/javaee
+          http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
+         version="3.0"&gt;
           &lt;display-name&gt;WebApplication&lt;/display-name&gt;
 
     &lt;!--指定spring的配置文件--&gt;
@@ -489,35 +483,32 @@
   &lt;/filter-mapping&gt;
 
 &lt;/web-app&gt;
-</code></pre>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p><strong>说明：</strong></p>
 <ul>
-<li><p><code>listener</code>：监听器，能捕捉到服务器的启动和停止，在启动和停止触发里面的方法做相应的操作。必须在<code>web.xml</code>中配置才能使用，是配置监听类的。</p>
-<pre class="line-numbers language-java"><code class="language-java"><span class="token operator">&lt;</span>listener<span class="token operator">></span>
- <span class="token operator">&lt;</span>listener<span class="token operator">-</span><span class="token keyword">class</span><span class="token operator">></span>org<span class="token punctuation">.</span>springframework<span class="token punctuation">.</span>web<span class="token punctuation">.</span>context<span class="token punctuation">.</span>ContextLoaderListener<span class="token operator">&lt;</span><span class="token operator">/</span>listener<span class="token operator">-</span><span class="token keyword">class</span><span class="token operator">></span>
-<span class="token operator">&lt;</span><span class="token operator">/</span>listener<span class="token operator">></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-</li>
-<li><p><code>contenxt-param</code>：该节点用来声明应用范围(整个WEB项目)内的上下文初始化参数。param-name设定上下文的参数名称。必须是唯一名称，而param-value 是设定参数名称的值。</p>
-<pre class="line-numbers language-java"><code class="language-java"><span class="token operator">&lt;</span>context<span class="token operator">-</span>param<span class="token operator">></span>
- <span class="token operator">&lt;</span>param<span class="token operator">-</span>name<span class="token operator">></span>contextConfigLocation<span class="token operator">&lt;</span><span class="token operator">/</span>param<span class="token operator">-</span>name<span class="token operator">></span>
- <span class="token operator">&lt;</span>param<span class="token operator">-</span>value<span class="token operator">></span>classpath<span class="token operator">:</span>applicationContext<span class="token punctuation">.</span>xml<span class="token operator">&lt;</span><span class="token operator">/</span>param<span class="token operator">-</span>value<span class="token operator">></span>
-<span class="token operator">&lt;</span><span class="token operator">/</span>context<span class="token operator">-</span>param<span class="token operator">></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-</li>
-<li><p><code>servlet</code>：这是个比较重要的节点。该servlet用于拦截请求（<code>url-pattern</code>为 / ，说明拦截所有请求。如果想拦截.do后缀文件的请求，就改为*.do），并交由SpringMVC的后台控制器来处理。这一项配置是必须的。<code>load-on-startup</code>节点用于标记容器是否在启动的时候就加载这个servlet。当值为0或者大于0时，表示容器在应用启动时就加载这个servlet；当是一个负数时或者没有指定时，则指示容器在该servlet被选择时才加载。正数的值越小，启动该servlet的优先级越高。</p>
-<pre class="line-numbers language-java"><code class="language-java"><span class="token operator">&lt;</span>servlet<span class="token operator">></span>
- <span class="token operator">&lt;</span>servlet<span class="token operator">-</span>name<span class="token operator">></span>dispatcher<span class="token operator">&lt;</span><span class="token operator">/</span>servlet<span class="token operator">-</span>name<span class="token operator">></span>
- <span class="token operator">&lt;</span>servlet<span class="token operator">-</span><span class="token keyword">class</span><span class="token operator">></span>org<span class="token punctuation">.</span>springframework<span class="token punctuation">.</span>web<span class="token punctuation">.</span>servlet<span class="token punctuation">.</span>DispatcherServlet<span class="token operator">&lt;</span><span class="token operator">/</span>servlet<span class="token operator">-</span><span class="token keyword">class</span><span class="token operator">></span>
- <span class="token operator">&lt;</span>init<span class="token operator">-</span>param<span class="token operator">></span>
-   <span class="token operator">&lt;</span>param<span class="token operator">-</span>name<span class="token operator">></span>contextConfigLocation<span class="token operator">&lt;</span><span class="token operator">/</span>param<span class="token operator">-</span>name<span class="token operator">></span>
-   <span class="token operator">&lt;</span>param<span class="token operator">-</span>value<span class="token operator">></span>classpath<span class="token operator">:</span>dispatcher<span class="token operator">-</span>servlet<span class="token punctuation">.</span>xml<span class="token operator">&lt;</span><span class="token operator">/</span>param<span class="token operator">-</span>value<span class="token operator">></span>
- <span class="token operator">&lt;</span><span class="token operator">/</span>init<span class="token operator">-</span>param<span class="token operator">></span>
- <span class="token operator">&lt;</span>load<span class="token operator">-</span>on<span class="token operator">-</span>startup<span class="token operator">></span><span class="token number">1</span><span class="token operator">&lt;</span><span class="token operator">/</span>load<span class="token operator">-</span>on<span class="token operator">-</span>startup<span class="token operator">></span>
-<span class="token operator">&lt;</span><span class="token operator">/</span>servlet<span class="token operator">></span>
-<span class="token operator">&lt;</span>servlet<span class="token operator">-</span>mapping<span class="token operator">></span>
- <span class="token operator">&lt;</span>servlet<span class="token operator">-</span>name<span class="token operator">></span>dispatcher<span class="token operator">&lt;</span><span class="token operator">/</span>servlet<span class="token operator">-</span>name<span class="token operator">></span>
- <span class="token operator">&lt;</span>url<span class="token operator">-</span>pattern<span class="token operator">></span><span class="token operator">*</span><span class="token punctuation">.</span>form<span class="token operator">&lt;</span><span class="token operator">/</span>url<span class="token operator">-</span>pattern<span class="token operator">></span>
-<span class="token operator">&lt;</span><span class="token operator">/</span>servlet<span class="token operator">-</span>mapping<span class="token operator">></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-</li>
+<li><p> <code>listener</code>：监听器，能捕捉到服务器的启动和停止，在启动和停止触发里面的方法做相应的操作。必须在<code>web.xml</code>中配置才能使用，是配置监听类的。</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token generics"><span class="token punctuation">&lt;</span>listener<span class="token punctuation">&gt;</span></span>
+    <span class="token operator">&lt;</span>listener<span class="token operator">-</span><span class="token keyword">class</span><span class="token operator">&gt;</span>org<span class="token punctuation">.</span>springframework<span class="token punctuation">.</span>web<span class="token punctuation">.</span>context<span class="token punctuation">.</span><span class="token class-name">ContextLoaderListener</span><span class="token operator">&lt;</span><span class="token operator">/</span>listener<span class="token operator">-</span><span class="token keyword">class</span><span class="token operator">&gt;</span>
+  <span class="token operator">&lt;</span><span class="token operator">/</span>listener<span class="token operator">&gt;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre></li>
+<li><p> <code>contenxt-param</code>：该节点用来声明应用范围(整个WEB项目)内的上下文初始化参数。param-name设定上下文的参数名称。必须是唯一名称，而param-value 是设定参数名称的值。</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token operator">&lt;</span>context<span class="token operator">-</span>param<span class="token operator">&gt;</span>
+   <span class="token operator">&lt;</span>param<span class="token operator">-</span>name<span class="token operator">&gt;</span>contextConfigLocation<span class="token operator">&lt;</span><span class="token operator">/</span>param<span class="token operator">-</span>name<span class="token operator">&gt;</span>
+   <span class="token operator">&lt;</span>param<span class="token operator">-</span>value<span class="token operator">&gt;</span>classpath<span class="token operator">:</span>applicationContext<span class="token punctuation">.</span>xml<span class="token operator">&lt;</span><span class="token operator">/</span>param<span class="token operator">-</span>value<span class="token operator">&gt;</span>
+ <span class="token operator">&lt;</span><span class="token operator">/</span>context<span class="token operator">-</span>param<span class="token operator">&gt;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre></li>
+<li><p> <code>servlet</code>：这是个比较重要的节点。该servlet用于拦截请求（<code>url-pattern</code>为 / ，说明拦截所有请求。如果想拦截.do后缀文件的请求，就改为*.do），并交由SpringMVC的后台控制器来处理。这一项配置是必须的。<code>load-on-startup</code>节点用于标记容器是否在启动的时候就加载这个servlet。当值为0或者大于0时，表示容器在应用启动时就加载这个servlet；当是一个负数时或者没有指定时，则指示容器在该servlet被选择时才加载。正数的值越小，启动该servlet的优先级越高。</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token generics"><span class="token punctuation">&lt;</span>servlet<span class="token punctuation">&gt;</span></span>
+    <span class="token operator">&lt;</span>servlet<span class="token operator">-</span>name<span class="token operator">&gt;</span>dispatcher<span class="token operator">&lt;</span><span class="token operator">/</span>servlet<span class="token operator">-</span>name<span class="token operator">&gt;</span>
+    <span class="token operator">&lt;</span>servlet<span class="token operator">-</span><span class="token keyword">class</span><span class="token operator">&gt;</span>org<span class="token punctuation">.</span>springframework<span class="token punctuation">.</span>web<span class="token punctuation">.</span>servlet<span class="token punctuation">.</span><span class="token class-name">DispatcherServlet</span><span class="token operator">&lt;</span><span class="token operator">/</span>servlet<span class="token operator">-</span><span class="token keyword">class</span><span class="token operator">&gt;</span>
+    <span class="token operator">&lt;</span>init<span class="token operator">-</span>param<span class="token operator">&gt;</span>
+      <span class="token operator">&lt;</span>param<span class="token operator">-</span>name<span class="token operator">&gt;</span>contextConfigLocation<span class="token operator">&lt;</span><span class="token operator">/</span>param<span class="token operator">-</span>name<span class="token operator">&gt;</span>
+      <span class="token operator">&lt;</span>param<span class="token operator">-</span>value<span class="token operator">&gt;</span>classpath<span class="token operator">:</span>dispatcher<span class="token operator">-</span>servlet<span class="token punctuation">.</span>xml<span class="token operator">&lt;</span><span class="token operator">/</span>param<span class="token operator">-</span>value<span class="token operator">&gt;</span>
+    <span class="token operator">&lt;</span><span class="token operator">/</span>init<span class="token operator">-</span>param<span class="token operator">&gt;</span>
+    <span class="token operator">&lt;</span>load<span class="token operator">-</span>on<span class="token operator">-</span>startup<span class="token operator">&gt;</span><span class="token number">1</span><span class="token operator">&lt;</span><span class="token operator">/</span>load<span class="token operator">-</span>on<span class="token operator">-</span>startup<span class="token operator">&gt;</span>
+  <span class="token operator">&lt;</span><span class="token operator">/</span>servlet<span class="token operator">&gt;</span>
+  <span class="token operator">&lt;</span>servlet<span class="token operator">-</span>mapping<span class="token operator">&gt;</span>
+    <span class="token operator">&lt;</span>servlet<span class="token operator">-</span>name<span class="token operator">&gt;</span>dispatcher<span class="token operator">&lt;</span><span class="token operator">/</span>servlet<span class="token operator">-</span>name<span class="token operator">&gt;</span>
+    <span class="token operator">&lt;</span>url<span class="token operator">-</span>pattern<span class="token operator">&gt;</span><span class="token operator">*</span><span class="token punctuation">.</span>form<span class="token operator">&lt;</span><span class="token operator">/</span>url<span class="token operator">-</span>pattern<span class="token operator">&gt;</span>
+  <span class="token operator">&lt;</span><span class="token operator">/</span>servlet<span class="token operator">-</span>mapping<span class="token operator">&gt;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
 <li><p><code>filter</code>：过滤器。为了能够处理中文的post请求，post上传的编码统统改为utf-8。</p>
 </li>
 </ul>
@@ -525,52 +516,54 @@
 <p>web.xml的加载过程是：context-param -&gt; listener -&gt; fileter -&gt; servlet。</p>
 </blockquote>
 <p><em>application.xml—&gt;listener—-&gt;fileter—-&gt;dispatcher-servlet.xml</em></p>
-<h2 id="数据库连接池配置"><a href="#数据库连接池配置" class="headerlink" title="数据库连接池配置"></a>数据库连接池配置</h2><p><em>参考自：</em><a href="http://blog.csdn.net/fysuccess/article/details/66972554" target="_blank" rel="noopener">java数据连接池</a></p>
+<h2 id="数据库连接池配置"><a href="#数据库连接池配置" class="headerlink" title="数据库连接池配置"></a>数据库连接池配置</h2><p><em>参考自：</em><a target="_blank" rel="noopener" href="http://blog.csdn.net/fysuccess/article/details/66972554">java数据连接池</a></p>
 <p>pom.xml</p>
-<pre><code> &lt;!--mysql依赖--&gt;
-      &lt;dependency&gt;
-          &lt;groupId&gt;mysql&lt;/groupId&gt;
-          &lt;artifactId&gt; mysql-connector-java&lt;/artifactId&gt;
-          &lt;version&gt;5.1.44&lt;/version&gt;
-      &lt;/dependency&gt;
-      &lt;dependency&gt;
-          &lt;groupId&gt;com.alibaba&lt;/groupId&gt;
-          &lt;artifactId&gt;druid&lt;/artifactId&gt;
-          &lt;version&gt;1.1.6&lt;/version&gt;
-      &lt;/dependency&gt;</code></pre>
+<pre class="line-numbers language-none"><code class="language-none">&lt;!--mysql依赖--&gt;
+     &lt;dependency&gt;
+         &lt;groupId&gt;mysql&lt;/groupId&gt;
+         &lt;artifactId&gt; mysql-connector-java&lt;/artifactId&gt;
+         &lt;version&gt;5.1.44&lt;/version&gt;
+     &lt;/dependency&gt;
+     &lt;dependency&gt;
+         &lt;groupId&gt;com.alibaba&lt;/groupId&gt;
+         &lt;artifactId&gt;druid&lt;/artifactId&gt;
+         &lt;version&gt;1.1.6&lt;/version&gt;
+     &lt;/dependency&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
 <p>db.properties</p>
-<pre><code>jdbc.driver=com.mysql.jdbc.Driver
+<pre class="line-numbers language-none"><code class="language-none">jdbc.driver=com.mysql.jdbc.Driver
 jdbc.url=jdbc:mysql://localhost:3306/test?useUnicode=true&amp;characterEncoding=UTF-8
 jdbc.username=root
-jdbc.password=XXX</code></pre>
+jdbc.password=XXX<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 <p>applicationContext.xml</p>
-<pre><code>&lt;!--导入外部的properties文件--&gt;
-    &lt;context:property-placeholder location=&quot;classpath:db.properties&quot;/&gt;
+<pre class="line-numbers language-none"><code class="language-none">&lt;!--导入外部的properties文件--&gt;
+    &lt;context:property-placeholder location="classpath:db.properties"/&gt;
     &lt;!--Spring Druid 数据源配置--&gt;
-    &lt;bean id=&quot;dataSource&quot; class=&quot;com.alibaba.druid.pool.DruidDataSource&quot; 
-          init-method=&quot;init&quot; destroy-method=&quot;close&quot;&gt;
+    &lt;bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource" 
+          init-method="init" destroy-method="close"&gt;
         &lt;!-- 基本属性 url、user、password --&gt;
-        &lt;property name=&quot;url&quot; value=&quot;${jdbc.url}&quot; /&gt;
-        &lt;property name=&quot;username&quot; value=&quot;${jdbc.username}&quot; /&gt;
-        &lt;property name=&quot;password&quot; value=&quot;${jdbc.password}&quot; /&gt;
+        &lt;property name="url" value="${jdbc.url}" /&gt;
+        &lt;property name="username" value="${jdbc.username}" /&gt;
+        &lt;property name="password" value="${jdbc.password}" /&gt;
         &lt;!-- 配置初始化大小、最小、最大 --&gt;
-        &lt;property name=&quot;initialSize&quot; value=&quot;1&quot; /&gt;
-        &lt;property name=&quot;minIdle&quot; value=&quot;1&quot; /&gt;
-        &lt;property name=&quot;maxActive&quot; value=&quot;20&quot; /&gt;
+        &lt;property name="initialSize" value="1" /&gt;
+        &lt;property name="minIdle" value="1" /&gt;
+        &lt;property name="maxActive" value="20" /&gt;
         &lt;!-- 配置获取连接等待超时的时间 --&gt;
-        &lt;property name=&quot;maxWait&quot; value=&quot;60000&quot; /&gt;
+        &lt;property name="maxWait" value="60000" /&gt;
         &lt;!-- 配置间隔多久才进行一次检测，检测需要关闭的空闲连接，单位是毫秒 --&gt;
-        &lt;property name=&quot;timeBetweenEvictionRunsMillis&quot; value=&quot;60000&quot; /&gt;
+        &lt;property name="timeBetweenEvictionRunsMillis" value="60000" /&gt;
         &lt;!-- 配置一个连接在池中最小生存的时间，单位是毫秒 --&gt;
-        &lt;property name=&quot;minEvictableIdleTimeMillis&quot; value=&quot;300000&quot; /&gt;
+        &lt;property name="minEvictableIdleTimeMillis" value="300000" /&gt;
         &lt;!-- 打开PSCache，并且指定每个连接上PSCache的大小 --&gt;
-        &lt;property name=&quot;poolPreparedStatements&quot; value=&quot;true&quot; /&gt;
-        &lt;property name=&quot;maxPoolPreparedStatementPerConnectionSize&quot; value=&quot;20&quot; /&gt;
+        &lt;property name="poolPreparedStatements" value="true" /&gt;
+        &lt;property name="maxPoolPreparedStatementPerConnectionSize" value="20" /&gt;
         &lt;!-- 配置监控统计拦截的filters，去掉后监控界面sql无法统计 --&gt;
-        &lt;property name=&quot;filters&quot; value=&quot;stat&quot; /&gt;
-    &lt;/bean&gt;</code></pre>
+        &lt;property name="filters" value="stat" /&gt;
+    &lt;/bean&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>web.xml</p>
-<pre><code>&lt;!--数据库连接池监控配置--&gt;
+<pre class="line-numbers language-none"><code class="language-none">&lt;!--数据库连接池监控配置--&gt;
   &lt;filter&gt;
     &lt;filter-name&gt;DruidWebStatFilter&lt;/filter-name&gt;
     &lt;filter-class&gt;com.alibaba.druid.support.http.WebStatFilter&lt;/filter-class&gt;
@@ -591,9 +584,10 @@ jdbc.password=XXX</code></pre>
     &lt;servlet-name&gt;DruidStatView&lt;/servlet-name&gt;
     &lt;url-pattern&gt;/druid/*&lt;/url-pattern&gt;
   &lt;/servlet-mapping&gt;
-</code></pre>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>该配置可以访问监控界面，监控数据库访问性能，访问地址：<br><code>http://ip:port/项目名/druid/index.html</code> </p>
 
+                
             </div>
             <hr/>
 
@@ -691,271 +685,38 @@ jdbc.password=XXX</code></pre>
     
 
     
-
-    
-
-    
-        <style>
-    .valine-card {
-        margin: 1.5rem auto;
-    }
-
-    .valine-card .card-content {
-        padding: 20px 20px 5px 20px;
-    }
-
-    #vcomments textarea {
-        box-sizing: border-box;
-        background: url("/medias/comment_bg.png") 100% 100% no-repeat;
-    }
-
-    #vcomments p {
-        margin: 2px 2px 10px;
-        font-size: 1.05rem;
-        line-height: 1.78rem;
-    }
-
-    #vcomments blockquote p {
-        text-indent: 0.2rem;
-    }
-
-    #vcomments a {
-        padding: 0 2px;
-        color: #4cbf30;
-        font-weight: 500;
-        text-decoration: none;
-    }
-
-    #vcomments img {
-        max-width: 100%;
-        height: auto;
-        cursor: pointer;
-    }
-
-    #vcomments ol li {
-        list-style-type: decimal;
-    }
-
-    #vcomments ol,
-    ul {
-        display: block;
-        padding-left: 2em;
-        word-spacing: 0.05rem;
-    }
-
-    #vcomments ul li,
-    ol li {
-        display: list-item;
-        line-height: 1.8rem;
-        font-size: 1rem;
-    }
-
-    #vcomments ul li {
-        list-style-type: disc;
-    }
-
-    #vcomments ul ul li {
-        list-style-type: circle;
-    }
-
-    #vcomments table, th, td {
-        padding: 12px 13px;
-        border: 1px solid #dfe2e5;
-    }
-
-    #vcomments table, th, td {
-        border: 0;
-    }
-
-    table tr:nth-child(2n), thead {
-        background-color: #fafafa;
-    }
-
-    #vcomments table th {
-        background-color: #f2f2f2;
-        min-width: 80px;
-    }
-
-    #vcomments table td {
-        min-width: 80px;
-    }
-
-    #vcomments h1 {
-        font-size: 1.85rem;
-        font-weight: bold;
-        line-height: 2.2rem;
-    }
-
-    #vcomments h2 {
-        font-size: 1.65rem;
-        font-weight: bold;
-        line-height: 1.9rem;
-    }
-
-    #vcomments h3 {
-        font-size: 1.45rem;
-        font-weight: bold;
-        line-height: 1.7rem;
-    }
-
-    #vcomments h4 {
-        font-size: 1.25rem;
-        font-weight: bold;
-        line-height: 1.5rem;
-    }
-
-    #vcomments h5 {
-        font-size: 1.1rem;
-        font-weight: bold;
-        line-height: 1.4rem;
-    }
-
-    #vcomments h6 {
-        font-size: 1rem;
-        line-height: 1.3rem;
-    }
-
-    #vcomments p {
-        font-size: 1rem;
-        line-height: 1.5rem;
-    }
-
-    #vcomments hr {
-        margin: 12px 0;
-        border: 0;
-        border-top: 1px solid #ccc;
-    }
-
-    #vcomments blockquote {
-        margin: 15px 0;
-        border-left: 5px solid #039be5;
-        padding: 1rem 0.8rem 0.3rem 0.8rem;
-        color: #666;
-        background-color: rgba(66, 185, 131, .1);
-    }
-
-    #vcomments pre {
-        font-family: monospace, monospace;
-        padding: 1.2em;
-        margin: .5em 0;
-        background: #272822;
-        overflow: auto;
-        border-radius: 0.3em;
-        tab-size: 4;
-    }
-
-    #vcomments code {
-        font-family: monospace, monospace;
-        padding: 1px 3px;
-        font-size: 0.92rem;
-        color: #e96900;
-        background-color: #f8f8f8;
-        border-radius: 2px;
-    }
-
-    #vcomments pre code {
-        font-family: monospace, monospace;
-        padding: 0;
-        color: #e8eaf6;
-        background-color: #272822;
-    }
-
-    #vcomments pre[class*="language-"] {
-        padding: 1.2em;
-        margin: .5em 0;
-    }
-
-    #vcomments code[class*="language-"],
-    pre[class*="language-"] {
-        color: #e8eaf6;
-    }
-
-    #vcomments [type="checkbox"]:not(:checked), [type="checkbox"]:checked {
-        position: inherit;
-        margin-left: -1.3rem;
-        margin-right: 0.4rem;
-        margin-top: -1px;
-        vertical-align: middle;
-        left: unset;
-        visibility: visible;
-    }
-
-    #vcomments b,
-    strong {
-        font-weight: bold;
-    }
-
-    #vcomments dfn {
-        font-style: italic;
-    }
-
-    #vcomments small {
-        font-size: 85%;
-    }
-
-    #vcomments cite {
-        font-style: normal;
-    }
-
-    #vcomments mark {
-        background-color: #fcf8e3;
-        padding: .2em;
-    }
-
-    #vcomments table, th, td {
-        padding: 12px 13px;
-        border: 1px solid #dfe2e5;
-    }
-
-    table tr:nth-child(2n), thead {
-        background-color: #fafafa;
-    }
-
-    #vcomments table th {
-        background-color: #f2f2f2;
-        min-width: 80px;
-    }
-
-    #vcomments table td {
-        min-width: 80px;
-    }
-
-    #vcomments [type="checkbox"]:not(:checked), [type="checkbox"]:checked {
-        position: inherit;
-        margin-left: -1.3rem;
-        margin-right: 0.4rem;
-        margin-top: -1px;
-        vertical-align: middle;
-        left: unset;
-        visibility: visible;
-    }
-</style>
-
-<div class="card valine-card" data-aos="fade-up">
-    <div class="comment_headling" style="font-size: 20px; font-weight: 700; position: relative; padding-left: 20px; top: 15px; padding-bottom: 5px;">
-        <i class="fas fa-comments fa-fw" aria-hidden="true"></i>
-        <span>评论</span>
-    </div>
-    <div id="vcomments" class="card-content" style="display: grid">
+        <div class="disqus-card card" data-aos="fade-up">
+    <div id="disqus_thread" class="card-content">
+        <noscript>Please enable JavaScript to view the
+            <a target="_blank" rel="noopener" href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
     </div>
 </div>
 
-<script src="/libs/valine/av-min.js"></script>
-<script src="/libs/valine/Valine.min.js"></script>
-<script>
-    new Valine({
-        el: '#vcomments',
-        appId: 'Sz4FRH1b0UaJd4fs5CxgdRQd-gzGzoHsz',
-        appKey: 'Y2pWFXbf3px0AlwvAR1hWkOr',
-        notify: 'false' === 'true',
-        verify: 'false' === 'true',
-        visitor: 'true' === 'true',
-        avatar: 'mm',
-        pageSize: '10',
-        lang: 'zh-cn',
-        placeholder: '聊聊'
-    });
+<script type="text/javascript">
+    disqus_config = function () {
+        this.page.url = 'http://www.xujn.xyz/2018/08/23/intellij-idea-ssm-kuang-jia-zheng-he/';
+        this.page.identifier = '/2018/08/23/intellij-idea-ssm-kuang-jia-zheng-he/';
+        this.page.title = 'IntelliJ IDEA SSM框架整合';
+    };
+    let disqus_shortname = 'xujn';
+
+    (function () { // DON'T EDIT BELOW THIS LINE
+        let d = document, s = d.createElement('script');
+        // 如：s.src = 'https://blinkfox.disqus.com/embed.js';
+        s.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', new Date());
+        (d.head || d.body).appendChild(s);
+    })();
 </script>
+
+    
+
+    
+
+    
+
+    
 
     
 
@@ -982,10 +743,7 @@ jdbc.password=XXX</code></pre>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            简述Redhat下安装MySQL5.7.22教程,安装完成后成功忘记密码-_-
-安装MySQL1. 压缩包处理解压压缩包
-tar -zxvf mysql-5.7.22-linux-glibc2.12-x86_64.tar.gz  
-重命名m
+                            
                         
                     </div>
                     <div class="publish-info">
@@ -1034,12 +792,7 @@ tar -zxvf mysql-5.7.22-linux-glibc2.12-x86_64.tar.gz
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            简述redhat没有进行注册（收费了），不能够使用其自带的yum源，所以需要第三方的源来代替。
-阿里云镜像源查看自带yum源
-rpm -qa | grep yum
-# 查询结果
-yum-utils-1.1.31-24.el7.noarch
-
+                            
                         
                     </div>
                     <div class="publish-info">
@@ -1132,16 +885,9 @@ yum-utils-1.1.31-24.el7.noarch
 <script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
 
 
-<!-- 代码块折行 -->
-
-<style type="text/css">
-code[class*="language-"], pre[class*="language-"] { white-space: pre !important; }
-</style>
-
-
     </div>
     <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
-        <div class="toc-widget">
+        <div class="toc-widget card" style="background-color: white;">
             <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
             <div id="toc-content"></div>
         </div>
@@ -1165,7 +911,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             contentSelector: '#articleContent',
             headingsOffset: -($(window).height() * 0.4 - 45),
             collapseDepth: Number('0'),
-            headingSelector: 'h1,h2, h3, h4'
+            headingSelector: 'h2, h3, h4'
         });
 
         // modify the toc link href to support Chinese.
@@ -1177,7 +923,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
 
         // modify the heading title id to support Chinese.
         i = 0;
-        $('#articleContent').children('h1,h2, h3, h4').each(function () {
+        $('#articleContent').children('h2, h3, h4').each(function () {
             $(this).attr('id', tocHeading + (++i));
         });
 
@@ -1239,112 +985,101 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
 
 
 
-    <div id="weather-v2-plugin-simple"></div>
-    <script>
-    WIDGET = {
-    CONFIG: {
-        "modules": "0124",
-        "background": 1,
-        "tmpColor": "FFFEFE",
-        "tmpSize": 16,
-        "cityColor": "FFFFFF",
-        "citySize": 16,
-        "aqiSize": 16,
-        "weatherIconSize": 24,
-        "alertIconSize": 18,
-        "padding": "10px 10px 10px 10px",
-        "shadow": "1",
-        "language": "auto",
-        "borderRadius": 5,
-        "fixed": "true",
-        "vertical": "middle",
-        "horizontal": "left",
-        "left": 10,
-        "top": 10,
-        "key": "fmCYN7ec82"
-    }
-    }
-    </script>
-    <script src="https://apip.weatherdt.com/simple/static/js/weather-simple-common.js?v=2.0"></script>
+
     <footer class="page-footer bg-color">
     
-    <div class="container row center-align" style="margin-bottom: 15px !important;">
+
+    <div class="container row center-align"
+         style="margin-bottom: 15px !important;">
         <div class="col s12 m8 l8 copy-right">
             Copyright&nbsp;&copy;
+            
+                <span id="year">2020-2021</span>
+            
             <span id="year">2020</span>
             <a href="/about" target="_blank">苏叶新城</a>
             |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
             |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
             <br>
             
-            &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">18.1k</span>&nbsp;字
             
             
+                
             
             
-            
-            
-            <span id="busuanzi_container_site_pv">
-                |&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span id="busuanzi_value_site_pv"
-                    class="white-color"></span>&nbsp;次
+                <span id="busuanzi_container_site_pv">
+                &nbsp;|&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;
+                    <span id="busuanzi_value_site_pv" class="white-color"></span>
             </span>
             
             
-            <span id="busuanzi_container_site_uv">
-                |&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;<span id="busuanzi_value_site_uv"
-                    class="white-color"></span>&nbsp;人
+                <span id="busuanzi_container_site_uv">
+                &nbsp;|&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;
+                    <span id="busuanzi_value_site_uv" class="white-color"></span>
             </span>
             
             <br>
+
+            <!-- 运行天数提醒. -->
             
-            <span id="sitetime">载入运行时间...</span>
-            <script>
-                function siteTime() {
-                    var seconds = 1000;
-                    var minutes = seconds * 60;
-                    var hours = minutes * 60;
-                    var days = hours * 24;
-                    var years = days * 365;
-                    var today = new Date();
-                    var startYear = "2020";
-                    var startMonth = "3";
-                    var startDate = "1";
-                    var startHour = "0";
-                    var startMinute = "0";
-                    var startSecond = "0";
-                    var todayYear = today.getFullYear();
-                    var todayMonth = today.getMonth() + 1;
-                    var todayDate = today.getDate();
-                    var todayHour = today.getHours();
-                    var todayMinute = today.getMinutes();
-                    var todaySecond = today.getSeconds();
-                    var t1 = Date.UTC(startYear, startMonth, startDate, startHour, startMinute, startSecond);
-                    var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
-                    var diff = t2 - t1;
-                    var diffYears = Math.floor(diff / years);
-                    var diffDays = Math.floor((diff / days) - diffYears * 365);
-                    var diffHours = Math.floor((diff - (diffYears * 365 + diffDays) * days) / hours);
-                    var diffMinutes = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours) /
-                        minutes);
-                    var diffSeconds = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours -
-                        diffMinutes * minutes) / seconds);
-                    if (startYear == todayYear) {
-                        document.getElementById("year").innerHTML = todayYear;
-                        document.getElementById("sitetime").innerHTML = "本站已安全运行 " + diffDays + " 天 " + diffHours +
-                            " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
-                    } else {
-                        document.getElementById("year").innerHTML = startYear + " - " + todayYear;
-                        document.getElementById("sitetime").innerHTML = "本站已安全运行 " + diffYears + " 年 " + diffDays +
-                            " 天 " + diffHours + " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+                <span id="sitetime"> Loading ...</span>
+                <script>
+                    var calcSiteTime = function () {
+                        var seconds = 1000;
+                        var minutes = seconds * 60;
+                        var hours = minutes * 60;
+                        var days = hours * 24;
+                        var years = days * 365;
+                        var today = new Date();
+                        var startYear = "2020";
+                        var startMonth = "3";
+                        var startDate = "1";
+                        var startHour = "0";
+                        var startMinute = "0";
+                        var startSecond = "0";
+                        var todayYear = today.getFullYear();
+                        var todayMonth = today.getMonth() + 1;
+                        var todayDate = today.getDate();
+                        var todayHour = today.getHours();
+                        var todayMinute = today.getMinutes();
+                        var todaySecond = today.getSeconds();
+                        var t1 = Date.UTC(startYear, startMonth, startDate, startHour, startMinute, startSecond);
+                        var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
+                        var diff = t2 - t1;
+                        var diffYears = Math.floor(diff / years);
+                        var diffDays = Math.floor((diff / days) - diffYears * 365);
+
+                        // 区分是否有年份.
+                        var language = 'zh-CN';
+                        if (startYear === String(todayYear)) {
+                            document.getElementById("year").innerHTML = todayYear;
+                            var daysTip = 'This site has been running for ' + diffDays + ' days';
+                            if (language === 'zh-CN') {
+                                daysTip = '本站已运行 ' + diffDays + ' 天';
+                            } else if (language === 'zh-HK') {
+                                daysTip = '本站已運行 ' + diffDays + ' 天';
+                            }
+                            document.getElementById("sitetime").innerHTML = daysTip;
+                        } else {
+                            document.getElementById("year").innerHTML = startYear + " - " + todayYear;
+                            var yearsAndDaysTip = 'This site has been running for ' + diffYears + ' years and '
+                                + diffDays + ' days';
+                            if (language === 'zh-CN') {
+                                yearsAndDaysTip = '本站已运行 ' + diffYears + ' 年 ' + diffDays + ' 天';
+                            } else if (language === 'zh-HK') {
+                                yearsAndDaysTip = '本站已運行 ' + diffYears + ' 年 ' + diffDays + ' 天';
+                            }
+                            document.getElementById("sitetime").innerHTML = yearsAndDaysTip;
+                        }
                     }
-                }
-                setInterval(siteTime, 1000);
-            </script>
+
+                    calcSiteTime();
+                </script>
             
             <br>
             
-            <span id="icp"><img src="/medias/icp.png" style="vertical-align: text-bottom;" />
+                <span id="icp"><img src="/medias/icp.png"
+                                    style="vertical-align: text-bottom;"/>
                 <a href="http://beian.miit.gov.cn" target="_blank">吉ICP备20000854号-1</a>
             </span>
             
@@ -1370,6 +1105,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
 
 <div class="progress-bar"></div>
 
+
     <!-- 搜索遮罩框 -->
 <div id="searchModal" class="modal">
     <div class="modal-content">
@@ -1382,10 +1118,95 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
     </div>
 </div>
 
-<script src="/js/search.js"></script>
 <script type="text/javascript">
 $(function () {
-    searchFunc("/search.xml", 'searchInput', 'searchResult');
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
 });
 </script>
 
@@ -1443,6 +1264,8 @@ $(function () {
 
     
 
+    <!--腾讯兔小巢-->
+    
     
     <script type="text/javascript" color="0,0,255"
         pointColor="0,0,255" opacity='0.7'
@@ -1463,31 +1286,7 @@ $(function () {
     
     <script src="/libs/instantpage/instantpage.js" type="module"></script>
     
-    <script type="text/javascript">
-        window.onload = function(){
-            //屏蔽键盘事件
-            document.onkeydown = function (){
-                var e = window.event || arguments[0];
-                //F12
-                if(e.keyCode == 123){
-                    return false;
-                //Ctrl+Shift+I
-                }else if((e.ctrlKey) && (e.shiftKey) && (e.keyCode == 73)){
-                    return false;
-                //Shift+F10
-                }else if((e.shiftKey) && (e.keyCode == 121)){
-                    return false;
-                //Ctrl+U
-                }else if((e.ctrlKey) && (e.keyCode == 85)){
-                    return false;
-                }
-            };
-            //屏蔽鼠标右键
-            document.oncontextmenu = function (){
-                return false;
-            }
-        }
-    </script>
-   </body>
+
+</body>
 
 </html>
