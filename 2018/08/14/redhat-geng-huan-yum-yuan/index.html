@@ -413,10 +413,25 @@
                 
 
                 
-
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    621
+                </div>
                 
 
                 
+                <div class="info-break-policy">
+                    <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
+                    3 分
+                </div>
+                
+
+                
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="far fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+				
             </div>
         </div>
         <hr class="clearfix">
@@ -658,13 +673,13 @@ yum install tree<span aria-hidden="true" class="line-numbers-rows"><span></span>
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2018/08/23/linux-xia-mysql-5.7.22-an-zhuang-he-wang-ji-mi-ma/">
+                <a href="/2018/08/23/intellij-idea-ssm-kuang-jia-zheng-he/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/18.jpg" class="responsive-img" alt="Linux下MySQL 5.7.22安装和忘记密码">
+                        <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="IntelliJ IDEA SSM框架整合">
                         
-                        <span class="card-title">Linux下MySQL 5.7.22安装和忘记密码</span>
+                        <span class="card-title">IntelliJ IDEA SSM框架整合</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -681,8 +696,8 @@ yum install tree<span aria-hidden="true" class="line-numbers-rows"><span></span>
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/" class="post-category">
-                                    数据库
+                            <a href="/categories/Spring/" class="post-category">
+                                    Spring
                                 </a>
                             
                             
@@ -692,8 +707,12 @@ yum install tree<span aria-hidden="true" class="line-numbers-rows"><span></span>
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/MySQL/">
-                        <span class="chip bg-color">MySQL</span>
+                    <a href="/tags/IDEA/">
+                        <span class="chip bg-color">IDEA</span>
+                    </a>
+                    
+                    <a href="/tags/SSM/">
+                        <span class="chip bg-color">SSM</span>
                     </a>
                     
                 </div>
@@ -838,7 +857,7 @@ yum install tree<span aria-hidden="true" class="line-numbers-rows"><span></span>
             contentSelector: '#articleContent',
             headingsOffset: -($(window).height() * 0.4 - 45),
             collapseDepth: Number('0'),
-            headingSelector: 'h2, h3, h4'
+            headingSelector: 'h1,h2, h3, h4'
         });
 
         // modify the toc link href to support Chinese.
@@ -850,7 +869,7 @@ yum install tree<span aria-hidden="true" class="line-numbers-rows"><span></span>
 
         // modify the heading title id to support Chinese.
         i = 0;
-        $('#articleContent').children('h2, h3, h4').each(function () {
+        $('#articleContent').children('h1,h2, h3, h4').each(function () {
             $(this).attr('id', tocHeading + (++i));
         });
 
@@ -920,11 +939,17 @@ yum install tree<span aria-hidden="true" class="line-numbers-rows"><span></span>
          style="margin-bottom: 15px !important;">
         <div class="col s12 m8 l8 copy-right">
             Copyright&nbsp;&copy;
+            
+                <span id="year">2020-2021</span>
+            
             <span id="year">2020</span>
             <a href="/about" target="_blank">苏叶新城</a>
             |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
             |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
             <br>
+            
+                &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
+                        class="white-color">17.9k</span>
             
             
             

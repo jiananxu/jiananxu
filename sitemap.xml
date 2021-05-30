@@ -284,20 +284,6 @@
   </url>
   
   <url>
-    <loc>http://www.xujn.xyz/tags/Tinymce/</loc>
-    <lastmod>2021-05-30</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://www.xujn.xyz/tags/Spring-Boot/</loc>
-    <lastmod>2021-05-30</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>http://www.xujn.xyz/tags/Oracle-11g/</loc>
     <lastmod>2021-05-30</lastmod>
     <changefreq>daily</changefreq>
@@ -312,14 +298,14 @@
   </url>
   
   <url>
-    <loc>http://www.xujn.xyz/tags/Spring-MVC/</loc>
+    <loc>http://www.xujn.xyz/tags/Tinymce/</loc>
     <lastmod>2021-05-30</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>http://www.xujn.xyz/tags/Spring/</loc>
+    <loc>http://www.xujn.xyz/tags/Spring-Boot/</loc>
     <lastmod>2021-05-30</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -347,14 +333,21 @@
   </url>
   
   <url>
-    <loc>http://www.xujn.xyz/tags/elasticsearch/</loc>
+    <loc>http://www.xujn.xyz/tags/Spring-MVC/</loc>
     <lastmod>2021-05-30</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>http://www.xujn.xyz/tags/openssh/</loc>
+    <loc>http://www.xujn.xyz/tags/Spring/</loc>
+    <lastmod>2021-05-30</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://www.xujn.xyz/tags/elasticsearch/</loc>
     <lastmod>2021-05-30</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -368,7 +361,7 @@
   </url>
   
   <url>
-    <loc>http://www.xujn.xyz/tags/redis/</loc>
+    <loc>http://www.xujn.xyz/tags/openssh/</loc>
     <lastmod>2021-05-30</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -376,6 +369,13 @@
   
   <url>
     <loc>http://www.xujn.xyz/tags/Mail/</loc>
+    <lastmod>2021-05-30</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://www.xujn.xyz/tags/redis/</loc>
     <lastmod>2021-05-30</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -405,14 +405,14 @@
   </url>
   
   <url>
-    <loc>http://www.xujn.xyz/categories/Spring/</loc>
+    <loc>http://www.xujn.xyz/categories/IDEA/</loc>
     <lastmod>2021-05-30</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>http://www.xujn.xyz/categories/IDEA/</loc>
+    <loc>http://www.xujn.xyz/categories/Spring/</loc>
     <lastmod>2021-05-30</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
