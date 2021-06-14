@@ -4,6 +4,37 @@
   
     
     <entry>
+      <title>IDEA Dockerfile部署Vue项目</title>
+      <link href="2021/06/14/idea-dockerfile-bu-shu-vue-xiang-mu/"/>
+      <url>2021/06/14/idea-dockerfile-bu-shu-vue-xiang-mu/</url>
+      
+        <content type="html"><![CDATA[<h1 id="前提条件"><a href="#前提条件" class="headerlink" title="前提条件"></a>前提条件</h1><p>安装好Docker环境</p><h2 id="开启Docker的远程控制"><a href="#开启Docker的远程控制" class="headerlink" title="开启Docker的远程控制"></a>开启Docker的远程控制</h2><p>查看Docker运行状态<code>systemctl  status docker</code></p><p><img src="http://img.xujn.xyz/blog/1623220240.png"></p><p>编辑图片中Docker服务文件</p><p><code>vim /usr/lib/systemd/system/docker.service</code></p><p>在ExecStart配置后添加<code>-H tcp://0.0.0.0:2375</code></p><pre class="line-numbers language-none"><code class="language-none">[Service]Type=notify# the default is not to use systemd for cgroups because the delegate issues still# exists and systemd currently does not support the cgroup feature set required# for containers run by dockerExecStart=/usr/bin/dockerd -H fd:// --containerd=/run/containerd/containerd.sock -H tcp://0.0.0.0:2375ExecReload=/bin/kill -s HUP $MAINPIDTimeoutSec=0RestartSec=2Restart=always<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><p>重启Docker</p><pre class="line-numbers language-none"><code class="language-none">systemctl daemon-reloadsystemctl restart docker<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre><h2 id="配置IDEA-Docker"><a href="#配置IDEA-Docker" class="headerlink" title="配置IDEA Docker"></a>配置IDEA Docker</h2><p>首先IDEA安装Docker插件，默认已安装配置</p><p><img src="http://img.xujn.xyz/blog/1623220683(1).png"></p><p><strong>连接服务器端Docker</strong></p><p>Docker配置位置<code>setting| Build, Execution, Deployment | Docker</code></p><p>添加Docker引擎地址<code>http://192.168.0.10:2375</code>,对应Docker部署服务器的地址，地址填写后，会校验地址连接</p><p><img src="http://img.xujn.xyz/blog/1623220963(1).png"></p><h1 id="部署Vue项目"><a href="#部署Vue项目" class="headerlink" title="部署Vue项目"></a>部署Vue项目</h1><h2 id="添加Dockerfile"><a href="#添加Dockerfile" class="headerlink" title="添加Dockerfile"></a>添加Dockerfile</h2><p>在Vue项目根目录添加Dockerfile文件</p><pre class="line-numbers language-none"><code class="language-none">FROM nginxENV TZ=PRCRUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime &amp;&amp; echo $TZ &gt; /etc/timezoneMAINTAINER xxx@xx.comRUN rm /etc/nginx/conf.d/default.confCOPY default.conf /etc/nginx/conf.d/COPY dist/ /usr/share/nginx/html/<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><p>根目录添加default.conf</p><pre class="line-numbers language-none"><code class="language-none">server {        listen       80;        server_name  localhost;        location / {            root   /usr/share/nginx/html; #配置前端静态页位置            try_files $uri $uri/ /index.html;            index  index.html index.htm;        }        #代理多个路径auth|pay            location ~* ^/(auth|pay){            proxy_set_header Host $http_host;            proxy_set_header X-Real-IP $remote_addr;            proxy_set_header REMOTE-HOST $remote_addr;            proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;            proxy_pass http://10.10.0.99:9000;        }        error_page   500 502 503 504  /50x.html;        location = /50x.html {            root   html;        }}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><h2 id="配置Dockerfile"><a href="#配置Dockerfile" class="headerlink" title="配置Dockerfile"></a>配置Dockerfile</h2><p><strong>步骤</strong></p><ol><li>添加Dockerfile文件</li><li>添加镜像名称</li><li>添加容器名</li><li>添加端口映射，8000为对外映射端口，80为内部端口</li></ol><p><img src="http://img.xujn.xyz/blog/1623221756(1).png"></p><h2 id="启动Dockerfile"><a href="#启动Dockerfile" class="headerlink" title="启动Dockerfile"></a>启动Dockerfile</h2><p>项目启动后，通过ip:8000访问vue应用</p><p><img src="http://img.xujn.xyz/blog/1623221920(1).png"></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> IDEA </category>
+          
+          <category> Docker </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Docker </tag>
+            
+            <tag> IDEA </tag>
+            
+            <tag> Vue </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>FastDFS分布式部署</title>
       <link href="2020/12/09/fastdfs-fen-bu-shi-bu-shu/"/>
       <url>2020/12/09/fastdfs-fen-bu-shi-bu-shu/</url>
