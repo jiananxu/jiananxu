@@ -3,7 +3,7 @@ http://www.xujn.xyz/2020/12/09/fastdfs-fen-bu-shi-bu-shu/
 http://www.xujn.xyz/2020/10/15/linux-an-quan-jia-gu/
 http://www.xujn.xyz/2020/10/15/openssh8-4p1-sheng-ji/
 http://www.xujn.xyz/2020/09/15/spring-cache-huan-cun/
-http://www.xujn.xyz/2020/08/11/pring-boot-mail-fa-song-you-jian/
+http://www.xujn.xyz/2020/08/11/spring-boot-mail-fa-song-you-jian/
 http://www.xujn.xyz/2020/08/11/elasticsearch-an-zhuang/
 http://www.xujn.xyz/2020/07/02/sping-boot-ji-cheng-tinymce-fu-wen-ben-bian-ji/
 http://www.xujn.xyz/2020/06/12/nginx-chang-yong-chang-jing/

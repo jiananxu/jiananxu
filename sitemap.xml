@@ -4,7 +4,14 @@
   <url>
     <loc>http://www.xujn.xyz/2021/06/14/idea-dockerfile-bu-shu-vue-xiang-mu/</loc>
     
-    <lastmod>2021-06-14</lastmod>
+    <lastmod>2021-07-04</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.xujn.xyz/about/index.html</loc>
+    
+    <lastmod>2021-07-04</lastmod>
     
   </url>
   
@@ -16,7 +23,7 @@
   </url>
   
   <url>
-    <loc>http://www.xujn.xyz/2020/08/11/pring-boot-mail-fa-song-you-jian/</loc>
+    <loc>http://www.xujn.xyz/2020/08/11/spring-boot-mail-fa-song-you-jian/</loc>
     
     <lastmod>2021-04-29</lastmod>
     
@@ -184,13 +191,6 @@
   </url>
   
   <url>
-    <loc>http://www.xujn.xyz/about/index.html</loc>
-    
-    <lastmod>2020-03-27</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://www.xujn.xyz/categories/index.html</loc>
     
     <lastmod>2020-03-27</lastmod>
@@ -221,13 +221,6 @@
 
   
   <url>
-    <loc>http://www.xujn.xyz/tags/nginx/</loc>
-    <lastmod>2021-07-04</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>http://www.xujn.xyz/tags/Oracle/</loc>
     <lastmod>2021-07-04</lastmod>
     <changefreq>daily</changefreq>
@@ -242,14 +235,7 @@
   </url>
   
   <url>
-    <loc>http://www.xujn.xyz/tags/IDEA/</loc>
-    <lastmod>2021-07-04</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://www.xujn.xyz/tags/Vue/</loc>
+    <loc>http://www.xujn.xyz/tags/nginx/</loc>
     <lastmod>2021-07-04</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -264,6 +250,20 @@
   
   <url>
     <loc>http://www.xujn.xyz/tags/FastDFS/</loc>
+    <lastmod>2021-07-04</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://www.xujn.xyz/tags/IDEA/</loc>
+    <lastmod>2021-07-04</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://www.xujn.xyz/tags/Vue/</loc>
     <lastmod>2021-07-04</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -326,6 +326,13 @@
   </url>
   
   <url>
+    <loc>http://www.xujn.xyz/tags/Mail/</loc>
+    <lastmod>2021-07-04</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>http://www.xujn.xyz/tags/Spring-MVC/</loc>
     <lastmod>2021-07-04</lastmod>
     <changefreq>daily</changefreq>
@@ -368,21 +375,7 @@
   </url>
   
   <url>
-    <loc>http://www.xujn.xyz/tags/openssh/</loc>
-    <lastmod>2021-07-04</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>http://www.xujn.xyz/tags/ORACLE/</loc>
-    <lastmod>2021-07-04</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://www.xujn.xyz/tags/Mail/</loc>
     <lastmod>2021-07-04</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -395,14 +388,14 @@
     <priority>0.6</priority>
   </url>
   
-
-  
   <url>
-    <loc>http://www.xujn.xyz/categories/%E8%BD%AF%E4%BB%B6%E5%AE%89%E8%A3%85/</loc>
+    <loc>http://www.xujn.xyz/tags/openssh/</loc>
     <lastmod>2021-07-04</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
+  
+
   
   <url>
     <loc>http://www.xujn.xyz/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/</loc>
@@ -412,7 +405,7 @@
   </url>
   
   <url>
-    <loc>http://www.xujn.xyz/categories/IDEA/</loc>
+    <loc>http://www.xujn.xyz/categories/%E8%BD%AF%E4%BB%B6%E5%AE%89%E8%A3%85/</loc>
     <lastmod>2021-07-04</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -420,6 +413,13 @@
   
   <url>
     <loc>http://www.xujn.xyz/categories/Linux/</loc>
+    <lastmod>2021-07-04</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://www.xujn.xyz/categories/IDEA/</loc>
     <lastmod>2021-07-04</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
